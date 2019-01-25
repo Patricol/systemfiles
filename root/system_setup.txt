@@ -1,0 +1,378 @@
+#check over this so I can upload it as a first version before editing it a lot.
+#CHECK THIS NOTE SYNCED BEFORE REFORMATTING
+also ensure that the systemfiles repo is up to date etc.
+and check that duplicati is working http://localhost:8200
+
+adjust these notes etc. so I have a nice list of everything I need to do in preparation of doing a full reinstall like this.
+
+git clone -b arch --bare https://github.com/Patricol/systemfiles.git /home/secure/systemfiles-repo
+alias sysg='git --git-dir=/home/secure/systemfiles-repo/ --work-tree=/'
+		sysg config --local status.showUntrackedFiles no
+		sysg checkout
+
+get dotfiles setup so they contain a list of installed packages, both explicit and asdeps; so I can not have to maintain any list here etc.
+actually, separate system repo that contains those lists of packages and also any system files that the installation process needs to manually edit. that would also be a good place to store this installation stuff as an actual script. should definitely be tracking changes to it; so it really needs to go in a github repo eventually.
+
+Even though using an installer for Arch is tempting as a way to abstract away the hardware and any partitioning etc, I should stick with manual installs so that I can be certain of exactly what has or has not been done to the system. That makes troubleshooting issues much easier, etc.
+
+
+move excess files from /home folders onto nas before doing this; if needed/desired. probably also delete cache folders.
+also sudo baobab to check other folders for important things. VM images can be created outside of /home automatically etc.
+also should probably close all programs so chrome etc aren't in use.
+make backups like:
+sudo tar -cvf /arch-homes.tar /home/
+extract them like:
+sudo tar --same-owner -xvpf old-homes.tar
+
+
+boot into archiso login.
+
+Follow https://wiki.archlinux.org/index.php/Installation_guide or install.txt to match this to hardware etc. if needed.
+
+#RUN WITH ONLY ONE HDD CONNECTED, AND ONLY IF ENTIRE HDD CAN BE USED.
+#time how long this takes, to aid future decisions about when it's faster to nuke from orbit.
+ping -c 1 1.1.1.1
+timedatectl set-ntp true
+fdisk -l
+parted /dev/sdx
+select /dev/sdx
+#CHECK THIS NOTE SYNCED BEFORE FORMATTING
+mklabel gpt
+mkpart ESP fat32 1MiB 551MiB
+set 1 esp on
+mkpart primary ext4 551MiB 100%
+quit
+mkfs.fat -F32 /dev/sdx1
+mkfs.ext4 /dev/sdx2
+mount /dev/sdx2 /mnt
+pacstrap /mnt base base-devel
+genfstab -L /mnt >> /mnt/etc/fstab
+#genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+hwclock --systohc
+sed -i '/^#en_US.UTF-8 UTF-8/s/^#//' /etc/locale.gen
+sed -i '/^#en_US ISO-8859-1/s/^#//' /etc/locale.gen
+locale-gen
+echo 'LANG=en_US.UTF-8' | tee -a /etc/locale.conf
+echo 'fcdcbda' > /etc/hostname
+echo -e '127.0.0.1 localhost\n::1 localhost\n127.0.1.1 fcdcbda.localdomain fcdcbda' | tee -a /etc/hosts
+#COMPLETE https://wiki.archlinux.org/index.php/Network_configuration HERE
+mkinitcpio -p linux
+passwd
+#NOTE: for all pacman installs, if a package is already installed, (as a dependency for something else,) run "pacman -D --asexplicit package_name" to mark it as an explicit install.
+#DON'T USE "pacman -S --asexplicit"; as that also marks any automatically added dependencies as explicitly installed.
+pacman -Syu intel-ucode refind-efi
+#above assuming you have an intel processor
+mkdir /boot/efi
+exit
+mount /dev/sdx1 /mnt/boot/efi
+#Your kernel and initramfs must reside on a file system that rEFInd can read. (Unencrypted Ext4, Btrfs, NTFS, FAT, etc.)
+refind-install --root /mnt
+umount -R /mnt
+poweroff
+#remove install media
+
+#power on
+#login as root
+timedatectl set-ntp true
+systemctl --now enable dhcpcd.service
+groupadd patrick
+useradd -m -g patrick -s /bin/bash patricol
+useradd -m -g patrick -s /bin/bash work
+passwd patricol
+passwd work
+groupadd -r sudo
+sed -i '/^# %sudo\tALL=(ALL) ALL/s/^# //' /etc/sudoers
+usermod -aG sudo patricol
+exit
+#login as patricol
+sudo passwd -l root
+sudo pacman -Syu openssh
+echo -e 'PermitRootLogin no\nAllowGroups ssh' | sudo tee -a /etc/ssh/sshd_config
+sudo groupadd -r ssh
+sudo usermod -aG ssh patricol
+sudo systemctl --now enable sshd.service
+ip address
+exit
+
+#login as patricol (can use ssh this time if desired.)
+echo 'MAKEFLAGS="-j$(nproc)"' | sudo tee -a /etc/makepkg.conf
+sudo pacman -Syu pigz pacman-contrib git vim
+#sudo vim /etc/makepkg.conf
+#add --threads=0 and replace gzip with pigz like so:
+#COMPRESSXZ=(xz -c -z - --threads=0)
+#COMPRESSGZ=(pigz -c -f -n)
+#sed -i '/COMPRESSXZ/c\COMPRESSXZ=(xz -c -z - --threads=0)' /etc/makepkg.conf
+#sed -i '/COMPRESSGZ/c\COMPRESSGZ=(pigz -c -f -n)' /etc/makepkg.conf
+sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+curl -s "https://www.archlinux.org/mirrorlist/?country=US&country=CA&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 50 - | sudo tee /etc/pacman.d/mirrorlist
+sudo -i
+fallocate -l 16G /swapfile
+#match size above to RAM installed.
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+echo '/swapfile none swap defaults 0 0' | tee -a /etc/fstab
+exit
+echo 'vm.swappiness=1' | sudo tee -a /etc/sysctl.d/99-sysctl.conf
+sudo mkdir /home/{shared,secure,docker}
+sudo chown -R patricol:patrick /home/shared
+sudo chmod -R ug+rwX,o-rwx /home/shared
+sudo chmod g+s /home/shared
+sudo chown -R root:root /home/secure
+sudo chmod -R u+rwX,go-rwx /home/secure
+sudo visudo
+#add these lines:
+#%patrick ALL=(ALL) NOPASSWD: /bin/systemctl start run-regularly.service
+#%patrick ALL=(ALL) NOPASSWD: /bin/systemctl stop run-regularly.service
+#%patrick ALL=(ALL) NOPASSWD: /bin/systemctl restart run-regularly.service
+#Defaults timestamp_timeout=60
+
+gpg --keyserver keyserver.ubuntu.com --recv 465022E743D71E39
+git clone https://aur.archlinux.org/aurman.git
+cd aurman
+makepkg -sci
+cd ..
+rm -rf ./aurman/
+
+
+#HARDWARE SPECIFIC SECTION
+sudo mkinitcpio -p linux
+#handle any warnings thrown by that last command. can safely ignore missing aic94xx, wd719x, and smsmdtv
+sudo pacman -S vulkan-intel
+#to support vulkan on integrated graphics.
+#maybe https://wiki.archlinux.org/index.php/Intel_graphics#Enable_GuC_.2F_HuC_firmware_loading
+sudo systemctl --now enable fstrim.timer
+#schedules SSD TRIM
+sudo pacman -S gpm
+sudo systemctl --now enable gpm.service
+
+#for full unicode coverage https://en.wikipedia.org/wiki/Unicode_font#Comparison_of_fonts
+sudo pacman -S bdf-unifont noto-fonts noto-fonts-emoji adobe-source-code-pro-fonts ttf-roboto freetype2 adobe-source-sans-pro-fonts
+aurman -S ttf-unifont ttf-everson-mono ttf-roboto-mono nerd-fonts-complete
+
+sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xdpyinfo xorg-xinput
+sudo pacman -S i3-gaps rofi
+sudo pacman -S --asdeps perl-anyevent-i3 perl-json-xs
+aurman -S i3lock-color-git
+echo 'exec i3' | tee -a ~/.xinitrc
+#exec startx for gui
+
+sudo pacman -S chromium docker docker-compose bash-completion wget curl readline p7zip gnupg keychain pam sshfs exfat-utils ntfs-3g cifs-utils qemu libvirt virt-manager ovmf polkit tmux traceroute unzip tree fortune-mod redshift nitrogen expac atom remmina ffmpeg gpa nemo vlc rclone python python2 python-pip python2-pip gparted deluge filezilla meld neofetch youtube-dl veracrypt quassel-client inkscape gimp okular pycharm-community-edition gpick libreoffice-fresh simple-scan shotwell gucharmap gnome-clocks gnome-mines audacity cheese baobab cherrytree wireshark-gtk gnome-sound-recorder handbrake calibre digikam qpdfview avidemux-qt thefuck mcomix caprine gnome-calculator gnome-screenshot kitty gnome-disk-utility file-roller gnome-system-monitor gnome-keyring arc-gtk-theme adapta-gtk-theme scrot pavucontrol powerline udiskie cowsay blueman feh stress htop expect libu2f-host yubico-pam ranger gwenview wol xclip xdotool fdupes qt5ct yubikey-personalization-gui x11-ssh-askpass rsync
+#sudo pacman -D --asexplicit curl readline gnupg pam expac python python2
+sudo pacman -S --asdeps pepper-flash #chromium
+sudo pacman -S --asdeps ebtables dnsmasq bridge-utils #libvirt
+sudo pacman -S --asdeps imagemagick #refind-efi
+sudo pacman -S --asdeps freerdp libvncserver #remmina
+sudo pacman -S --asdeps ffmpegthumbnailer #nemo
+sudo pacman -S --asdeps python-crypto #youtube-dl
+sudo pacman -S --asdeps libmicrodns #vlc
+sudo pacman -S --asdeps xorg-xprop #neofetch
+sudo pacman -S --asdeps coin-or-mp #libreoffice-fresh
+sudo pacman -S --asdeps python2-pyenchant #cherrytree
+sudo pacman -S --asdeps gst-libav #handbrake
+sudo pacman -S --asdeps hugin #digikam
+sudo pacman -S --asdeps gnome-video-effects #cheese
+sudo pacman -S --asdeps atool elinks highlight mediainfo w3m #ranger
+#do not use -yu with --asdeps or --asexplicit
+echo 'nvram = [ "/usr/share/ovmf/x64/OVMF_CODE.fd:/usr/share/ovmf/x64/OVMF_VARS.fd" ]' | sudo tee -a /etc/libvirt/qemu.conf
+sudo systemctl --now enable docker.service paccache.timer libvirtd.service virtlogd.socket
+sudo usermod -aG ssh libvirt
+
+
+aurman -Syu
+aurman -S gpmdp android-studio cheat-git numix-circle-icon-theme-git paper-icon-theme-git etcher-bin signal gitkraken google-cloud-sdk indicator-sound-switcher rofi-dmenu lastpass polybar-git standardnotes-desktop
+#need to install polybar after pulseaudio etc.
+aurman -S mindomo-bin #might not be working?
+
+sudo pacman -S avahi nss-mdns
+sudo sed -i '/^hosts:/ s/$/ mdns/' /etc/nsswitch.conf
+sudo systemctl --now enable avahi-daemon.service avahi-daemon.socket
+
+Setup duplicati:
+/home/secure/bin/run-duplicati
+aurman -S duplicati-latest
+sudo systemctl --now disable duplicati.service
+#still need to add tray icon etc.
+
+
+#later run run-regularly (which runs fix_permissions) to fix permissions more comprehensively.
+
+sudo mkdir -p /media/{nas,gdrive}
+sudo chown patricol:patrick /media/{nas,gdrive}/
+sudo chmod 770 /media/{nas,gdrive}/
+sudo sed -i '/^#user_allow_other/s/^#//' /etc/fuse.conf
+
+echo -e '\nuser@192.168.1.17:/data /media/nas fuse.sshfs exec,noauto,_netdev,users,idmap=user,allow_other,identityfile=/home/patricol/.ssh/allshares,port=51723 0 0\n\nuser@192.168.1.17:/data /media/gdrive fuse.sshfs exec,noauto,_netdev,users,idmap=user,allow_other,identityfile=/home/patricol/.ssh/gdrive,port=51724 0 0\n' | sudo tee -a /etc/fstab
+
+#MORE HARDWARE STUFF:
+#Keep checking for when this supports AX860i: https://github.com/audiohacked/OpenCorsairLink
+#https://wiki.archlinux.org/index.php/NVIDIA
+#Proprietary Drivers:
+sudo pacman -S nvidia vdpauinfo
+sudo pacman -S --asdeps nvidia-settings xorg-server-devel opencl-nvidia
+sudo reboot
+sudo nvidia-xconfig
+#https://wiki.archlinux.org/index.php/NVIDIA#Automatic_configuration
+#"If there are instances of DRI, ensure they are commented out"
+#nvidia-settings to change settings etc.
+#https://wiki.archlinux.org/index.php/Multihead
+sudo systemctl --now enable nvidia-persistenced.service
+#https://wiki.archlinux.org/index.php/Hardware_video_acceleration
+echo 'VDPAU_DRIVER=nvidia' | sudo tee -a /etc/environment
+sudo reboot
+
+sudo pacman -S networkmanager dhclient network-manager-applet
+sudo pacman -S --asdeps dnsmasq strongswan
+aurman -S networkmanager-l2tp
+#https://wiki.archlinux.org/index.php/NetworkManager#Mobile_broadband_support
+echo -e '[main]\ndhcp=dhclient' | sudo tee /etc/NetworkManager/conf.d/dhcp-client.conf
+sudo systemctl --now disable dhcpcd.service
+#disable the dhcpcd client to replace with this.
+sudo systemctl --now enable NetworkManager.service bluetooth.service
+sudo reboot
+
+#check pci devices/drivers with "lspci -k"
+#test audio/headphones, microphone, and webcam
+sudo pacman -S psensor
+#aurman -S piper-git libratbag-git
+#acually piper messes with the profiles; don't use it. it flattens the G-Shift actions into the normal stuff; removing them.
+
+sudo mkdir -p /etc/systemd/journald.conf.d/
+echo -e '[Journal]\nSystemMaxUse=100M' | sudo tee -a /etc/systemd/journald.conf.d/00-journal-size.conf
+echo -e '[Journal]\nForwardToConsole=yes\nTTYPath=/dev/tty12\nMaxLevelConsole=info' | sudo tee -a /etc/systemd/journald.conf.d/fw-tty12.conf
+sudo journalctl --vacuum-size=100M
+#https://wiki.archlinux.org/index.php/Systemd#Boot_time_increasing_over_time
+sudo systemctl restart systemd-journald.service
+
+sudo sed -i 's/^#Color/Color\nILoveCandy/g' /etc/pacman.conf
+sudo pacman -S terminus-font
+aurman -S powerline-fonts-git
+echo 'FONT=ter-i12n' | sudo tee /etc/vconsole.conf
+echo 'FONT_MAP=cp437' | sudo tee -a /etc/vconsole.conf
+sudo mkdir -p /etc/systemd/system/getty@tty1.service.d/
+echo -e '[Service]\nTTYVTDisallocate=no' | sudo tee -a /etc/systemd/system/getty@tty1.service.d/noclear.conf
+
+
+sudo pacman -S lightdm
+aurman -S lightdm-webkit-theme-aether lightdm-settings
+sudo sed -i 's/^#user-session=default/user-session=i3/' /etc/lightdm/lightdm.conf
+sudo systemctl enable lightdm.service
+sudo reboot
+
+sudo pacman -S pkgfile
+sudo pkgfile --update
+echo 'source /usr/share/doc/pkgfile/command-not-found.bash' >> ~/.bashrc
+
+sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.target suspend.target sleep.target
+#disable hibernation and suspend. Sleep seems to be the same thing. DPMS and "screen blanking" are distinct from all of these.
+#this also means there's no reason for me to use caffeine; I was using it to keep the computer from suspending when programs were running.
+
+git clone https://github.com/Patricol/refind-material-theme.git
+sudo mount /dev/sdx1 /boot/efi
+sudo cp -r ./refind-material-theme/ /boot/efi/EFI/refind/
+sudo rm -rf /boot/efi/EFI/refind/refind-material-theme/{src,.git}
+rm -rf ./refind-material-theme/
+sudo sed -i 's/^\([^#]\)/#\1/g' /boot/efi/EFI/refind/refind.conf
+echo -e 'include refind-material-theme/theme.conf' | sudo tee -a /boot/efi/EFI/refind/refind.conf
+sudo cp /usr/share/refind/drivers_x64/{btrfs_x64.efi,iso9660_x64.efi,ntfs_x64.efi} /boot/efi/EFI/refind/drivers_x64/
+sudo umount /boot/efi
+
+sudo mkdir /etc/pacman.d/hooks/
+#before running next command, consider consequences of refind-install mounting the wrong efi partition. probably won't happen unless the correct one isn't on /dev/sda?
+echo -e '[Trigger]\nOperation=Upgrade\nType=Package\nTarget=refind-efi\n\n[Action]\nDescription = Updating rEFInd on ESP\nWhen=PostTransaction\nExec=/usr/bin/refind-install' | sudo tee /etc/pacman.d/hooks/refind.hook
+
+
+sudo vim /etc/mkinitcpio.conf
+#add  sd-vconsole to the hooks line, and replace udev with systemd like so:
+#HOOKS=(base systemd autodetect modconf block filesystems keyboard sd-vconsole fsck)
+sudo mkinitcpio -p linux
+sudo refind-install
+sudo poweroff
+
+#reconnect any other ssds that were disconnected
+#power on
+#login via tty/ssh
+#probably restore home folders now. (use nas filezilla to upload it to arch etc.)
+#check what's currently in /home before overwriting etc.
+#sudo tar --same-owner -xvpf old-homes.tar
+#login via gui
+
+#verify vdpau hardware acceleration is working by running vdpauinfo
+
+xdpyinfo | grep -B2 resolution
+#compare to https://www.sven.de/dpi/
+#http://screen-size.info/
+#https://wiki.archlinux.org/index.php/Xorg#Display_size_and_DPI
+#sudo vim /etc/X11/xorg.conf.d/90-monitor.conf
+#
+#Section "Monitor"
+#    Identifier             "VE248Q"
+#    DisplaySize            531 299    # In millimeters
+#EndSection
+
+sudo lightdm-settings
+gcloud init
+add and trust private keys (including journal key)
+
+mkdir /home/che
+sudo docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /home/che:/data eclipse/che:latest start
+#sudo docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /home/che:/data eclipse/che:latest upgrade
+
+#check that hw acceleration works by using an avd. look at nvidia-settings gpu usage to be sure.
+#setup vpn and wifi connections etc. test bluetooth. speakers and file transfer.
+
+setup chrome, deluge, duplicati, nemo, filezilla, gitkraken, atom, gpmdp, pycharm, android studio, quassel, remmina, signal, standard notes, vlc, VMs, i3, che.
+
+
+#If you didn't copy over files for atom:
+#apm install atom-material-ui atom-material-syntax-dark atom-beautify file-icons language-docker angularjs react language-markdown linter linter-pylama linter-clang linter-gcc linter-cpplint advanced-open-file code-peek emmet fonts git-time-machine jumpy minimap sort-lines script todo-show pigments highlight-selected language-smali git-blame color-picker language-autohotkey2 dark-flat-ui
+#open atom gui
+#close atom gui
+#apm disable git-blame color-picker spell-check minimap tree-view
+
+#setup vpn and wifi connections etc. test bluetooth. speakers and file transfer.
+figure out gpm.service logs
+
+use windows computer to update samsung ssd via samsung magician.
+https://wiki.archlinux.org/index.php/Google_Authenticator to secure ssh
+https://wiki.archlinux.org/index.php/Time#UTC_in_Windows
+https://wiki.archlinux.org/index.php/Bash/Prompt_customization
+https://wiki.archlinux.org/index.php/Dual_boot_with_Windows#Fast_Start-Up
+https://wiki.archlinux.org/index.php/Mouse_acceleration #Handled by libinput with this setup I believe. Seems to be no acceleration by default?
+
+
+#sets default terminal for nemo to use from right click menu etc.
+gsettings set org.cinnamon.desktop.default-applications.terminal exec kitty
+#do that on work account too.
+
+sudo ln -s /home/secure/run-regularly.service /etc/systemd/system/run-regularly.service
+sudo ln -s /home/secure/run-regularly.timer /etc/systemd/system/run-regularly.timer
+sudo ln -s /home/secure/run-weekly.service /etc/systemd/system/run-weekly.service
+sudo ln -s /home/secure/run-weekly.timer /etc/systemd/system/run-weekly.timer
+sudo ln -s /home/secure/run-on-boot.service /etc/systemd/system/run-on-boot.service
+sudo systemctl enable --now run-regularly.timer run-weekly.timer run-on-boot.service
+
+
+sudo ln -s /home/patricol/.bin/logout /usr/local/bin/
+sudo ln -s /home/patricol/.bin/rebootwin /usr/local/bin/
+sudo ln -s /home/patricol/.bin/switchuser /usr/local/bin/
+sudo ln -s /home/patricol/.bin/lock /usr/local/bin/
+
+
+sudo groupadd -r bluetooth
+sudo usermod -aG bluetooth patricol
+#symlink doesn't work, likely because of permissions
+#sudo ln -s /home/secure/config/etc/polkit-1/rules.d/51-blueman.rules /etc/polkit-1/rules.d/51-blueman.rules
+sudo cp /home/secure/config/etc/polkit-1/rules.d/51-blueman.rules /etc/polkit-1/rules.d/51-blueman.rules
+sudo chmod 644 /etc/polkit-1/rules.d/51-blueman.rules
+
+echo -e 'PasswordAuthentication no\nPermitEmptyPasswords no' | sudo tee -a /etc/ssh/sshd_config
+
+#block access to che except from localhost.
+sudo iptables -A INPUT -p tcp -s localhost --dport 8080 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
+
+
+Setup dotfiles if needed: https://github.com/Patricol/dotfiles

@@ -1,0 +1,16 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sda2 UUID=0cd5a009-2c11-4b3a-b9ff-f2d4e746af5c
+/dev/sda2           	/         	ext4      	rw,relatime	0 1
+
+/swapfile none swap defaults 0 0
+
+user@192.168.1.17:/data /media/nas fuse.sshfs exec,noauto,_netdev,users,idmap=user,allow_other,identityfile=/home/patricol/.ssh/allshares,port=51723 0 0
+
+user@192.168.1.17:/data /media/gdrive fuse.sshfs exec,noauto,_netdev,users,idmap=user,allow_other,identityfile=/home/patricol/.ssh/gdrive,port=51724 0 0
+
+user@192.168.1.17:/data /media/work fuse.sshfs exec,noauto,_netdev,users,idmap=user,allow_other,identityfile=/home/work/.ssh/nas_work_share,port=51727 0 0
+
+/dev/disk/by-uuid/16DC89BBDC8995A1 /mnt/16DC89BBDC8995A1 auto nosuid,nodev,nofail,x-gvfs-show,noauto 0 0

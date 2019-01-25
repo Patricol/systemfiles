@@ -1,0 +1,20 @@
+#systemfiles git
+
+alias sysg='git --git-dir=/home/secure/systemfiles-repo/ --work-tree=/'
+
+alias sysgk='add_ssh_key github_fcdcbda'
+
+alias sysgs='sysg status'
+
+alias sysgd='sysg diff'
+alias sysgdc='sysgd --cached'
+
+#provide the branch to pull changes from as an arg
+alias sysgm='sysg difftool -d -t meld'
+
+alias sysga='sysg add'
+alias sysgaa='sysga -u && sysga ~/.aliases'
+alias sysgac='sysgaa && sysgc'
+alias sysgc='sysg commit'
+
+alias sysgp='sysg push'

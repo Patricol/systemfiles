@@ -1,0 +1,82 @@
+# Alias definitions.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+# Better to just include commands (from other dotfile branches) even if they don't run because (e.g) this account cant sudo etc.
+# Easier to maintain/merge; and can use those aliases when checking out a branch in an environment it's not meant for, etc.
+
+# enable color aliases of ls if supported
+if [ -x /usr/bin/dircolors ]; then
+    alias ls='ls --color=auto'
+
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias diff='diff --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+alias rgrep='grep -r'
+
+# some more ls aliases
+alias ll='ls -AlhF'
+alias llr='ls -AlhFR'
+alias lrl='llr'
+alias la='ls -A'
+alias lar='ls -AR'
+alias lra='lar'
+alias lr='ls -R'
+alias l='ls -CF'
+
+
+alias eb='exec bash'
+alias be='eb'
+alias ebnrc='exec bash --norc --noprofile'
+
+
+alias logs='journalctl -xe'
+
+function mountiso() {
+	sudo mount -o loop $@ /media/iso
+}
+
+alias fkill='killall -KILL'
+
+
+alias cdup='cd ..'
+alias cdu='cdup'
+alias cdback='cd -'
+alias cdb='cdback'
+alias cdhome='cd ~'
+alias cdh='cdhome'
+alias c='clear'
+alias cls='clear && ls'
+alias cl='cls'
+alias x='exit'
+
+#open vim to bottom of file.
+alias vimbottom='vim "+ normal GA"'
+
+alias bal='vim -o ~/.aliases/*'
+alias brc='vimbottom ~/.bashrc'
+
+
+function tif() {
+    #test if statement
+    if [ $@ ]; then
+        echo "True"
+    else
+        echo "False"
+    fi
+}
+
+function ier() {
+    #if exists, run.
+    if [ -n "`which $1 2> /dev/null`" ]; then
+	$@
+    fi
+}
+
+alias epoch='date +%s'

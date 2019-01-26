@@ -31,6 +31,9 @@ alias lr='ls -R'
 alias l='ls -CF'
 
 
+alias rr='echo "run-regularly..."; systemctl restart run-regularly.service'
+
+
 alias eb='exec bash'
 alias be='eb'
 alias ebnrc='exec bash --norc --noprofile'
@@ -61,6 +64,9 @@ alias vimbottom='vim "+ normal GA"'
 
 alias bal='vim -o ~/.aliases/*'
 alias brc='vimbottom ~/.bashrc'
+
+
+alias rpl='LANG="en_US.UTF-8" powerline-daemon -qr'
 
 
 function tif() {

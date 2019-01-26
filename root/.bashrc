@@ -83,6 +83,22 @@ source /usr/share/doc/pkgfile/command-not-found.bash
 
 export EDITOR=vim
 
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+source /usr/share/powerline/bindings/bash/powerline.sh
+if [ -n "$SSH_CONNECTION" ]; then
+    neofetch
+    #changing lang fixes vim powerline
+    export LANG=en_US.UTF-8
+fi
+if [ "$TERM" == "linux" ] || [ -n "$SSH_CONNECTION" ]; then
+    export POWERLINE_CONFIG_OVERRIDES='ext.vim.top_theme="ascii_custom";common.default_top_theme="ascii_custom"'
+else
+    export POWERLINE_CONFIG_OVERRIDES=''
+fi
+#need to start powerline-daemon with unicode LANG regardless
+LANG="en_US.UTF-8" powerline-daemon -q
+
 # disable Ctrl-S
 stty -ixon
 

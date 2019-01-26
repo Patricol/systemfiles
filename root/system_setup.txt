@@ -49,8 +49,8 @@ mount /dev/sdx1 /mnt/boot
 pacstrap /mnt base base-devel
 arch-chroot /mnt
 hwclock --systohc
-pacman -Syu intel-ucode efibootmgr git vim openssh refind-efi
-#above assuming you have an intel processor
+pacman -Syu intel-ucode amd-ucode efibootmgr git vim openssh refind-efi
+# no reason not to install both intel and amd
 git clone -b arch --bare https://github.com/Patricol/systemfiles.git /home/sg
 alias sg='git --git-dir=/home/sg --work-tree=/'
 alias sgc='sg checkout -f arch --'

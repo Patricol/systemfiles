@@ -13,7 +13,7 @@ alias sysgdc='sysgd --cached'
 alias sysgm='sysg difftool -d -t meld'
 
 alias sysga='sysg add'
-alias sysgaa='sysga -u && sysga ~/.aliases'
+alias sysgaa='sysga -u && sysga ~/.aliases ~/bin'
 alias sysgac='sysgaa && sysgc'
 alias sysgc='sysg commit'
 

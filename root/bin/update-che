@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Check for new versions here: https://github.com/eclipse/che/releases
+
+# Currently major breaking bugs in 6.16.0-6.17.1; should check if newer versions work properly.
+
+if [ -n "$1" ]; then
+	USE_AS_NEW="$1"
+else
+	USE_AS_NEW=6.15.0
+	#USE_AS_NEW=latest
+	#USE_AS_NEW=rc
+	#USE_AS_NEW=nightly
+fi
+
+function get_current_version() {
+	IMAGE_NAME=`docker ps -f "name=che" --format "{{.Image}}"`
+	CURRENT_VERSION_FROM_DOCKER=`cut -d ":" -f 2 <<< "$IMAGE_NAME"`
+	CURRENT_VERSION_FROM_FILE=`cat /home/docker/che/instance/che.ver.do_not_modify`
+	if [ -n "$CURRENT_VERSION_FROM_DOCKER" ]; then
+		CURRENT_VERSION=$CURRENT_VERSION_FROM_DOCKER
+	else
+		# Works when configs are present even if no images are downloaded currently; as is true in the middle of the clean-docker script.
+		CURRENT_VERSION=$CURRENT_VERSION_FROM_FILE
+	fi
+}
+
+function cli_general() {
+	docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /home/docker/che:/data eclipse/che-cli:$@
+}
+
+function cli_current() {
+	get_current_version
+	cli_general $CURRENT_VERSION $@
+}
+
+function cli_new() {
+	cli_general $USE_AS_NEW $@
+}
+
+cli_current stop
+docker pull eclipse/che-cli:$USE_AS_NEW
+cli_new upgrade
+cli_new restart
+# Need to restart here; if che was already up to date, then it will still be stopped after the upgrade command.
+

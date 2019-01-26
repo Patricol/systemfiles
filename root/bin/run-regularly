@@ -1,0 +1,12 @@
+#!/bin/bash
+
+/home/secure/bin/fix-permissions
+
+/home/secure/bin/sort-mirrors
+
+pkgfile --update
+
+/home/secure/bin/update-atom-packages
+
+/home/secure/bin/save-system-info
+

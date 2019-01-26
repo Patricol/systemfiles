@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "System Info:" | tee /home/secure/system-info.txt
+
+echo "Package Info:" | tee -a /home/secure/system-info.txt
+echo "Explicitly Installed:" | tee -a /home/secure/system-info.txt
+pacman -Qe | tee -a /home/secure/system-info.txt
+echo "Dependencies:" | tee -a /home/secure/system-info.txt
+pacman -Qd | tee -a /home/secure/system-info.txt
+
+pacman -Qqe | tee /root/packages-explicit.txt
+pacman -Qqd | tee /root/packages-dependencies.txt
+

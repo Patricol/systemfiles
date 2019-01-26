@@ -13,7 +13,7 @@ alias sysgdc='sysgd --cached'
 alias sysgm='sysg difftool -d -t meld'
 
 alias sysga='sysg add'
-alias sysgaa='sysga -u && sysga ~/.aliases ~/bin'
+alias sysgaa='sysga -u && sysga ~/.aliases ~/bin /boot/loader /boot/EFI/refind/{drivers*,refind-material-theme}'
 alias sysgac='sysgaa && sysgc'
 alias sysgc='sysg commit'
 

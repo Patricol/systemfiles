@@ -1,39 +1,38 @@
-#CHECK THIS NOTE SYNCED BEFORE REFORMATTING
-also ensure that the systemfiles repo is up to date etc.
-and check that duplicati is working http://localhost:8200
+* DO BEFORE STARTING:
+  * BACKUP HOME FOLDERS
+    * move excess files from /home folders onto nas before doing this
+      * likely delete cache folders
+    * sudo baobab to check other folders for important things.
+      * VM images can be created outside of /home automatically etc.
+    * close all programs so chrome etc aren't in use.
+    * sudo tar -cvf /arch-homes.tar /home/
+    * move the backup onto the nas etc.
+  * CHECK THAT THE SYSTEMFILES REPO IS UP TO DATE AND PUSHED ETC.
+    * re-run save-system-info and push the updated package lists
+  * CHECK THAT DUPLICATI HAS A RECENT BACKUP
+    * http://localhost:8200
+  * RUN WITH ONLY ONE SSD/HDD CONNECTED
+    * AND ONLY IF THE ENTIRE SSD/HDD CAN BE USED
 
 #for all the stuff that needs to be done before ssh is possible; need to make it available as a script to curl and run. manually typing takes way too long and is way too error prone.
-
-adjust these notes etc. so I have a nice list of everything I need to do in preparation of doing a full reinstall like this.
 
 Even though using an installer for Arch is tempting as a way to abstract away the hardware and any partitioning etc, I should stick with manual installs so that I can be certain of exactly what has or has not been done to the system. That makes troubleshooting issues much easier, etc.
 
 Note that the earliest committed version of the script has a lot more explanation about why certain things are done; or why certain packages are installed, etc.
 
-move excess files from /home folders onto nas before doing this; if needed/desired. probably also delete cache folders.
-also sudo baobab to check other folders for important things. VM images can be created outside of /home automatically etc.
-also should probably close all programs so chrome etc aren't in use.
-make backups like:
-sudo tar -cvf /arch-homes.tar /home/
-extract them like:
-sudo tar --same-owner -xvpf arch-homes.tar
-
-
-boot into archiso login.
-
-Follow https://wiki.archlinux.org/index.php/Installation_guide or install.txt to match this to hardware etc. if needed.
-
-#RUN WITH ONLY ONE HDD CONNECTED, AND ONLY IF ENTIRE HDD CAN BE USED.
 #time how long this takes, to aid future decisions about when it's faster to nuke from orbit.
+
+#boot into archiso (UEFI).
 #Check that you booted in UEFI mode:
 efivar --list
 #Check you're connected to the internet:
 ping -c 1 1.1.1.1
 timedatectl set-ntp true
+#Check what disk to use:
 fdisk -l
 parted
 select /dev/sdx
-#CHECK THIS NOTE SYNCED BEFORE FORMATTING
+#CHECK THE LIST ABOVE (DO BEFORE STARTING) BEFORE FORMATTING
 mklabel gpt
 mkpart ESP fat32 1MiB 1025MiB
 set 1 esp on
@@ -46,31 +45,21 @@ mkdir /mnt/boot
 mount /dev/sdx1 /mnt/boot
 pacstrap /mnt base base-devel
 genfstab -L /mnt >> /mnt/etc/fstab
-#genfstab -U /mnt >> /mnt/etc/fstab
+git clone -b arch --bare https://github.com/Patricol/systemfiles.git /sg
+alias sg='git --git-dir=/sg --work-tree=/mnt'
+alias sgc='sg checkout -f arch --'
+sgc /etc/{local*,host*}
 arch-chroot /mnt
-ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 hwclock --systohc
-sed -i '/^#en_US.UTF-8 UTF-8/s/^#//' /etc/locale.gen
-sed -i '/^#en_US ISO-8859-1/s/^#//' /etc/locale.gen
 locale-gen
-echo 'LANG=en_US.UTF-8' | tee -a /etc/locale.conf
-echo 'fcdcbda' > /etc/hostname
-echo -e '127.0.0.1 localhost\n::1 localhost\n127.0.1.1 fcdcbda.localdomain fcdcbda' | tee -a /etc/hosts
-#COMPLETE https://wiki.archlinux.org/index.php/Network_configuration HERE
 mkinitcpio -p linux
 passwd
-#NOTE: for all pacman installs, if a package is already installed, (as a dependency for something else,) run "pacman -D --asexplicit package_name" to mark it as an explicit install.
-#DON'T USE "pacman -S --asexplicit"; as that also marks any automatically added dependencies as explicitly installed.
-pacman -Syu intel-ucode refind-efi efibootmgr
+pacman -Syu intel-ucode efibootmgr git vim openssh
 #above assuming you have an intel processor
-#Your kernel and initramfs must reside on a file system that rEFInd can read. (Unencrypted Ext4, Btrfs, NTFS, FAT, etc.)
 refind-install
-bootctl --path=/boot install
-echo -e 'title\tArch Linux\nlinux\t/vmlinuz-linux\ninitrd\t/intel-ucode.img\ninitrd\t/initramfs-linux.img\noptions\troot=/dev/sdx2 rw\n' | tee /boot/loader/entries/arch.conf
-#probably set these up later; and don't bother setting rEFInd up yet; just use systemd-boot for main installation etc.
-echo -e 'title\trEFInd\nefi\t/EFI/refind/refind_x64.efi\n' | tee /boot/loader/entries/rEFInd.conf
-echo -e 'default\trEFInd\ntimeout\t20\neditor\tno\nauto-firmware\t1\nconsole-mode\tkeep\n' | tee /boot/loader/loader.conf
+bootctl install
 exit
+sgc /boot/* /etc/sudoers /etc/ssh/* /root/* /etc/makepkg.conf
 umount -R /mnt
 poweroff
 #remove install media
@@ -78,43 +67,34 @@ poweroff
 #power on
 #login as root
 timedatectl set-ntp true
-systemctl --now enable dhcpcd.service
+systemctl --now enable dhcpcd.service sshd.service
 groupadd patrick
-useradd -m -g patrick -s /bin/bash patricol
+groupadd -r sudo
+groupadd -r ssh
+useradd -m -g patrick -G sudo,ssh -s /bin/bash patricol
 useradd -m -g patrick -s /bin/bash work
 passwd patricol
 passwd work
-groupadd -r sudo
-sed -i '/^# %sudo\tALL=(ALL) ALL/s/^# //' /etc/sudoers
-usermod -aG sudo patricol
 exit
 #login as patricol
 sudo passwd -l root
-sudo pacman -Syu openssh
-echo -e 'PermitRootLogin no\nAllowGroups ssh' | sudo tee -a /etc/ssh/sshd_config
-sudo groupadd -r ssh
-sudo usermod -aG ssh patricol
-sudo systemctl --now enable sshd.service
 ip address
 exit
 
 #login as patricol (can use ssh this time if desired.)
-sudo pacman -Syu pigz pacman-contrib git vim
-sudo -i
-fallocate -l 16G /swapfile
-#match size above to RAM installed.
-chmod 600 /swapfile
-mkswap /swapfile
-swapon /swapfile
-exit
-sudo mkinitcpio -p linux
+sudo pacman -Syu pigz pacman-contrib \
+ && sudo fallocate -l 16G /swapfile #match above to RAM installed. \
+ && sudo chmod 600 /swapfile \
+ && sudo mkswap /swapfile \
+ && sudo swapon /swapfile \
+ && sudo mkinitcpio -p linux
 #handle any warnings thrown by that last command. can safely ignore missing aic94xx, wd719x, and smsmdtv
 
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -sci
-cd ..
-rm -rf ./yay/
+git clone https://aur.archlinux.org/yay.git \
+ && cd yay \
+ && makepkg -sci \
+ && cd .. \
+ && rm -rf ./yay/
 
 
 #copy over the old home directory now. (use nas filezilla to upload it to arch etc.)
@@ -122,35 +102,25 @@ rm -rf ./yay/
 #  scp /mnt/user/files/incoming/from_device/fcdcbda_arch/arch-homes.tar patricol@fcdcbda:/home/patricol/
 #  (then on the fcdcbda side, sudo mv /home/patricol/arch-homes.tar /)
 #check what's currently in /home before overwriting etc.
+sudo rm -rf /home/*
 sudo tar --same-owner -xvpf /arch-homes.tar
-
-cd ~
-
-curl "https://raw.githubusercontent.com/Patricol/systemfiles/arch/root/packages-explicit.txt" > ./exp
-curl "https://raw.githubusercontent.com/Patricol/systemfiles/arch/root/packages-dependencies.txt" > ./deps
 
 sudo git clone -b arch --bare https://github.com/Patricol/systemfiles.git /home/secure/systemfiles-repo
 alias sysg='sudo git --git-dir=/home/secure/systemfiles-repo/ --work-tree=/'
 sysg config --local status.showUntrackedFiles no
 
-cat /etc/fstab > /home/patricol/old_fstab
 
-#need to do this before installing the AUR packages, or they'll take an eternity to compress.
-sysg checkout arch -- /etc/makepkg.conf
-
-sysg checkout arch -- /root/bin/sort-mirrors
-
+#ensure /etc/makepkg.conf is checked out before installing the AUR packages, or they'll take an eternity to compress.
 sudo /root/bin/update-mirrors
 
-yay --needed -Syu $(cat ./exp ./deps)
-yay -D --asexplicit $(cat ./exp)
-yay -D --asdeps $(cat ./deps)
+yay --needed -Syu $(sudo cat /root/packages-explicit.txt /root/packages-dependencies.txt)
+yay -D --asexplicit $(sudo cat /root/packages-explicit.txt)
+yay -D --asdeps $(sudo cat /root/packages-dependencies.txt)
 
-rm ./exp ./deps
-
-sysg checkout
+cat /etc/fstab > /home/patricol/old_fstab
+sysg checkout -f
 (checkout -f to force, but first check in what they modify, for posterity and to make it easier to reapply changes on top of newer base configs. when done, remove this notice.)
-
+diff /etc/fstab /home/patricol/old_fstab
 
 sudo /root/bin/fix-permissions
 
@@ -160,38 +130,16 @@ Setup dotfiles if needed: https://github.com/Patricol/dotfiles
 
 #exec startx for gui (assuming exec i3 is in ~/.xinitrc)
 
-sudo systemctl --now disable dhcpcd.service
-sudo systemctl --now enable fstrim.timer gpm.service docker.service paccache.timer libvirtd.service virtlogd.socket avahi-daemon.service avahi-daemon.socket NetworkManager.service bluetooth.service
-sudo usermod -aG ssh libvirt
-sudo reboot
-
-
-sudo journalctl --vacuum-size=100M
-sudo systemctl restart systemd-journald.service
-
-
-sudo systemctl enable lightdm.service
-sudo reboot
-
-sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.target suspend.target sleep.target
+sudo systemctl --now disable dhcpcd.service \
+ && sudo systemctl --now enable lightdm.service fstrim.timer gpm.service docker.service paccache.timer libvirtd.service virtlogd.socket avahi-daemon.service avahi-daemon.socket NetworkManager.service bluetooth.service \
+ && sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.target suspend.target sleep.target \
+ && sudo journalctl --vacuum-size=100M \
+ && sudo systemctl restart systemd-journald.service \
+ && sudo mkinitcpio -p linux
 #disable hibernation and suspend. Sleep seems to be the same thing. DPMS and "screen blanking" are distinct from all of these.
 #this also means there's no reason for me to use caffeine; I was using it to keep the computer from suspending when programs were running.
-
-git clone https://github.com/Patricol/refind-material-theme.git
-sudo mount /dev/sdx1 /boot/efi
-sudo cp -r ./refind-material-theme/ /boot/efi/EFI/refind/
-sudo rm -rf /boot/efi/EFI/refind/refind-material-theme/{src,.git}
-rm -rf ./refind-material-theme/
-sudo sed -i 's/^\([^#]\)/#\1/g' /boot/efi/EFI/refind/refind.conf
-echo -e 'include refind-material-theme/theme.conf' | sudo tee -a /boot/efi/EFI/refind/refind.conf
-sudo cp /usr/share/refind/drivers_x64/{btrfs_x64.efi,iso9660_x64.efi,ntfs_x64.efi} /boot/efi/EFI/refind/drivers_x64/
-sudo umount /boot/efi
-
-#regarding /etc/pacman.d/hooks/refind.hook, consider consequences of refind-install mounting the wrong efi partition. probably won't happen unless the correct one isn't on /dev/sda?
-
-sudo mkinitcpio -p linux
-sudo refind-install
 sudo reboot
+sudo usermod -aG ssh libvirt
 
 
 #If you didn't copy over files for atom:
@@ -206,9 +154,9 @@ sudo reboot
 gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
 #do that on work account too.
 
-sudo systemctl enable --now run-regularly.timer run-weekly.timer run-on-boot.service
-sudo /root/bin/run-regularly
-sudo /root/bin/run-weekly
+sudo systemctl enable --now run-regularly.timer run-weekly.timer run-on-boot.service \
+&& sudo /root/bin/run-regularly \
+&& sudo /root/bin/run-weekly
 
 #MORE HARDWARE STUFF:
 #Keep checking for when this supports AX860i: https://github.com/audiohacked/OpenCorsairLink
@@ -224,13 +172,13 @@ sudo systemctl --now enable nvidia-persistenced.service
 sudo reboot
 
 
-sudo groupadd -r bluetooth
-sudo usermod -aG bluetooth patricol
+sudo groupadd -r bluetooth \
+&& sudo usermod -aG bluetooth patricol
 #check: sudo chmod 644 /etc/polkit-1/rules.d/51-blueman.rules
 
 #block access to che except from localhost.
-sudo iptables -A INPUT -p tcp -s localhost --dport 8080 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
+sudo iptables -A INPUT -p tcp -s localhost --dport 8080 -j ACCEPT \
+&& sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
 
 sudo lightdm-settings
 gcloud init

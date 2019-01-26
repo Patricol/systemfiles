@@ -136,9 +136,7 @@ sysg config --local status.showUntrackedFiles no
 cat /etc/fstab > /home/patricol/old_fstab
 
 #need to do this before installing the AUR packages, or they'll take an eternity to compress.
-sysg checkout arch -- /etc/mkinitcpio.conf
-#unsure how to force this to read new config file, so for now should reboot.
-sudo systemctl reboot
+sysg checkout arch -- /etc/makepkg.conf
 
 sysg checkout arch -- /root/bin/sort-mirrors
 

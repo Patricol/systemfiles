@@ -46,21 +46,21 @@ chmod 755 /mnt/boot
 mount /dev/sdx1 /mnt/boot
 pacstrap /mnt base base-devel
 genfstab -L /mnt >> /mnt/etc/fstab
-git clone -b arch --bare https://github.com/Patricol/systemfiles.git /sg
-alias sg='git --git-dir=/sg --work-tree=/mnt'
-alias sgc='sg checkout -f arch --'
-sgc /etc/{local*,host*}
 arch-chroot /mnt
 hwclock --systohc
+pacman -Syu intel-ucode efibootmgr git vim openssh refind-efi
+#above assuming you have an intel processor
+git clone -b arch --bare https://github.com/Patricol/systemfiles.git /home/sg
+alias sg='git --git-dir=/home/sg --work-tree=/'
+alias sgc='sg checkout -f arch --'
+sgc /etc/{local*,hosts,hostname}
 locale-gen
 mkinitcpio -p linux
 passwd
-pacman -Syu intel-ucode efibootmgr git vim openssh
-#above assuming you have an intel processor
 refind-install
 bootctl install
+sgc /boot/* /root/* /etc/{sudoers,makepkg.conf,pacman*,ssh/sshd_config}
 exit
-sgc /boot/* /root/* /etc/{sudoers,makepkg.conf,pacman*,ssh/*}
 umount -R /mnt
 poweroff
 #remove install media

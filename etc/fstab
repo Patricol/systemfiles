@@ -2,8 +2,11 @@
 # See fstab(5) for details.
 
 # <file system> <dir> <type> <options> <dump> <pass>
-# /dev/sda2 UUID=0cd5a009-2c11-4b3a-b9ff-f2d4e746af5c
+# /dev/sda2 UUID=15d7ba5f-968b-4a5a-a950-69840537bc00
 /dev/sda2           	/         	ext4      	rw,relatime	0 1
+
+# /dev/sda1 UUID=0279-4D4D
+/dev/sda1           	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
 
 /swapfile none swap defaults 0 0
 
@@ -14,3 +17,4 @@ user@192.168.1.17:/data /media/gdrive fuse.sshfs exec,noauto,_netdev,users,idmap
 user@192.168.1.17:/data /media/work fuse.sshfs exec,noauto,_netdev,users,idmap=user,allow_other,identityfile=/home/work/.ssh/nas_work_share,port=51727 0 0
 
 /dev/disk/by-uuid/16DC89BBDC8995A1 /mnt/16DC89BBDC8995A1 auto nosuid,nodev,nofail,x-gvfs-show,noauto 0 0
+

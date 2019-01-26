@@ -59,11 +59,15 @@ mkinitcpio -p linux
 passwd
 #NOTE: for all pacman installs, if a package is already installed, (as a dependency for something else,) run "pacman -D --asexplicit package_name" to mark it as an explicit install.
 #DON'T USE "pacman -S --asexplicit"; as that also marks any automatically added dependencies as explicitly installed.
-pacman -Syu intel-ucode refind-efi
+pacman -Syu intel-ucode refind-efi efibootmgr
 #above assuming you have an intel processor
 #Your kernel and initramfs must reside on a file system that rEFInd can read. (Unencrypted Ext4, Btrfs, NTFS, FAT, etc.)
 refind-install
 bootctl --path=/boot install
+echo -e 'title\tArch Linux\nlinux\t/vmlinuz-linux\ninitrd\t/intel-ucode.img\ninitrd\t/initramfs-linux.img\noptions\troot=/dev/sdx2 rw\n' | tee /boot/loader/entries/arch.conf
+#probably set these up later; and don't bother setting rEFInd up yet; just use systemd-boot for main installation etc.
+echo -e 'title\trEFInd\nefi\t/EFI/refind/refind_x64.efi\n' | tee /boot/loader/entries/rEFInd.conf
+echo -e 'default\trEFInd\ntimeout\t20\neditor\tno\nauto-firmware\t1\nconsole-mode\tkeep\n' | tee /boot/loader/loader.conf
 exit
 umount -R /mnt
 poweroff

@@ -21,10 +21,10 @@ chmod -R u+rwX,go-rwx /home/secure
 chown patricol:patrick /home/patricol/.bin/*
 chmod a+rx,u+w,go-w /home/patricol/.bin/*
 
-mkdir -p /media/{nas,gdrive,work}
-chown patricol:patrick /media/{nas,gdrive}
+mkdir -p /media/{nas,gdrive,work,gaming}
+chown patricol:patrick /media/{nas,gdrive,gaming}
 chown work:patrick /media/work
-chmod 770 /media/{nas,gdrive,work}
+chmod 770 /media/{nas,gdrive,work,gaming}
 
 #standardnotes-desktop being installed with wrong permissions repeatedly.
 #google earth one too.

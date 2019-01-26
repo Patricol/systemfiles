@@ -40,6 +40,8 @@ mkpart primary ext4 1025MiB 100%
 quit
 mkfs.fat -F32 /dev/sdx1
 mkfs.ext4 /dev/sdx2
+fatlabel /dev/sdx1 "EFI"
+e2label /dev/sdx2 "ArchLinux"
 mount /dev/sdx2 /mnt
 mkdir /mnt/boot
 chmod 755 /mnt/boot
@@ -61,6 +63,7 @@ passwd
 refind-install
 bootctl install
 sgc /boot /root /etc/{sudoers,makepkg.conf,pacman*,ssh/sshd_config}
+#edit the files in /boot/loader/entries if needed.
 exit
 umount -R /mnt
 poweroff

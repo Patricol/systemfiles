@@ -17,6 +17,10 @@ chown -R root:root /home/secure
 chmod u+x /home/secure/bin/*
 chmod -R u+rwX,go-rwx /home/secure
 
+
+chown -R root:root /usr/local/bin
+chmod -R 755 /usr/local/bin
+
 # Don't use chown -R for these; /home/patricol/.bin/extras should be unaffected.
 chown patricol:patrick /home/patricol/.bin/*
 chmod a+rx,u+w,go-w /home/patricol/.bin/*

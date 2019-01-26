@@ -2,6 +2,8 @@
 also ensure that the systemfiles repo is up to date etc.
 and check that duplicati is working http://localhost:8200
 
+#for all the stuff that needs to be done before ssh is possible; need to make it available as a script to curl and run. manually typing takes way too long and is way too error prone.
+
 adjust these notes etc. so I have a nice list of everything I need to do in preparation of doing a full reinstall like this.
 
 Even though using an installer for Arch is tempting as a way to abstract away the hardware and any partitioning etc, I should stick with manual installs so that I can be certain of exactly what has or has not been done to the system. That makes troubleshooting issues much easier, etc.
@@ -116,14 +118,24 @@ rm -rf ./yay/
 
 
 #copy over the old home directory now. (use nas filezilla to upload it to arch etc.)
+# e.g from the nas:
+#  scp /mnt/user/files/incoming/from_device/fcdcbda_arch/arch-homes.tar patricol@fcdcbda:/home/patricol/
+#  (then on the fcdcbda side, sudo mv /home/patricol/arch-homes.tar /)
 #check what's currently in /home before overwriting etc.
 sudo tar --same-owner -xvpf /arch-homes.tar
 
 curl -s "https://www.archlinux.org/mirrorlist/?country=US&country=CA&protocol=https&use_mirror_status=on" | sed -e "s/^#Server/Server/" -e "/^#/d" | rankmirrors -n 50 - | sudo tee /etc/pacman.d/mirrorlist
 
-yay --needed -Syu $(cat /root/packages-explicit.txt /root/packages-dependencies.txt)
-yay -D --asexplicit $(cat /root/packages-explicit.txt)
-yay -D --asdeps $(cat /root/packages-dependencies.txt)
+cd ~
+
+curl "https://raw.githubusercontent.com/Patricol/systemfiles/arch/root/packages-explicit.txt" > ./exp
+curl "https://raw.githubusercontent.com/Patricol/systemfiles/arch/root/packages-dependencies.txt" > ./deps
+
+yay --needed -Syu $(cat ./exp ./deps)
+yay -D --asexplicit $(cat ./exp)
+yay -D --asdeps $(cat ./deps)
+
+rm ./exp ./deps
 
 sudo git clone -b arch --bare https://github.com/Patricol/systemfiles.git /home/secure/systemfiles-repo
 alias sysg='sudo git --git-dir=/home/secure/systemfiles-repo/ --work-tree=/'

@@ -42,6 +42,7 @@ mkfs.fat -F32 /dev/sdx1
 mkfs.ext4 /dev/sdx2
 mount /dev/sdx2 /mnt
 mkdir /mnt/boot
+chmod 755 /mnt/boot
 mount /dev/sdx1 /mnt/boot
 pacstrap /mnt base base-devel
 genfstab -L /mnt >> /mnt/etc/fstab
@@ -59,7 +60,7 @@ pacman -Syu intel-ucode efibootmgr git vim openssh
 refind-install
 bootctl install
 exit
-sgc /boot/* /etc/sudoers /etc/ssh/* /root/* /etc/makepkg.conf
+sgc /boot/* /root/* /etc/{sudoers,makepkg.conf,pacman*,ssh/*}
 umount -R /mnt
 poweroff
 #remove install media

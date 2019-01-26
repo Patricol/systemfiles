@@ -59,7 +59,7 @@ mkinitcpio -p linux
 passwd
 refind-install
 bootctl install
-sgc /boot/* /root/* /etc/{sudoers,makepkg.conf,pacman*,ssh/sshd_config}
+sgc /boot /root /etc/{sudoers,makepkg.conf,pacman*,ssh/sshd_config}
 exit
 umount -R /mnt
 poweroff

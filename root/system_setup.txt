@@ -124,12 +124,25 @@ rm -rf ./yay/
 #check what's currently in /home before overwriting etc.
 sudo tar --same-owner -xvpf /arch-homes.tar
 
-curl -s "https://www.archlinux.org/mirrorlist/?country=US&country=CA&protocol=https&use_mirror_status=on" | sed -e "s/^#Server/Server/" -e "/^#/d" | rankmirrors -n 50 - | sudo tee /etc/pacman.d/mirrorlist
-
 cd ~
 
 curl "https://raw.githubusercontent.com/Patricol/systemfiles/arch/root/packages-explicit.txt" > ./exp
 curl "https://raw.githubusercontent.com/Patricol/systemfiles/arch/root/packages-dependencies.txt" > ./deps
+
+sudo git clone -b arch --bare https://github.com/Patricol/systemfiles.git /home/secure/systemfiles-repo
+alias sysg='sudo git --git-dir=/home/secure/systemfiles-repo/ --work-tree=/'
+sysg config --local status.showUntrackedFiles no
+
+cat /etc/fstab > /home/patricol/old_fstab
+
+#need to do this before installing the AUR packages, or they'll take an eternity to compress.
+sysg checkout arch -- /etc/mkinitcpio.conf
+#unsure how to force this to read new config file, so for now should reboot.
+sudo systemctl reboot
+
+sysg checkout arch -- /root/bin/sort-mirrors
+
+sudo /root/bin/update-mirrors
 
 yay --needed -Syu $(cat ./exp ./deps)
 yay -D --asexplicit $(cat ./exp)
@@ -137,9 +150,6 @@ yay -D --asdeps $(cat ./deps)
 
 rm ./exp ./deps
 
-sudo git clone -b arch --bare https://github.com/Patricol/systemfiles.git /home/secure/systemfiles-repo
-alias sysg='sudo git --git-dir=/home/secure/systemfiles-repo/ --work-tree=/'
-sysg config --local status.showUntrackedFiles no
 sysg checkout
 (checkout -f to force, but first check in what they modify, for posterity and to make it easier to reapply changes on top of newer base configs. when done, remove this notice.)
 

@@ -143,6 +143,15 @@ sudo systemctl --now disable dhcpcd.service \
 sudo reboot
 sudo usermod -aG ssh libvirt
 
+sudo systemctl enable --now run-regularly.timer run-weekly.timer run-on-boot.service \
+&& sudo /root/bin/run-regularly \
+&& sudo /root/bin/run-weekly
+
+sudo groupadd -r bluetooth \
+&& sudo usermod -aG bluetooth patricol
+
+gcloud init
+
 
 #If you didn't copy over files for atom:
 #apm install atom-material-ui atom-material-syntax-dark atom-beautify file-icons language-docker angularjs react language-markdown linter linter-pylama linter-clang linter-gcc linter-cpplint advanced-open-file code-peek emmet fonts git-time-machine jumpy minimap sort-lines script todo-show pigments highlight-selected language-smali git-blame color-picker language-autohotkey2 dark-flat-ui
@@ -155,10 +164,6 @@ sudo usermod -aG ssh libvirt
 #sets default terminal for nemo to use from right click menu etc.
 gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
 #do that on work account too.
-
-sudo systemctl enable --now run-regularly.timer run-weekly.timer run-on-boot.service \
-&& sudo /root/bin/run-regularly \
-&& sudo /root/bin/run-weekly
 
 #MORE HARDWARE STUFF:
 #Keep checking for when this supports AX860i: https://github.com/audiohacked/OpenCorsairLink
@@ -174,16 +179,15 @@ sudo systemctl --now enable nvidia-persistenced.service
 sudo reboot
 
 
-sudo groupadd -r bluetooth \
-&& sudo usermod -aG bluetooth patricol
-#check: sudo chmod 644 /etc/polkit-1/rules.d/51-blueman.rules
 
 #block access to che except from localhost.
 sudo iptables -A INPUT -p tcp -s localhost --dport 8080 -j ACCEPT \
 && sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
 
+
+sudo vncpasswd /etc/vncpasswd
+
 sudo lightdm-settings
-gcloud init
 
 #add and trust private keys (including journal key) (use gpa)
 

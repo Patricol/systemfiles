@@ -92,7 +92,7 @@ if [ -n "$SSH_CONNECTION" ]; then
     export LANG=en_US.UTF-8
 fi
 if [ "$TERM" == "linux" ] || [ -n "$SSH_CONNECTION" ]; then
-    export POWERLINE_CONFIG_OVERRIDES='ext.vim.top_theme="ascii_custom";common.default_top_theme="ascii_custom"'
+    export POWERLINE_CONFIG_OVERRIDES='ext.vim.top_theme="ascii";common.default_top_theme="ascii"'
 else
     export POWERLINE_CONFIG_OVERRIDES=''
 fi

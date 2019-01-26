@@ -184,6 +184,9 @@ sudo reboot
 sudo iptables -A INPUT -p tcp -s localhost --dport 8080 -j ACCEPT \
 && sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
 
+
+sudo vncpasswd /etc/vncpasswd
+
 sudo lightdm-settings
 
 #add and trust private keys (including journal key) (use gpa)

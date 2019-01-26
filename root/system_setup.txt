@@ -29,17 +29,19 @@ efivar --list
 ping -c 1 1.1.1.1
 timedatectl set-ntp true
 fdisk -l
-parted /dev/sdx
+parted
 select /dev/sdx
 #CHECK THIS NOTE SYNCED BEFORE FORMATTING
 mklabel gpt
-mkpart ESP fat32 1MiB 551MiB
+mkpart ESP fat32 1MiB 1025MiB
 set 1 esp on
-mkpart primary ext4 551MiB 100%
+mkpart primary ext4 1025MiB 100%
 quit
 mkfs.fat -F32 /dev/sdx1
 mkfs.ext4 /dev/sdx2
 mount /dev/sdx2 /mnt
+mkdir /mnt/boot
+mount /dev/sdx1 /mnt/boot
 pacstrap /mnt base base-devel
 genfstab -L /mnt >> /mnt/etc/fstab
 #genfstab -U /mnt >> /mnt/etc/fstab
@@ -59,12 +61,10 @@ passwd
 #DON'T USE "pacman -S --asexplicit"; as that also marks any automatically added dependencies as explicitly installed.
 pacman -Syu intel-ucode refind-efi
 #above assuming you have an intel processor
-mkdir /boot/efi
-exit
-mount /dev/sdx1 /mnt/boot/efi
-arch-chroot
 #Your kernel and initramfs must reside on a file system that rEFInd can read. (Unencrypted Ext4, Btrfs, NTFS, FAT, etc.)
 refind-install
+bootctl --path=/boot install
+exit
 umount -R /mnt
 poweroff
 #remove install media

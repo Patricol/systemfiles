@@ -47,6 +47,7 @@ mount /dev/sdx1 /mnt/boot
 pacstrap /mnt base base-devel
 genfstab -L /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
+cp /etc/fstab /etc/fstab.bak
 hwclock --systohc
 pacman -Syu intel-ucode efibootmgr git vim openssh refind-efi
 #above assuming you have an intel processor
@@ -112,7 +113,7 @@ sysg config --local status.showUntrackedFiles no
 
 
 #ensure /etc/makepkg.conf is checked out before installing the AUR packages, or they'll take an eternity to compress.
-sudo /root/bin/update-mirrors
+sudo /root/bin/sort-mirrors
 
 yay --needed -Syu $(sudo cat /root/packages-explicit.txt /root/packages-dependencies.txt)
 yay -D --asexplicit $(sudo cat /root/packages-explicit.txt)

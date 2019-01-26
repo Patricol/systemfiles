@@ -47,16 +47,14 @@ mkdir /mnt/boot
 chmod 755 /mnt/boot
 mount /dev/sdx1 /mnt/boot
 pacstrap /mnt base base-devel
-genfstab -L /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
-cp /etc/fstab /etc/fstab.bak
 hwclock --systohc
 pacman -Syu intel-ucode efibootmgr git vim openssh refind-efi
 #above assuming you have an intel processor
 git clone -b arch --bare https://github.com/Patricol/systemfiles.git /home/sg
 alias sg='git --git-dir=/home/sg --work-tree=/'
 alias sgc='sg checkout -f arch --'
-sgc /etc/{local*,hosts,hostname}
+sgc /etc/{local*,hosts,hostname,fstab}
 locale-gen
 mkinitcpio -p linux
 passwd
@@ -122,10 +120,8 @@ yay --needed -Syu $(sudo cat /root/packages-explicit.txt /root/packages-dependen
 yay -D --asexplicit $(sudo cat /root/packages-explicit.txt)
 yay -D --asdeps $(sudo cat /root/packages-dependencies.txt)
 
-cat /etc/fstab > /home/patricol/old_fstab
 sysg checkout -f
 (checkout -f to force, but first check in what they modify, for posterity and to make it easier to reapply changes on top of newer base configs. when done, remove this notice.)
-diff /etc/fstab /home/patricol/old_fstab
 
 sudo /root/bin/fix-permissions
 

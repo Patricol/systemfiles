@@ -23,6 +23,9 @@ Follow https://wiki.archlinux.org/index.php/Installation_guide or install.txt to
 
 #RUN WITH ONLY ONE HDD CONNECTED, AND ONLY IF ENTIRE HDD CAN BE USED.
 #time how long this takes, to aid future decisions about when it's faster to nuke from orbit.
+#Check that you booted in UEFI mode:
+efivar --list
+#Check you're connected to the internet:
 ping -c 1 1.1.1.1
 timedatectl set-ntp true
 fdisk -l
@@ -59,8 +62,9 @@ pacman -Syu intel-ucode refind-efi
 mkdir /boot/efi
 exit
 mount /dev/sdx1 /mnt/boot/efi
+arch-chroot
 #Your kernel and initramfs must reside on a file system that rEFInd can read. (Unencrypted Ext4, Btrfs, NTFS, FAT, etc.)
-refind-install --root /mnt
+refind-install
 umount -R /mnt
 poweroff
 #remove install media

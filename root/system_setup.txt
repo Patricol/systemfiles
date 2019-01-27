@@ -51,9 +51,9 @@ hwclock --systohc
 pacman -Syu intel-ucode amd-ucode git vim openssh refind-efi
 # no reason not to install both intel and amd
 git clone -b arch --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
-alias sg='git --git-dir=/home/systemfiles-repo --work-tree=/'
+alias sg='git --git-dir=/root/systemfiles-repo --work-tree=/'
 alias sgc='sg checkout -f arch --'
-sgc /root /usr/local /etc/{local*,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
+sgc /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
 locale-gen
 mkinitcpio -p linux
 passwd
@@ -93,9 +93,10 @@ git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -sci && cd .. &
 
 
 #copy over the old home directory now. (use nas filezilla to upload it to arch etc.)
-# e.g from the nas:
-#  scp /mnt/user/files/incoming/from_device/fcdcbda_arch/arch-homes.tar patricol@fcdcbda:/tmp/
-#  (then on the fcdcbda side, sudo mv /tmp/arch-homes.tar /)
+#don't copy to tmp, though; size limit cuts off the file after the transfer completes.
+#e.g from the nas:
+# scp /mnt/user/files/incoming/from_device/fcdcbda_arch/arch-homes.tar patricol@fcdcbda:/home/patricol/
+sudo mv /home/patricol/arch-homes.tar /
 #check what's currently in /home before overwriting etc.
 sudo rm -rf /home/*
 cd / && sudo tar --same-owner -xvpf /arch-homes.tar
@@ -106,9 +107,8 @@ sysg config --local status.showUntrackedFiles no
 
 sudo sort-mirrors
 #ensure /etc/makepkg.conf is checked out before installing the AUR packages, or they'll take an eternity to compress.
-yay --needed -Syu $(sudo cat /root/packages-explicit.txt /root/packages-dependencies.txt)
-yay -D --asexplicit $(sudo cat /root/packages-explicit.txt)
-yay -D --asdeps $(sudo cat /root/packages-dependencies.txt)
+yay --needed -Syu $(sudo cat /root/packages-explicit.txt)
+
 
 sysg checkout -f
 (checkout -f to force, but first check in what they modify, for posterity and to make it easier to reapply changes on top of newer base configs. when done, remove this notice.)

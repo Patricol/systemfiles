@@ -53,7 +53,7 @@ pacman -Syu intel-ucode amd-ucode git vim openssh refind-efi
 git clone -b arch --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias sg='git --git-dir=/root/systemfiles-repo --work-tree=/'
 alias sgc='sg checkout -f arch --'
-sgc /root /usr/local /etc/{local*,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
+sgc /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
 locale-gen
 mkinitcpio -p linux
 passwd

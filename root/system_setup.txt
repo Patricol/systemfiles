@@ -135,26 +135,13 @@ sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.
 #this also means there's no reason for me to use caffeine; I was using it to keep the computer from suspending when programs were running.
 sudo journalctl --vacuum-size=100M && sudo systemctl restart systemd-journald.service
 sudo mkinitcpio -p linux
-sudo reboot
-
 
 gcloud init
-
-
-#If you didn't copy over files for atom:
-#apm install atom-material-ui atom-material-syntax-dark atom-beautify file-icons language-docker angularjs react language-markdown linter linter-pylama linter-clang linter-gcc linter-cpplint advanced-open-file code-peek emmet fonts git-time-machine jumpy minimap sort-lines script todo-show pigments highlight-selected language-smali git-blame color-picker language-autohotkey2 dark-flat-ui
-#open atom gui
-#close atom gui
-#apm disable git-blame color-picker spell-check minimap tree-view
-#setup apm list saving what's installed so it can be backed up like the main packages.
 
 
 #block access to che except from localhost.
 sudo iptables -A INPUT -p tcp -s localhost --dport 8080 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
-
-
-sudo lightdm-settings
 
 sudo vncpasswd /etc/vncpasswd
 
@@ -172,6 +159,15 @@ poweroff
 #setup vpn and wifi connections etc. test bluetooth. speakers and file transfer.
 
 #setup chrome, deluge, duplicati, nemo, filezilla, gitkraken, atom, gpmdp, pycharm, android studio, quassel, remmina, signal, standard notes, vlc, VMs, i3, che.
+
+#If you didn't copy over files for atom:
+#apm install atom-material-ui atom-material-syntax-dark atom-beautify file-icons language-docker angularjs react language-markdown linter linter-pylama linter-clang linter-gcc linter-cpplint advanced-open-file code-peek emmet fonts git-time-machine jumpy minimap sort-lines script todo-show pigments highlight-selected language-smali git-blame color-picker language-autohotkey2 dark-flat-ui
+#open atom gui
+#close atom gui
+#apm disable git-blame color-picker spell-check minimap tree-view
+
+#setup apm list saving what's installed so it can be backed up like the main packages.
+
 
 #verify vdpau hardware acceleration is working by running vdpauinfo
 

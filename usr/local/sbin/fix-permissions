@@ -13,7 +13,6 @@ chmod -R ug+rwX,o-rwx /home/shared
 chmod g+s /home/shared
 
 chown -R root:root /home/secure
-chmod u+x /home/secure/bin/*
 chmod -R u+rwX,go-rwx /home/secure
 
 
@@ -21,10 +20,6 @@ chown -R root:root /usr/local/bin
 chmod -R 755 /usr/local/bin
 chown -R root:root /usr/local/sbin
 chmod -R 744 /usr/local/sbin
-
-# Don't use chown -R for these; /home/patricol/.bin/extras should be unaffected.
-chown patricol:patrick /home/patricol/.bin/*
-chmod a+rx,u+w,go-w /home/patricol/.bin/*
 
 mkdir -p /media/{nas,gdrive,work,gaming}
 chown patricol:patrick /media/{nas,gdrive,gaming}

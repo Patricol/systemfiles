@@ -22,6 +22,7 @@ attica
 attr
 audit
 augeas
+autoconf-archive
 autoconf2.13
 avahi
 avidemux-cli
@@ -54,6 +55,7 @@ clucene
 clutter
 clutter-gst
 clutter-gtk
+cmake
 cogl
 coin-or-cbc
 coin-or-cgl
@@ -77,6 +79,8 @@ djvulibre
 dmraid
 dnsmasq
 dnssec-anchors
+docbook-xml
+docbook-xsl
 dosfstools
 double-conversion
 ebook-tools
@@ -114,6 +118,7 @@ gd
 gdbm
 gdk-pixbuf2
 gegl
+gendesk
 geoclue2
 geocode-glib
 ghostscript
@@ -123,6 +128,7 @@ gjs
 glew
 glib-networking
 glib2
+glib2-docs
 glibmm
 glpk
 glslang
@@ -130,6 +136,7 @@ glu
 glusterfs
 gmp
 gnome-backgrounds
+gnome-common
 gnome-desktop
 gnome-online-accounts
 gnome-themes-extra
@@ -159,6 +166,7 @@ gst-plugins-base
 gst-plugins-base-libs
 gst-plugins-good
 gstreamer
+gtk-doc
 gtk-engine-murrine
 gtk-engines
 gtk-update-icon-cache
@@ -194,8 +202,10 @@ imagemagick
 imake
 imlib2
 intel-tbb
+intltool
 iptables
 iso-codes
+itstool
 jack
 jansson
 jasper
@@ -559,6 +569,7 @@ mathjax
 media-player-info
 mediainfo
 mesa
+meson
 metis
 minizip
 mjpegtools
@@ -571,12 +582,14 @@ mpfr
 mpg123
 mtdev
 mypaint-brushes
+nasm
 ncurses
 ndctl
 neon
 net-snmp
 netcf
 nettle
+ninja
 nm-connection-editor
 node-gyp
 nodejs-lts-dubnium
@@ -619,20 +632,29 @@ perl-anyevent-i3
 perl-common-sense
 perl-error
 perl-file-basedir
+perl-file-copy-recursive
 perl-file-desktopentry
 perl-file-mimeinfo
 perl-file-sharedir-install
+perl-file-slurp-tiny
 perl-image-exiftool
 perl-inline
 perl-inline-c
+perl-io-all
+perl-io-string
 perl-ipc-system-simple
 perl-json-xs
 perl-mailtools
 perl-parse-recdescent
 perl-pegex
+perl-sub-uplevel
+perl-test-pod
+perl-test-warn
 perl-timedate
+perl-tree-dag-node
 perl-types-serialiser
 perl-uri
+perl-xml-parser
 perl-yaml-libyaml
 phodav
 phonon-qt5
@@ -660,6 +682,7 @@ pygobject-devel
 pygobject2-devel
 pygtk
 pyqt5-common
+python-anytree
 python-appdirs
 python-beaker
 python-bleach
@@ -831,6 +854,7 @@ recode
 redland
 rest
 resvg-git
+rhash
 rpcbind
 rtkit
 rtmpdump
@@ -874,6 +898,7 @@ sonnet
 sord
 sound-theme-freedesktop
 soundtouch
+source-highlight
 spandsp
 speex
 speexdsp
@@ -906,6 +931,7 @@ upower
 usbmuxd
 usbredir
 v4l-utils
+vala
 vamp-plugin-sdk
 vde2
 vid.stab
@@ -974,6 +1000,8 @@ xz
 yajl
 yarn
 yasm
+yelp-tools
+yelp-xsl
 yubico-c
 yubico-c-client
 yubikey-personalization

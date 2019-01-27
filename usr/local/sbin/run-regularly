@@ -1,5 +1,7 @@
 #!/bin/bash
 
+save-system-info
+
 fix-permissions
 
 sort-mirrors
@@ -7,5 +9,3 @@ sort-mirrors
 pkgfile --update
 
 update-atom-packages
-
-save-system-info

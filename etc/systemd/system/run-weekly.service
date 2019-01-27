@@ -4,7 +4,7 @@ Description=Custom maintenance scripts that may interrupt users.
 [Service]
 Type=oneshot
 
-ExecStart=/home/secure/bin/run-weekly
+ExecStart=run-weekly
 
 [Install]
 WantedBy=default.target

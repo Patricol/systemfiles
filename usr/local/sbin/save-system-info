@@ -1,6 +1,7 @@
 #!/bin/bash
 
-OUTPUT_FILE="/root/system-info.txt"
+
+OUTPUT_FILE="/root/system_info.txt"
 
 echo "System Info:" | tee $OUTPUT_FILE
 
@@ -12,3 +13,6 @@ pacman -Qd | tee -a $OUTPUT_FILE
 
 pacman -Qqe | tee /root/packages-explicit.txt
 pacman -Qqd | tee /root/packages-dependencies.txt
+
+# Save a copy of this info somewhere in /home so it gets backed up regularly.
+cp /root/system_info.txt /home/secure/

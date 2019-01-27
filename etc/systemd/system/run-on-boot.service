@@ -4,7 +4,7 @@ Description=Custom boot scripts
 [Service]
 Type=oneshot
 
-ExecStart=/home/secure/bin/run-on-boot
+ExecStart=run-on-boot
 
 [Install]
 WantedBy=multi-user.target

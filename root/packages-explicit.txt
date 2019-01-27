@@ -1,8 +1,10 @@
 adapta-gtk-theme
 adobe-source-code-pro-fonts
 adobe-source-sans-pro-fonts
+amd-ucode
 android-studio
 arc-gtk-theme
+arch-install-scripts
 atom
 audacity
 aurman
@@ -118,6 +120,7 @@ lightdm-settings
 lightdm-slick-greeter
 lightdm-webkit-theme-aether
 linux
+linux-lts
 logrotate
 lolcat
 lvm2

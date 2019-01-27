@@ -122,8 +122,7 @@ Setup dotfiles if needed: https://github.com/Patricol/dotfiles
 
 sudo nvidia-xconfig
 
-sudo groupadd -r bluetooth
-sudo usermod -aG bluetooth patricol
+sudo groupadd -r bluetooth && sudo usermod -aG bluetooth patricol
 
 #sets default terminal for nemo to use from right click menu etc.
 gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
@@ -134,8 +133,7 @@ sudo systemctl --now enable lightdm.service fstrim.timer gpm.service docker.serv
 sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.target suspend.target sleep.target
 #disable hibernation and suspend. Sleep seems to be the same thing. DPMS and "screen blanking" are distinct from all of these.
 #this also means there's no reason for me to use caffeine; I was using it to keep the computer from suspending when programs were running.
-sudo journalctl --vacuum-size=100M
-sudo systemctl restart systemd-journald.service
+sudo journalctl --vacuum-size=100M && sudo systemctl restart systemd-journald.service
 sudo mkinitcpio -p linux
 sudo reboot
 
@@ -152,8 +150,8 @@ gcloud init
 
 
 #block access to che except from localhost.
-sudo iptables -A INPUT -p tcp -s localhost --dport 8080 -j ACCEPT \
-&& sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
+sudo iptables -A INPUT -p tcp -s localhost --dport 8080 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
 
 
 sudo lightdm-settings

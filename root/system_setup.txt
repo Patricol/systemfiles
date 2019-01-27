@@ -94,8 +94,8 @@ git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -sci && cd .. &
 
 #copy over the old home directory now. (use nas filezilla to upload it to arch etc.)
 # e.g from the nas:
-#  scp /mnt/user/files/incoming/from_device/fcdcbda_arch/arch-homes.tar patricol@fcdcbda:/home/patricol/
-#  (then on the fcdcbda side, sudo mv /home/patricol/arch-homes.tar /)
+#  scp /mnt/user/files/incoming/from_device/fcdcbda_arch/arch-homes.tar patricol@fcdcbda:/tmp/
+#  (then on the fcdcbda side, sudo mv /tmp/arch-homes.tar /)
 #check what's currently in /home before overwriting etc.
 sudo rm -rf /home/*
 cd / && sudo tar --same-owner -xvpf /arch-homes.tar

@@ -93,10 +93,10 @@ git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -sci && cd .. &
 
 
 #copy over the old home directory now. (use nas filezilla to upload it to arch etc.)
-# e.g from the nas:
-#  scp /mnt/user/files/incoming/from_device/fcdcbda_arch/arch-homes.tar patricol@fcdcbda:/tmp/
-#  (then on the fcdcbda side, sudo mv /tmp/arch-homes.tar /)
-#  should probably compare sha1sum/md5sum; in a sample size of 3, already had corruption issues.
+#don't copy to tmp, though; size limit cuts off the file after the transfer completes.
+#e.g from the nas:
+# scp /mnt/user/files/incoming/from_device/fcdcbda_arch/arch-homes.tar patricol@fcdcbda:/home/patricol/
+sudo mv /home/patricol/arch-homes.tar /
 #check what's currently in /home before overwriting etc.
 sudo rm -rf /home/*
 cd / && sudo tar --same-owner -xvpf /arch-homes.tar

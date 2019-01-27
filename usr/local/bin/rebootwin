@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo -A /usr/local/sbin/rebootwin
+sudo /usr/local/sbin/rebootwin
 

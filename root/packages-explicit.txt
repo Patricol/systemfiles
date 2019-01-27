@@ -119,11 +119,14 @@ lightdm
 lightdm-settings
 lightdm-slick-greeter
 lightdm-webkit-theme-aether
+lightdm-webkit-theme-litarvan
+lightdm-webkit-theme-luminos-git
 linux
 linux-lts
 logrotate
 lolcat
 lvm2
+lxqt-openssh-askpass
 m4
 make
 man-db
@@ -241,7 +244,6 @@ wireshark-gtk
 woeusb
 wol
 wpgtk-git
-x11-ssh-askpass
 x11vnc
 xclip
 xdelta3

@@ -4,7 +4,7 @@ Description=Custom boot scripts
 [Service]
 Type=oneshot
 
-ExecStart=run-on-boot
+ExecStart=/usr/local/sbin/run-on-boot
 
 [Install]
 WantedBy=multi-user.target

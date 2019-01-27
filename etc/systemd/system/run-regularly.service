@@ -4,7 +4,7 @@ Description=Custom maintenance scripts
 [Service]
 Type=oneshot
 
-ExecStart=run-regularly
+ExecStart=/usr/local/sbin/run-regularly
 
 [Install]
 WantedBy=default.target

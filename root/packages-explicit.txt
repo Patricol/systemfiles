@@ -6,6 +6,7 @@ android-studio
 arc-gtk-theme
 arch-install-scripts
 atom
+atool
 audacity
 aurman
 autoconf
@@ -39,10 +40,12 @@ dhclient
 dhcpcd
 diffutils
 digikam
+dnsmasq
 docker
 docker-compose
 dpkg
 e2fsprogs
+elinks
 etcher-bin
 exfat-utils
 expac
@@ -51,6 +54,7 @@ fakeroot
 fdupes
 feh
 ffmpeg
+ffmpegthumbnailer
 ffmpegthumbs
 file
 file-roller
@@ -61,6 +65,7 @@ findutils
 fingerprint-gui
 flex
 fortune-mod
+freerdp
 freetype2
 fwupd
 gawk
@@ -88,10 +93,12 @@ gpick
 gpmdp
 grep
 groff
+gst-libav
 gucharmap
 gzip
 handbrake
 hardcode-tray
+highlight
 htop
 i3-gaps
 i3lock-color-git
@@ -110,6 +117,7 @@ keychain
 komorebi
 lastpass
 less
+libmicrodns
 libreoffice-fresh
 libtool
 libu2f-host
@@ -121,6 +129,7 @@ lightdm-webkit-theme-aether
 lightdm-webkit-theme-litarvan
 lightdm-webkit-theme-luminos-git
 linux
+linux-firmware
 linux-lts
 logrotate
 lolcat
@@ -132,6 +141,7 @@ man-db
 man-pages
 mcomix
 mdadm
+mediainfo
 meld
 mesa-demos
 nano
@@ -149,9 +159,11 @@ ntfs-3g
 numix-circle-icon-theme-git
 nvidia
 nvidia-docker
+nvidia-settings
 oh-my-zsh-git
 okular
 oomox-git
+opencl-nvidia
 openssh
 ovmf
 p7zip
@@ -164,6 +176,7 @@ papirus-icon-theme
 patch
 pavucontrol
 pciutils
+pepper-flash
 perl
 pigz
 pikaur
@@ -175,13 +188,14 @@ powerline
 powerline-console-fonts
 powerline-vim
 procps-ng
+protobuf
 psensor
 psmisc
 pycharm-community-edition
 python
 python-pip
 python-pywal
-python2
+python-xdg
 python2-pip
 qemu
 qpdfview
@@ -237,6 +251,7 @@ vim
 virt-manager
 vlc
 vulkan-intel
+w3m
 wget
 which
 wireshark-gtk
@@ -248,13 +263,16 @@ xclip
 xdelta3
 xdotool
 xfsprogs
+xorg-fonts-alias
 xorg-server
+xorg-server-devel
 xorg-xdpyinfo
 xorg-xev
 xorg-xhost
 xorg-xinit
 xorg-xinput
 xorg-xkill
+xorg-xprop
 xorg-xrandr
 xrdp
 xterm

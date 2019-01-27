@@ -96,7 +96,7 @@ git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -sci && cd .. &
 # e.g from the nas:
 #  scp /mnt/user/files/incoming/from_device/fcdcbda_arch/arch-homes.tar patricol@fcdcbda:/tmp/
 #  (then on the fcdcbda side, sudo mv /tmp/arch-homes.tar /)
-#  should probably check compare sha1sums etc; in a sample size of 3, already had corruption issues.
+#  should probably compare sha1sum/md5sum; in a sample size of 3, already had corruption issues.
 #check what's currently in /home before overwriting etc.
 sudo rm -rf /home/*
 cd / && sudo tar --same-owner -xvpf /arch-homes.tar

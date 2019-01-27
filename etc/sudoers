@@ -98,5 +98,6 @@ root ALL=(ALL) ALL
 %patrick ALL=(ALL) NOPASSWD: /bin/systemctl start run-regularly.service
 %patrick ALL=(ALL) NOPASSWD: /bin/systemctl stop run-regularly.service
 %patrick ALL=(ALL) NOPASSWD: /bin/systemctl restart run-regularly.service
+%patrick ALL=(ALL) NOPASSWD: /usr/local/sbin/rebootwin
 
 Defaults timestamp_timeout=60

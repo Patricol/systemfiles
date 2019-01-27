@@ -1,5 +1,8 @@
 #!/bin/bash
 
-sudo chattr -i /sys/firmware/efi/efivars/PreviousBoot-36d08fa7-cf0b-42f5-8f14-68df73ed3740
-sudo cp /home/secure/bin_extras/PreviousBoot-Windows /sys/firmware/efi/efivars/PreviousBoot-36d08fa7-cf0b-42f5-8f14-68df73ed3740
-systemctl reboot
+WINDOWS_HEX=`efibootmgr | grep Windows | cut -f1 -d'*' | cut -f2 -d't'`
+
+sudo efibootmgr --bootnext $WINDOWS_HEX
+
+sudo systemctl reboot
+

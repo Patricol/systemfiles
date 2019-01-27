@@ -107,9 +107,8 @@ sysg config --local status.showUntrackedFiles no
 
 sudo sort-mirrors
 #ensure /etc/makepkg.conf is checked out before installing the AUR packages, or they'll take an eternity to compress.
-yay --needed -Syu $(sudo cat /root/packages-explicit.txt /root/packages-dependencies.txt)
-yay -D --asexplicit $(sudo cat /root/packages-explicit.txt)
-yay -D --asdeps $(sudo cat /root/packages-dependencies.txt)
+yay --needed -Syu $(sudo cat /root/packages-explicit.txt)
+
 
 sysg checkout -f
 (checkout -f to force, but first check in what they modify, for posterity and to make it easier to reapply changes on top of newer base configs. when done, remove this notice.)

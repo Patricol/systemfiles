@@ -1,4 +1,3 @@
 #!/bin/bash
 
-/home/secure/bin/clean-docker
-
+clean-docker

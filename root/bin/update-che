@@ -43,4 +43,3 @@ docker pull eclipse/che-cli:$USE_AS_NEW
 cli_new upgrade
 cli_new restart
 # Need to restart here; if che was already up to date, then it will still be stopped after the upgrade command.
-

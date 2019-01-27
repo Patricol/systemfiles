@@ -1,1 +1,9 @@
-/home/secure/run-regularly.timer
+[Unit]
+Description=Run run-regularly daily
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target

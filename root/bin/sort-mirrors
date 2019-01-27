@@ -1,4 +1,3 @@
 #!/bin/bash
 
-curl -s "https://www.archlinux.org/mirrorlist/?country=US&country=CA&protocol=https&use_mirror_status=on" | sed -e "s/^#Server/Server/" -e "/^#/d" | rankmirrors -n 50 - | sudo tee /etc/pacman.d/mirrorlist
-
+curl -s "https://www.archlinux.org/mirrorlist/?country=US&country=CA&protocol=https&use_mirror_status=on" | sed -e "s/^#Server/Server/" -e "/^#/d" | rankmirrors -n 50 - | tee /etc/pacman.d/mirrorlist

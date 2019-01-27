@@ -1,0 +1,33 @@
+#!/bin/bash
+#https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/
+#https://trac.ffmpeg.org/wiki/Encode/VP9
+#https://trac.ffmpeg.org/wiki/Encode/H.264#Encodingfordumbplayers
+
+
+convert_to_webm () {
+    filepath="$1"
+
+    #coalesce breaks transparency but fixes most others
+    #convert -coalesce ./file.gif f%08d.png
+
+    filepath_without_extension="${filepath%.*}"
+    ffmpeg -i "$filepath" -movflags +faststart -c:v libvpx-vp9 -lossless 1 -filter_complex "[0:v] fps=120" -vsync 0 -f webm -an -hide_banner -nostats "$filepath_without_extension"_temp.webm
+    mv "$filepath_without_extension"_temp.webm "$filepath_without_extension".webm
+}
+
+for filepath in "$@"
+do
+    while [ `jobs | wc -l` -ge 7 ]; do
+        sleep 2
+    done
+    convert_to_webm "$filepath" &
+done
+
+echo 'Waiting for conversions to complete....'
+
+while [ `jobs -p | wc -l` -ge 1 ]; do
+    sleep 2
+    jobs
+done
+
+echo 'Done.'

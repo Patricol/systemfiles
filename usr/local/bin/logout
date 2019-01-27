@@ -1,1 +1,2 @@
-/home/patricol/.bin/logout
+#!/bin/bash
+i3-msg exit

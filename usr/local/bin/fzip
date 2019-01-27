@@ -1,0 +1,4 @@
+#!/bin/bash
+
+filepath="${1%/}"
+zip -0 -r "$filepath.zip" "$filepath"

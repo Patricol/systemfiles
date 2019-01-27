@@ -1,1 +1,3 @@
-/home/patricol/.bin/switchuser
+#!/bin/bash
+dm-tool switch-to-greeter
+

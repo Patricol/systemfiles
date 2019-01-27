@@ -1,0 +1,3 @@
+#!/bin/bash
+#give it the path of a text file listing urls
+xargs -a $@ -n 1 -P 10 youtube-dl

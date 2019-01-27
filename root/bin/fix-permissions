@@ -2,7 +2,6 @@
 
 touch /home/patricol/.ssh/{authorized_keys,known_hosts}
 chmod -R go-rwx /home/patricol
-chmod g+rx /home/patricol /home/patricol/.bin
 chmod a+r /home/patricol/.ssh/{authorized_keys,known_hosts} /home/patricol/.ssh/*.pub
 
 touch /home/work/.ssh/{authorized_keys,known_hosts}
@@ -20,6 +19,8 @@ chmod -R u+rwX,go-rwx /home/secure
 
 chown -R root:root /usr/local/bin
 chmod -R 755 /usr/local/bin
+chown -R root:root /usr/local/sbin
+chmod -R 744 /usr/local/sbin
 
 # Don't use chown -R for these; /home/patricol/.bin/extras should be unaffected.
 chown patricol:patrick /home/patricol/.bin/*

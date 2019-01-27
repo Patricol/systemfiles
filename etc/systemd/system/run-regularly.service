@@ -1,1 +1,10 @@
-/home/secure/run-regularly.service
+[Unit]
+Description=Custom maintenance scripts
+
+[Service]
+Type=oneshot
+
+ExecStart=/home/secure/bin/run-regularly
+
+[Install]
+WantedBy=default.target

@@ -2,7 +2,7 @@
 
 # Upgrade eclipse che first, so it handles any changes that need to be made to persistent files.
 # source it so that we can use functions and variables from it here.
-source /home/secure/bin/update-che
+source /usr/local/sbin/update-che
 
 # Stop eclipse che
 cli_current stop
@@ -13,7 +13,6 @@ docker system prune --force
 # Remove almost all images
 docker image prune -a --force
 # Reinstall duplicati
-/home/secure/bin/run-duplicati
+run-duplicati
 # Reinstall eclipse che
 cli_current start
-

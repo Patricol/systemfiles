@@ -1,6 +1,6 @@
 #systemfiles git
 
-alias sysg='git --git-dir=/home/secure/systemfiles-repo/ --work-tree=/'
+alias sysg='git --git-dir=/root/systemfiles-repo/ --work-tree=/'
 
 alias sysgk='add_ssh_key github_fcdcbda'
 

@@ -1,1 +1,10 @@
-/home/secure/run-weekly.service
+[Unit]
+Description=Custom maintenance scripts that may interrupt users.
+
+[Service]
+Type=oneshot
+
+ExecStart=/home/secure/bin/run-weekly
+
+[Install]
+WantedBy=default.target

@@ -1,1 +1,41 @@
-/home/patricol/.bin/lock
+#!/bin/bash
+
+if [ -f ~/.config/wpg/patricol_scripts/named-colors.sh ]; then
+    source ~/.config/wpg/patricol_scripts/named-colors.sh
+else
+    darkest='212121'
+    red='d50000'
+    green='00c853'
+    blue='2962ff'
+    bright='bdbdbd'
+fi
+
+bg=$darkest
+typing=$green
+verifying=$blue
+wrong=$red
+text=$bright
+
+#transparency ending
+tpe="FF"
+
+i3lock -k --timestr="%H:%M" --noinputtext="" --wrongtext="" --veriftext="" -e --datestr="%D" \
+-c $bg \
+--ringcolor=$typing$tpe \
+--insidevercolor=$verifying$tpe \
+--ringvercolor=$verifying$tpe \
+--insidewrongcolor=$wrong$tpe \
+--ringwrongcolor=$wrong$tpe \
+--insidecolor=$bg$tpe \
+--linecolor=$bg$tpe \
+--separatorcolor=$bg$tpe \
+--keyhlcolor=$typing$tpe \
+--bshlcolor=$wrong$tpe \
+--verifcolor=$text$tpe \
+--wrongcolor=$text$tpe \
+--layoutcolor=$text$tpe \
+--timecolor=$text$tpe \
+--datecolor=$text$tpe
+
+#--line-uses-ring \
+#--line-uses-inside \

@@ -116,7 +116,6 @@ libu2f-host
 libvirt
 licenses
 lightdm
-lightdm-settings
 lightdm-slick-greeter
 lightdm-webkit-theme-aether
 lightdm-webkit-theme-litarvan

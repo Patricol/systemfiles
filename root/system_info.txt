@@ -119,13 +119,12 @@ libu2f-host 1.1.6-2
 libvirt 5.0.0-1
 licenses 20181104-1
 lightdm 1:1.28.0-1
-lightdm-settings 1.2.5-1
 lightdm-slick-greeter 1.2.4-1
 lightdm-webkit-theme-aether 2.2.2-1
 lightdm-webkit-theme-litarvan 2.0.7-3
 lightdm-webkit-theme-luminos-git 1.0.1-1
 linux 4.20.4.arch1-1
-linux-lts 4.19.17-1
+linux-lts 4.19.18-1
 logrotate 3.15.0-1
 lolcat 99.9.11-2
 lvm2 2.02.183-2
@@ -155,7 +154,7 @@ nvidia 415.27-2
 nvidia-docker 2.0.3-4
 oh-my-zsh-git r4896.ea6ec09b9-1
 okular 18.12.1-1
-oomox-git 1.10.r60.g4e049ddf-1
+oomox-git 1.11.r1.geb22d829-1
 openssh 7.9p1-1
 ovmf 1:r24601.6861765935-1
 p7zip 16.02-5
@@ -266,7 +265,7 @@ yay 9.1.0-1
 youtube-dl 2019.01.17-1
 yubico-pam 2.26-1
 yubikey-personalization-gui 3.1.25-1
-zsh 5.6.2-1
+zsh 5.7-2
 zsh-completions 0.30.0-1
 Dependencies:
 a52dec 0.7.4-10
@@ -404,7 +403,7 @@ gnome-desktop 1:3.30.2-1
 gnome-online-accounts 3.30.1-1
 gnome-themes-extra 3.28-1
 gnome-video-effects 0.4.3+13+g6867955-1
-gnutls 3.6.5-4
+gnutls 3.6.6-1
 gobject-introspection 1.58.3-1
 gobject-introspection-runtime 1.58.3-1
 gperftools 2.7-1
@@ -430,10 +429,10 @@ gst-plugins-good 1.14.4-1
 gstreamer 1.14.4-1
 gtk-engine-murrine 0.98.2-3
 gtk-engines 2.21.0-4
-gtk-update-icon-cache 3.24.4-1
+gtk-update-icon-cache 3.24.4+15+g80b5024239-1
 gtk-vnc 0.9.0-1
 gtk2 2.24.32-1
-gtk3 3.24.4-1
+gtk3 3.24.4+15+g80b5024239-1
 gtkmm 1:2.24.5-3
 gtkmm3 3.24.0-1
 gtksourceview3 3.24.9-2

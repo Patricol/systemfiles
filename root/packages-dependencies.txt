@@ -549,7 +549,6 @@ netcf
 nettle
 nm-connection-editor
 node-gyp
-nodejs-lts-dubnium
 npm
 npth
 nspr
@@ -814,6 +813,7 @@ sdl2
 seabios
 semver
 serd
+setcolors-git
 shaderc
 shared-mime-info
 signon-kwallet-extension

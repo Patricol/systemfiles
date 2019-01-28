@@ -147,6 +147,7 @@ mdadm 4.0-2
 mediainfo 18.12-1
 meld 3.20.0-1
 mesa-demos 8.4.0-1
+mkinitcpio-colors-git 11.ac5765f-1
 nano 3.2-1
 nemo 4.0.6-2
 neofetch 6.0.0-1
@@ -155,6 +156,7 @@ netctl 1.19-1
 network-manager-applet 1.8.19dev+21+geebf7f95-1
 networkmanager 1.14.5dev+17+gba83251bb-2
 nitrogen 1.6.1-2
+nodejs 11.8.0-1
 noto-fonts 20190111-1
 noto-fonts-emoji 20180810-2
 nss-mdns 0.14.1-1
@@ -837,7 +839,6 @@ netcf 0.2.8-7
 nettle 3.4.1-1
 nm-connection-editor 1.8.19dev+21+geebf7f95-1
 node-gyp 3.8.0-1
-nodejs-lts-dubnium 10.15.0-2
 npm 6.7.0-1
 npth 1.6-1
 nspr 4.20-1
@@ -1102,6 +1103,7 @@ sdl2 2.0.9-1
 seabios 1.12.0-1
 semver 5.6.0-1
 serd 0.30.0-1
+setcolors-git 65.92c2573-1
 shaderc 2018.0-3
 shared-mime-info 1.10-1
 signon-kwallet-extension 18.12.1-1

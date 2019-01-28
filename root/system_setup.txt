@@ -55,7 +55,7 @@ alias sg='git --git-dir=/root/systemfiles-repo --work-tree=/'
 alias sgc='sg checkout -f arch --'
 sgc /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
 locale-gen
-mkinitcpio -p linux
+mkinitcpio -P
 passwd
 refind-install
 bootctl install
@@ -86,7 +86,7 @@ exit
 #login as patricol (can use ssh this time if desired.)
 sudo pacman -Syu pigz pacman-contrib
 sudo sh -c 'fallocate -l 16G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile' #match to RAM installed.
-sudo mkinitcpio -p linux
+sudo mkinitcpio -P
 #handle any warnings thrown by that last command. can safely ignore missing aic94xx, wd719x, and smsmdtv
 
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -sci && cd .. && rm -rf ./yay/
@@ -134,7 +134,7 @@ sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.
 #disable hibernation and suspend. Sleep seems to be the same thing. DPMS and "screen blanking" are distinct from all of these.
 #this also means there's no reason for me to use caffeine; I was using it to keep the computer from suspending when programs were running.
 sudo journalctl --vacuum-size=100M && sudo systemctl restart systemd-journald.service
-sudo mkinitcpio -p linux
+sudo mkinitcpio -P
 
 gcloud init
 

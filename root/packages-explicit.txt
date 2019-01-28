@@ -144,6 +144,7 @@ mdadm
 mediainfo
 meld
 mesa-demos
+mkinitcpio-colors-git
 nano
 nemo
 neofetch
@@ -152,6 +153,7 @@ netctl
 network-manager-applet
 networkmanager
 nitrogen
+nodejs
 noto-fonts
 noto-fonts-emoji
 nss-mdns

@@ -13,7 +13,7 @@ alias sysgdc='sysgd --cached'
 alias sysgm='sysg difftool -d -t meld'
 
 alias sysga='sysg add'
-alias sysgaa='sysga -u && sysga ~/.aliases /boot/loader /boot/EFI/refind/{drivers*,theme} /usr/local/{bin,sbin}'
+alias sysgaa='sysga -u && sysga ~/.aliases /boot/loader /boot/EFI/refind/{drivers*,theme} /usr/local/{bin,sbin} /etc/pacman.d/hooks/'
 alias sysgac='sysgaa && sysgc'
 alias sysgc='sysg commit'
 

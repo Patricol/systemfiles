@@ -1,0 +1,14 @@
+#!/bin/bash
+
+SYSTEMD_BOOT_HEX=`efibootmgr | grep "Linux Boot Manager" | cut -f1 -d'*' | cut -f2 -d't'`
+
+efibootmgr --bootnext $SYSTEMD_BOOT_HEX
+
+#efivar --list | grep LoaderConfigTimeout | xargs -l1 efivar -p -n
+#efivar --list | grep LoaderEntryDefault | xargs -l1 efivar -p -n
+
+efivar -n 4a67b082-0a4c-41cf-b6c7-440b29bb8c4f-LoaderConfigTimeout -w -f /root/efivars/LoaderConfigTimeout-60
+efivar -n 4a67b082-0a4c-41cf-b6c7-440b29bb8c4f-LoaderEntryDefault -w -f /root/efivars/LoaderEntryDefault-Arch
+
+systemctl reboot
+

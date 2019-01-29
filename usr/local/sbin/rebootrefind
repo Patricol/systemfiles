@@ -1,0 +1,8 @@
+#!/bin/bash
+
+REFIND_HEX=`efibootmgr | grep "rEFInd Boot Manager" | cut -f1 -d'*' | cut -f2 -d't'`
+
+efibootmgr --bootnext $REFIND_HEX
+
+systemctl reboot
+

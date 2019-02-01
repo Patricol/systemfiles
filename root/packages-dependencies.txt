@@ -99,7 +99,7 @@ gd
 gdbm
 gdk-pixbuf2
 gegl
-geoclue2
+geoclue
 geocode-glib
 ghostscript
 giblib

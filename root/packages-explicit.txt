@@ -161,6 +161,7 @@ ntfs-3g
 numix-circle-icon-theme-git
 nvidia
 nvidia-docker
+nvidia-lts
 nvidia-settings
 oh-my-zsh-git
 okular

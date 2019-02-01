@@ -28,9 +28,9 @@ calibre 3.38.1-1
 caprine 2.23.0-1
 cdrtools 3.02a09-1
 chafa 1.0.1-1
-cheat-git 2.4.0-1
+cheat-git 2.4.2-1
 cheese 3.30.0-1
-chromium 71.0.3578.98-3
+chromium 72.0.3626.81-1
 cifs-utils 6.8-2
 clang 7.0.1-1
 coreutils 8.30-1
@@ -88,7 +88,7 @@ gnome-screenshot 3.30.0-1
 gnome-sound-recorder 3.28.2-1
 gnome-system-monitor 3.30.0-1
 gnupg 2.2.12-2
-google-cloud-sdk 231.0.0-1
+google-cloud-sdk 232.0.0-1
 google-musicmanager 1.0.467.4929_r0-6
 gpa 0.10.0-1
 gparted 0.33.0-1
@@ -103,13 +103,13 @@ handbrake 1.2.0-1
 hardcode-tray 4.3-1
 highlight 3.48-1
 htop 2.2.0-2
-i3-gaps 4.16-1
+i3-gaps 4.16.1-1
 i3lock-color-git r518.fb9d064-1
 indicator-sound-switcher 2.2.0-1
 inetutils 1.9.4-7
 inkscape 0.92.4-2
 intel-ucode 20180807.a-1
-intellij-idea-ce 2018.3.3-1
+intellij-idea-ce 2018.3.4-1
 iproute2 4.20.0-1
 iputils 20180629.f6aac8d-3
 ipython 7.2.0-1
@@ -131,7 +131,7 @@ lightdm-slick-greeter 1.2.4-1
 lightdm-webkit-theme-aether 2.2.2-1
 lightdm-webkit-theme-litarvan 2.0.7-3
 lightdm-webkit-theme-luminos-git 1.0.1-1
-linux 4.20.4.arch1-1
+linux 4.20.6.arch1-1
 linux-firmware 20190118.a8b75ca-1
 linux-lts 4.19.18-1
 logrotate 3.15.0-1
@@ -156,14 +156,15 @@ netctl 1.19-1
 network-manager-applet 1.8.19dev+21+geebf7f95-1
 networkmanager 1.14.5dev+17+gba83251bb-2
 nitrogen 1.6.1-2
-nodejs 11.8.0-1
+nodejs 11.9.0-1
 noto-fonts 20190111-1
 noto-fonts-emoji 20180810-2
 nss-mdns 0.14.1-1
 ntfs-3g 2017.3.23-3
 numix-circle-icon-theme-git 0.r34.da33f8b-1
-nvidia 415.27-2
+nvidia 415.27-4
 nvidia-docker 2.0.3-4
+nvidia-lts 1:415.27-2
 nvidia-settings 415.27-1
 oh-my-zsh-git r4896.ea6ec09b9-1
 okular 18.12.1-1
@@ -196,7 +197,7 @@ procps-ng 3.3.15-1
 protobuf 3.6.1.3-1
 psensor 1.2.0-6
 psmisc 23.2-1
-pycharm-community-edition 2018.2.4-1
+pycharm-community-edition 2018.3.4-1
 python 3.7.2-3
 python-pip 18.1-1
 python-pywal 3.3.0-1
@@ -213,7 +214,7 @@ readline 8.0.0-1
 redshift 1.12-2
 refind-efi 0.11.3-1
 reiserfsprogs 3.6.27-2
-remmina 1:1.3.0-1
+remmina 1:1.3.1-1
 rofi 1.5.2-1
 rofi-dmenu 1-1
 rsync 3.1.3-1
@@ -226,7 +227,7 @@ shotwell 2:0.30.1-2
 signal 1.20.0-2
 simple-scan 3.30.2-1
 sshfs 3.5.1-1
-standardnotes-desktop 3.0.2-1
+standardnotes-desktop 3.0.3-1
 stress 1.0.4-5
 sudo 1.8.27-1
 sysfsutils 2.1.0-10
@@ -245,7 +246,7 @@ ttf-roboto 2.138-1
 ttf-roboto-mono 1:2.000985-6
 ttf-unifont 11.0.03-1
 udiskie 1.7.5-2
-unrar 1:5.6.8-1
+unrar 1:5.7.1-1
 unzip 6.0-13
 usbutils 010-1
 util-linux 2.33.1-2
@@ -282,7 +283,7 @@ xorg-xrandr 1.5.0-2
 xrdp 0.9.9-2
 xterm 343-1
 yay 9.1.0-1
-youtube-dl 2019.01.17-1
+youtube-dl 2019.01.30.1-1
 yubico-pam 2.26-1
 yubikey-personalization-gui 3.1.25-1
 zsh 5.7-2
@@ -325,7 +326,7 @@ btrfs-progs 4.19.1-1
 bubblewrap 0.3.1-1
 c-ares 1.15.0-1
 ca-certificates 20181109-1
-ca-certificates-mozilla 3.41-1
+ca-certificates-mozilla 3.42-1
 ca-certificates-utils 20181109-1
 cairo 1.16.0-1
 cairomm 1.12.2-3
@@ -389,7 +390,7 @@ gd 2.2.5-1
 gdbm 1.18.1-2
 gdk-pixbuf2 2.38.0-1
 gegl 0.4.12-1
-geoclue2 2.5.2-2
+geoclue 2.5.2-3
 geocode-glib 3.26.0-1
 ghostscript 9.26-2
 giblib 1.2.4-7
@@ -401,7 +402,7 @@ glib2 2.58.3-1
 glibmm 2.56.0-1
 glslang 7.10.2984-1
 glu 9.0.0-5
-glusterfs 1:5.3-1
+glusterfs 1:5.3-2
 gmp 6.1.2-2
 gnome-backgrounds 3.30.0-1
 gnome-desktop 1:3.30.2-1
@@ -445,8 +446,8 @@ guile 2.2.4-2
 gupnp 1.0.3-1
 gupnp-igd 0.2.5-1
 gvfs 1.38.1+8+ge4eec2bc-1
-harfbuzz 2.3.0-1
-harfbuzz-icu 2.3.0-1
+harfbuzz 2.3.1-1
+harfbuzz-icu 2.3.1-1
 hicolor-icon-theme 0.17-1
 hidapi 0.8.0rc1-3
 hspell 1.4-1
@@ -454,11 +455,11 @@ http-parser 2.9.0-1
 hunspell 1.7.0-2
 hwids 20180917-1
 hyphen 2.8.8-2
-iana-etc 20181219-1
+iana-etc 20190125-1
 icu 63.1-2
 ijs 0.35-2
 ilmbase 2.3.0-1
-imagemagick 7.0.8.24-1
+imagemagick 7.0.8.25-1
 imlib2 1.5.1-1
 intel-tbb 2019.3-1
 iptables 1:1.8.2-1
@@ -558,7 +559,7 @@ libcap 2.26-1
 libcap-ng 0.7.9-1
 libcddb 1.3.2-5
 libcdio 2.0.0-1
-libcdio-paranoia 10.2+0.94+2-2
+libcdio-paranoia 10.2+2.0.0-1
 libcdr 0.1.5-1
 libcmis 0.5.2-2
 libcroco 0.6.12+4+g9ad7287-2
@@ -608,7 +609,7 @@ libgme 0.6.2-1
 libgnome-games-support 1.4.3-1
 libgnome-keyring 3.12.0-3
 libgnomekbd 3.26.0+5+g1c1b585-1
-libgpg-error 1.34-1
+libgpg-error 1.35-1
 libgphoto2 2.5.22-1
 libgtop 2.38.0+13+gcab8791f-1
 libgudev 232-1
@@ -640,7 +641,7 @@ libldap 2.4.47-1
 liblqr 0.4.2-2
 liblxqt 0.13.0-1
 libmad 0.15.1b-8
-libmagick 7.0.8.24-1
+libmagick 7.0.8.25-1
 libmagick6 6.9.10.17-1
 libmatroska 1.4.9-1
 libmaxminddb 1.3.2-1
@@ -689,7 +690,7 @@ libpaper 1.1.24-11
 libpcap 1.9.0-1
 libpciaccess 0.14-1
 libpgm 5.2.122-3
-libpipeline 1.5.0-1
+libpipeline 1.5.1-1
 libplacebo 1.7.0-1
 libplist 2.0.0+11+gec9ba8b-2
 libpng 1.6.36-1
@@ -706,7 +707,7 @@ librevenge 0.0.4-2
 librsvg 2:2.44.12-1
 libsamplerate 0.1.9-2
 libsasl 2.1.26-16
-libsass 3.5.4-1
+libsass 3.5.5-1
 libseccomp 2.3.3-1
 libsecret 0.18.7-1
 libshout 1:2.4.1-4
@@ -733,10 +734,10 @@ libthai 0.1.28-1
 libtheora 1.1.1-4
 libtiff 4.0.10-1
 libtirpc 1.1.4-1
-libtommath 1.0.1-1
+libtommath 1.1.0-1
 libtorrent-rasterbar 1:1.1.12-1
 libunistring 0.9.10-1
-libunrar 1:5.6.8-1
+libunrar 1:5.7.1-1
 libunwind 1.3.1-1
 libupnp 1.6.25-1
 liburcu 0.10.2-1
@@ -842,7 +843,7 @@ node-gyp 3.8.0-1
 npm 6.7.0-1
 npth 1.6-1
 nspr 4.20-1
-nss 3.41-1
+nss 3.42-1
 numactl 2.0.12-1
 numix-icon-theme-git 0.r1981.896d9100e-1
 nvidia-container-runtime 2.0.0+1.docker18.03.0-1
@@ -907,7 +908,7 @@ pyalpm 0.8.5-2
 pygobject-devel 3.30.4-1
 pygobject2-devel 2.28.7-2
 pygtk 2.24.0-8
-pyqt5-common 5.11.3-2
+pyqt5-common 5.11.3-3
 python-appdirs 1.4.3-2
 python-beaker 1.10.0-2
 python-bleach 3.1.0-1
@@ -949,7 +950,7 @@ python-lxml 4.3.0-1
 python-mako 1.0.7-3
 python-markupsafe 1.1.0-1
 python-mistune 0.8.4-1
-python-msgpack 0.6.0-1
+python-msgpack 0.6.1-1
 python-packaging 19.0-1
 python-pandocfilters 1.4.2-2
 python-parso 0.3.2-1
@@ -961,7 +962,7 @@ python-ply 3.11-2
 python-powerline 2.7-2
 python-progress 1.4-2
 python-prometheus_client 0.5.0-1
-python-prompt_toolkit 2.0.7-1
+python-prompt_toolkit 2.0.8-1
 python-psutil 5.5.0-1
 python-ptyprocess 0.6.0-2
 python-pycparser 2.19-1
@@ -975,7 +976,7 @@ python-regex 2019.01.24-1
 python-requests 2.21.0-1
 python-retrying 1.3.3-4
 python-send2trash 1.5.0-2
-python-setuptools 1:40.7.0-1
+python-setuptools 1:40.7.1-1
 python-sgmllib 5.2.1-3
 python-six 1.12.0-1
 python-terminado 0.8.1-2
@@ -1024,7 +1025,7 @@ python2-ipaddress 1.0.22-1
 python2-lockfile 0.12.2-4
 python2-lxml 4.3.0-1
 python2-mechanize 1:0.4.0-1
-python2-msgpack 0.6.0-1
+python2-msgpack 0.6.1-1
 python2-netifaces 0.10.9-1
 python2-packaging 19.0-1
 python2-pep517 0.5.0-1
@@ -1037,12 +1038,12 @@ python2-pygments 2.3.1-1
 python2-pyhamcrest 1.9.0-3
 python2-pyopenssl 19.0.0-1
 python2-pyparsing 2.3.1-1
-python2-pyqt5 5.11.3-2
+python2-pyqt5 5.11.3-3
 python2-pytoml 0.1.20-1
 python2-regex 2019.01.24-1
 python2-requests 2.21.0-1
 python2-retrying 1.3.3-4
-python2-setuptools 1:40.7.0-1
+python2-setuptools 1:40.7.1-1
 python2-sip-pyqt5 4.19.13-1
 python2-six 1.12.0-1
 python2-twisted 18.9.0-1
@@ -1105,7 +1106,7 @@ semver 5.6.0-1
 serd 0.30.0-1
 setcolors-git 65.92c2573-1
 shaderc 2018.0-3
-shared-mime-info 1.10-1
+shared-mime-info 1.12-1
 signon-kwallet-extension 18.12.1-1
 signon-plugin-oauth2 0.24-2
 signon-ui 0.17+20150611-2

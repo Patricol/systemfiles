@@ -32,7 +32,6 @@ boost-libs
 bridge-utils
 brotli
 btrfs-progs
-bubblewrap
 c-ares
 ca-certificates
 ca-certificates-mozilla
@@ -42,11 +41,9 @@ cairomm
 cantarell-fonts
 cblas
 cdparanoia
-celt
 celt0.5.1
 ceph-libs
 chmlib
-chromaprint
 cinnamon-desktop
 clucene
 clutter
@@ -80,9 +77,7 @@ enchant
 exempi
 exiv2
 expat
-faac
 faad2
-fftw
 flac
 fltk
 fontconfig
@@ -114,8 +109,6 @@ glu
 glusterfs
 gmp
 gnome-backgrounds
-gnome-desktop
-gnome-online-accounts
 gnome-themes-extra
 gnutls
 gobject-introspection
@@ -127,15 +120,11 @@ gptfdisk
 graphene
 graphicsmagick
 graphite
-graphviz
 grub
 gsettings-desktop-schemas
 gsfonts
 gsl
 gsm
-gsound
-gssdp
-gst-plugins-bad
 gst-plugins-base
 gst-plugins-base-libs
 gst-plugins-good
@@ -150,10 +139,7 @@ gtkmm
 gtkmm3
 gtksourceview3
 gtkspell
-gts
 guile
-gupnp
-gupnp-igd
 gvfs
 harfbuzz
 harfbuzz-icu
@@ -176,7 +162,6 @@ iso-codes
 jack
 jansson
 jasper
-java-environment-common
 java-runtime-common
 jbig2dec
 jemalloc
@@ -186,7 +171,6 @@ js52
 js60
 json-c
 json-glib
-jsoncpp
 jupyter-nbconvert
 jupyter-nbformat
 jupyter-notebook
@@ -236,7 +220,6 @@ kwidgetsaddons
 kwindowsystem
 kxmlgui
 l-smash
-ladspa
 lame
 lapack
 lcms2
@@ -257,7 +240,6 @@ libatomic_ops
 libavc1394
 libblockdev
 libbluray
-libbs2b
 libbsd
 libbytesize
 libcaca
@@ -287,7 +269,6 @@ libdmx
 libdrm
 libdv
 libdvbpsi
-libdvdnav
 libdvdread
 libe-book
 libebml
@@ -302,20 +283,17 @@ libevent
 libexif
 libexttextcat
 libfakekey
-libfdk-aac
+libfbclient
 libffi
 libfilezilla
 libfontenc
 libfprint
 libfreehand
 libgcrypt
-libgdata
 libgee
 libgexiv2
 libglade
 libglvnd
-libgme
-libgnome-games-support
 libgnome-keyring
 libgnomekbd
 libgpg-error
@@ -323,7 +301,6 @@ libgphoto2
 libgtop
 libgudev
 libgusb
-libgweather
 libheif
 libibus
 libical
@@ -361,7 +338,6 @@ libmms
 libmng
 libmnl
 libmodplug
-libmp4v2
 libmpc
 libmpcdec
 libmpeg2
@@ -376,20 +352,16 @@ libnfnetlink
 libnfs
 libnftnl
 libnghttp2
-libnice
 libnl
 libnm
 libnm-glib
-libnm-gtk
 libnma
 libnotify
 libnsl
 libnumbertext
 libnvidia-container
 libnvidia-container-tools
-liboauth
 libodfgen
-libofa
 libogg
 libomxil-bellagio
 liborcus
@@ -429,7 +401,6 @@ libsoup
 libsoxr
 libspectre
 libspiro
-libsrtp
 libssh
 libssh2
 libstaroffice
@@ -533,7 +504,6 @@ media-player-info
 mesa
 metis
 minizip
-mjpegtools
 mkinitcpio
 mkinitcpio-busybox
 mobile-broadband-provider-info
@@ -655,7 +625,6 @@ python-jupyter_client
 python-jupyter_core
 python-keyutils
 python-lockfile
-python-lxml
 python-mako
 python-markupsafe
 python-mistune
@@ -807,8 +776,6 @@ runc
 rxvt-unicode-terminfo
 sane
 sassc
-sbc
-sdl
 sdl2
 seabios
 semver
@@ -827,7 +794,6 @@ sonnet
 sord
 sound-theme-freedesktop
 soundtouch
-spandsp
 speex
 speexdsp
 spice
@@ -835,7 +801,6 @@ spice-gtk
 spirv-tools
 sqlite
 sratom
-srt
 startup-notification
 suil
 suitesparse
@@ -873,7 +838,6 @@ wayland
 wayland-protocols
 webkit2gtk
 webrtc-audio-processing
-wildmidi
 wireshark-cli
 wireshark-common
 woff2
@@ -926,4 +890,3 @@ zita-alsa-pcmi
 zita-resampler
 zlib
 zstd
-zvbi

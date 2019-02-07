@@ -26,7 +26,6 @@ caprine
 cdrtools
 chafa
 cheat-git
-cheese
 chromium
 cifs-utils
 clang
@@ -77,11 +76,8 @@ git
 gitkraken
 glibc
 gnome-calculator
-gnome-clocks
 gnome-disk-utility
 gnome-keyring
-gnome-mines
-gnome-screenshot
 gnome-sound-recorder
 gnome-system-monitor
 gnupg
@@ -106,12 +102,11 @@ indicator-sound-switcher
 inetutils
 inkscape
 intel-ucode
-intellij-idea-ce
 iproute2
 iputils
 ipython
-jdk8-openjdk
 jfsutils
+jsoncpp
 jupyter
 keychain
 komorebi
@@ -220,8 +215,7 @@ s-nail
 scrot
 sed
 shadow
-shotwell
-signal
+signal-desktop-bin
 simple-scan
 sshfs
 standardnotes-desktop

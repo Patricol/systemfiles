@@ -1,18 +1,8 @@
 #!/bin/bash
 
 
-OUTPUT_FILE="/root/system_info.txt"
-
-echo "System Info:" | tee $OUTPUT_FILE
-
-echo "Package Info:" | tee -a $OUTPUT_FILE
-echo "Explicitly Installed:" | tee -a $OUTPUT_FILE
-pacman -Qe | tee -a $OUTPUT_FILE
-echo "Dependencies:" | tee -a $OUTPUT_FILE
-pacman -Qd | tee -a $OUTPUT_FILE
-
-pacman -Qqe | tee /root/packages-explicit.txt
-pacman -Qqd | tee /root/packages-dependencies.txt
+pacman -Qqe | tee /root/info/packages/explicit.txt
+pacman -Qqd | tee /root/info/packages/dependencies.txt
 
 # Save a copy of this info somewhere in /home so it gets backed up regularly.
-cp /root/system_info.txt /home/secure/
+cp -rf /root/info /home/secure/

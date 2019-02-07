@@ -50,8 +50,8 @@ arch-chroot /mnt
 hwclock --systohc
 pacman -Syu intel-ucode amd-ucode git vim openssh refind-efi
 # no reason not to install both intel and amd
-git clone -b arch --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
-alias sg='git --git-dir=/root/systemfiles-repo --work-tree=/'
+git clone -b arch --bare https://github.com/Patricol/systemfiles.git /root/.systemfiles-repo
+alias sg='git --git-dir=/root/.systemfiles-repo --work-tree=/'
 alias sgc='sg checkout -f arch --'
 sgc /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
 locale-gen
@@ -101,13 +101,13 @@ sudo mv /home/patricol/arch-homes.tar /
 sudo rm -rf /home/*
 cd / && sudo tar --same-owner -xvpf /arch-homes.tar
 
-alias sysg='sudo git --git-dir=/root/systemfiles-repo/ --work-tree=/'
+alias sysg='sudo git --git-dir=/root/.systemfiles-repo/ --work-tree=/'
 sysg config --local status.showUntrackedFiles no
 
 
 sudo sort-mirrors
 #ensure /etc/makepkg.conf is checked out before installing the AUR packages, or they'll take an eternity to compress.
-yay --needed -Syu $(sudo cat /root/packages-explicit.txt)
+yay --needed -Syu $(sudo cat /root/info/packages/explicit.txt)
 
 
 sysg checkout -f

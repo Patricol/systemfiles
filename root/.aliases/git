@@ -9,9 +9,6 @@ alias sysgs='sysg status'
 alias sysgd='sysg diff'
 alias sysgdc='sysgd --cached'
 
-#provide the branch to pull changes from as an arg
-alias sysgm='sysg difftool -d -t meld'
-
 alias sysga='sysg add'
 alias sysgaa='sysga -u && sysga ~/.aliases /boot/loader /boot/EFI/refind/{drivers*,theme} /usr/local/{bin,sbin} /etc/pacman.d/hooks /root/efivars'
 alias sysgac='sysgaa && sysgc'

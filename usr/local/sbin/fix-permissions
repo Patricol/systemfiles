@@ -12,6 +12,9 @@ chown -R patricol:patrick /home/shared
 chmod -R ug+rwX,o-rwx /home/shared
 chmod g+s /home/shared
 
+chown -R patricol:patrick /usr/local/android
+chmod -R ug+rwX,o-rwx /usr/local/android
+
 chown -R root:root /home/secure
 chmod -R u+rwX,go-rwx /home/secure
 

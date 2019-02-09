@@ -46,10 +46,6 @@ ceph-libs
 chmlib
 cinnamon-desktop
 clucene
-clutter
-clutter-gst
-clutter-gtk
-cogl
 colord
 colord-sane
 compiler-rt
@@ -78,6 +74,7 @@ exempi
 exiv2
 expat
 faad2
+fftw
 flac
 fltk
 fontconfig
@@ -86,6 +83,7 @@ fribidi
 fuse-common
 fuse2
 fuse3
+gamin
 gc
 gcab
 gconf
@@ -223,6 +221,7 @@ l-smash
 lame
 lapack
 lcms2
+ldb
 ldns
 lensfun
 leveldb
@@ -269,6 +268,7 @@ libdmx
 libdrm
 libdv
 libdvbpsi
+libdvdnav
 libdvdread
 libe-book
 libebml
@@ -290,7 +290,6 @@ libfontenc
 libfprint
 libfreehand
 libgcrypt
-libgee
 libgexiv2
 libglade
 libglvnd
@@ -440,7 +439,6 @@ libwacom
 libwbclient
 libwebp
 libwmf
-libwnck
 libwpd
 libwpg
 libwps
@@ -470,7 +468,6 @@ libxnvctrl
 libxpm
 libxrandr
 libxrender
-libxres
 libxshmfence
 libxslt
 libxss
@@ -488,6 +485,7 @@ lilv
 linux-api-headers
 llvm-libs
 lm_sensors
+lmdb
 lpsolve
 lua
 lua51
@@ -756,6 +754,7 @@ resvg-git
 rpcbind
 rtkit
 rtmpdump
+rubberband
 ruby
 ruby-diff-lcs
 ruby-manpages
@@ -788,6 +787,7 @@ signon-plugin-oauth2
 signon-ui
 signond
 slang
+smbclient
 snappy
 solid
 sonnet
@@ -808,6 +808,7 @@ taglib
 talloc
 tcl
 tdb
+tevent
 thin-provisioning-tools
 threadweaver
 tigervnc

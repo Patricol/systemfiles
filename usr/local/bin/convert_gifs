@@ -2,31 +2,40 @@
 #https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/
 #https://trac.ffmpeg.org/wiki/Encode/VP9
 #https://trac.ffmpeg.org/wiki/Encode/H.264#Encodingfordumbplayers
+# Remember that GTX 970 has no hardware accelerated decode for VP9 (https://developer.nvidia.com/video-encode-decode-gpu-support-matrix)
 
 
-convert_to_webm () {
+convert_to_video () {
     filepath="$1"
 
     #coalesce breaks transparency but fixes most others
     #convert -coalesce ./file.gif f%08d.png
 
+    format=webm
+    ext=$format
+    
+    args_shared="-movflags +faststart -filter_complex [0:v]fps=120 -vsync 0 -an"
+    args_vp8="$args_shared -c:v libvpx -crf 4 -auto-alt-ref 0"
+    args_vp9="$args_shared -c:v libvpx-vp9 -lossless 1"
+    args_h264="$args_shared -c:v libx264 -pix_fmt yuv420p -crf 12"
+
     filepath_without_extension="${filepath%.*}"
-    ffmpeg -i "$filepath" -movflags +faststart -c:v libvpx-vp9 -lossless 1 -filter_complex "[0:v] fps=120" -vsync 0 -f webm -an -hide_banner -nostats "$filepath_without_extension"_temp.webm
-    mv "$filepath_without_extension"_temp.webm "$filepath_without_extension".webm
+    ffmpeg -i "$filepath" $args_vp9 -f $format -hide_banner -nostats "$filepath_without_extension"_temp.$ext
+    mv "$filepath_without_extension"_temp.$ext "$filepath_without_extension".$ext
 }
 
 for filepath in "$@"
 do
     while [ `jobs | wc -l` -ge 7 ]; do
-        sleep 2
+        sleep 4
     done
-    convert_to_webm "$filepath" &
+    convert_to_video "$filepath" &
 done
 
 echo 'Waiting for conversions to complete....'
 
 while [ `jobs -p | wc -l` -ge 1 ]; do
-    sleep 2
+    sleep 4
     jobs
 done
 

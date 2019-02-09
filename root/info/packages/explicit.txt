@@ -109,7 +109,6 @@ jfsutils
 jsoncpp
 jupyter
 keychain
-komorebi
 lastpass
 less
 libmicrodns
@@ -140,6 +139,7 @@ mediainfo
 meld
 mesa-demos
 mkinitcpio-colors-git
+mpv
 nano
 nemo
 neofetch
@@ -215,6 +215,7 @@ s-nail
 scrot
 sed
 shadow
+shantz-xwinwrap-bzr
 signal-desktop-bin
 simple-scan
 sshfs

@@ -1,0 +1,59 @@
+#!/bin/bash
+
+#dither: convert bg.gif +dither -colors 16 ./bg.gif
+
+video=$1
+
+if [ ! -f "$video" ]; then
+    echo "please provide a video as an argument"
+    exit 1
+elif [ -z "`which mpv 2> /dev/null`" ]; then
+    echo "please install mpv"
+    exit 1
+elif [ -z "`which xwinwrap 2> /dev/null`" ]; then
+    echo "please install xwinwrap"
+    exit 1
+fi
+
+#if it's a symlink; this lets us get the real extension etc.
+video=`realpath $video`
+
+pgrep xwinwrap > /dev/null && killall -SIGKILL xwinwrap
+
+#vo='xv'
+vo='gpu'
+
+logging="--really-quiet"
+basic="--no-config --no-border --x11-name=mpvbackground --loop --wid WID"
+rendering="--x11-bypass-compositor=no --vo=$vo --hwdec=auto --framedrop=vo --hwdec-codecs=all"
+audio="--gapless-audio=yes --mute=yes"
+misc="--speed=1"
+
+#optimized for pixel art.
+sharpening="--scale=oversample --scale-param1=0.5"
+cropextra="$sharpening --keepaspect=yes --panscan=1.0 --video-pan-x=0.0 --video-pan-y=0.0"
+unscaled="--keepaspect=yes --video-unscaled=yes"
+letterboxed="$sharpening --keepaspect=yes"
+fill="$sharpening --keepaspect=no"
+morphing=$cropextra
+#morphing=$letterboxed
+#morphing=$fill
+
+mpvargs="$basic $logging $rendering $audio $misc $morphing"
+
+
+xwwargs="-ni -fs -b -nf -ov"
+
+function make_static_frame() {
+    video=$1
+    if [[ ${video: -4} == ".gif" ]] && [[ -n "`which convert 2> /dev/null`" ]]; then
+        frame_path=$HOME/.config/wallpapers/general/animated-frame.png
+        convert "$video[0]" $frame_path
+        rm -rf $HOME/.cache/thumbnails/neofetch
+        systemctl --user restart wallpaper.service
+    fi
+}
+
+make_static_frame $video &
+
+exec xwinwrap $xwwargs -- mpv $mpvargs "$video" > /dev/null 2>&1

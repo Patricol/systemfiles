@@ -51,15 +51,15 @@ hwclock --systohc
 pacman -Syu intel-ucode amd-ucode git vim openssh refind-efi
 # no reason not to install both intel and amd
 git clone -b arch --bare https://github.com/Patricol/systemfiles.git /root/.systemfiles-repo
-alias sg='git --git-dir=/root/.systemfiles-repo --work-tree=/'
-alias sgc='sg checkout -f arch --'
-sgc /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
+alias gsf='git --git-dir=/root/.systemfiles-repo --work-tree=/'
+alias gsfch='gsf checkout -f arch --'
+gsfch /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
 locale-gen
 mkinitcpio -P
 passwd
 refind-install
 bootctl install
-sgc /boot
+gsfch /boot
 #edit the files in /boot/loader/entries if needed. also /boot/EFI/refind/entries.conf
 exit
 umount -R /mnt
@@ -101,8 +101,8 @@ sudo mv /home/patricol/arch-homes.tar /
 sudo rm -rf /home/*
 cd / && sudo tar --same-owner -xvpf /arch-homes.tar
 
-alias sysg='sudo git --git-dir=/root/.systemfiles-repo/ --work-tree=/'
-sysg config --local status.showUntrackedFiles no
+alias gsf='sudo git --git-dir=/root/.systemfiles-repo/ --work-tree=/'
+gsf config --local status.showUntrackedFiles no
 
 
 sudo sort-mirrors
@@ -110,7 +110,7 @@ sudo sort-mirrors
 yay --needed -Syu $(sudo cat /root/info/packages/explicit.txt)
 
 
-sysg checkout -f
+gsf checkout -f
 (checkout -f to force, but first check in what they modify, for posterity and to make it easier to reapply changes on top of newer base configs. when done, remove this notice.)
 
 sudo fix-permissions
@@ -145,7 +145,7 @@ sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
 
 sudo vncpasswd /etc/vncpasswd
 
-sysgp --set-upstream origin arch
+gsfp --set-upstream origin arch
 
 
 poweroff

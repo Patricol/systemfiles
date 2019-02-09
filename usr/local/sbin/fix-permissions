@@ -1,23 +1,43 @@
 #!/bin/bash
 
-touch /home/patricol/.ssh/{authorized_keys,known_hosts}
-chmod -R go-rwx /home/patricol
-chmod a+r /home/patricol/.ssh/{authorized_keys,known_hosts} /home/patricol/.ssh/*.pub
+function ssh_perms() {
+	homedir=$1
+	sshdir=$homedir/.ssh
+	touch $sshdir/{authorized_keys,known_hosts}
+	chmod -R u+rwX,go-rwx $sshdir/*
+	chmod a+r $sshdir/{authorized_keys,known_hosts} $sshdir/*.pub
+}
 
-touch /home/work/.ssh/{authorized_keys,known_hosts}
-chmod -R ug+rwX,o-rwx /home/work
-chmod a+r /home/work/.ssh/{authorized_keys,known_hosts} /home/work/.ssh/*.pub
+function restrict_to_user() {
+	ownership=$1
+	directory=$2
+	chown -R $ownership $directory
+	if [ "$3" == "allow_group" ]; then
+		chmod -R ug+rwX,o-rwx $directory
+	else
+		chmod -R go-rwx $directory
+	fi
+}
 
-chown -R patricol:patrick /home/shared
-chmod -R ug+rwX,o-rwx /home/shared
-chmod g+s /home/shared
+function homedir_perms() {
+	restrict_to_user $@
+	homedir=$2
+	ssh_perms $homedir
+}
 
-chown -R patricol:patrick /usr/local/android
-chmod -R ug+rwX,o-rwx /usr/local/android
+function shared_folder_perms() {
+	directory=$1
+	restrict_to_user patricol:patrick $directory allow_group
+}
 
-chown -R root:root /home/secure
-chmod -R u+rwX,go-rwx /home/secure
+homedir_perms patricol:patrick /home/patricol
+homedir_perms work:patrick /home/work allow_group
+homedir_perms root:root /root
 
+shared_folder_perms /home/shared
+shared_folder_perms /usr/local/android
+
+restrict_to_user root:root /home/secure
 
 chown -R root:root /usr/local/bin
 chmod -R 755 /usr/local/bin
@@ -32,3 +52,4 @@ chmod 770 /media/{nas,gdrive,work,gaming}
 #standardnotes-desktop being installed with wrong permissions repeatedly.
 #google earth one too.
 chmod -R a+rX /opt/*
+

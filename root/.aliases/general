@@ -71,7 +71,7 @@ alias rpl='LANG="en_US.UTF-8" powerline-daemon -qr'
 
 function tif() {
     #test if statement
-    if [ $@ ]; then
+    if [ "$@" ]; then
         echo "True"
     else
         echo "False"

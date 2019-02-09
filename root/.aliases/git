@@ -1,17 +1,17 @@
-#systemfiles git
+#git systemfiles
 
-alias sysg='git --git-dir=/root/.systemfiles-repo/ --work-tree=/'
+alias gsf='git --git-dir=/root/.systemfiles-repo/ --work-tree=/'
 
-alias sysgk='add_ssh_key github_fcdcbda'
+alias gsfk='add_ssh_keys github'
 
-alias sysgs='sysg status'
+alias gsfs='gsf status'
 
-alias sysgd='sysg diff'
-alias sysgdc='sysgd --cached'
+alias gsfd='gsf diff'
+alias gsfdc='gsfd --cached'
 
-alias sysga='sysg add'
-alias sysgaa='sysga -u && sysga ~/.aliases /boot/loader /boot/EFI/refind/{drivers*,theme} /usr/local/{bin,sbin} /etc/pacman.d/hooks /root/efivars'
-alias sysgac='sysgaa && sysgc'
-alias sysgc='sysg commit'
+alias gsfa='gsf add'
+alias gsfaa='gsfa -u && gsfa ~/.aliases /boot/loader /boot/EFI/refind/{drivers*,theme} /usr/local/{bin,sbin} /etc/pacman.d/hooks /root/efivars'
+alias gsfac='gsfaa && gsfc'
+alias gsfc='gsf commit -v'
 
-alias sysgp='sysg push'
+alias gsfp='gsf push'

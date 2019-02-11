@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/
 # https://trac.ffmpeg.org/wiki/Encode/VP9
 # https://trac.ffmpeg.org/wiki/Encode/H.264#Encodingfordumbplayers

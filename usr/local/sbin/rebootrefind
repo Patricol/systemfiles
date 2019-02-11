@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 efibootmgr --bootnext "$(efibootmgr | grep "rEFInd Boot Manager" | cut -f1 -d'*' | cut -f2 -d't')"
 

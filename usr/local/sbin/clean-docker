@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Upgrade eclipse che first, so it handles any changes that need to be made to persistent files.
 # source it so that we can use functions and variables from it here.

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 customlock() {
     if [[ -f ~/.config/wpg/patricol_scripts/named-colors.sh ]]; then

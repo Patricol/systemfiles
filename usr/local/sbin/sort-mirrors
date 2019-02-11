@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #first check we're connected to the internet
 if ping 1.1.1.1 -c 1; then

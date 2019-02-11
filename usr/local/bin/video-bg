@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #dither: convert bg.gif +dither -colors 16 ./bg.gif
 videobg() {

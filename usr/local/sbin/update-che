@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 update_che() {
 	# Check for new versions here: https://github.com/eclipse/che/releases

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #pacman -Rns was asking to remove packages that are optional dependencies of other packages. While loop gets it all done without that issue.
 

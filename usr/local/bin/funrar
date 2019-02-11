@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 funrar() {
 	declare filepath="$1"

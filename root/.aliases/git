@@ -1,10 +1,9 @@
-#git systemfiles
+# git systemfiles
 
 alias gsf='git --git-dir=/root/.systemfiles-repo/ --work-tree=/'
 
 
-alias gsfso='gsf remote set-url origin git@github.com:Patricol/systemfiles.git'
-alias gsfk='gsfso && add_ssh_keys github'
+alias gsfk='gsf remote set-url origin git@github.com:Patricol/systemfiles.git && add_ssh_keys github'
 
 alias gsfs='gsf status --ahead-behind'
 

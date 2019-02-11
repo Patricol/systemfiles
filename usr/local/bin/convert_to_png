@@ -1,18 +1,20 @@
 #!/bin/bash
-#https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/
-#https://trac.ffmpeg.org/wiki/Encode/VP9
-#https://trac.ffmpeg.org/wiki/Encode/H.264#Encodingfordumbplayers
+# https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/
+# https://trac.ffmpeg.org/wiki/Encode/VP9
+# https://trac.ffmpeg.org/wiki/Encode/H.264#Encodingfordumbplayers
 
 
-convert_to_png () {
-    filepath="$1"
+convert_to_png() {
+    declare filepath="$1"
 
-    filepath_without_extension="${filepath%.*}"
+    local filepath_without_extension="${filepath%.*}"
     ffmpeg -i "$filepath" -hide_banner -nostats "$filepath_without_extension"_temp.png
     mv "$filepath_without_extension"_temp.png "$filepath_without_extension".png
 }
 
-for filepath in "$@"
-do
+for filepath in "$@"; do
     convert_to_png "$filepath"
 done
+
+unset -f convert_to_png
+

@@ -1,8 +1,6 @@
 #!/bin/bash
 
-WINDOWS_HEX=`efibootmgr | grep Windows | cut -f1 -d'*' | cut -f2 -d't'`
-
-sudo efibootmgr --bootnext $WINDOWS_HEX
+sudo efibootmgr --bootnext "$(efibootmgr | grep "Windows" | cut -f1 -d'*' | cut -f2 -d't')"
 
 sudo systemctl reboot
 

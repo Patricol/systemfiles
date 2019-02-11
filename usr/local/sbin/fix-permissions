@@ -1,33 +1,32 @@
 #!/bin/bash
 
-function ssh_perms() {
-	homedir=$1
-	sshdir=$homedir/.ssh
-	touch $sshdir/{authorized_keys,known_hosts}
-	chmod -R u+rwX,go-rwx $sshdir/*
-	chmod a+r $sshdir/{authorized_keys,known_hosts} $sshdir/*.pub
+ssh_perms() {
+	declare homedir="$1"
+	local sshdir="$homedir/.ssh"
+	touch "$sshdir"/{authorized_keys,known_hosts}
+	chmod -R u+rwX,go-rwx "$sshdir"/*
+	chmod a+r "$sshdir"/{authorized_keys,known_hosts} "$sshdir"/*.pub
 }
 
-function restrict_to_user() {
-	ownership=$1
-	directory=$2
-	chown -R $ownership $directory
-	if [ "$3" == "allow_group" ]; then
-		chmod -R ug+rwX,o-rwx $directory
+restrict_to_user() {
+	declare ownership="$1" directory="$2"
+	chown -R "$ownership" "$directory"
+	if [[ "$3" == "allow_group" ]]; then
+		chmod -R ug+rwX,o-rwx "$directory"
 	else
-		chmod -R go-rwx $directory
+		chmod -R go-rwx "$directory"
 	fi
 }
 
-function homedir_perms() {
-	restrict_to_user $@
-	homedir=$2
-	ssh_perms $homedir
+homedir_perms() {
+	declare homedir="$2"
+	restrict_to_user "$@"
+	ssh_perms "$homedir"
 }
 
-function shared_folder_perms() {
-	directory=$1
-	restrict_to_user patricol:patrick $directory allow_group
+shared_folder_perms() {
+	declare directory="$1"
+	restrict_to_user patricol:patrick "$directory" allow_group
 }
 
 homedir_perms patricol:patrick /home/patricol
@@ -52,4 +51,6 @@ chmod 770 /media/{nas,gdrive,work,gaming}
 #standardnotes-desktop being installed with wrong permissions repeatedly.
 #google earth one too.
 chmod -R a+rX /opt/*
+
+unset -f ssh_perms restrict_to_user homedir_perms shared_folder_perms
 

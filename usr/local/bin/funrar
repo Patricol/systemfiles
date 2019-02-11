@@ -1,7 +1,13 @@
 #!/bin/bash
 
-filepath="$1"
-filepath_without_extension="${filepath%.*}"
-mkdir "$filepath_without_extension"_temp
-unrar x "$filepath" "$filepath_without_extension"_temp
-mv "$filepath_without_extension"_temp "$filepath_without_extension"
+funrar() {
+	declare filepath="$1"
+	local filepath_without_extension="${filepath%.*}"
+	mkdir "$filepath_without_extension"_temp
+	unrar x "$filepath" "$filepath_without_extension"_temp
+	mv "$filepath_without_extension"_temp "$filepath_without_extension"
+}
+
+funrar "$@"
+unset -f funrar
+

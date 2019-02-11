@@ -5,7 +5,7 @@
 # Easier to maintain/merge; and can use those aliases when checking out a branch in an environment it's not meant for, etc.
 
 # enable color aliases of ls if supported
-if [ -x /usr/bin/dircolors ]; then
+if [[ -x /usr/bin/dircolors ]]; then
     alias ls='ls --color=auto'
 
     alias dir='dir --color=auto'
@@ -41,8 +41,8 @@ alias ebnrc='exec bash --norc --noprofile'
 
 alias logs='journalctl -xe'
 
-function mountiso() {
-	sudo mount -o loop $@ /media/iso
+mountiso() {
+    sudo mount -o loop "$@" /media/iso
 }
 
 alias fkill='killall -KILL'
@@ -54,6 +54,8 @@ alias cdback='cd -'
 alias cdb='cdback'
 alias cdhome='cd ~'
 alias cdh='cdhome'
+alias cdshared='cd /home/shared'
+alias cds='cdshared'
 alias c='clear'
 alias cls='clear && ls'
 alias cl='cls'
@@ -69,20 +71,28 @@ alias brc='vimbottom ~/.bashrc'
 alias rpl='LANG="en_US.UTF-8" powerline-daemon -qr'
 
 
-function tif() {
+tif() {
     #test if statement
-    if [ "$@" ]; then
+    if [[ "$@" ]]; then
         echo "True"
     else
         echo "False"
     fi
 }
 
-function ier() {
+ier() {
     #if exists, run.
-    if [ -n "`which $1 2> /dev/null`" ]; then
-	$@
+    declare program="$1" command="$@"
+    if which "$program" &> /dev/null; then
+	"$command"
     fi
 }
 
 alias epoch='date +%s'
+
+check() {
+    declare program_name="$1"
+    cat "$(which "$program_name")"
+}
+
+alias aecho='echo '

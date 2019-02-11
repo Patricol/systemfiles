@@ -2,7 +2,7 @@
 
 #pacman -Rns was asking to remove packages that are optional dependencies of other packages. While loop gets it all done without that issue.
 
-while [ -n "$(pacman -Qdtq)" ]; do
+while [[ -n "$(pacman -Qdtq)" ]]; do
     pacman -Rn --noconfirm $(pacman -Qdtq);
 done
 

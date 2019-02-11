@@ -1,8 +1,6 @@
 #!/bin/bash
 
-SYSTEMD_BOOT_HEX=`efibootmgr | grep "Linux Boot Manager" | cut -f1 -d'*' | cut -f2 -d't'`
-
-efibootmgr --bootnext $SYSTEMD_BOOT_HEX
+efibootmgr --bootnext "$(efibootmgr | grep "Linux Boot Manager" | cut -f1 -d'*' | cut -f2 -d't')"
 
 #efivar --list | grep LoaderConfigTimeout | xargs -l1 efivar -p -n
 #efivar --list | grep LoaderEntryDefault | xargs -l1 efivar -p -n

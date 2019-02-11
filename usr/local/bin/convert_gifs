@@ -4,37 +4,53 @@
 # https://trac.ffmpeg.org/wiki/Encode/H.264#Encodingfordumbplayers
 # Remember that GTX 970 has no hardware accelerated decode for VP9 (https://developer.nvidia.com/video-encode-decode-gpu-support-matrix)
 
+main() {
+    declare filepaths="$@"
+    convert_to_video() {
+        declare filepath="$1"
+        local format
+        format="webm"
+        local ext
+        ext="${format}"
 
-convert_to_video() {
-    declare filepath="$1"
+        local args_shared
+        args_shared="-movflags +faststart -filter_complex [0:v]fps=120 -vsync 0 -an"
+        local args_vp8
+        args_vp8="${args_shared} -c:v libvpx -crf 4 -auto-alt-ref 0"
+        local args_vp9
+        args_vp9="${args_shared} -c:v libvpx-vp9 -lossless 1"
+        local args_h264
+        args_h264="${args_shared} -c:v libx264 -pix_fmt yuv420p -crf 12"
 
-    local format="webm"
-    local ext="$format"
-    
-    local args_shared="-movflags +faststart -filter_complex [0:v]fps=120 -vsync 0 -an"
-    local args_vp8="$args_shared -c:v libvpx -crf 4 -auto-alt-ref 0"
-    local args_vp9="$args_shared -c:v libvpx-vp9 -lossless 1"
-    local args_h264="$args_shared -c:v libx264 -pix_fmt yuv420p -crf 12"
+        local filepath_without_extension
+        filepath_without_extension="${filepath%.*}"
+        local temp_path
+        temp_path="${filepath_without_extension}_temp.${ext}"
+        local final_path
+        final_path="${filepath_without_extension}.${ext}"
 
-    local filepath_without_extension="${filepath%.*}"
-    ffmpeg -i "$filepath" $args_vp9 -f "$format" -hide_banner -nostats "$filepath_without_extension"_temp."$ext"
-    mv "$filepath_without_extension"_temp."$ext" "$filepath_without_extension"."$ext"
+        ffmpeg -i "${filepath}" ${args_vp9} -f "${format}" -hide_banner -nostats "${temp_path}"
+
+        mv "${temp_path}" "${final_path}"
+    }
+
+    local filepath
+    for filepath in ${filepaths}; do
+        while [[ "$(jobs | wc -l)" -ge 7 ]]; do
+            sleep 4
+        done
+        convert_to_video "${filepath}" &
+    done
+
+    echo "Waiting for conversions to complete...."
+
+    while [[ "$(jobs -p | wc -l)" -ge 1 ]]; do
+        sleep 4
+        jobs
+    done
+
+    echo "Done."
 }
 
-for filepath in "$@"; do
-    while [[ "$(jobs | wc -l)" -ge 7 ]]; do
-        sleep 4
-    done
-    convert_to_video "$filepath" &
-done
-
-echo "Waiting for conversions to complete...."
-
-while [[ "$(jobs -p | wc -l)" -ge 1 ]]; do
-    sleep 4
-    jobs
-done
-
-echo "Done."
-unset -f convert_to_video
+main $@
 

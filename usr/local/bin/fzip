@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-fzip() {
-	declare filepath="${1%/}"
-	zip -0 -r "$filepath".zip "$filepath"
+main() {
+	declare filepath="$1"
+	filepath="${filepath%/}"
+	zip -0 -r "${filepath}.zip" "${filepath}"
 }
 
-fzip "$@"
-unset -f fzip
+main $@
 

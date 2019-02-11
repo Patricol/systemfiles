@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-update_che() {
+main() {
 	# Check for new versions here: https://github.com/eclipse/che/releases
 
 	# Currently major breaking bugs in 6.16.0-6.17.1; should check if newer versions work properly.
 	declare use_as_new="$1"
-	if [[ -z "$use_as_new" ]]; then
+	if [[ -z "${use_as_new}" ]]; then
 		use_as_new="6.15.0"
 		#use_as_new="latest"
 		#use_as_new="rc"
@@ -13,14 +13,17 @@ update_che() {
 	fi
 
 	get_current_version() {
-		local image_name="$(docker ps -f "name=che" --format "{{.Image}}")"
-		local current_version_from_docker="$(cut -d ":" -f 2 <<< "$image_name")"
-		local current_version_from_file="$(cat /home/docker/che/instance/che.ver.do_not_modify)"
-		if [[ -n "$current_version_from_docker" ]]; then
-			echo "$current_version_from_docker"
+		local image_name
+		image_name="$(docker ps -f "name=che" --format "{{.Image}}")"
+		local current_version_from_docker
+		current_version_from_docker="$(cut -d ":" -f 2 <<< "${image_name}")"
+		local current_version_from_file
+		current_version_from_file="$(cat /home/docker/che/instance/che.ver.do_not_modify)"
+		if [[ -n "${current_version_from_docker}" ]]; then
+			echo "${current_version_from_docker}"
 		else
 			# Works when configs are present even if no images are downloaded currently; as is true in the middle of the clean-docker script.
-			echo "$current_version_from_file"
+			echo "${current_version_from_file}"
 		fi
 	}
 
@@ -33,15 +36,14 @@ update_che() {
 	}
 
 	cli_new() {
-		cli_general "$use_as_new" $@
+		cli_general "${use_as_new}" $@
 	}
 
 	cli_current stop
-	docker pull eclipse/che-cli:"$use_as_new"
+	docker pull eclipse/che-cli:"${use_as_new}"
 	cli_new upgrade
 	# Need to restart here; if che was already up to date, then it will still be stopped after the upgrade command.
 	cli_new restart
 }	# Don't unset functions; they're used in another script.
 
-update_che
-
+main

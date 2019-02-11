@@ -6,19 +6,29 @@
 
 # enable color aliases of ls if supported
 if [[ -x /usr/bin/dircolors ]]; then
-    alias ls='ls --color=auto'
+	alias ls='ls --color=auto'
 
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
+	alias dir='dir --color=auto'
+	alias vdir='vdir --color=auto'
 
-    alias diff='diff --color=auto'
+	alias diff='diff --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
 fi
 
 alias rgrep='grep -r'
+
+man() {
+	LESS_TERMCAP_md=$'\e[01;31m' \
+	LESS_TERMCAP_me=$'\e[0m' \
+	LESS_TERMCAP_se=$'\e[0m' \
+	LESS_TERMCAP_so=$'\e[01;44;33m' \
+	LESS_TERMCAP_ue=$'\e[0m' \
+	LESS_TERMCAP_us=$'\e[01;32m' \
+	command man $@
+}
 
 # some more ls aliases
 alias ll='ls -AlhF'
@@ -42,8 +52,11 @@ alias ebnrc='exec bash --norc --noprofile'
 alias logs='journalctl -xe'
 
 mountiso() {
-    sudo mount -o loop "$@" /media/iso
+	declare device="$@"
+	mount -o loop "${device}" /media/iso
 }
+
+alias umountiso='umount /media/iso'
 
 alias fkill='killall -KILL'
 
@@ -72,27 +85,27 @@ alias rpl='LANG="en_US.UTF-8" powerline-daemon -qr'
 
 
 tif() {
-    #test if statement
-    if [[ "$@" ]]; then
-        echo "True"
-    else
-        echo "False"
-    fi
+	#test if statement
+	if [[ $@ ]]; then
+		echo "True"
+	else
+		echo "False"
+	fi
 }
 
 ier() {
-    #if exists, run.
-    declare program="$1" command="$@"
-    if which "$program" &> /dev/null; then
-	"$command"
-    fi
+	#if exists, run.
+	declare program="$1" command="$@"
+	if which "${program}" &> /dev/null; then
+		"${command}"
+	fi
 }
 
 alias epoch='date +%s'
 
 check() {
-    declare program_name="$1"
-    cat "$(which "$program_name")"
+	declare program_name="$1"
+	cat "$(which "${program_name}")"
 }
 
 alias aecho='echo '

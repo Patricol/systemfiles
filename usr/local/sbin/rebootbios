@@ -8,6 +8,4 @@ efibootmgr --bootnext "$(efibootmgr | grep "Linux Boot Manager" | cut -f1 -d'*' 
 efivar -n 4a67b082-0a4c-41cf-b6c7-440b29bb8c4f-LoaderConfigTimeout -w -f /root/efivars/LoaderConfigTimeout-0
 efivar -n 4a67b082-0a4c-41cf-b6c7-440b29bb8c4f-LoaderEntryDefault -w -f /root/efivars/LoaderEntryDefault-MotherboardSettings
 
-
 systemctl reboot
-

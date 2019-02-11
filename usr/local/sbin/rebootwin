@@ -3,4 +3,3 @@
 sudo efibootmgr --bootnext "$(efibootmgr | grep "Windows" | cut -f1 -d'*' | cut -f2 -d't')"
 
 sudo systemctl reboot
-

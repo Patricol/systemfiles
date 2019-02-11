@@ -1,65 +1,77 @@
 #!/usr/bin/env bash
 
 #dither: convert bg.gif +dither -colors 16 ./bg.gif
-videobg() {
+main() {
     declare video="$1"
 
-    if [[ ! -f "$video" ]]; then
-        echo "please provide a video as an argument"
+    if [[ ! -f "${video}" ]]; then
+        echo "please provide a video as an argument" >&2
         exit 1
     elif ! which mpv &> /dev/null; then
-        echo "please install mpv"
+        echo "please install mpv" >&2
         exit 1
     elif ! which xwinwrap &> /dev/null; then
-        echo "please install xwinwrap"
+        echo "please install xwinwrap" >&2
         exit 1
     fi
 
     #if it's a symlink; this lets us get the real extension etc.
-    local video="$(realpath "$video")"
+    local video
+    video="$(realpath "${video}")"
 
     pgrep xwinwrap > /dev/null && killall -SIGKILL xwinwrap
 
-    #local vo="xv"
-    local vo="gpu"
+    local vo
+    #vo="xv"
+    vo="gpu"
 
-    local logging="--really-quiet"
-    local basic="--no-config --no-border --x11-name=mpvbackground --loop --wid WID"
-    local rendering="--x11-bypass-compositor=no --vo=$vo --hwdec=auto --framedrop=vo --hwdec-codecs=all"
-    local audio="--gapless-audio=yes --mute=yes"
-    local misc="--speed=1"
+    local logging
+    logging="--really-quiet"
+    local basic
+    basic="--no-config --no-border --x11-name=mpvbackground --loop --wid WID"
+    local rendering
+    rendering="--x11-bypass-compositor=no --vo=${vo} --hwdec=auto --framedrop=vo --hwdec-codecs=all"
+    local audio
+    audio="--gapless-audio=yes --mute=yes"
+    local misc
+    misc="--speed=1"
 
     #optimized for pixel art.
-    local sharpening="--scale=oversample --scale-param1=0.5"
-    local cropextra="$sharpening --keepaspect=yes --panscan=1.0 --video-pan-x=0.0 --video-pan-y=0.0"
-    local unscaled="--keepaspect=yes --video-unscaled=yes"
-    local letterboxed="$sharpening --keepaspect=yes"
-    local fill="$sharpening --keepaspect=no"
-    local morphing="$cropextra"
-    #local morphing="$letterboxed"
-    #local morphing="$fill"
+    local sharpening
+    sharpening="--scale=oversample --scale-param1=0.5"
+    local cropextra
+    cropextra="${sharpening} --keepaspect=yes --panscan=1.0 --video-pan-x=0.0 --video-pan-y=0.0"
+    local unscaled
+    unscaled="--keepaspect=yes --video-unscaled=yes"
+    local letterboxed
+    letterboxed="${sharpening} --keepaspect=yes"
+    local fill
+    fill="${sharpening} --keepaspect=no"
+    local morphing
+    morphing="${cropextra}"
+    #morphing="${letterboxed}"
+    #morphing="${fill}"
 
-    local mpvargs="$basic $logging $rendering $audio $misc $morphing"
+    local mpvargs
+    mpvargs="${basic} ${logging} ${rendering} ${audio} ${misc} ${morphing}"
 
-
-    local xwwargs="-ni -fs -b -nf -ov"
+    local xwwargs
+    xwwargs="-ni -fs -b -nf -ov"
 
     make_static_frame() {
         declare video="$1"
         if [[ "${video: -4}" == ".gif" ]] && which convert &> /dev/null; then
-            local frame_path="$HOME"/.config/wallpapers/general/animated-frame.png
-            convert "$video[0]" "$frame_path"
-            rm -rf "$HOME"/.cache/thumbnails/neofetch
+            local frame_path
+            frame_path="${HOME}/.config/wallpapers/general/animated-frame.png"
+            convert "${video}[0]" "${frame_path}"
+            rm -rf "${HOME}/.cache/thumbnails/neofetch"
             systemctl --user restart wallpaper.service
         fi
     }
-    
-    make_static_frame "$video" &
-    
-    exec xwinwrap $xwwargs -- mpv $mpvargs "$video" > /dev/null 2>&1
-    unset -f make_static_frame
+
+    make_static_frame "${video}" &
+
+    exec xwinwrap ${xwwargs} -- mpv ${mpvargs} "${video}" > /dev/null 2>&1
 }
 
-videobg $@
-unset -f videobg
-
+main $@

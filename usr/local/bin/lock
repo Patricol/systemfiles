@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 main() {
-    if [[ -f ~/.config/wpg/patricol_scripts/named-colors.sh ]]; then
-        source ~/.config/wpg/patricol_scripts/named-colors.sh
+    if [[ -f ~/.config/wpg/custom/named-colors.sh ]]; then
+        source ~/.config/wpg/custom/named-colors.sh
     else
         local darkest
         darkest="212121"

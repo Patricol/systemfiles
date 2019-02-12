@@ -5,9 +5,9 @@ main() {
 		declare homedir="$1"
 		local sshdir
 		sshdir="${homedir}/.ssh"
-		touch "${sshdir}/{authorized_keys,known_hosts}"
-		chmod -R u+rwX,go-rwx "${sshdir}/*"
-		chmod a+r "${sshdir}/{authorized_keys,known_hosts}" "${sshdir}/*.pub"
+		touch "${sshdir}"/{authorized_keys,known_hosts}
+		chmod -R u+rwX,go-rwx "${sshdir}"/*
+		chmod a+r "${sshdir}"/{authorized_keys,known_hosts} "${sshdir}"/*.pub
 	}
 
 	restrict_to_user() {

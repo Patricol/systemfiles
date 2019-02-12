@@ -60,10 +60,17 @@ main() {
 
     make_static_frame() {
         declare video="$1"
+        local video_name
+        video_name="$(basename "${video}")"
+        local video_name_no_ext
+        video_name_no_ext="${video_name%.*}"
         if [[ "${video: -4}" == ".gif" ]] && which convert &> /dev/null; then
             local frame_path
-            frame_path="${HOME}/.config/wallpapers/general/animated-frame.png"
-            convert "${video}[0]" "${frame_path}"
+            frame_path="${HOME}/.config/wallpapers/animated/first-frame/${video_name_no_ext}.png"
+            if [[ ! -f "${frame_path}" ]]; then
+                convert "${video}[0]" "${frame_path}"
+            fi
+            ln -srf "${frame_path}" "${HOME}/.config/wallpapers/general/animated-frame.png"
             rm -rf "${HOME}/.cache/thumbnails/neofetch"
             systemctl --user restart wallpaper.service
         fi

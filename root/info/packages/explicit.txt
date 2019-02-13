@@ -281,3 +281,4 @@ yubico-pam
 yubikey-personalization-gui
 zsh
 zsh-completions
+zsh-theme-powerlevel9k

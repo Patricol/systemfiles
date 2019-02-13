@@ -192,6 +192,7 @@ kcoreaddons
 kcrash
 kdbusaddons
 kdeclarative
+kdewebkit
 keyutils
 kfilemetadata
 kglobalaccel
@@ -321,6 +322,7 @@ libkexiv2
 libkipi
 libksane
 libksba
+libkvkontakte
 liblangtag
 libldap
 liblqr
@@ -331,6 +333,7 @@ libmagick6
 libmatroska
 libmaxminddb
 libmediainfo
+libmediawiki
 libmicrohttpd
 libmm-glib
 libmms
@@ -743,6 +746,7 @@ qt5-webchannel
 qt5-webengine
 qt5-webkit
 qt5-x11extras
+qt5-xmlpatterns
 qtav
 raptor
 rasqal

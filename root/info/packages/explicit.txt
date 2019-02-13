@@ -72,6 +72,7 @@ gcc
 gcc-libs
 gettext
 gimp
+gimp-plugin-resynthesizer-git
 git
 gitkraken
 glibc
@@ -86,7 +87,7 @@ google-musicmanager
 gpa
 gparted
 gpick
-gpmdp
+gpmdp-git
 grep
 groff
 gst-libav

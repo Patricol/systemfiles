@@ -34,7 +34,7 @@ main() {
     local audio
     audio="--gapless-audio=yes --mute=yes"
     local misc
-    misc="--speed=1"
+    misc="--speed=1 --no-stop-screensaver"
 
     #optimized for pixel art.
     local sharpening

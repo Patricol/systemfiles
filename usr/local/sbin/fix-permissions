@@ -15,6 +15,9 @@ main() {
 		chown -R "${ownership}" "${directory}"
 		if [[ "$3" == "allow_group" ]]; then
 			chmod -R ug+rwX,o-rwx "${directory}"
+			if [[ -d "${directory}/.zplug" ]]; then
+				chmod -R g-rwx "${directory}/.zplug"
+			fi
 		else
 			chmod -R go-rwx "${directory}"
 		fi

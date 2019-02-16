@@ -319,7 +319,6 @@ libiscsi
 libixion
 libjpeg-turbo
 libkexiv2
-libkipi
 libksane
 libksba
 libkvkontakte
@@ -408,7 +407,6 @@ libssh2
 libstaroffice
 libstemmer
 libsynctex
-libsystemd
 libtar
 libtasn1
 libteam
@@ -658,6 +656,7 @@ python-send2trash
 python-setuptools
 python-sgmllib
 python-six
+python-termcolor
 python-terminado
 python-testpath
 python-texttable
@@ -808,6 +807,7 @@ sratom
 startup-notification
 suil
 suitesparse
+systemd-libs
 taglib
 talloc
 tcl

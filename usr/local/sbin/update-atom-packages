@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
-apm upgrade -c false
-su patricol -c "apm upgrade -c false"
-su work -c "apm upgrade -c false"
+main() {
+	local upgrade_command
+	upgrade_command="apm upgrade --confirm false"
+
+	${upgrade_command}
+	sudo -i -u patricol -- ${upgrade_command}
+	sudo -i -u work -- ${upgrade_command}
+}
+
+main
+

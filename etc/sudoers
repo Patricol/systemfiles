@@ -20,6 +20,7 @@
 ## Groups of users.  These may consist of user names, uids, Unix groups,
 ## or netgroups.
 # User_Alias	ADMINS = millert, dowdy, mikef
+User_Alias	PATRICK = patricol, work
 
 ##
 ## Cmnd alias specification
@@ -28,6 +29,8 @@
 # Cmnd_Alias	PROCESSES = /usr/bin/nice, /bin/kill, /usr/bin/renice, \
 # 			    /usr/bin/pkill, /usr/bin/top
 # Cmnd_Alias	REBOOT = /sbin/halt, /sbin/reboot, /sbin/poweroff
+Cmnd_Alias	CUSTOMREBOOT = /usr/local/sbin/rebootbios, /usr/local/sbin/rebootwin, /usr/local/sbin/rebootarch, /usr/local/sbin/rebootsystemdboot, /usr/local/sbin/rebootrefind
+Cmnd_Alias	RR = /bin/systemctl start run-regularly.service, /bin/systemctl stop run-regularly.service, /bin/systemctl restart run-regularly.service
 
 ##
 ## Defaults specification
@@ -68,7 +71,12 @@ Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/b
 # Defaults!/usr/bin/sudoreplay !log_output
 # Defaults!/usr/local/bin/sudoreplay !log_output
 # Defaults!REBOOT !log_output
+Defaults editor="/usr/bin/vim:/usr/bin/vi"
 Defaults env_editor
+
+Defaults:PATRICK	!lecture
+
+Defaults timestamp_timeout=60
 
 ##
 ## Runas alias specification
@@ -88,22 +96,18 @@ root ALL=(ALL) ALL
 ## Uncomment to allow members of group sudo to execute any command
 %sudo	ALL=(ALL) ALL
 
+%patrick ALL=(%patrick) ALL
+
 ## Uncomment to allow any user to run sudo if they know the password
 ## of the user they are running the command as (root by default).
 # Defaults targetpw  # Ask for the password of the target user
 # ALL ALL=(ALL) ALL  # WARNING: only use this together with 'Defaults targetpw'
 
+
 ## Read drop-in files from /etc/sudoers.d
 ## (the '#' here does not indicate a comment)
 #includedir /etc/sudoers.d
-%patrick ALL=(ALL) NOPASSWD: /bin/systemctl start run-regularly.service
-%patrick ALL=(ALL) NOPASSWD: /bin/systemctl stop run-regularly.service
-%patrick ALL=(ALL) NOPASSWD: /bin/systemctl restart run-regularly.service
+%patrick ALL=(ALL) NOPASSWD: RR
 %patrick ALL=(ALL) NOPASSWD: /usr/local/sbin/fix-permissions
-%patrick ALL=(ALL) NOPASSWD: /usr/local/sbin/rebootbios
-%patrick ALL=(ALL) NOPASSWD: /usr/local/sbin/rebootwin
-%patrick ALL=(ALL) NOPASSWD: /usr/local/sbin/rebootarch
-%patrick ALL=(ALL) NOPASSWD: /usr/local/sbin/rebootsystemdboot
-%patrick ALL=(ALL) NOPASSWD: /usr/local/sbin/rebootrefind
+%patrick ALL=(ALL) NOPASSWD: CUSTOMREBOOT
 
-Defaults timestamp_timeout=60

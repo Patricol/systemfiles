@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 
+main() {
+	local main_dir
+	main_dir="/root/info"
 
-pacman -Qqe | tee /root/info/packages/explicit.txt
-pacman -Qqd | tee /root/info/packages/dependencies.txt
+	pacman -Qqe | tee "${main_dir}/packages/explicit.txt" 1> /dev/null
+	pacman -Qqd | tee "${main_dir}/packages/dependencies.txt" 1> /dev/null
 
-# Save a copy of this info somewhere in /home so it gets backed up regularly.
-cp -rf /root/info /home/secure/
+	# Save a copy of this info somewhere in /home so it gets backed up regularly.
+	cp -rf "${main_dir}" /home/secure/
+}
+
+main

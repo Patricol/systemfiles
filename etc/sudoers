@@ -107,7 +107,5 @@ root ALL=(ALL) ALL
 ## Read drop-in files from /etc/sudoers.d
 ## (the '#' here does not indicate a comment)
 #includedir /etc/sudoers.d
-%patrick ALL=(ALL) NOPASSWD: RR
-%patrick ALL=(ALL) NOPASSWD: /usr/local/sbin/fix-permissions
-%patrick ALL=(ALL) NOPASSWD: CUSTOMREBOOT
+%patrick ALL=(ALL) NOPASSWD: CUSTOMREBOOT, RR, /usr/local/sbin/fix-permissions
 

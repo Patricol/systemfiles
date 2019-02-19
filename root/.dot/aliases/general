@@ -2,6 +2,11 @@
 
 # aliases I might use with sudo
 
+# needed for pushing systemfiles
+add_ssh_keys() {
+        eval "$(keychain --eval --quiet $@)"
+}
+
 # sudo to other users
 alias sup='sudo -i -u patricol'
 alias sip='sup'

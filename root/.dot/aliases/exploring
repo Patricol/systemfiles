@@ -1,0 +1,77 @@
+# vi:syntax=sh
+
+# Root user should only ever be used interactively for exploring directories conveniently; these aliases are to be used when doing so.
+
+
+alias ll='ls -AlhF'
+alias llr='ls -AlhFR'
+alias lrl='llr'
+alias la='ls -A'
+alias lar='ls -AR'
+alias lra='lar'
+alias lr='ls -R'
+alias l='ls -CF'
+alias l1='ls -1'
+alias lsgd='ls --group-directories-first'
+
+
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+alias ..5='cd ../../../../..'
+alias ..6='cd ../../../../../..'
+alias ..7='cd ../../../../../../..'
+alias ..8='cd ../../../../../../../..'
+alias ..9='cd ../../../../../../../../..'
+alias ...='..2'
+alias ....='..3'
+alias .....='..4'
+
+alias cdback='cd -'
+alias cdb='cdback'
+alias cdhome='cd ~'
+alias cdh='cdhome'
+alias cdshared='cd /home/shared'
+alias cds='cdshared'
+alias cdnas='cd /media/nas'
+alias cdn='cdnas'
+
+alias d='dirs -v'
+#for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
+
+# these belong here because they're used in interactive sessions.
+alias c='clear'
+alias cls='clear && ls'
+alias cl='cls'
+alias x='exit'
+alias eb='exec bash'
+alias ebnrc='exec bash --norc --noprofile'
+alias be='exec "${SHELL}"'
+
+
+alias counttypes='find . -type f -exec basename {} \; | sed -n "s/..*\.//p" | sort | uniq -c | sort -nr'
+ftype() {
+	declare extension="$1"
+	find . -type f -name "*.${extension}"
+}
+ftypei() {
+	declare extension="$1"
+	find . -type f -name "*.${extension}" -exec file {} \;
+}
+
+alias findbrokenlinks='find -xtype l'
+
+
+alias nmo='nohup nemo . > /dev/null 2>&1 &'
+
+
+alias fn='find . -name'
+fa() {
+	find / -mount ${ignore_dirs} $@ -print
+}
+
+fan() {
+	fa -name $@
+}

@@ -50,8 +50,8 @@ arch-chroot /mnt
 hwclock --systohc
 pacman -Syu intel-ucode amd-ucode git vim openssh refind-efi zsh
 # no reason not to install both intel and amd
-git clone -b arch --bare https://github.com/Patricol/systemfiles.git /root/.systemfiles-repo
-alias gsf='git --git-dir=/root/.systemfiles-repo --work-tree=/'
+git clone -b arch --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
+alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
 alias gsfch='gsf checkout -f arch --'
 gsfch /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
 locale-gen
@@ -101,7 +101,7 @@ sudo mv /home/patricol/arch-homes.tar /
 sudo rm -rf /home/*
 cd / && sudo tar --same-owner -xvpf /arch-homes.tar
 
-alias gsf='sudo git --git-dir=/root/.systemfiles-repo/ --work-tree=/'
+alias gsf='sudo git --git-dir=/root/systemfiles-repo/ --work-tree=/'
 gsf config --local status.showUntrackedFiles no
 
 
@@ -144,6 +144,8 @@ sudo iptables -A INPUT -p tcp -s localhost --dport 8080 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
 
 sudo vncpasswd /etc/vncpasswd
+
+ln -sf /home/patricol/.gitconfig /root/.gitconfig
 
 gsfp --set-upstream origin arch
 

@@ -1,0 +1,12 @@
+# vi:syntax=sh
+
+# aliases I might use with sudo
+
+# sudo to other users
+alias sup='sudo -i -u patricol'
+alias sip='sup'
+alias suw='sudo -i -u work'
+alias siw='suw'
+
+# restart powerline if needed
+alias rpl='LANG="en_US.UTF-8" powerline-daemon -qr'

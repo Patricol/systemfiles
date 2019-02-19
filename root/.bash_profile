@@ -1,5 +1,1 @@
-#
-# ~/.bash_profile
-#
-
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+.dot/l/bash_profile

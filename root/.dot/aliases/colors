@@ -1,0 +1,24 @@
+# vi:syntax=sh
+
+# Because commands like 'sudo grep' use root's settings for coloration; need to have those set up.
+
+if [[ -x /usr/bin/dircolors ]]; then
+	alias ls='ls --color=auto'
+	alias dir='dir --color=auto'
+	alias vdir='vdir --color=auto'
+fi
+
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+export GREP_COLOR='1;31'
+#export GREP_COLOR='ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36'
+
+if [[ -f /etc/profile.d/grc.bashrc ]]; then
+	source /etc/profile.d/grc.bashrc
+elif [[ -f /etc/grc.bashrc ]]; then
+	source /etc/grc.bashrc
+fi
+

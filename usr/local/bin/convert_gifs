@@ -5,9 +5,8 @@
 # Remember that GTX 970 has no hardware accelerated decode for VP9 (https://developer.nvidia.com/video-encode-decode-gpu-support-matrix)
 
 main() {
-    declare filepaths="$@"
     convert_to_video() {
-        declare filepath="$1"
+        declare filepath="$@"
         local format
         format="webm"
         local ext
@@ -19,6 +18,8 @@ main() {
         args_vp8="${args_shared} -c:v libvpx -crf 4 -auto-alt-ref 0"
         local args_vp9
         args_vp9="${args_shared} -c:v libvpx-vp9 -lossless 1"
+        local args_vp9_lossy
+        args_vp9_lossy="${args_shared} -c:v libvpx-vp9 -b:v 0 -crf 20"
         local args_h264
         args_h264="${args_shared} -c:v libx264 -pix_fmt yuv420p -crf 12"
 
@@ -29,13 +30,13 @@ main() {
         local final_path
         final_path="${filepath_without_extension}.${ext}"
 
-        ffmpeg -i "${filepath}" ${args_vp9} -f "${format}" -hide_banner -nostats "${temp_path}"
+        ffmpeg -i "${filepath}" ${args_vp9_lossy} -f "${format}" -hide_banner -nostats "${temp_path}"
 
         mv "${temp_path}" "${final_path}"
     }
 
     local filepath
-    for filepath in ${filepaths}; do
+    for filepath in "$@"; do
         while [[ "$(jobs | wc -l)" -ge 7 ]]; do
             sleep 4
         done
@@ -52,5 +53,5 @@ main() {
     echo "Done."
 }
 
-main $@
+main "$@"
 

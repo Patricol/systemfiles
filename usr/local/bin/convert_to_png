@@ -4,9 +4,8 @@
 # https://trac.ffmpeg.org/wiki/Encode/H.264#Encodingfordumbplayers
 
 main() {
-    declare filepaths="$@"
     convert_to_png() {
-        declare filepath="$1"
+        declare filepath="$@"
 
         local ext
         ext="png"
@@ -24,10 +23,10 @@ main() {
     }
 
     local filepath
-    for filepath in ${filepaths}; do
+    for filepath in "$@"; do
         convert_to_png "${filepath}"
     done
 }
 
-main $@
+main "$@"
 

@@ -2,5 +2,6 @@
 
 #first check we're connected to the internet
 if ping 1.1.1.1 -c 1; then
-	curl -s "https://www.archlinux.org/mirrorlist/?country=US&country=CA&protocol=https&use_mirror_status=on" | sed -e "s/^#Server/Server/" -e "/^#/d" | rankmirrors -n 50 - | tee /etc/pacman.d/mirrorlist
+	curl -s "https://raw.githubusercontent.com/archlinuxarm/PKGBUILDs/master/core/pacman-mirrorlist/mirrorlist" | tee /etc/pacman.d/mirrorlist
+	#curl -s "https://raw.githubusercontent.com/archlinuxarm/PKGBUILDs/master/core/pacman-mirrorlist/mirrorlist" | sed -e "s/^# Server/Server/" -e "/^#/d" | rankmirrors -n 50 - | tee /etc/pacman.d/mirrorlist
 fi

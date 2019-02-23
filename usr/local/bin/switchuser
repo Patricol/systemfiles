@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-dm-tool switch-to-greeter
-

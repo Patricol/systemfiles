@@ -778,7 +778,6 @@ ruby-trollop
 rubygems
 run-parts
 runc
-rust
 rxvt-unicode-terminfo
 sane
 sassc

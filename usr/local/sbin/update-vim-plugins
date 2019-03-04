@@ -2,9 +2,8 @@
 
 main() {
 	for user in patricol work; do
-		sudo --login --user="${user}" -- echo placeholder
-		#vim +MAINTAIN
-		#nvim +MAINTAIN
+		sudo --login --user="${user}" -- vim +MAINTAIN
+		sudo --login --user="${user}" -- nvim +MAINTAIN
 	done
 }
 

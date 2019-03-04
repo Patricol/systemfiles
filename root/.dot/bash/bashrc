@@ -76,8 +76,8 @@ if [[ -d ~/.dot/aliases/ ]]; then
 fi
 
 
-export EDITOR="uvim"
-export GIT_EDITOR="uvim"
+export EDITOR="svim"
+export GIT_EDITOR="svim"
 
 # okay to use powerline
 POWERLINE_BASH_CONTINUATION=1

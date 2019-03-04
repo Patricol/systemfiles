@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+main() {
+	local upgrade_command
+	upgrade_command="zplug update ; zplug clear ; autoload -U compinit ; compinit && exit"
+
+	sudo -i -u patricol -- zsh -ic "yes | zplug clean && exit"
+	sudo -i -u patricol -- zsh -ic ${upgrade_command[@]}
+	sudo -i -u work -- zsh -ic "yes | zplug clean && exit"
+	sudo -i -u work -- zsh -ic ${upgrade_command[@]}
+}
+
+main
+

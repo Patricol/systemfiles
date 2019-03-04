@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
 main() {
-	#vim +MAINTAIN
-	#nvim +MAINTAIN
+	for user in patricol; do
+		sudo --login --user="${user}" -- echo placeholder
+		#vim +MAINTAIN
+		#nvim +MAINTAIN
+	done
 }
 
 main

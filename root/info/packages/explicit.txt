@@ -61,6 +61,7 @@ mdadm
 mediainfo
 nano
 neofetch
+neovim
 net-tools
 netctl
 ntfs-3g
@@ -78,9 +79,9 @@ pkgconf
 pkgfile
 polkit
 powerline
-powerline-vim
 procps-ng
 psmisc
+python-neovim
 ranger
 raspberrypi-bootloader
 raspberrypi-bootloader-x

@@ -27,7 +27,6 @@ glib2
 gmp
 gnupg
 gnutls
-go
 gpgme
 gpm
 graphite
@@ -39,6 +38,7 @@ iana-etc
 icu
 iptables
 iw
+jemalloc
 js52
 json-c
 kbd
@@ -87,12 +87,15 @@ libseccomp
 libsecret
 libssh2
 libtasn1
+libtermkey
 libtiff
 libtirpc
 libunistring
 libusb
 libutempter
 libutil-linux
+libuv
+libvterm
 libx11
 libxau
 libxcb
@@ -105,10 +108,12 @@ libzen
 linux-api-headers
 lua
 lua51
+luajit
 lz4
 mkinitcpio
 mkinitcpio-busybox
 mpfr
+msgpack-c
 ncurses
 nettle
 npth
@@ -130,6 +135,8 @@ python
 python-appdirs
 python-colorama
 python-decorator
+python-greenlet
+python-msgpack
 python-packaging
 python-powerline
 python-psutil
@@ -165,6 +172,7 @@ systemd-libs
 thin-provisioning-tools
 tre
 tzdata
+unibilium
 vim-runtime
 wireless-regdb
 xcb-proto

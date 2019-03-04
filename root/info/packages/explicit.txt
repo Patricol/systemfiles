@@ -8,6 +8,7 @@ arch-install-scripts
 atom
 atool
 audacity
+audio-recorder
 aurman
 autoconf
 automake
@@ -80,7 +81,6 @@ glibc
 gnome-calculator
 gnome-disk-utility
 gnome-keyring
-gnome-sound-recorder
 gnome-system-monitor
 gnupg
 google-cloud-sdk
@@ -94,6 +94,7 @@ grep
 groff
 gst-libav
 gucharmap
+gvim
 gzip
 handbrake
 hardcode-tray
@@ -146,6 +147,7 @@ mpv
 nano
 nemo
 neofetch
+neovim
 nerd-fonts-complete
 netctl
 network-manager-applet
@@ -183,16 +185,16 @@ pikaur
 pkgconf
 pkgfile
 polkit
-polybar-git
+polybar
 powerline
 powerline-console-fonts
-powerline-vim
 procps-ng
 protobuf
 psensor
 psmisc
 pycharm-community-edition
 python
+python-neovim
 python-pip
 python-pywal
 python-xdg
@@ -248,7 +250,6 @@ util-linux
 vdpauinfo
 veracrypt
 vi
-vim
 virt-manager
 vlc
 vulkan-intel

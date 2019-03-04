@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+main() {
+	#vim +MAINTAIN
+	#nvim +MAINTAIN
+}
+
+main
+

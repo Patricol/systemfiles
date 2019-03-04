@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# run editor as root if needed, and with non-root user vimrc etc. if already root.
+
+main() {
+        declare files=$@
+        declare fallback_uid=1000 edit_as="#${EUID}"
+        if [[ -z ${EDITOR} ]]; then
+                echo '$EDITOR is unset!' >&2
+                exit 2
+        fi
+
+        if [[ ${EUID} -eq 0 ]] && getent passwd "${fallback_uid}" &> /dev/null; then
+                edit_as="#${fallback_uid}"
+        fi
+
+        if sudo -u "${edit_as}" -- touch -a ${files} &> /dev/null; then
+                sudo -u "${edit_as}" -- ${EDITOR} ${files}
+        else
+                sudo -u "${edit_as}" -- env SUDO_EDITOR="${EDITOR}" sudo --edit -- ${files}
+        fi
+}
+
+main $@
+

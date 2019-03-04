@@ -47,6 +47,7 @@ main() {
 	chmod -R 755 /usr/local/bin
 	chown -R root:root /usr/local/sbin
 	chmod -R 744 /usr/local/sbin
+	chmod 755 /usr/local/sbin
 
 	mkdir -p /media/{nas,gdrive,work,gaming}
 	chown patricol:patrick /media/{nas,gdrive,gaming}

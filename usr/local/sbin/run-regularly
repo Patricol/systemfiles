@@ -9,3 +9,8 @@ sort-mirrors
 pkgfile --update
 
 update-atom-packages
+
+update-vim-plugins
+
+update-zsh-plugins
+

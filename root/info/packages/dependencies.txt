@@ -97,7 +97,6 @@ geocode-glib
 ghostscript
 giblib
 giflib
-gjs
 glew
 glib-networking
 glib2
@@ -166,7 +165,6 @@ jemalloc
 jre8-openjdk
 jre8-openjdk-headless
 js52
-js60
 json-c
 json-glib
 jupyter-nbconvert
@@ -410,6 +408,7 @@ libsynctex
 libtar
 libtasn1
 libteam
+libtermkey
 libthai
 libtheora
 libtiff
@@ -436,6 +435,7 @@ libvncserver
 libvoikko
 libvorbis
 libvpx
+libvterm
 libwacom
 libwbclient
 libwebp
@@ -491,6 +491,7 @@ lpsolve
 lua
 lua51
 lua52
+luajit
 lv2
 lz4
 lzo
@@ -508,6 +509,7 @@ mkinitcpio-busybox
 mobile-broadband-provider-info
 mpfr
 mpg123
+msgpack-c
 mtdev
 mypaint-brushes
 ncurses
@@ -613,6 +615,7 @@ python-docopt
 python-entrypoints
 python-feedparser
 python-gobject
+python-greenlet
 python-html5lib
 python-idna
 python-ipykernel
@@ -775,6 +778,7 @@ ruby-trollop
 rubygems
 run-parts
 runc
+rust
 rxvt-unicode-terminfo
 sane
 sassc
@@ -824,6 +828,7 @@ twolame
 tzdata
 uchardet
 udisks2
+unibilium
 upower
 usbmuxd
 usbredir

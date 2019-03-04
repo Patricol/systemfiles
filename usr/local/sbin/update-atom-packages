@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 
 main() {
-	local upgrade_command
-	upgrade_command="apm upgrade --confirm false"
-
-	${upgrade_command}
-	sudo -i -u patricol -- ${upgrade_command}
-	sudo -i -u work -- ${upgrade_command}
+	for user in patricol work; do
+		sudo --login --user="${user}" -- apm upgrade --confirm false
+	done
 }
 
 main

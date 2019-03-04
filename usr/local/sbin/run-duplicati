@@ -2,4 +2,4 @@
 
 docker stop duplicati
 docker rm duplicati
-docker run -d --name=duplicati --restart always -v /home/docker/duplicati/config:/config -v /home:/source:ro -e PUID=0 -e PGID=0 -p 8200:8200 linuxserver/duplicati
+docker run -d --name=duplicati --restart always -v /home/docker/duplicati/config:/config -v /home/docker/duplicati/restored:/restored -v /home:/source:ro -e PUID=0 -e PGID=0 -p 8200:8200 linuxserver/duplicati

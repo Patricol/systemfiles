@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 
 main() {
-	local upgrade_command
-	upgrade_command="zplug update ; zplug clear ; autoload -U compinit ; compinit && exit"
-
-	sudo -i -u patricol -- zsh -ic "yes | zplug clean && exit"
-	sudo -i -u patricol -- zsh -ic ${upgrade_command[@]}
-	sudo -i -u work -- zsh -ic "yes | zplug clean && exit"
-	sudo -i -u work -- zsh -ic ${upgrade_command[@]}
+	for user in patricol work; do
+		sudo --login --user="${user}" -- zsh -c "source ~/.zshrc ; zplug update ; zplug clear ; autoload -U compinit ; compinit -d ~/.cache/zcompdump"
+	done
+	#maybe also zplug clean? that uninstalls some things that are being used, though.
 }
 
 main

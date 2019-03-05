@@ -129,12 +129,18 @@ gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
 sudo -u work -i dbus-launch --exit-with-session gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
 
 sudo systemctl --now disable dhcpcd.service
-sudo systemctl --now enable lightdm.service fstrim.timer gpm.service docker.service paccache.timer libvirtd.service virtlogd.socket avahi-daemon.service avahi-daemon.socket NetworkManager.service bluetooth.service nvidia-persistenced.service run-regularly.timer run-weekly.timer run-on-boot.service
+sudo systemctl --now enable systemd-resolved.service systemd-networkd.service anbox-container-manager.service  lightdm.service fstrim.timer gpm.service docker.service paccache.timer libvirtd.service virtlogd.socket avahi-daemon.service avahi-daemon.socket NetworkManager.service bluetooth.service nvidia-persistenced.service run-regularly.timer run-weekly.timer run-on-boot.service
 sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.target suspend.target sleep.target
 #disable hibernation and suspend. Sleep seems to be the same thing. DPMS and "screen blanking" are distinct from all of these.
 #this also means there's no reason for me to use caffeine; I was using it to keep the computer from suspending when programs were running.
 sudo journalctl --vacuum-size=100M && sudo systemctl restart systemd-journald.service
+
+sudo modprobe ashmem_linux
+sudo modprobe binder_linux
+systemctl --user enable anbox-session-manager.service
+
 sudo mkinitcpio -P
+reboot
 
 gcloud init
 

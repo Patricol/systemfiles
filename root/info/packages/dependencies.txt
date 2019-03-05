@@ -59,6 +59,7 @@ dconf
 desktop-file-utils
 discount
 djvulibre
+dkms
 dmraid
 dnssec-anchors
 dosfstools
@@ -493,6 +494,7 @@ lua51
 lua52
 luajit
 lv2
+lxc
 lz4
 lzo
 marble-common
@@ -782,6 +784,7 @@ rxvt-unicode-terminfo
 sane
 sassc
 sdl2
+sdl2_image
 seabios
 semver
 serd

@@ -2,6 +2,10 @@ adapta-gtk-theme
 adobe-source-code-pro-fonts
 adobe-source-sans-pro-fonts
 amd-ucode
+anbox-bridge
+anbox-git
+anbox-image-gapps
+anbox-modules-dkms-git
 android-studio
 arc-gtk-theme
 arch-install-scripts
@@ -128,6 +132,7 @@ lightdm-webkit-theme-litarvan
 lightdm-webkit-theme-luminos-git
 linux
 linux-firmware
+linux-headers
 linux-lts
 logrotate
 lolcat

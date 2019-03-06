@@ -22,8 +22,12 @@ main() {
     pgrep xwinwrap > /dev/null && killall -SIGKILL xwinwrap
 
     local vo
-    #vo="xv"
-    vo="gpu"
+    if [[ "${DISPLAY}" == ":0" ]]; then
+        vo="gpu"
+    else
+        #vo="xv"
+        vo="x11"
+    fi
 
     local logging
     logging="--really-quiet"

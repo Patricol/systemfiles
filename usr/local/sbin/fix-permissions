@@ -15,8 +15,16 @@ main() {
 		chown -R "${ownership}" "${directory}"
 		if [[ "$3" == "allow_group" ]]; then
 			chmod -R ug+rwX,o-rwx "${directory}"
+			if [[ -d "${directory}/.zplug" ]]; then
+				chmod -R g-rwx "${directory}/.zplug"
+				chmod g-rwx "${directory}/.dot/l"
+				chmod g-rwx "${directory}/.dot/l/zsh-custom-completion"
+			fi
 		else
 			chmod -R go-rwx "${directory}"
+		fi
+		if [[ "$3" == "allow_group_x" ]]; then
+			chmod g+rw "${directory}/.Xauthority"
 		fi
 	}
 
@@ -31,8 +39,8 @@ main() {
 		restrict_to_user patricol:patrick "${directory}" allow_group
 	}
 
-	homedir_perms patricol:patrick /home/patricol
-	homedir_perms work:patrick /home/work
+	homedir_perms patricol:patrick /home/patricol allow_group_x
+	homedir_perms work:patrick /home/work allow_group
 	homedir_perms root:root /root
 
 	shared_folder_perms /home/shared

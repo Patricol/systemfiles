@@ -822,7 +822,6 @@ tdb
 tevent
 thin-provisioning-tools
 threadweaver
-tigervnc
 tre
 tslib
 ttf-dejavu
@@ -879,7 +878,6 @@ xorg-font-util
 xorg-font-utils
 xorg-fonts-encodings
 xorg-luit
-xorg-mkfontdir
 xorg-mkfontscale
 xorg-server-common
 xorg-setxkbmap

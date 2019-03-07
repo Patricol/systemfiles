@@ -134,6 +134,7 @@ linux
 linux-firmware
 linux-headers
 linux-lts
+linux-lts-headers
 logrotate
 lolcat
 lvm2
@@ -238,6 +239,7 @@ tar
 terminus-font
 texinfo
 thefuck
+tigervnc
 tldr
 tmux
 traceroute

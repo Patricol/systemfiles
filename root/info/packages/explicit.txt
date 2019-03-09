@@ -4,7 +4,6 @@ adobe-source-sans-pro-fonts
 amd-ucode
 anbox-bridge
 anbox-git
-anbox-image-gapps
 anbox-modules-dkms-git
 android-studio
 arc-gtk-theme
@@ -24,6 +23,7 @@ bdf-unifont
 binutils
 bison
 blueman
+breeze
 breeze-icons
 bzip2
 calibre
@@ -117,6 +117,7 @@ jfsutils
 jsoncpp
 jupyter
 keychain
+kitty
 lastpass
 less
 libmicrodns
@@ -139,6 +140,7 @@ logrotate
 lolcat
 lvm2
 lxqt-openssh-askpass
+lynx
 m4
 make
 man-db
@@ -149,7 +151,7 @@ mediainfo
 meld
 mesa-demos
 mkinitcpio-colors-git
-mpv
+mpv-git
 nano
 nemo
 neofetch
@@ -170,7 +172,7 @@ nvidia-docker
 nvidia-lts
 nvidia-settings
 okular
-oomox-git
+oomox
 opencl-nvidia
 openssh
 ovmf
@@ -207,8 +209,8 @@ python-xdg
 python2-pip
 qemu
 qpdfview
-qt5-styleplugins
 qt5ct
+qtcurve-qt5
 quassel-client
 ranger
 rclone
@@ -232,6 +234,7 @@ sshfs
 standardnotes-desktop
 stress
 sudo
+svp
 sysfsutils
 systemd
 systemd-sysvcompat
@@ -259,6 +262,7 @@ veracrypt
 vi
 virt-manager
 vlc
+vulkan-headers
 vulkan-intel
 w3m
 wget

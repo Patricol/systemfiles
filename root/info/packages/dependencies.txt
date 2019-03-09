@@ -7,6 +7,7 @@ adwaita-icon-theme
 akonadi
 akonadi-contacts
 alsa-lib
+anbox-image
 aom
 apm
 archlinux-keyring
@@ -79,6 +80,7 @@ fftw
 flac
 fltk
 fontconfig
+frameworkintegration
 freeglut
 fribidi
 fuse-common
@@ -191,6 +193,7 @@ kcoreaddons
 kcrash
 kdbusaddons
 kdeclarative
+kdecoration
 kdewebkit
 keyutils
 kfilemetadata
@@ -205,6 +208,7 @@ kjobwidgets
 kjs
 kmime
 kmod
+knewstuff
 knotifications
 knotifyconfig
 kpackage
@@ -214,6 +218,7 @@ krb5
 kservice
 ktextwidgets
 kwallet
+kwayland
 kwidgetsaddons
 kwindowsystem
 kxmlgui
@@ -224,6 +229,7 @@ lcms2
 ldb
 ldns
 lensfun
+leptonica
 leveldb
 libabw
 libaccounts-glib
@@ -489,6 +495,7 @@ llvm-libs
 lm_sensors
 lmdb
 lpsolve
+lsof
 lua
 lua51
 lua52
@@ -532,7 +539,9 @@ nvidia-container-runtime
 nvidia-container-runtime-hook
 nvidia-utils
 oath-toolkit
+ocl-icd
 openal
+opencl-headers
 opencore-amr
 opencv
 openexr
@@ -698,6 +707,7 @@ python2-dnspython
 python2-docopt
 python2-dukpy
 python2-enum34
+python2-feedparser
 python2-gobject2
 python2-html5-parser
 python2-html5lib
@@ -707,9 +717,11 @@ python2-incremental
 python2-ipaddress
 python2-lockfile
 python2-lxml
+python2-markdown
 python2-mechanize
 python2-msgpack
 python2-netifaces
+python2-numpy
 python2-packaging
 python2-pep517
 python2-pillow
@@ -752,13 +764,13 @@ qt5-webkit
 qt5-x11extras
 qt5-xmlpatterns
 qtav
+qtcurve-utils
 raptor
 rasqal
 re2
 recode
 redland
 rest
-resvg-git
 rpcbind
 rtkit
 rtmpdump
@@ -780,7 +792,6 @@ ruby-trollop
 rubygems
 run-parts
 runc
-rust
 rxvt-unicode-terminfo
 sane
 sassc
@@ -819,6 +830,7 @@ taglib
 talloc
 tcl
 tdb
+tesseract
 tevent
 thin-provisioning-tools
 threadweaver
@@ -836,6 +848,7 @@ usbmuxd
 usbredir
 v4l-utils
 vamp-plugin-sdk
+vapoursynth
 vde2
 vid.stab
 vim-runtime
@@ -896,6 +909,7 @@ yubico-c
 yubico-c-client
 yubikey-personalization
 zeromq
+zimg
 zip
 zita-alsa-pcmi
 zita-resampler

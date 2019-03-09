@@ -30,7 +30,7 @@ main() {
         local final_path
         final_path="${filepath_without_extension}.${ext}"
 
-        ffmpeg -i "${filepath}" ${args_vp9_lossy} -f "${format}" -hide_banner -nostats "${temp_path}"
+        ffmpeg -i "${filepath}" ${args_vp9} -f "${format}" -hide_banner -nostats "${temp_path}"
 
         mv "${temp_path}" "${final_path}"
     }

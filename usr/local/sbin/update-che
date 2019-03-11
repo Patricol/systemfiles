@@ -4,10 +4,11 @@ main() {
 	# Check for new versions here: https://github.com/eclipse/che/releases
 
 	# Currently major breaking bugs in 6.16.0-6.17.1; should check if newer versions work properly.
+	# Bug isn't fixed, but workaround is to access che using full IP instead of "localhost"
 	declare use_as_new="$1"
 	if [[ -z "${use_as_new}" ]]; then
-		use_as_new="6.15.0"
-		#use_as_new="latest"
+		#use_as_new="6.15.0"
+		use_as_new="latest"
 		#use_as_new="rc"
 		#use_as_new="nightly"
 	fi

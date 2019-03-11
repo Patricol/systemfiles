@@ -4,8 +4,11 @@
 
 SHELL="/bin/bash"
 
-# If not running interactively, don't do anything
-[[ "$-" != *i* ]] && return
+# ssh/scp may still source bashrc in a noninteractive session; in a way that could seriously mess up file transfers.
+if [[ "${NONINTERACTIVEBASHRC}" != "yes" ]]; then
+		[[ "$-" != *i* ]] && return
+fi
+
 
 # History options
 HISTCONTROL="ignoreboth" # don't put duplicate lines or lines starting with space in the history.
@@ -35,8 +38,8 @@ bind "set mark-symlinked-directories on" # Immediately add a trailing slash when
 # Enable incremental history search with up/down arrows (also Readline goodness)
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
-bind '"\e[C": forward-char'
-bind '"\e[D": backward-char'
+bind '"\e[C": forward-word'
+bind '"\e[D": backward-word'
 
 #shopt -s globsta # If set, the pattern "**" used in a pathname expansion context will match all files and zero or more directories and subdirectories.
 
@@ -68,8 +71,8 @@ fi
 source /usr/share/doc/pkgfile/command-not-found.bash
 
 # Alias definitions.
-if [[ -d ~/.dot/aliases/ ]]; then
-	for alias_file in ~/.dot/aliases/*; do
+if [[ -d ~/.dot/l/aliases/ ]]; then
+	for alias_file in ~/.dot/l/aliases/*; do
 		source "${alias_file}"
 	done
 	unset alias_file

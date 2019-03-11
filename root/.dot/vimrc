@@ -1,1 +1,0 @@
-let g:powerline_pycmd="py3" " avoids error messages if powerline is installed

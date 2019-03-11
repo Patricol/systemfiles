@@ -66,17 +66,17 @@ main() {
         local video_name video_name_no_ext frame_path
         video_name="$(basename "${video}")"
         video_name_no_ext="${video_name%.*}"
-        frame_path="${HOME}/.config/wallpapers/animated/first-frame/${video_name_no_ext}.png"
+        frame_path="${HOME}/.dot/l/wallpapers/animated/first-frame/${video_name_no_ext}.png"
         if [[ ! -f "${frame_path}" ]]; then
             mpv "${video}" --start=0 --frames=1 -o "${frame_path}"
         fi
-        ln -srf "${frame_path}" "${HOME}/.config/wallpapers/default/animated-frame.png"
+        ln -srf "${frame_path}" "${HOME}/.dot/l/wallpapers/default/animated-frame.png"
     }
 
     if [[ "${video}" == "--sample" ]]; then
         echo "cycle through videos with < and >"
         local defdir defvid
-        defdir="${HOME}/.config/custom/wallpapers/animated"
+        defdir="${HOME}/.dot/l/wallpapers/animated"
         defvid="${defdir}/river.gif"
         mpv ${mpvargs_testing} ${vo} ${scaling} ${defdir}/*.gif &
         local method extended_args

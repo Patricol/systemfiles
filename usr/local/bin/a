@@ -4,7 +4,7 @@
 
 main() {
 	declare alias_or_func="$1" ; shift
-	declare args="$@" aliases="${HOME}/.dot/l/source_aliases"
+	declare args="$@" aliases="${HOME}/.dot/l/source-aliases"
 
 	source "${aliases}"
 	local command

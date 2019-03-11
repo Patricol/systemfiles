@@ -35,6 +35,7 @@ cheat-git
 chromium
 cifs-utils
 clang
+compton
 coreutils
 cowsay
 cryptsetup

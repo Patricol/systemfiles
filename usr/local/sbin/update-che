@@ -13,11 +13,9 @@ main() {
 	fi
 
 	get_current_version() {
-		local image_name
+		local image_name current_version_from_docker current_version_from_file
 		image_name="$(docker ps -f "name=che" --format "{{.Image}}")"
-		local current_version_from_docker
 		current_version_from_docker="$(cut -d ":" -f 2 <<< "${image_name}")"
-		local current_version_from_file
 		current_version_from_file="$(cat /home/docker/che/instance/che.ver.do_not_modify)"
 		if [[ -n "${current_version_from_docker}" ]]; then
 			echo "${current_version_from_docker}"

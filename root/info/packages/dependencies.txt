@@ -258,6 +258,7 @@ libcdio
 libcdio-paranoia
 libcdr
 libcmis
+libconfig
 libcroco
 libcups
 libcurl-gnutls

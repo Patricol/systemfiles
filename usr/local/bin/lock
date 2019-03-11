@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 main() {
-    if [[ -f ~/.config/wpg/custom/named_colors ]]; then
-        source ~/.config/wpg/custom/named_colors
+    if [[ -f ~/.dot/l/bin/named-colors ]]; then
+        source ~/.dot/l/bin/named-colors
     else
         local darkest
         darkest="212121"

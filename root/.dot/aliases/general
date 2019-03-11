@@ -7,6 +7,8 @@ add_ssh_keys() {
         eval "$(keychain --eval --quiet $@)"
 }
 
+alias vim='svim'
+
 # sudo to other users
 alias sup='sudo -i -u patricol'
 alias sip='sup'

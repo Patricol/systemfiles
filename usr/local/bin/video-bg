@@ -26,7 +26,7 @@ main() {
     fi
 
     local logging basic only_in_xwinwrap rendering audio misc
-    logging="--really-quiet"
+    logging="" #--really-quiet"
     basic="--no-config --no-border --x11-name=mpvbackground --loop"
     only_in_xwinwrap="--wid WID"
     rendering="--x11-bypass-compositor=no --hwdec=auto --framedrop=vo --hwdec-codecs=all"

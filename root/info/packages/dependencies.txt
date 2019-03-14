@@ -772,6 +772,7 @@ re2
 recode
 redland
 rest
+resvg
 rpcbind
 rtkit
 rtmpdump

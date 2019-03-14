@@ -123,13 +123,15 @@ Setup dotfiles if needed: https://github.com/Patricol/dotfiles
 sudo nvidia-xconfig
 
 sudo groupadd -r bluetooth && sudo usermod -aG bluetooth patricol
+sudo usermod -aG libvirt patricol
+sudo usermod -aG libvirt work
 
 #sets default terminal for nemo to use from right click menu etc.
 gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
 sudo -u work -i dbus-launch --exit-with-session gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
 
 sudo systemctl --now disable dhcpcd.service
-sudo systemctl --now enable systemd-resolved.service systemd-networkd.service anbox-container-manager.service  lightdm.service fstrim.timer gpm.service docker.service paccache.timer libvirtd.service virtlogd.socket avahi-daemon.service avahi-daemon.socket NetworkManager.service bluetooth.service nvidia-persistenced.service run-regularly.timer run-weekly.timer run-on-boot.service
+sudo systemctl --now enable ebtables.service dnsmasq.service systemd-resolved.service systemd-networkd.service anbox-container-manager.service  lightdm.service fstrim.timer gpm.service docker.service paccache.timer libvirtd.service virtlogd.socket avahi-daemon.service avahi-daemon.socket NetworkManager.service bluetooth.service nvidia-persistenced.service run-regularly.timer run-weekly.timer run-on-boot.service
 sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.target suspend.target sleep.target
 #disable hibernation and suspend. Sleep seems to be the same thing. DPMS and "screen blanking" are distinct from all of these.
 #this also means there's no reason for me to use caffeine; I was using it to keep the computer from suspending when programs were running.
@@ -186,13 +188,9 @@ xdpyinfo | grep -B2 resolution
 #http://screen-size.info/
 #https://wiki.archlinux.org/index.php/Xorg#Display_size_and_DPI
 
-#can remove: /home/secure/config/etc/polkit-1/rules.d/51-blueman.rules
-#can also remove /home/secure/bin etc.
 #can delete /arch-homes.tar if you haven't already.
 
 #check that duplicati is working again http://localhost:8200
-
-sudo usermod -aG ssh libvirt
 
 #MORE HARDWARE STUFF:
 #Keep checking for when this supports AX860i: https://github.com/audiohacked/OpenCorsairLink

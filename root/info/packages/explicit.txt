@@ -51,6 +51,7 @@ docker
 docker-compose
 dpkg
 e2fsprogs
+ebtables
 elinks
 etcher-bin
 exfat-utils
@@ -174,6 +175,7 @@ nvidia-lts
 nvidia-settings
 okular
 oomox
+openbsd-netcat
 opencl-nvidia
 openssh
 ovmf

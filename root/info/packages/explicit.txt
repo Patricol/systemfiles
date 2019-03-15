@@ -19,6 +19,7 @@ avidemux-qt
 baobab
 bash
 bash-completion
+bat
 bdf-unifont
 binutils
 bison
@@ -263,6 +264,7 @@ util-linux
 vdpauinfo
 veracrypt
 vi
+vimpager
 virt-manager
 vlc
 vulkan-headers

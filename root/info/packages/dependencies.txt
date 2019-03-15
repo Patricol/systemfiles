@@ -138,6 +138,7 @@ gtk3
 gtkmm
 gtkmm3
 gtksourceview3
+gtksourceview4
 gtkspell
 guile
 gvfs
@@ -640,6 +641,7 @@ python-jupyter_core
 python-keyutils
 python-lockfile
 python-mako
+python-markdown
 python-markupsafe
 python-mistune
 python-msgpack

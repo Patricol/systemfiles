@@ -154,7 +154,7 @@ mediainfo
 meld
 mesa-demos
 mkinitcpio-colors-git
-mpv-git
+mpv
 nano
 nemo
 neofetch
@@ -238,7 +238,6 @@ sshfs
 standardnotes-desktop
 stress
 sudo
-svp
 sysfsutils
 systemd
 systemd-sysvcompat

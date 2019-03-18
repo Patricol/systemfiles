@@ -230,7 +230,6 @@ lcms2
 ldb
 ldns
 lensfun
-leptonica
 leveldb
 libabw
 libaccounts-glib
@@ -834,7 +833,6 @@ taglib
 talloc
 tcl
 tdb
-tesseract
 tevent
 thin-provisioning-tools
 threadweaver
@@ -852,7 +850,6 @@ usbmuxd
 usbredir
 v4l-utils
 vamp-plugin-sdk
-vapoursynth
 vde2
 vid.stab
 vim-runtime
@@ -913,7 +910,6 @@ yubico-c
 yubico-c-client
 yubikey-personalization
 zeromq
-zimg
 zip
 zita-alsa-pcmi
 zita-resampler

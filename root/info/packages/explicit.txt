@@ -3,6 +3,7 @@ autoconf
 automake
 bash
 bash-completion
+bat
 binutils
 bison
 bzip2
@@ -110,6 +111,7 @@ usbutils
 util-linux
 vi
 vim
+vimpager
 w3m
 wget
 which

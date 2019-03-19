@@ -423,6 +423,7 @@ libtiff
 libtirpc
 libtommath
 libtorrent-rasterbar
+libtsm-patched-git
 libunistring
 libunrar
 libunwind

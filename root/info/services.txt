@@ -52,6 +52,7 @@ masked hybrid-sleep.target
 disabled ip6tables.service
 disabled iptables.service
 disabled kexec.target
+disabled kmscon.service
 disabled krb5-kadmind.service
 disabled krb5-kdc.service
 disabled krb5-kpropd.service

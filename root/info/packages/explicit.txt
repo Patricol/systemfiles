@@ -1,6 +1,7 @@
 adapta-gtk-theme
 adobe-source-code-pro-fonts
 adobe-source-sans-pro-fonts
+alacritty
 amd-ucode
 anbox-bridge
 anbox-git
@@ -121,6 +122,7 @@ jsoncpp
 jupyter
 keychain
 kitty
+kmscon-patched-git
 lastpass
 less
 libmicrodns

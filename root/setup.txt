@@ -120,7 +120,7 @@ Setup dotfiles if needed: https://github.com/Patricol/dotfiles
 
 #exec startx for gui (assuming exec i3 is in ~/.xinitrc)
 
-sudo nvidia-xconfig
+#sudo nvidia-xconfig
 
 sudo groupadd -r bluetooth && sudo usermod -aG bluetooth patricol
 sudo usermod -aG libvirt patricol

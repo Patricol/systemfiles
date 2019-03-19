@@ -83,7 +83,6 @@ enabled NetworkManager-dispatcher.service
 enabled NetworkManager.service
 enabled NetworkManager-wait-online.service
 disabled nscd.service
-enabled nvidia-persistenced.service
 enabled paccache.timer
 disabled pkgfile-update.timer
 disabled poweroff.target

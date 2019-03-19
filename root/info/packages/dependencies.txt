@@ -497,7 +497,6 @@ llvm-libs
 lm_sensors
 lmdb
 lpsolve
-lsof
 lua
 lua51
 lua52
@@ -512,7 +511,6 @@ mariadb-clients
 mariadb-libs
 mathjax
 media-player-info
-mesa
 metis
 minizip
 mkinitcpio
@@ -539,11 +537,8 @@ numactl
 numix-icon-theme-git
 nvidia-container-runtime
 nvidia-container-runtime-hook
-nvidia-utils
 oath-toolkit
-ocl-icd
 openal
-opencl-headers
 opencore-amr
 opencv
 openexr
@@ -724,7 +719,6 @@ python2-markdown
 python2-mechanize
 python2-msgpack
 python2-netifaces
-python2-numpy
 python2-packaging
 python2-pep517
 python2-pillow

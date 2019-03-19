@@ -129,6 +129,7 @@ libmicrodns
 libreoffice-fresh
 libtool
 libu2f-host
+libva-mesa-driver
 libvirt
 licenses
 lightdm
@@ -143,6 +144,7 @@ linux-lts
 linux-lts-headers
 logrotate
 lolcat
+lsof
 lvm2
 lxqt-openssh-askpass
 lynx
@@ -154,7 +156,9 @@ mcomix
 mdadm
 mediainfo
 meld
+mesa
 mesa-demos
+mesa-vdpau
 mkinitcpio-colors-git
 mpv
 nano
@@ -169,17 +173,14 @@ nitrogen
 nodejs
 noto-fonts
 noto-fonts-emoji
+nouveau-fw
 nss-mdns
 ntfs-3g
 numix-circle-icon-theme-git
-nvidia
 nvidia-docker
-nvidia-lts
-nvidia-settings
 okular
 oomox
 openbsd-netcat
-opencl-nvidia
 openssh
 ovmf
 p7zip
@@ -281,6 +282,7 @@ x11vnc
 xclip
 xdelta3
 xdotool
+xf86-video-nouveau
 xfsprogs
 xorg-fonts-alias
 xorg-server

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+EDITOR="vim -R -O" sedit $@
+

@@ -16,7 +16,6 @@ shopt -s histappend # append to the history file, don't overwrite it
 shopt -s cmdhist # Save multi-line commands as one command
 HISTSIZE=1000
 HISTFILESIZE=2000000000
-PROMPT_COMMAND='history -a' # Record each line as it gets issued
 
 
 [[ "${DISPLAY}" ]] && shopt -s checkwinsize # check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
@@ -25,9 +24,98 @@ shopt -s autocd # cd automatically if dir is entered
 #shopt -s dirspell # Correct spelling errors during tab-completion
 #shopt -s cdspell # Correct spelling errors in arguments supplied to cd
 
+stty -ixon # disable Ctrl-S
 
-PROMPT_DIRTRIM=2 # Automatically trim long paths in the prompt
+PROMPT_DIRTRIM=12 # Automatically trim long paths in the prompt
 
+PROMPT_COMMAND="__bash_prompt"
+
+__bash_prompt() {
+    local __PIPESTATUS=("${PIPESTATUS[@]}") # must be first
+
+    history -a # Record each line as it gets issued.
+
+    # set the title if using xterm
+    case "${TERM}" in
+	xterm*|rxvt*)
+	    PS1="\[\e]0;\u@\h: \w\a\]${PS1}"
+	    ;;
+	*)  ;;
+    esac
+
+
+    local reg='\[\e[0m\]'
+
+    local fg0='\[\e[0;30m\]'
+    #local fg1='\[\e[0;31m\]'
+    #local fg2='\[\e[0;32m\]'
+    #local fg3='\[\e[0;33m\]'
+    #local fg4='\[\e[0;34m\]'
+    #local fg5='\[\e[0;35m\]'
+    #local fg6='\[\e[0;36m\]'
+    #local fg7='\[\e[0;37m\]'
+
+    #local bg0='\[\e[40m\]'
+    local bg1='\[\e[41m\]'
+    local bg2='\[\e[42m\]'
+    local bg3='\[\e[43m\]'
+    local bg4='\[\e[44m\]'
+    local bg5='\[\e[45m\]'
+    #local bg6='\[\e[46m\]'
+    local bg7='\[\e[47m\]'
+    
+
+    local f_code_s="${fg0}${bg2}"
+    local f_code_f="${fg0}${bg1}"
+    local f_job="${fg0}${bg3}"
+    local f_cwd="${fg0}${bg7}"
+    local f_host="${fg0}${bg4}"
+    local f_user="${fg0}${bg1}"
+    local f_root="${fg0}${bg5}"
+
+    local code return_codes nonzero_code spacer
+    return_codes=""
+    spacer=""
+    for code in "${__PIPESTATUS[@]}"; do
+	if [[ ${code} -ne 0 ]]; then
+	    nonzero_code="true"
+	    break
+	fi
+    done
+    if [[ "${nonzero_code}" == "true" ]]; then
+	for code in "${__PIPESTATUS[@]}"; do
+	    if [[ -n "${return_codes}" ]]; then
+		return_codes+="${spacer}"
+	    fi
+	    if [[ ${code} -eq 0 ]]; then
+		return_codes+="${f_code_s}"
+	    else
+		return_codes+="${f_code_f}"
+	    fi
+	    return_codes+=" ${code} ${reg}"
+	done
+	#return_codes+=" "
+    fi
+    
+    local jobs="$(jobs | wc -l | tr -d 0)"
+    if [[ -n "${jobs}" ]]; then
+	jobs="${f_job} ${jobs} ${reg}"
+    fi
+
+    local prompt host
+    host="${f_host} \H ${reg}"
+    if [[ ${UID} -eq 0 ]]; then
+	prompt+="${f_root}"
+    else
+	prompt+="${f_user}"
+    fi
+    prompt+=" \u ${reg} "
+
+    local fullcwd
+    fullcwd="${f_cwd} \w ${reg}"
+
+    PS1="${host}${jobs}${return_codes}${fullcwd}\n${prompt}"
+}
 
 bind "set completion-ignore-case on" # Perform file completion in a case insensitive fashion
 #bind "set completion-map-case on" # Treat hyphens and underscores as equivalent
@@ -43,16 +131,6 @@ bind '"Od": backward-word'
 
 #shopt -s globsta # If set, the pattern "**" used in a pathname expansion context will match all files and zero or more directories and subdirectories.
 
-
-PS1='[\u@\h \W]\$ '
-
-# set the title if using xterm
-case "${TERM}" in
-	xterm*|rxvt*)
-		PS1="\[\e]0;\u@\h: \w\a\]${PS1}"
-		;;
-	*)	;;
-esac
 
 # enable color support for ls
 if [[ -x /usr/bin/dircolors ]]; then
@@ -82,11 +160,3 @@ fi
 export EDITOR="svim"
 export GIT_EDITOR="svim"
 
-# okay to use powerline
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-source /usr/share/powerline/bindings/bash/powerline.sh
-LANG="en_US.UTF-8" powerline-daemon -q # need to start powerline-daemon with unicode LANG regardless
-
-
-stty -ixon # disable Ctrl-S

@@ -130,6 +130,7 @@ libreoffice-fresh
 libtool
 libu2f-host
 libva-mesa-driver
+libva-utils
 libvirt
 licenses
 lightdm
@@ -241,6 +242,7 @@ sshfs
 standardnotes-desktop
 stress
 sudo
+sway
 sysfsutils
 systemd
 systemd-sysvcompat
@@ -287,6 +289,7 @@ xfsprogs
 xorg-fonts-alias
 xorg-server
 xorg-server-devel
+xorg-server-xwayland
 xorg-xdpyinfo
 xorg-xev
 xorg-xhost

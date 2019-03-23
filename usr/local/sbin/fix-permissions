@@ -5,9 +5,15 @@ main() {
 		declare homedir="$1"
 		local sshdir
 		sshdir="${homedir}/.ssh"
-		touch "${sshdir}"/{authorized_keys,known_hosts}
+		touch -a "${sshdir}"/{authorized_keys,known_hosts}
 		chmod -R u+rwX,go-rwx "${sshdir}"/*
-		chmod a+r "${sshdir}"/{authorized_keys,known_hosts} "${sshdir}"/*.pub
+		chmod a+r "${sshdir}"/{authorized_keys,known_hosts}
+		local pubkey
+		for pubkey in "${sshdir}"/*.pub; do
+			if [[ -f "${pubkey}" ]]; then # do this instead of setting nullglob
+				chmod a+r "${pubkey}"
+			fi
+		done
 	}
 
 	restrict_to_user() {
@@ -24,7 +30,9 @@ main() {
 			chmod -R go-rwx "${directory}"
 		fi
 		if [[ "$3" == "allow_group_x" ]]; then
-			chmod g+rw "${directory}/.Xauthority"
+			if [[ -f "${directory}/.Xauthority" ]]; then
+				chmod g+rw "${directory}/.Xauthority"
+			fi
 		fi
 	}
 

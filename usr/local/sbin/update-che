@@ -5,6 +5,7 @@ main() {
 
 	# Currently major breaking bugs in 6.16.0-6.17.1; should check if newer versions work properly.
 	# Bug isn't fixed, but workaround is to access che using full IP instead of "localhost"
+	# Just realized, xrdp broke for me with a release made 2 days before 6.16.0. Maybe it's an issue with something they both use?
 	declare use_as_new="$1"
 	if [[ -z "${use_as_new}" ]]; then
 		#use_as_new="6.15.0"

@@ -26,6 +26,7 @@ avahi
 avidemux-cli
 babl
 bc
+bcg729
 blas
 bluez
 bluez-libs
@@ -776,6 +777,7 @@ rubberband
 ruby
 ruby-diff-lcs
 ruby-manpages
+ruby-optimist
 ruby-paint
 ruby-rainbow
 ruby-rdoc
@@ -793,6 +795,7 @@ runc
 rxvt-unicode-terminfo
 sane
 sassc
+sbc
 sdl2
 sdl2_image
 seabios
@@ -813,6 +816,7 @@ sonnet
 sord
 sound-theme-freedesktop
 soundtouch
+spandsp
 speex
 speexdsp
 spice
@@ -860,7 +864,6 @@ wayland-protocols
 webkit2gtk
 webrtc-audio-processing
 wireshark-cli
-wireshark-common
 wlroots
 woff2
 wpa_supplicant

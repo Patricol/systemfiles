@@ -44,6 +44,7 @@ disabled git-daemon.socket
 disabled glusterd.service
 disabled glustereventsd.service
 disabled glusterfssharedstorage.service
+disabled gluster-ta-volume.service
 enabled gpm.service
 disabled halt.target
 disabled healthd.service

@@ -276,7 +276,7 @@ vulkan-intel
 w3m
 wget
 which
-wireshark-gtk
+wireshark-qt
 woeusb
 wol
 wpgtk-git

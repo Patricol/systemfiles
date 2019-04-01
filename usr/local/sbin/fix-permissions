@@ -21,6 +21,9 @@ main() {
 		chown -R "${ownership}" "${directory}"
 		if [[ "$3" == "allow_group" ]]; then
 			chmod -R ug+rwX,o-rwx "${directory}"
+			if [[ -d "${directory}/.gnupg" ]]; then
+				chmod -R g-rwx "${directory}/.gnupg"
+			fi
 			if [[ -d "${directory}/.zplug" ]]; then
 				chmod -R g-rwx "${directory}/.zplug"
 				chmod g-rwx "${directory}/.dot/l"

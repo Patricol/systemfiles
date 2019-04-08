@@ -72,6 +72,7 @@ enabled machines.target
 disabled man-db.timer
 disabled mariadb.service
 disabled mariadb@.service
+disabled ModemManager.service
 disabled mysqld.service
 disabled mysqld@.service
 disabled ndctl-monitor.service
@@ -88,6 +89,7 @@ disabled nscd.service
 enabled paccache.timer
 disabled pkgfile-update.timer
 disabled poweroff.target
+disabled ppp@.service
 disabled reboot.target
 enabled remote-cryptsetup.target
 enabled remote-fs.target

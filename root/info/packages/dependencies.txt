@@ -141,6 +141,7 @@ gtkmm3
 gtksourceview3
 gtksourceview4
 gtkspell
+gts
 guile
 gvfs
 harfbuzz
@@ -338,6 +339,7 @@ libmagick
 libmagick6
 libmatroska
 libmaxminddb
+libmbim
 libmediainfo
 libmediawiki
 libmicrohttpd
@@ -387,6 +389,7 @@ libproxy
 libpsl
 libpulse
 libpwquality
+libqmi
 libqtxdg
 libqxp
 libraqm
@@ -517,6 +520,7 @@ minizip
 mkinitcpio
 mkinitcpio-busybox
 mobile-broadband-provider-info
+modemmanager
 mpfr
 mpg123
 msgpack-c
@@ -590,6 +594,7 @@ portaudio
 portsmf
 potrace
 powerline-common
+ppp
 prison
 pulseaudio
 purpose
@@ -599,6 +604,8 @@ pygobject2-devel
 pygtk
 pyqt5-common
 python-appdirs
+python-asn1crypto
+python-bcrypt
 python-beaker
 python-bleach
 python-cachecontrol
@@ -609,6 +616,7 @@ python-cairosvg
 python-cffi
 python-chardet
 python-colorama
+python-cryptography
 python-cssselect2
 python-dateutil
 python-dbus
@@ -643,6 +651,7 @@ python-mistune
 python-msgpack
 python-packaging
 python-pandocfilters
+python-paramiko
 python-parso
 python-pep517
 python-pexpect
@@ -655,8 +664,10 @@ python-prometheus_client
 python-prompt_toolkit
 python-psutil
 python-ptyprocess
+python-pyasn1
 python-pycparser
 python-pygments
+python-pynacl
 python-pyparsing
 python-pystache
 python-pyte

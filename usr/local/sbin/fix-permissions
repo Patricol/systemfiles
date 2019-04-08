@@ -5,15 +5,17 @@ main() {
 		declare homedir="$1"
 		local sshdir
 		sshdir="${homedir}/.ssh"
-		touch -a "${sshdir}"/{authorized_keys,known_hosts}
-		chmod -R u+rwX,go-rwx "${sshdir}"/*
-		chmod a+r "${sshdir}"/{authorized_keys,known_hosts}
-		local pubkey
-		for pubkey in "${sshdir}"/*.pub; do
-			if [[ -f "${pubkey}" ]]; then # do this instead of setting nullglob
-				chmod a+r "${pubkey}"
-			fi
-		done
+		if [[ -d "${sshdir}" ]]; then
+			touch -a "${sshdir}"/{authorized_keys,known_hosts}
+			chmod -R u+rwX,go-rwx "${sshdir}"/*
+			chmod a+r "${sshdir}"/{authorized_keys,known_hosts}
+			local pubkey
+			for pubkey in "${sshdir}"/*.pub; do
+				if [[ -f "${pubkey}" ]]; then # do this instead of setting nullglob
+					chmod a+r "${pubkey}"
+				fi
+			done
+		fi
 	}
 
 	restrict_to_user() {
@@ -59,20 +61,20 @@ main() {
 
 	restrict_to_user root:root /home/secure
 
-	chown -R root:root /usr/local/bin
-	chmod -R 755 /usr/local/bin
-	chown -R root:root /usr/local/sbin
-	chmod -R 744 /usr/local/sbin
-	chmod 755 /usr/local/sbin
+	chown -cR root:root /usr/local/bin
+	chmod -cR 755 /usr/local/bin
+	chown -cR root:root /usr/local/sbin
+	chmod -cR 744 /usr/local/sbin
+	chmod -c 755 /usr/local/sbin
 
 	mkdir -p /media/{nas,gdrive,work,gaming}
-	chown patricol:patrick /media/{nas,gdrive,gaming}
-	chown work:patrick /media/work
-	chmod 770 /media/{nas,gdrive,work,gaming}
+	chown -c patricol:patrick /media/{nas,gdrive,gaming}
+	chown -c work:patrick /media/work
+	chmod -c 770 /media/{nas,gdrive,work,gaming}
 
 	#standardnotes-desktop being installed with wrong permissions repeatedly.
 	#google earth one too.
-	chmod -R a+rX /opt/*
+	chmod -cR a+rX /opt/*
 }
 
 main

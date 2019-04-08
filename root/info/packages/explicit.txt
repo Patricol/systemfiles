@@ -97,6 +97,7 @@ gpa
 gparted
 gpick
 gpmdp-git
+graphviz
 grc
 grep
 groff
@@ -238,6 +239,7 @@ shadow
 shantz-xwinwrap-bzr
 signal-desktop-bin
 simple-scan
+simplescreenrecorder
 sshfs
 standardnotes-desktop
 stress

@@ -6,13 +6,9 @@ source /usr/local/sbin/update-che
 
 # Stop eclipse che
 cli_current stop
-# Stop Duplicati
-docker stop duplicati
 # Remove general stuff
 docker system prune --force
 # Remove almost all images
 docker image prune -a --force
-# Reinstall duplicati
-run-duplicati
 # Reinstall eclipse che
 cli_current start

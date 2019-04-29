@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 main() {
-	for user in patricol work; do
+	for user in patrickcp0; do
 		sudo --user="${user}" -- zsh -c 'source ~/.zshrc ; zplug update ; zcc'
 	done
 	#maybe also zplug clean? that uninstalls some things that are being used, though.

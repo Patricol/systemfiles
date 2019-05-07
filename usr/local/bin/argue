@@ -1,0 +1,135 @@
+#!/usr/bin/env bash
+
+# source this file to handle arguments within other scripts.
+# source "$(which argue)"
+
+# some parts adapted from https://stackoverflow.com/a/29754866/4710015
+
+if getopt --test > /dev/null; then
+    echo "Can't argue; getopt is not enhanced." >&2
+    return 8
+fi
+
+# given pairs of short and long names for options, (requires only one), and extra data about whether it takes arguments and whether those arguments are optional.
+# sets environment variables with provided value or "true" if bool. otherwise sets false bools to empty string etc.; same for non-present opts with args.
+
+# be careful about what variable names are used; they might overwrite ones from the scope this is sourced from.
+
+# no need to handle command line args in this; just use an array that should be defined in the scope that sources this.
+# argue_options=("a,able,arg" "b,beff,noarg" "c,crad,optarg")
+
+local __argue_valid_types __argue_option
+__argue_valid_types=("noarg" "arg" "optarg") # ORDER IS SIGNIFICANT; CHECK CODE BELOW
+
+__argue_check_valid_option(){
+    # check that short args are '[a-zA-Z0-9]?' and long args are '[a-zA-Z_][a-zA-Z0-9_]*'
+    declare option="$1"
+    local option_parts message
+    IFS=',' read -r -a option_parts <<< "${option}"
+    if [[ "${option//[^,]}" != ",," ]]; then
+	message="should have two commas"
+    elif [[ -n "${option//[^ -]}" ]]; then
+	message="should not have any spaces or hyphens"
+    elif [[ ${#option_parts[0]} -gt 1 ]]; then
+	message="should either have no short option or a one-character-long short option"
+    elif [[ -z "${option_parts[1]}" ]]; then
+	message="requires a long option name"
+    elif [[ ! " ${__argue_valid_types[@]} " =~ " ${option_parts[2]} " ]]; then
+	message="has an invalid option type (${option_parts[2]})"
+    else
+	return 0
+    fi
+    echo "Error: '${option}' ${message}." >&2
+    return 1
+}
+
+
+
+declare -A __argue_shortopts_to_long
+declare -A __argue_longopts_to_type
+declare __argue_shortopts="" __argue_longopts=""
+
+for __argue_option in ${argue_options[@]}; do
+    if ! __argue_check_valid_option ${__argue_option}; then
+	return 1
+    fi
+    declare __argue_option_parts __argue_option_colons
+    IFS=',' read -r -a __argue_option_parts <<< "${option}"
+
+    case "${__argue_option_parts[2]}" in
+	# Each short option character in shortopts or long option name in longopts may be followed by one colon to indicate it has a required argument, and by two colons to indicate it has an optional argument.
+	# "${__argue_valid_types[0]}")
+	#     __argue_option_colons=""
+	#     ;;
+	"${__argue_valid_types[1]}")
+	    __argue_option_colons=":"
+	    ;;
+	"${__argue_valid_types[2]}")
+	    __argue_option_colons="::"
+	    ;;
+	*)
+	    __argue_option_colons=""
+	    ;;
+    esac
+    
+    # check no duplicate short or long option names. (can have dupe short and long; -a and --a are different.)
+    if [[ ${__argue_shortopts_to_long[${__argue_option_parts[0]}]+missing} == "missing" ]]; then
+	__argue_shortopts_to_long[${__argue_option_parts[0]}] = "${__argue_option_parts[1]}"
+	__argue_shortopts += "${__argue_option_parts[0]}${__argue_option_colons}"
+    else
+	echo "Duplicate shortopts" >&2
+	return 3
+    fi
+    if [[ ${__argue_longopts_to_type[${__argue_option_parts[0]}]+missing} == "missing" ]]; then
+	__argue_longopts_to_type[${__argue_option_parts[0]}] = "${__argue_option_parts[2]}"
+	__argue_longopts += "${__argue_option_parts[1]}${__argue_option_colons},"
+    else
+	echo "Duplicate longopts" >&2
+	return 3
+    fi
+done
+__argue_longopts="${__argue_longopts%,}"
+
+unset -f __argue_check_valid_option
+
+
+# temporarily store output to be able to check for errors
+# activate quoting/enhanced mode (e.g. by writing out "--options")
+# pass arguments only via   -- "$@"   to separate them correctly
+local __argue_parsed_options
+__argue_parsed_options=$(getopt --options=${__argue_shortopts} --longoptions=${__argue_longopts} --name "$0" -- "$@")
+if [[ $? -ne 0 ]]; then # getopt has complained about wrong arguments to stdout
+    return 2
+fi
+
+local __argue_longopt
+for __argue_longopt in ${__argue_longopts_to_type[@]}; do
+   declare "${__argue_longopt}"=""
+done
+
+# read getopt's output this way to handle the quoting right:
+eval set -- ${__argue_parsed_options}
+
+while "$1" != "--"; do
+    declare __argue_opt="$1"
+    shift
+    local __argue_longopt __argue_value
+    if [[ ${#__argue_opt} -eq 2 ]]; then
+	__argue_longopt="${__argue_shortopts_to_long[${__argue_opt:1}]}"
+    else
+	__argue_longopt="${__argue_opt:2}"
+    fi
+    case "${__argue_longopts_to_type[${__argue_longopt}]}" in
+	"${__argue_valid_types[1]}"|"${__argue_valid_types[2]}")
+	    __argue_value="$1"
+	    shift
+	    ;;
+	*)
+	    __argue_value="true"
+	    ;;
+    esac
+    declare "${__argue_longopt}"="${__argue_value}"
+done
+shift
+
+#unset wildcard after running? e.g. unset __argue_*

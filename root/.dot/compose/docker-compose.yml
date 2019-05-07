@@ -1,0 +1,15 @@
+version: "3.6"
+
+# maybe add: virt-manager, portainer, sshd
+
+services:
+    guacd:
+        container_name: fcdcbda-guacd
+        image: guacamole/guacd:${GUACAMOLE_VERSION}
+        ports:
+            - '4822:4822'
+
+networks:
+    default:
+        driver_opts:
+            enable_icc: "false"

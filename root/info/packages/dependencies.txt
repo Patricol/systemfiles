@@ -30,6 +30,7 @@ bcg729
 blas
 bluez
 bluez-libs
+boost
 boost-libs
 bridge-utils
 brotli
@@ -105,6 +106,7 @@ glew
 glib-networking
 glib2
 glibmm
+glm
 glslang
 glu
 glusterfs
@@ -130,6 +132,7 @@ gst-plugins-base
 gst-plugins-base-libs
 gst-plugins-good
 gstreamer
+gtest
 gtk-engine-murrine
 gtk-engines
 gtk-update-icon-cache
@@ -160,6 +163,7 @@ ilmbase
 imagemagick
 imlib2
 intel-tbb
+intltool
 iptables
 iso-codes
 jack
@@ -237,6 +241,7 @@ libabw
 libaccounts-glib
 libaccounts-qt
 libaio
+libakonadi
 libappindicator-gtk3
 libarchive
 libass
@@ -335,7 +340,6 @@ libldap
 liblqr
 liblxqt
 libmad
-libmagick
 libmagick6
 libmatroska
 libmaxminddb
@@ -577,6 +581,7 @@ perl-parse-recdescent
 perl-pegex
 perl-timedate
 perl-uri
+perl-xml-parser
 perl-yaml-libyaml
 phodav
 phonon-qt5
@@ -596,6 +601,7 @@ potrace
 powerline-common
 ppp
 prison
+properties-cpp
 pulseaudio
 purpose
 pyalpm
@@ -647,6 +653,7 @@ python-lockfile
 python-mako
 python-markdown
 python-markupsafe
+python-mccabe
 python-mistune
 python-msgpack
 python-packaging
@@ -665,7 +672,9 @@ python-prompt_toolkit
 python-psutil
 python-ptyprocess
 python-pyasn1
+python-pycodestyle
 python-pycparser
+python-pyflakes
 python-pygments
 python-pynacl
 python-pyparsing
@@ -699,6 +708,9 @@ python2-apsw
 python2-asn1crypto
 python2-attrs
 python2-automat
+python2-backports
+python2-backports.functools_lru_cache
+python2-beautifulsoup4
 python2-cachecontrol
 python2-cairo
 python2-cffi
@@ -719,6 +731,7 @@ python2-dukpy
 python2-enum34
 python2-feedparser
 python2-gobject2
+python2-html2text
 python2-html5-parser
 python2-html5lib
 python2-hyperlink
@@ -750,6 +763,7 @@ python2-retrying
 python2-setuptools
 python2-sip-pyqt5
 python2-six
+python2-soupsieve
 python2-twisted
 python2-unrardll
 python2-urllib3
@@ -781,6 +795,7 @@ recode
 redland
 rest
 resvg
+rhash
 rpcbind
 rtkit
 rtmpdump

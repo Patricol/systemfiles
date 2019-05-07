@@ -37,6 +37,7 @@ cheat-git
 chromium
 cifs-utils
 clang
+cmake
 compton
 coreutils
 cowsay
@@ -52,6 +53,7 @@ dnsmasq
 docker
 docker-compose
 dpkg
+dunst
 e2fsprogs
 ebtables
 elinks
@@ -72,8 +74,10 @@ filezilla
 findimagedupes
 findutils
 fingerprint-gui
+flake8
 flex
 fortune-mod
+freemind
 freerdp
 freetype2
 fwupd
@@ -118,6 +122,7 @@ intel-ucode
 iproute2
 iputils
 ipython
+jetbrains-toolbox
 jfsutils
 jsoncpp
 jupyter
@@ -203,6 +208,7 @@ pkgconf
 pkgfile
 polkit
 polybar
+postman-bin
 powerline
 powerline-console-fonts
 procps-ng

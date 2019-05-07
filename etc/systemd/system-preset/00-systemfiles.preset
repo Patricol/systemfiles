@@ -13,7 +13,7 @@ enable libvirtd.service
 enable avahi-daemon.service
 enable NetworkManager.service
 enable bluetooth.service
-enable nvidia-persistenced.service
+disable nvidia-persistenced.service
 enable run-on-boot.service
 enable fstrim.timer
 enable paccache.timer
@@ -21,4 +21,5 @@ enable run-regularly.timer
 enable run-weekly.timer
 enable virtlogd.socket
 enable avahi-daemon.socket
+enable xvnc.socket
 

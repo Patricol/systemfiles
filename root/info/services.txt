@@ -147,3 +147,4 @@ disabled wpa_supplicant-wired@.service
 disabled xfs_scrub_all.timer
 disabled xrdp.service
 disabled xrdp-sesman.service
+enabled xvnc.socket

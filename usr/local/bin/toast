@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+main() {
+	declare message="$@"
+	rofi -e "${message}"
+}
+
+main $@

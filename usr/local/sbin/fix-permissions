@@ -54,6 +54,7 @@ main() {
 
 	homedir_perms patricol:patrick /home/patricol allow_group_x
 	homedir_perms work:patrick /home/work allow_group
+	homedir_perms workmore:workmore /home/workmore
 	homedir_perms root:root /root
 
 	shared_folder_perms /home/shared

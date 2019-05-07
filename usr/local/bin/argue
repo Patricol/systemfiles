@@ -24,48 +24,18 @@ __argue_basic_setup() {
         return 8
     fi
 
-    local in_zsh
-    if [[ "${SHELL}" == *"/zsh" ]]; then
-        in_zsh="yes"
-    fi
-    
-    local valid_types
-    valid_types=("noarg" "arg" "optarg") # ORDER IS SIGNIFICANT; CHECK CODE BELOW
+    local -A valid_types
+    valid_types=( ["noarg"]="" ["arg"]=":" ["optarg"]="::" ) # ORDER IS SIGNIFICANT; CHECK CODE BELOW
+    # Each short option character in shortopts or long option name in longopts may be followed by one colon to indicate it has a required argument, and by two colons to indicate it has an optional argument.
 
     check_valid_option(){
-        # check that short args are '[a-zA-Z0-9]?' and long args are '[a-zA-Z_][a-zA-Z0-9_]*'
         declare option="$@"
-        local option_parts message longopt shortopt type
-        if [[ -n "${in_zsh}" ]]; then
-            IFS=',' read -r -A option_parts <<< "${option}"
-            # option_parts=(${(s:,:)option})
-            shortopt="${option_parts[1]}"
-            longopt="${option_parts[2]}"
-            type="${option_parts[3]}"
-        else
-            IFS=',' read -r -a option_parts <<< "${option}"
-            shortopt="${option_parts[0]}"
-            longopt="${option_parts[1]}"
-            type="${option_parts[2]}"
+        local regex_string
+        regex_string='^[0-9a-zA-Z_]?,[a-zA-Z_][0-9a-zA-Z_]*,(no|opt)?arg$'
+        if ! echo "${option}" | grep -E "${regex_string}" > /dev/null; then
+            echo "Error: '${option}' does not match required format '${regex_string}'." >&2
+            return 1
         fi
-        echo "${shortopt}"
-        echo "${longopt}"
-        echo "${type}"
-        if [[ "${option//[^,]}" != ",," ]]; then
-            message="should have two commas"
-        elif [[ -n "${option//[^ -]}" ]]; then
-            message="should not have any spaces or hyphens"
-        elif [[ ${#shortopt} -gt 1 ]]; then
-            message="should either have no short option or a one-character-long short option"
-        elif [[ -z "${longopt}" ]]; then
-            message="requires a long option name"
-        elif [[ ! " ${valid_types[@]} " =~ " ${type} " ]]; then
-            message="has an invalid option type (${type})"
-        else
-            return 0
-        fi
-        echo "Error: '${option}' ${message}." >&2
-        return 1
     }
     
     local option
@@ -73,8 +43,8 @@ __argue_basic_setup() {
         if ! check_valid_option ${option}; then
             return $?
         fi
-        local option_parts option_colons longopt shortopt type
-        if [[ -n "${in_zsh}" ]]; then
+        local option_parts option_colons longopt shortopt type > /dev/null # avoid zsh printing
+        if [[ "${SHELL}" == *"/zsh" ]]; then
             IFS=',' read -r -A option_parts <<< "${option}"
             shortopt="${option_parts[1]}"
             longopt="${option_parts[2]}"
@@ -85,24 +55,10 @@ __argue_basic_setup() {
             longopt="${option_parts[1]}"
             type="${option_parts[2]}"
         fi
-
-        case "${type}" in
-        # Each short option character in shortopts or long option name in longopts may be followed by one colon to indicate it has a required argument, and by two colons to indicate it has an optional argument.
-        "${valid_types[0]}")
-            option_colons=""
-            ;;
-        "${valid_types[1]}")
-            option_colons=":"
-            ;;
-        "${valid_types[2]}")
-            option_colons="::"
-            ;;
-        *)
-            return 7
-            ;;
-        esac
         
-        # check no duplicate short or long option names. (can have dupe short and long; -a and --a are different.)
+        option_colons="${valid_types[${type}]}"
+        
+        # check no duplicate short or long option names. (can have same short and long; -a and --a are different.)
         if [[ -n "${shortopt}" ]]; then
             if [[ -z "${__argue_shortopts_to_long[${shortopt}]}" ]]; then
                 __argue_shortopts_to_long[${shortopt}]="${longopt}"
@@ -147,6 +103,7 @@ unset __argue_shortopts __argue_longopts
 
 declare __argue_longopt
 for __argue_longopt in ${__argue_longopts_to_type[@]}; do
+    unset "${__argue_longopt}" # unsetting instead of setting to empty avoids zsh printing later. (e.g. in zsh "local abc; local abc" prints "abc=''")
     declare "${__argue_longopt}"=""
 done
 unset __argue_longopt
@@ -155,8 +112,11 @@ unset __argue_longopt
 eval set -- ${__argue_parsed_options}
 unset __argue_parsed_options
 
+
+# echo "$@"
+
 while [[ "$1" != "--" ]]; do
-    declare __argue_longopt
+    declare __argue_longopt > /dev/null # avoid zsh printing
     if [[ ${#1} -eq 2 ]]; then
         __argue_longopt="${__argue_shortopts_to_long[${1:1}]}"
     else

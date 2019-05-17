@@ -2,7 +2,8 @@
 Description=XVNC Per-Connection Daemon
 
 [Service]
-ExecStart=-/usr/bin/Xvnc -inetd -query=localhost -once -geometry=1920x1080 -SecurityTypes=None -UseIPv6=0 -localhost
+ExecStart=-/usr/bin/Xvnc -inetd -query=localhost -once -geometry=1920x1080 -SecurityTypes=None -UseIPv6=0
+#ExecStart=-/usr/bin/Xvnc -inetd -query=localhost -once -geometry=1920x1080 -SecurityTypes=None -UseIPv6=0 -localhost
 User=nobody
 StandardInput=socket
 StandardError=syslog

@@ -103,8 +103,7 @@ unset __argue_shortopts __argue_longopts
 
 declare __argue_longopt
 for __argue_longopt in ${__argue_longopts_to_type[@]}; do
-    unset "${__argue_longopt}" # unsetting instead of setting to empty avoids zsh printing later. (e.g. in zsh "local abc; local abc" prints "abc=''")
-    declare "${__argue_longopt}"=""
+    declare "${__argue_longopt}"="" > /dev/null # avoid zsh printing. (e.g. in zsh "local abc; local abc" prints "abc=''")
 done
 unset __argue_longopt
 

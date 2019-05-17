@@ -75,6 +75,7 @@ findimagedupes
 findutils
 fingerprint-gui
 flake8
+flashplayer-standalone
 flex
 fortune-mod
 freemind

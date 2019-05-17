@@ -2,5 +2,13 @@
 
 fix-permissions
 
+# For Docker Swarm
+iptables -I INPUT -p tcp --dport 2376 -j ACCEPT
+iptables -I INPUT -p tcp --dport 2377 -j ACCEPT
+iptables -I INPUT -p tcp --dport 7946 -j ACCEPT
+iptables -I INPUT -p udp --dport 7946 -j ACCEPT
+iptables -I INPUT -p udp --dport 4789 -j ACCEPT
+
 run-duplicati
+
 

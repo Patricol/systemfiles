@@ -9,9 +9,6 @@ main() {
 
 	# use to determine if there's a discrepancy between the preset and the actual state
 	systemctl list-unit-files | grep -E "\s(enabled|disabled|masked)\s" | sort | awk '{ print $2 " " $1}' | tee "${main_dir}/services.txt" 1> /dev/null
-
-	# save a copy of this info somewhere in /home so it gets backed up regularly
-	cp -rf "${main_dir}" /home/secure/
 }
 
 main

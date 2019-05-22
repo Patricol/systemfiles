@@ -1,26 +1,7 @@
 * DO BEFORE STARTING:
-  * BACKUP HOME FOLDERS
-    * move excess files from /home folders onto nas before doing this
-      * likely delete cache folders
-    * sudo baobab to check other folders for important things.
-      * VM images can be created outside of /home automatically etc.
-    * close all programs so chrome etc aren't in use.
-    * sudo tar -cvf /arch-homes.tar /home/
-    * move the backup onto the nas etc.
   * CHECK THAT THE SYSTEMFILES REPO IS UP TO DATE AND PUSHED ETC.
     * re-run save-system-info and push the updated package lists
-  * CHECK THAT DUPLICATI HAS A RECENT BACKUP
-    * http://localhost:8200
-  * RUN WITH ONLY ONE SSD/HDD CONNECTED
-    * AND ONLY IF THE ENTIRE SSD/HDD CAN BE USED
 
-#for all the stuff that needs to be done before ssh is possible; need to make it available as a script to curl and run. manually typing takes way too long and is way too error prone.
-
-Even though using an installer for Arch is tempting as a way to abstract away the hardware and any partitioning etc, I should stick with manual installs so that I can be certain of exactly what has or has not been done to the system. That makes troubleshooting issues much easier, etc.
-
-Note that the earliest committed version of the script has a lot more explanation about why certain things are done; or why certain packages are installed, etc.
-
-#time how long this takes, to aid future decisions about when it's faster to nuke from orbit.
 
 #boot into archiso (UEFI).
 #Check that you booted in UEFI mode:
@@ -48,19 +29,18 @@ mount /dev/sdx1 /mnt/boot
 pacstrap /mnt base base-devel
 arch-chroot /mnt
 hwclock --systohc
-pacman -Syu intel-ucode amd-ucode git vim openssh refind-efi zsh
+pacman -Syu intel-ucode amd-ucode git vim openssh
 # no reason not to install both intel and amd
-git clone -b arch --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
+git clone -b pam --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
-alias gsfch='gsf checkout -f arch --'
+alias gsfch='gsf checkout -f pam --'
 gsfch /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
 locale-gen
 mkinitcpio -P
 passwd
-refind-install
 bootctl install
 gsfch /boot
-#edit the files in /boot/loader/entries if needed. also /boot/EFI/refind/entries.conf
+#edit the files in /boot/loader/entries if needed.
 exit
 umount -R /mnt
 poweroff
@@ -73,33 +53,23 @@ systemctl --now enable dhcpcd sshd
 groupadd patrick
 groupadd -r sudo
 groupadd -r ssh
-useradd -m -g patrick -G sudo,ssh -s /bin/zsh patricol
-useradd -m -g patrick -s /bin/zsh work
+useradd -m -g patrick -G sudo,ssh -s /bin/bash patricol
 passwd patricol
-passwd work
 exit
 #login as patricol
 sudo passwd -l root
+# add .ssh/authorized_keys
 ip address
 exit
 
 #login as patricol (can use ssh this time if desired.)
 sudo pacman -Syu pigz pacman-contrib
-sudo sh -c 'fallocate -l 16G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile' #match to RAM installed.
+sudo sh -c 'fallocate -l 64G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile' #giving lots of extra to scale better as a swarm node
 sudo mkinitcpio -P
 #handle any warnings thrown by that last command. can safely ignore missing aic94xx, wd719x, and smsmdtv
 
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -sci && cd .. && rm -rf ./yay/
 
-
-#copy over the old home directory now. (use nas filezilla to upload it to arch etc.)
-#don't copy to tmp, though; size limit cuts off the file after the transfer completes.
-#e.g from the nas:
-# scp /mnt/user/files/incoming/from_device/fcdcbda_arch/arch-homes.tar patricol@fcdcbda:/home/patricol/
-sudo mv /home/patricol/arch-homes.tar /
-#check what's currently in /home before overwriting etc.
-sudo rm -rf /home/*
-cd / && sudo tar --same-owner -xvpf /arch-homes.tar
 
 alias gsf='sudo git --git-dir=/root/systemfiles-repo/ --work-tree=/'
 gsf config --local status.showUntrackedFiles no
@@ -116,86 +86,26 @@ gsf checkout -f
 sudo fix-permissions
 
 
-Setup dotfiles if needed: https://github.com/Patricol/dotfiles
-
-#exec startx for gui (assuming exec i3 is in ~/.xinitrc)
-
-#sudo nvidia-xconfig
-
-sudo groupadd -r bluetooth && sudo usermod -aG bluetooth patricol
-sudo usermod -aG libvirt patricol
-sudo usermod -aG libvirt work
-
-#sets default terminal for nemo to use from right click menu etc.
-gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
-sudo -u work -i dbus-launch --exit-with-session gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
-
-
 sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.target suspend.target sleep.target ctrl-alt-del.target
 #disable hibernation and suspend. Sleep seems to be the same thing. DPMS and "screen blanking" are distinct from all of these. Also disable rebooting with ctrl alt del.
 #this also means there's no reason for me to use caffeine; I was using it to keep the computer from suspending when programs were running.
 sudo systemctl preset-all
 sudo journalctl --vacuum-size=100M && sudo systemctl restart systemd-journald.service
 
-sudo modprobe ashmem_linux
-sudo modprobe binder_linux
 
-sudo mkinitcpio -P
-reboot
+git clone -b archnode --bare https://github.com/Patricol/dotfiles.git ~/.dotfiles-repo
+alias dfg='git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME'
+dfg config --local status.showUntrackedFiles no
+dfg checkout -f
 
-gcloud init
-
-
-#block access to che except from localhost.
-sudo iptables -A INPUT -p tcp -s localhost --dport 8080 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
-
-sudo vncpasswd /etc/vncpasswd
+exec bash
 
 ln -sf /home/patricol/.gitconfig /root/.gitconfig
 
-gsfp --set-upstream origin arch
+dfgp --set-upstream origin archnode
+gsfp --set-upstream origin pam
 
+sudo mkinitcpio -P
 
-poweroff
+reboot
 
-#reconnect any other ssds that were disconnected
-
-#add and trust private keys (including journal key) (use gpa)
-
-#check pci devices/drivers with "lspci -k"
-#test audio/headphones, microphone, and webcam
-#setup vpn and wifi connections etc. test bluetooth. speakers and file transfer.
-#check that hw acceleration works by using an avd. look at nvidia-settings gpu usage to be sure.
-#setup vpn and wifi connections etc. test bluetooth. speakers and file transfer.
-
-#setup chrome, deluge, duplicati, nemo, filezilla, gitkraken, atom, gpmdp, pycharm, android studio, quassel, remmina, signal, standard notes, vlc, VMs, i3, che.
-
-#If you didn't copy over files for atom:
-#apm install atom-material-ui atom-material-syntax-dark atom-beautify file-icons language-docker angularjs react language-markdown linter linter-pylama linter-clang linter-gcc linter-cpplint advanced-open-file code-peek emmet fonts git-time-machine jumpy minimap sort-lines script todo-show pigments highlight-selected language-smali git-blame color-picker language-autohotkey2 dark-flat-ui
-#open atom gui
-#close atom gui
-#apm disable git-blame color-picker spell-check minimap tree-view
-
-#setup apm list saving what's installed so it can be backed up like the main packages.
-
-
-#verify vdpau hardware acceleration is working by running vdpauinfo
-
-xdpyinfo | grep -B2 resolution
-#compare to https://www.sven.de/dpi/
-#http://screen-size.info/
-#https://wiki.archlinux.org/index.php/Xorg#Display_size_and_DPI
-
-#can delete /arch-homes.tar if you haven't already.
-
-#check that duplicati is working again http://localhost:8200
-
-#MORE HARDWARE STUFF:
-#Keep checking for when this supports AX860i: https://github.com/audiohacked/OpenCorsairLink
-#https://wiki.archlinux.org/index.php/NVIDIA
-#https://wiki.archlinux.org/index.php/NVIDIA#Automatic_configuration
-#"If there are instances of DRI, ensure they are commented out"
-#nvidia-settings to change settings etc.
-#https://wiki.archlinux.org/index.php/Multihead
-#https://wiki.archlinux.org/index.php/Hardware_video_acceleration

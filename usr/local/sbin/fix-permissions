@@ -52,30 +52,14 @@ main() {
 		restrict_to_user patricol:patrick "${directory}" allow_group
 	}
 
-	homedir_perms patricol:patrick /home/patricol allow_group_x
-	homedir_perms work:patrick /home/work allow_group
-	homedir_perms workmore:workmore /home/workmore
+	homedir_perms patricol:patrick /home/patricol
 	homedir_perms root:root /root
-
-	shared_folder_perms /home/shared
-	shared_folder_perms /usr/local/android
-
-	restrict_to_user root:root /home/secure
 
 	chown -cR root:root /usr/local/bin
 	chmod -cR 755 /usr/local/bin
 	chown -cR root:root /usr/local/sbin
 	chmod -cR 744 /usr/local/sbin
 	chmod -c 755 /usr/local/sbin
-
-	mkdir -p /media/{nas,gdrive,work,gaming}
-	chown -c patricol:patrick /media/{nas,gdrive,gaming}
-	chown -c work:patrick /media/work
-	chmod -c 770 /media/{nas,gdrive,work,gaming}
-
-	#standardnotes-desktop being installed with wrong permissions repeatedly.
-	#google earth one too.
-	chmod -cR a+rX /opt/*
 }
 
 main

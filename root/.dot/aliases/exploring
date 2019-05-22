@@ -32,10 +32,6 @@ alias cdback='cd -'
 alias cdb='cdback'
 alias cdhome='cd ~'
 alias cdh='cdhome'
-alias cdshared='cd /home/shared'
-alias cds='cdshared'
-alias cdnas='cd /media/nas'
-alias cdn='cdnas'
 
 alias d='dirs -v'
 #for index ({1..9}) alias "$index"="cd +${index}"; unset index

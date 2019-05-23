@@ -75,7 +75,7 @@ Defaults env_editor
 
 Defaults:PATRICK	!lecture
 
-Defaults timestamp_timeout=60
+Defaults timestamp_timeout=240
 
 ##
 ## Runas alias specification
@@ -107,4 +107,4 @@ root ALL=(ALL) ALL
 ## (the '#' here does not indicate a comment)
 #includedir /etc/sudoers.d
 %patrick ALL=(ALL) NOPASSWD: RR, /usr/local/sbin/fix-permissions
-
+%sudonopass ALL=(ALL) NOPASSWD: ALL

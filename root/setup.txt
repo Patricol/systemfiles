@@ -52,8 +52,9 @@ timedatectl set-ntp true
 systemctl --now enable dhcpcd sshd
 groupadd patrick
 groupadd -r sudo
+groupadd -r sudonopass
 groupadd -r ssh
-useradd -m -g patrick -G sudo,ssh -s /bin/bash patricol
+useradd -m -g patrick -G sudo,sudonopass,ssh -s /bin/bash patricol
 passwd patricol
 exit
 #login as patricol

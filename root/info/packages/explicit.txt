@@ -3,9 +3,6 @@ adobe-source-code-pro-fonts
 adobe-source-sans-pro-fonts
 alacritty
 amd-ucode
-anbox-bridge
-anbox-git
-anbox-modules-dkms-git
 android-studio
 arc-gtk-theme
 arch-install-scripts

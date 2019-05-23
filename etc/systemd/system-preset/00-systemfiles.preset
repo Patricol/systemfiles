@@ -1,5 +1,4 @@
 disable dhcpcd.service
-disable ctrl-alt-del.target
 enable sshd.service
 enable ebtables.service
 enable dnsmasq.service

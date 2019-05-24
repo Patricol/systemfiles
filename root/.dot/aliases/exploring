@@ -60,9 +60,6 @@ ftypei() {
 alias findbrokenlinks='find -xtype l'
 
 
-alias nmo='nohup nemo . > /dev/null 2>&1 &'
-
-
 alias fn='find . -name'
 fa() {
 	find / -mount ${ignore_dirs} $@ -print

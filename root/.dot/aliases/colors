@@ -1,7 +1,0 @@
-# vi:syntax=sh
-
-# As long as alias sudo='sudo ' is set on the non-root user; 'sudo grep' will use the non-root user's color aliases. However, environment variables like GREP_COLOR still need to be set here.
-
-export GREP_COLOR='1;31'
-#export GREP_COLOR='ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36'
-

@@ -13,7 +13,6 @@ device-mapper
 dhclient
 dhcpcd
 diffutils
-dnsmasq
 docker
 e2fsprogs
 fakeroot
@@ -52,11 +51,9 @@ mdadm
 nano
 neofetch
 netctl
-networkmanager
 openssh
 pacman
 pacman-contrib
-pacutils
 patch
 pciutils
 perl

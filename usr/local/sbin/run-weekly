@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
 remove-orphans
-
-docker system prune --force
+clean-docker

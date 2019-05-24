@@ -72,6 +72,8 @@ sudo mkinitcpio -P
 alias gsf='sudo git --git-dir=/root/systemfiles-repo/ --work-tree=/'
 gsf config --local status.showUntrackedFiles no
 
+# check that sed, grep, and which are installed explicitly
+
 sudo sort-mirrors
 pacman --needed -Syu $(sudo cat /root/info/packages/explicit.txt)
 

@@ -10,7 +10,6 @@ bzip2
 coreutils
 cryptsetup
 device-mapper
-dhclient
 dhcpcd
 diffutils
 docker

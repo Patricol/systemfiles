@@ -9,7 +9,6 @@ enabled dbus-org.freedesktop.network1.service
 enabled dbus-org.freedesktop.resolve1.service
 enabled dbus-org.freedesktop.timesync1.service
 disabled debug-shell.service
-disabled dhclient@.service
 disabled dhcpcd@.service
 enabled dhcpcd.service
 enabled docker.service

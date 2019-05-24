@@ -14,7 +14,6 @@ dhcpcd
 diffutils
 docker
 e2fsprogs
-fakeroot
 file
 filesystem
 findutils
@@ -26,7 +25,6 @@ gettext
 git
 glibc
 grep
-groff
 gzip
 htop
 inetutils
@@ -66,7 +64,6 @@ sed
 shadow
 sudo
 sysfsutils
-systemd
 systemd-sysvcompat
 tar
 texinfo

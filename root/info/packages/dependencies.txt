@@ -14,6 +14,7 @@ db
 dbus
 dnssec-anchors
 expat
+fakeroot
 gc
 gdbm
 glib2
@@ -22,6 +23,7 @@ gnupg
 gnutls
 gpgme
 gpm
+groff
 guile
 hwids
 iana-etc
@@ -93,6 +95,7 @@ popt
 readline
 runc
 sqlite
+systemd
 systemd-libs
 thin-provisioning-tools
 tzdata

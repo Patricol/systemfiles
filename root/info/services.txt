@@ -1,6 +1,7 @@
 disabled auditd.service
 enabled autovt@.service
 disabled blk-availability.service
+disabled btrfs-scrub@.timer
 disabled console-getty.service
 disabled containerd.service
 enabled ctrl-alt-del.target
@@ -46,7 +47,6 @@ enabled NetworkManager.service
 enabled NetworkManager-wait-online.service
 disabled nscd.service
 enabled paccache.timer
-disabled pkgfile-update.timer
 disabled poweroff.target
 enabled reboot.target
 enabled remote-cryptsetup.target
@@ -55,8 +55,6 @@ disabled rfkill-block@.service
 disabled rfkill-unblock@.service
 disabled rlogin.socket
 disabled rsh.socket
-disabled rsyncd.service
-disabled rsyncd.socket
 disabled runlevel0.target
 enabled runlevel6.target
 enabled run-on-boot.service

@@ -1,13 +1,8 @@
-disable dhcpcd.service
+enable dhcpcd.service
 enable sshd.service
-enable dnsmasq.service
-enable systemd-resolved.service
-enable systemd-networkd.service
 enable docker.service
-enable NetworkManager.service
 enable run-on-boot.service
-enable fstrim.timer
-enable paccache.timer
 enable run-regularly.timer
 enable run-weekly.timer
-
+enable fstrim.timer
+enable paccache.timer

@@ -15,9 +15,9 @@ parted
 select /dev/sdx
 #CHECK THE LIST ABOVE (DO BEFORE STARTING) BEFORE FORMATTING
 mklabel gpt
-mkpart ESP fat32 1MiB 1025MiB
+mkpart ESP fat32 1MiB 513MiB
 set 1 esp on
-mkpart primary ext4 1025MiB 100%
+mkpart primary ext4 513MiB 100%
 quit
 mkfs.fat -F32 /dev/sdx1
 mkfs.ext4 /dev/sdx2
@@ -26,7 +26,7 @@ e2label /dev/sdx2 "ArchLinux"
 mount /dev/sdx2 /mnt
 mkdir /mnt/boot
 mount /dev/sdx1 /mnt/boot
-pacstrap /mnt base base-devel
+pacstrap /mnt base
 arch-chroot /mnt
 hwclock --systohc
 pacman -Syu intel-ucode amd-ucode git vim openssh

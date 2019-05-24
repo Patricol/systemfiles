@@ -106,6 +106,8 @@ ln -sf /home/patricol/.gitconfig /root/.gitconfig
 dfgp --set-upstream origin archnode
 gsfp --set-upstream origin pam
 
+find / -mount -xtype l
+
 sudo mkinitcpio -P
 
 reboot

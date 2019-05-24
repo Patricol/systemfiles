@@ -6,7 +6,3 @@ fix-permissions
 
 sort-mirrors
 
-pkgfile --update
-
-update-vim-plugins
-

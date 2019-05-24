@@ -5,5 +5,3 @@
 while [[ -n "$(pacman -Qdtq)" ]]; do
     pacman -Rn --noconfirm $(pacman -Qdtq);
 done
-
-#yay --noconfirm -c works too, but also needs to be looped

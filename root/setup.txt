@@ -34,7 +34,7 @@ pacman -Syu intel-ucode amd-ucode git vim openssh
 git clone -b pam --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
 alias gsfch='gsf checkout -f pam --'
-gsfch /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
+gsfch /root /usr/local /etc/{local{time,e.{conf,gen}},host{s,name},fstab,sudoers,makepkg.conf,pacman*,ssh}
 locale-gen
 mkinitcpio -P
 passwd
@@ -69,20 +69,14 @@ sudo sh -c 'fallocate -l 64G /swapfile && chmod 600 /swapfile && mkswap /swapfil
 sudo mkinitcpio -P
 #handle any warnings thrown by that last command. can safely ignore missing aic94xx, wd719x, and smsmdtv
 
-git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -sci && cd .. && rm -rf ./yay/
-
-
 alias gsf='sudo git --git-dir=/root/systemfiles-repo/ --work-tree=/'
 gsf config --local status.showUntrackedFiles no
 
-
 sudo sort-mirrors
-#ensure /etc/makepkg.conf is checked out before installing the AUR packages, or they'll take an eternity to compress.
-yay --needed -Syu $(sudo cat /root/info/packages/explicit.txt)
+pacman --needed -Syu $(sudo cat /root/info/packages/explicit.txt)
 
 
 gsf checkout -f
-(checkout -f to force, but first check in what they modify, for posterity and to make it easier to reapply changes on top of newer base configs. when done, remove this notice.)
 
 sudo fix-permissions
 

@@ -34,7 +34,7 @@ pacman -Syu intel-ucode amd-ucode git vim openssh
 git clone -b pam --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
 alias gsfch='gsf checkout -f pam --'
-gsfch /root /usr/local /etc/{local{time,e.{conf,gen}},host{s,name},fstab,sudoers,makepkg.conf,pacman*,ssh}
+gsfch /root /usr/local /etc
 locale-gen
 mkinitcpio -P
 passwd

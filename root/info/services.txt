@@ -134,10 +134,12 @@ disabled telnet.socket
 disabled udisks2.service
 disabled upower.service
 disabled uuidd.socket
+disabled vboxweb.service
 disabled virtlockd-admin.socket
 enabled virtlockd.socket
 disabled virtlogd-admin.socket
 enabled virtlogd.socket
+enabled vncserver@:5.service
 disabled vncserver.service
 disabled wpa_supplicant-nl80211@.service
 disabled wpa_supplicant.service
@@ -146,4 +148,4 @@ disabled wpa_supplicant-wired@.service
 disabled xfs_scrub_all.timer
 disabled xrdp.service
 disabled xrdp-sesman.service
-enabled xvnc.socket
+disabled xvnc.socket

@@ -822,6 +822,7 @@ rxvt-unicode-terminfo
 sane
 sassc
 sbc
+sdl
 sdl2
 sdl2_image
 seabios
@@ -880,6 +881,7 @@ vid.stab
 vim-runtime
 virglrenderer
 virt-install
+virtualbox-host-modules-arch
 volume_key
 vte-common
 vte3

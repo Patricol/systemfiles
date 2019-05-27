@@ -127,6 +127,7 @@ jupyter
 keychain
 kitty
 kmscon-patched-git
+kubectl
 lastpass
 less
 libmicrodns
@@ -164,6 +165,7 @@ meld
 mesa
 mesa-demos
 mesa-vdpau
+minikube
 mkinitcpio-colors-git
 mpv
 nano
@@ -276,6 +278,7 @@ veracrypt
 vi
 vimpager
 virt-manager
+virtualbox
 vlc
 vulkan-headers
 vulkan-intel
@@ -295,6 +298,7 @@ xfsprogs
 xorg-fonts-alias
 xorg-server
 xorg-server-devel
+xorg-server-xephyr
 xorg-server-xwayland
 xorg-xdpyinfo
 xorg-xev

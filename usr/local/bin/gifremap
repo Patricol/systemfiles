@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+main() {
+	local file palette dtype
+	palette="${HOME}/.config/wpg/samples/dummy.png_wal_sample.png"
+	for file in $@; do
+		local output_name
+		for dtype in None Riemersma FloydSteinberg; do
+			output_name="${file}-dithered-${dtype}.gif"
+			nice -n 15 convert "${file}" -coalesce -dither "${dtype}" -remap "${palette}" "${output_name}"
+		done
+	done
+}
+
+main $@

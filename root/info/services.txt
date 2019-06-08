@@ -63,17 +63,9 @@ disabled libvirt-guests.service
 enabled lightdm.service
 disabled lm_sensors.service
 disabled logrotate.timer
-disabled lxc-auto.service
-disabled lxc-net.service
-disabled lxc.service
-disabled lxc@.service
 enabled machines.target
 disabled man-db.timer
-disabled mariadb.service
-disabled mariadb@.service
 disabled ModemManager.service
-disabled mysqld.service
-disabled mysqld@.service
 disabled ndctl-monitor.service
 disabled netcf-transaction.service
 disabled netctl-auto@.service

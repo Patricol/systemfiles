@@ -4,7 +4,6 @@ accounts-qml-module
 accountsservice
 acl
 adwaita-icon-theme
-akonadi
 akonadi-contacts
 alsa-lib
 aom
@@ -29,7 +28,6 @@ bcg729
 blas
 bluez
 bluez-libs
-boost
 boost-libs
 bridge-utils
 brotli
@@ -61,7 +59,6 @@ dconf
 desktop-file-utils
 discount
 djvulibre
-dkms
 dmraid
 dnssec-anchors
 dosfstools
@@ -69,8 +66,6 @@ double-conversion
 ebook-tools
 efibootmgr
 efivar
-egl-wayland
-eglexternalplatform
 electron
 enchant
 exempi
@@ -87,7 +82,6 @@ fribidi
 fuse-common
 fuse2
 fuse3
-gamin
 gc
 gcab
 gconf
@@ -105,7 +99,6 @@ glew
 glib-networking
 glib2
 glibmm
-glm
 glslang
 glu
 glusterfs
@@ -131,7 +124,6 @@ gst-plugins-base
 gst-plugins-base-libs
 gst-plugins-good
 gstreamer
-gtest
 gtk-engine-murrine
 gtk-engines
 gtk-update-icon-cache
@@ -162,7 +154,6 @@ ilmbase
 imagemagick
 imlib2
 intel-tbb
-intltool
 iptables
 iso-codes
 jack
@@ -173,7 +164,6 @@ jbig2dec
 jemalloc
 jre8-openjdk
 jre8-openjdk-headless
-js52
 js60
 json-c
 json-glib
@@ -345,7 +335,6 @@ libmatroska
 libmaxminddb
 libmbim
 libmediainfo
-libmediawiki
 libmicrohttpd
 libmm-glib
 libmms
@@ -386,7 +375,6 @@ libpcap
 libpciaccess
 libpgm
 libpipeline
-libplacebo
 libplist
 libpng
 libproxy
@@ -510,12 +498,9 @@ lua51
 lua52
 luajit
 lv2
-lxc
 lz4
 lzo
 marble-common
-mariadb
-mariadb-clients
 mariadb-libs
 mathjax
 media-player-info
@@ -554,7 +539,6 @@ openexr
 openjpeg2
 openresolv
 openssl
-openssl-1.0
 optipng
 opus
 orc
@@ -581,7 +565,6 @@ perl-parse-recdescent
 perl-pegex
 perl-timedate
 perl-uri
-perl-xml-parser
 perl-yaml-libyaml
 phodav
 phonon-qt5
@@ -595,13 +578,11 @@ poppler-data
 poppler-glib
 poppler-qt5
 popt
-portaudio
 portsmf
 potrace
 powerline-common
 ppp
 prison
-properties-cpp
 pulseaudio
 purpose
 pyalpm
@@ -814,7 +795,6 @@ ruby-rspec-mocks
 ruby-rspec-support
 ruby-term-ansicolor
 ruby-tins
-ruby-trollop
 rubygems
 run-parts
 runc
@@ -824,7 +804,6 @@ sassc
 sbc
 sdl
 sdl2
-sdl2_image
 seabios
 semver
 serd
@@ -854,6 +833,7 @@ sratom
 startup-notification
 suil
 suitesparse
+swaybg
 systemd-libs
 taglib
 talloc

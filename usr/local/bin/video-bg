@@ -77,24 +77,24 @@ main() {
         defdir="${HOME}/.dot/l/wallpapers/animated"
         defvid="${defdir}/river.gif"
         mpv ${mpvargs_testing} ${vo} ${scaling} ${defdir}/*.gif &
-        local method extended_args
-        for method in $(mpv --sws-scaler=help | tail -n +2 | sed -E 's/\s//g' | tr '\n' ' '); do
-            extended_args="${defvid} --sws-scaler=${method} --vo=x11 ${mpvargs_testing}"
-            mpv ${extended_args} &
-        done
-        for method in $(mpv --scale=help | tail -n +2 | sed -E 's/\s//g' | tr '\n' ' '); do
-            extended_args="${defvid} --scale=${method} --vo=gpu ${mpvargs_testing}"
-            mpv ${extended_args} &
-            case "${method}" in
-                oversample)
-                        mpv ${extended_args} --scale-param1=0.5 &
-                        mpv ${extended_args} --scale-param1=0.25 &
-                        ;;
-                gaussian)
-                        mpv ${extended_args} --tscale-param1=3 &
-                        ;;
-            esac
-        done
+        # local method extended_args
+        # for method in $(mpv --sws-scaler=help | tail -n +2 | sed -E 's/\s//g' | tr '\n' ' '); do
+        #     extended_args="${defvid} --sws-scaler=${method} --vo=x11 ${mpvargs_testing}"
+        #     mpv ${extended_args} &
+        # done
+        # for method in $(mpv --scale=help | tail -n +2 | sed -E 's/\s//g' | tr '\n' ' '); do
+        #     extended_args="${defvid} --scale=${method} --vo=gpu ${mpvargs_testing}"
+        #     mpv ${extended_args} &
+        #     case "${method}" in
+        #         oversample)
+        #                 mpv ${extended_args} --scale-param1=0.5 &
+        #                 mpv ${extended_args} --scale-param1=0.25 &
+        #                 ;;
+        #         gaussian)
+        #                 mpv ${extended_args} --tscale-param1=3 &
+        #                 ;;
+        #     esac
+        # done
     else
         #if it's a symlink; this lets us get the real extension etc.
         video="$(realpath "${video}")"

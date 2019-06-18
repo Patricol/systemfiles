@@ -114,7 +114,6 @@ Subsystem	sftp	/usr/lib/ssh/sftp-server
 #	AllowTcpForwarding no
 #	PermitTTY no
 #	ForceCommand cvs server
-PermitRootLogin yes
 AllowGroups ssh
 PasswordAuthentication no
 PermitEmptyPasswords no

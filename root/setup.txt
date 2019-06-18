@@ -12,10 +12,9 @@
 
 #setup the ec2 instance etc and ssh in. https://www.uplinklabs.net/projects/arch-linux-on-ec2/
 
-ping -c 1 1.1.1.1
 timedatectl set-ntp true
 pacman -Syu git vim openssh zsh
-git clone -b arch --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
+git clone -b ec2 --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
 alias gsfch='gsf checkout -f arch --'
 gsfch /root /usr/local /etc/{local*,locale.conf,sudoers,makepkg.conf,pacman*,ssh}
@@ -40,12 +39,8 @@ sudo mkinitcpio -P
 
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -sci && cd .. && rm -rf ./yay/
 
-
-#copy over the old home directory now. (use nas filezilla to upload it to arch etc.)
+#copy over the old home directory now.
 #don't copy to tmp, though; size limit cuts off the file after the transfer completes.
-#e.g from the nas:
-# scp /mnt/user/files/incoming/from_device/fcdcbda_arch/arch-homes.tar patricol@fcdcbda:/home/patricol/
-sudo mv /home/patricol/arch-homes.tar /
 #check what's currently in /home before overwriting etc.
 sudo rm -rf /home/*
 cd / && sudo tar --same-owner -xvpf /arch-homes.tar
@@ -53,8 +48,6 @@ cd / && sudo tar --same-owner -xvpf /arch-homes.tar
 alias gsf='sudo git --git-dir=/root/systemfiles-repo/ --work-tree=/'
 gsf config --local status.showUntrackedFiles no
 
-
-sudo sort-mirrors
 #ensure /etc/makepkg.conf is checked out before installing the AUR packages, or they'll take an eternity to compress.
 yay --needed -Syu $(sudo cat /root/info/packages/explicit.txt)
 
@@ -69,15 +62,10 @@ Setup dotfiles if needed: https://github.com/Patricol/dotfiles
 
 #exec startx for gui (assuming exec i3 is in ~/.xinitrc)
 
-#sudo nvidia-xconfig
-
-sudo groupadd -r bluetooth && sudo usermod -aG bluetooth patricol
 sudo usermod -aG libvirt patricol
-sudo usermod -aG libvirt work
 
 #sets default terminal for nemo to use from right click menu etc.
 gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
-sudo -u work -i dbus-launch --exit-with-session gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
 
 
 sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.target suspend.target sleep.target ctrl-alt-del.target
@@ -85,9 +73,6 @@ sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.
 #this also means there's no reason for me to use caffeine; I was using it to keep the computer from suspending when programs were running.
 sudo systemctl preset-all
 sudo journalctl --vacuum-size=100M && sudo systemctl restart systemd-journald.service
-
-sudo modprobe ashmem_linux
-sudo modprobe binder_linux
 
 sudo mkinitcpio -P
 reboot
@@ -105,46 +90,10 @@ ln -sf /home/patricol/.gitconfig /root/.gitconfig
 
 gsfp --set-upstream origin arch
 
-
-poweroff
-
-#reconnect any other ssds that were disconnected
-
-#add and trust private keys (including journal key) (use gpa)
-
-#check pci devices/drivers with "lspci -k"
-#test audio/headphones, microphone, and webcam
-#setup vpn and wifi connections etc. test bluetooth. speakers and file transfer.
-#check that hw acceleration works by using an avd. look at nvidia-settings gpu usage to be sure.
-#setup vpn and wifi connections etc. test bluetooth. speakers and file transfer.
-
-#setup chrome, deluge, duplicati, nemo, filezilla, gitkraken, atom, gpmdp, pycharm, android studio, quassel, remmina, signal, standard notes, vlc, VMs, i3, che.
+#setup chrome, nemo, atom, gpmdp, pycharm, standard notes, VMs, i3, che.
 
 #If you didn't copy over files for atom:
 #apm install atom-material-ui atom-material-syntax-dark atom-beautify file-icons language-docker angularjs react language-markdown linter linter-pylama linter-clang linter-gcc linter-cpplint advanced-open-file code-peek emmet fonts git-time-machine jumpy minimap sort-lines script todo-show pigments highlight-selected language-smali git-blame color-picker language-autohotkey2 dark-flat-ui
 #open atom gui
 #close atom gui
 #apm disable git-blame color-picker spell-check minimap tree-view
-
-#setup apm list saving what's installed so it can be backed up like the main packages.
-
-
-#verify vdpau hardware acceleration is working by running vdpauinfo
-
-xdpyinfo | grep -B2 resolution
-#compare to https://www.sven.de/dpi/
-#http://screen-size.info/
-#https://wiki.archlinux.org/index.php/Xorg#Display_size_and_DPI
-
-#can delete /arch-homes.tar if you haven't already.
-
-#check that duplicati is working again http://localhost:8200
-
-#MORE HARDWARE STUFF:
-#Keep checking for when this supports AX860i: https://github.com/audiohacked/OpenCorsairLink
-#https://wiki.archlinux.org/index.php/NVIDIA
-#https://wiki.archlinux.org/index.php/NVIDIA#Automatic_configuration
-#"If there are instances of DRI, ensure they are commented out"
-#nvidia-settings to change settings etc.
-#https://wiki.archlinux.org/index.php/Multihead
-#https://wiki.archlinux.org/index.php/Hardware_video_acceleration

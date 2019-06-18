@@ -20,7 +20,7 @@
 ## Groups of users.  These may consist of user names, uids, Unix groups,
 ## or netgroups.
 # User_Alias	ADMINS = millert, dowdy, mikef
-User_Alias	PATRICK = patricol, work
+User_Alias	PATRICK = patricol
 
 ##
 ## Cmnd alias specification
@@ -29,7 +29,6 @@ User_Alias	PATRICK = patricol, work
 # Cmnd_Alias	PROCESSES = /usr/bin/nice, /bin/kill, /usr/bin/renice, \
 # 			    /usr/bin/pkill, /usr/bin/top
 # Cmnd_Alias	REBOOT = /sbin/halt, /sbin/reboot, /sbin/poweroff
-Cmnd_Alias	CUSTOMREBOOT = /usr/local/sbin/rebootbios, /usr/local/sbin/rebootwin, /usr/local/sbin/rebootarch, /usr/local/sbin/rebootsystemdboot, /usr/local/sbin/rebootrefind
 Cmnd_Alias	RR = /bin/systemctl start run-regularly.service, /bin/systemctl stop run-regularly.service, /bin/systemctl restart run-regularly.service
 
 ##
@@ -95,6 +94,7 @@ root ALL=(ALL) ALL
 
 ## Uncomment to allow members of group sudo to execute any command
 %sudo	ALL=(ALL) ALL
+%sudonopass ALL=(ALL) NOPASSWD: ALL
 
 %patrick ALL=(%patrick) ALL
 
@@ -107,5 +107,5 @@ root ALL=(ALL) ALL
 ## Read drop-in files from /etc/sudoers.d
 ## (the '#' here does not indicate a comment)
 #includedir /etc/sudoers.d
-%patrick ALL=(ALL) NOPASSWD: CUSTOMREBOOT, RR, /usr/local/sbin/fix-permissions
+%patrick ALL=(ALL) NOPASSWD: RR, /usr/local/sbin/fix-permissions
 

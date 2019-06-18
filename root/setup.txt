@@ -1,7 +1,5 @@
 * DO BEFORE STARTING:
   * BACKUP HOME FOLDERS
-    * move excess files from /home folders onto nas before doing this
-      * likely delete cache folders
     * sudo baobab to check other folders for important things.
       * VM images can be created outside of /home automatically etc.
     * close all programs so chrome etc aren't in use.
@@ -11,79 +9,30 @@
     * re-run save-system-info and push the updated package lists
   * CHECK THAT DUPLICATI HAS A RECENT BACKUP
     * http://localhost:8200
-  * RUN WITH ONLY ONE SSD/HDD CONNECTED
-    * AND ONLY IF THE ENTIRE SSD/HDD CAN BE USED
 
-#for all the stuff that needs to be done before ssh is possible; need to make it available as a script to curl and run. manually typing takes way too long and is way too error prone.
+#setup the ec2 instance etc and ssh in. https://www.uplinklabs.net/projects/arch-linux-on-ec2/
 
-Even though using an installer for Arch is tempting as a way to abstract away the hardware and any partitioning etc, I should stick with manual installs so that I can be certain of exactly what has or has not been done to the system. That makes troubleshooting issues much easier, etc.
-
-Note that the earliest committed version of the script has a lot more explanation about why certain things are done; or why certain packages are installed, etc.
-
-#time how long this takes, to aid future decisions about when it's faster to nuke from orbit.
-
-#boot into archiso (UEFI).
-#Check that you booted in UEFI mode:
-efivar --list
-#Check you're connected to the internet:
 ping -c 1 1.1.1.1
 timedatectl set-ntp true
-#Check what disk to use:
-fdisk -l
-parted
-select /dev/sdx
-#CHECK THE LIST ABOVE (DO BEFORE STARTING) BEFORE FORMATTING
-mklabel gpt
-mkpart ESP fat32 1MiB 1025MiB
-set 1 esp on
-mkpart primary ext4 1025MiB 100%
-quit
-mkfs.fat -F32 /dev/sdx1
-mkfs.ext4 /dev/sdx2
-fatlabel /dev/sdx1 "EFI"
-e2label /dev/sdx2 "ArchLinux"
-mount /dev/sdx2 /mnt
-mkdir /mnt/boot
-mount /dev/sdx1 /mnt/boot
-pacstrap /mnt base base-devel
-arch-chroot /mnt
-hwclock --systohc
-pacman -Syu intel-ucode amd-ucode git vim openssh refind-efi zsh
-# no reason not to install both intel and amd
+pacman -Syu git vim openssh zsh
 git clone -b arch --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
 alias gsfch='gsf checkout -f arch --'
-gsfch /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
+gsfch /root /usr/local /etc/{local*,locale.conf,sudoers,makepkg.conf,pacman*,ssh}
 locale-gen
 mkinitcpio -P
-passwd
-refind-install
-bootctl install
-gsfch /boot
-#edit the files in /boot/loader/entries if needed. also /boot/EFI/refind/entries.conf
-exit
-umount -R /mnt
-poweroff
-#remove install media
-
-#power on
-#login as root
-timedatectl set-ntp true
 systemctl --now enable dhcpcd sshd
 groupadd patrick
 groupadd -r sudo
+groupadd -r sudonopass
 groupadd -r ssh
-useradd -m -g patrick -G sudo,ssh -s /bin/zsh patricol
-useradd -m -g patrick -s /bin/zsh work
+useradd -m -g patrick -G sudo,sudonopass,ssh -s /bin/zsh patricol
 passwd patricol
-passwd work
+cp -r /root/.ssh /home/patricol
+chown -R patricol:patrick /home/patricol/.ssh
 exit
 #login as patricol
 sudo passwd -l root
-ip address
-exit
-
-#login as patricol (can use ssh this time if desired.)
 sudo pacman -Syu pigz pacman-contrib
 sudo sh -c 'fallocate -l 16G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile' #match to RAM installed.
 sudo mkinitcpio -P

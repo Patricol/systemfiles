@@ -12,7 +12,7 @@
 
 #setup the ec2 instance etc and ssh in. https://www.uplinklabs.net/projects/arch-linux-on-ec2/
 
-timedatectl set-ntp true && pacman -Syu git vim openssh zsh
+timedatectl set-ntp true && pacman -Syu --noconfirm --needed git vim openssh zsh pigz pacman-contrib
 git clone -b ec2 --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
 alias gsfch='gsf checkout -f ec2 --' && gsf config --local status.showUntrackedFiles no
@@ -24,8 +24,7 @@ passwd patricol
 cp -r /root/.ssh /home/patricol; chown -R patricol:patrick /home/patricol/.ssh
 fallocate -l 16G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile
 sudo -iu patricol
-sudo passwd -l root && sudo pacman -Syu pigz pacman-contrib
-sudo mkinitcpio -P
+sudo passwd -l root && sudo mkinitcpio -P
 #handle any warnings thrown by that last command. can safely ignore missing aic94xx, wd719x, and smsmdtv
 
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -sci && cd .. && rm -rf ./yay/

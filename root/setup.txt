@@ -12,28 +12,18 @@
 
 #setup the ec2 instance etc and ssh in. https://www.uplinklabs.net/projects/arch-linux-on-ec2/
 
-timedatectl set-ntp true
-pacman -Syu git vim openssh zsh
+timedatectl set-ntp true && pacman -Syu git vim openssh zsh
 git clone -b ec2 --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
-alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
-alias gsfch='gsf checkout -f arch --'
+alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/' && alias gsfch='gsf checkout -f arch --' && gsf config --local status.showUntrackedFiles no
 gsfch /root /usr/local /etc/{local*,locale.conf,sudoers,makepkg.conf,pacman*,ssh}
-locale-gen
-mkinitcpio -P
-systemctl --now enable dhcpcd sshd
-groupadd patrick
-groupadd -r sudo
-groupadd -r sudonopass
-groupadd -r ssh
+locale-gen && mkinitcpio -P
+groupadd patrick && groupadd -r sudo && groupadd -r sudonopass && groupadd -r ssh && usermod -aG ssh root
 useradd -m -g patrick -G sudo,sudonopass,ssh -s /bin/zsh patricol
 passwd patricol
-cp -r /root/.ssh /home/patricol
-chown -R patricol:patrick /home/patricol/.ssh
-exit
-#login as patricol
-sudo passwd -l root
-sudo pacman -Syu pigz pacman-contrib
-sudo sh -c 'fallocate -l 16G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile' #match to RAM installed.
+cp -r /root/.ssh /home/patricol; chown -R patricol:patrick /home/patricol/.ssh
+fallocate -l 16G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile
+sudo -iu patricol
+sudo passwd -l root && sudo pacman -Syu pigz pacman-contrib
 sudo mkinitcpio -P
 #handle any warnings thrown by that last command. can safely ignore missing aic94xx, wd719x, and smsmdtv
 

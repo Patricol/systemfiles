@@ -1,14 +1,8 @@
 * DO BEFORE STARTING:
   * BACKUP HOME FOLDERS
-    * sudo baobab to check other folders for important things.
-      * VM images can be created outside of /home automatically etc.
-    * close all programs so chrome etc aren't in use.
     * sudo tar -cvf /arch-homes.tar /home/
-    * move the backup onto the nas etc.
   * CHECK THAT THE SYSTEMFILES REPO IS UP TO DATE AND PUSHED ETC.
     * re-run save-system-info and push the updated package lists
-  * CHECK THAT DUPLICATI HAS A RECENT BACKUP
-    * http://localhost:8200
 
 #setup the ec2 instance etc and ssh in. https://www.uplinklabs.net/projects/arch-linux-on-ec2/
 
@@ -36,14 +30,11 @@ sudo rm -rf /home/*
 cd / && sudo tar --same-owner -xvpf /arch-homes.tar
 
 alias gsf='sudo git --git-dir=/root/systemfiles-repo/ --work-tree=/'
-gsf config --local status.showUntrackedFiles no
 
-#ensure /etc/makepkg.conf is checked out before installing the AUR packages, or they'll take an eternity to compress.
 yay --needed -Syu $(sudo cat /root/info/packages/explicit.txt)
 
 
 gsf checkout -f
-(checkout -f to force, but first check in what they modify, for posterity and to make it easier to reapply changes on top of newer base configs. when done, remove this notice.)
 
 sudo fix-permissions
 
@@ -54,13 +45,10 @@ Setup dotfiles if needed: https://github.com/Patricol/dotfiles
 
 sudo usermod -aG libvirt patricol
 
-#sets default terminal for nemo to use from right click menu etc.
 gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
 
 
 sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.target suspend.target sleep.target ctrl-alt-del.target
-#disable hibernation and suspend. Sleep seems to be the same thing. DPMS and "screen blanking" are distinct from all of these. Also disable rebooting with ctrl alt del.
-#this also means there's no reason for me to use caffeine; I was using it to keep the computer from suspending when programs were running.
 sudo systemctl preset-all
 sudo journalctl --vacuum-size=100M && sudo systemctl restart systemd-journald.service
 

@@ -171,7 +171,7 @@ pigz
 pkgconf
 pkgfile
 polkit
-polybar
+polybar-git
 postman-bin
 powerline
 powerline-console-fonts

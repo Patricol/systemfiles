@@ -76,9 +76,9 @@ sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
 
 sudo vncpasswd /etc/vncpasswd
 
-ln -sf /home/patricol/.gitconfig /root/.gitconfig
+sudo ln -sf /home/patricol/.gitconfig /root/.gitconfig
 
-gsfp --set-upstream origin arch
+gsfp --set-upstream origin ec2
 
 #setup chrome, nemo, atom, gpmdp, pycharm, standard notes, VMs, i3, che.
 

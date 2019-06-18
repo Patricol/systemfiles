@@ -16,7 +16,7 @@ timedatectl set-ntp true && pacman -Syu --noconfirm --needed git vim openssh zsh
 git clone -b ec2 --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
 alias gsfch='gsf checkout -f ec2 --' && gsf config --local status.showUntrackedFiles no
-gsfch /root /usr/local /etc/{local*,locale.conf,sudoers,makepkg.conf,pacman*,ssh}
+gsfch /root /usr/local /etc/{local*,sudoers,{locale,makepkg,pacman}.conf,ssh}
 locale-gen && mkinitcpio -P
 groupadd patrick && groupadd -r sudo && groupadd -r sudonopass && groupadd -r ssh && usermod -aG ssh root
 useradd -m -g patrick -G sudo,sudonopass,ssh -s /bin/zsh patricol

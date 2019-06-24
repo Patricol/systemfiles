@@ -1,5 +1,4 @@
 disable dhcpcd.service
-disable ctrl-alt-del.target
 enable sshd.service
 enable ebtables.service
 enable dnsmasq.service
@@ -23,3 +22,13 @@ enable virtlogd.socket
 enable avahi-daemon.socket
 disable xvnc.socket
 enable vncserver@:5.service
+enable auditd.service
+enable cloud-config.service
+enable cloud-final.service
+enable cloud-init.service
+enable cronie.service
+enable irqbalance.service
+enable rc-local.service
+enable rngd.service
+enable sshd.socket
+enable multi-user.target

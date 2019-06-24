@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 main() {
-	for user in patricol work; do
+	for user in patricol; do
 		sudo --user="${user}" -- vim +MAINTAIN
 		#sudo --user="${user}" -- nvim +MAINTAIN # was running for hours and using 100% cpu usage on one core.
 	done

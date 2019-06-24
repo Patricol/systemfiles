@@ -6,21 +6,32 @@
 
 #setup the ec2 instance etc and ssh in. https://www.uplinklabs.net/projects/arch-linux-on-ec2/
 
-timedatectl set-ntp true && pacman -Syu --noconfirm --needed git vim openssh zsh pigz pacman-contrib
+timedatectl set-ntp true
+pacman -Syu --noconfirm --needed git vim openssh zsh pigz pacman-contrib
 git clone -b ec2 --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
-alias gsfch='gsf checkout -f ec2 --' && gsf config --local status.showUntrackedFiles no
-groupadd patrick && groupadd -r sudo && groupadd -r sudonopass && groupadd -r ssh && usermod -aG ssh root
+alias gsfch='gsf checkout -f ec2 --'
+gsf config --local status.showUntrackedFiles no
+groupadd patrick
+groupadd -r sudo
+groupadd -r sudonopass
+groupadd -r ssh
+groupadd -r docker
+usermod -aG ssh root
 gsfch /root /usr/local /etc/{local*,sudoers,{locale,makepkg,pacman}.conf,ssh}
-locale-gen && mkinitcpio -P
-useradd -m -g patrick -G sudo,sudonopass,ssh -s /bin/zsh patricol
+locale-gen
+mkinitcpio -P
+useradd -m -g patrick -G sudo,sudonopass,ssh,docker -s /bin/zsh patricol
 passwd patricol
-cp -r /root/.ssh /home/patricol; chown -R patricol:patrick /home/patricol/.ssh
+
+cp -r /root/.ssh /home/patricol
+chown -R patricol:patrick /home/patricol/.ssh
 fallocate -l 16G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile
 sudo -iu patricol
-sudo passwd -l root && sudo mkinitcpio -P
-#handle any warnings thrown by that last command. can safely ignore missing aic94xx, wd719x, and smsmdtv
 
+sudo passwd -l root
+sudo mkinitcpio -P
+sudo sort-mirrors
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -sci && cd .. && rm -rf ./yay/
 
 #copy over the old home directory now.
@@ -30,7 +41,6 @@ sudo rm -rf /home/*
 cd / && sudo tar --same-owner -xvpf /arch-homes.tar
 
 alias gsf='sudo git --git-dir=/root/systemfiles-repo/ --work-tree=/'
-
 yay --needed -Syu $(sudo cat /root/info/packages/explicit.txt)
 
 
@@ -48,25 +58,17 @@ sudo usermod -aG libvirt patricol
 gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
 
 
-sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.target suspend.target sleep.target ctrl-alt-del.target
+sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.target suspend.target sleep.target
 sudo systemctl preset-all
-sudo journalctl --vacuum-size=100M && sudo systemctl restart systemd-journald.service
 
+sudo journalctl --vacuum-size=100M && sudo systemctl restart systemd-journald.service
 sudo mkinitcpio -P
+sudo ln -sf /home/patricol/.gitconfig /root/.gitconfig
+gsfp --set-upstream origin ec2
+
 reboot
 
-gcloud init
-
-
-#block access to che except from localhost.
-sudo iptables -A INPUT -p tcp -s localhost --dport 8080 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
-
 sudo vncpasswd /etc/vncpasswd
-
-sudo ln -sf /home/patricol/.gitconfig /root/.gitconfig
-
-gsfp --set-upstream origin ec2
 
 #setup chrome, nemo, atom, gpmdp, pycharm, standard notes, VMs, i3, che.
 

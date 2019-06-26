@@ -36,6 +36,7 @@ cantarell-fonts
 cdparanoia
 celt0.5.1
 ceph-libs
+cfitsio
 cinnamon-desktop
 clucene
 colord
@@ -82,6 +83,7 @@ geoclue
 geocode-glib
 geoip
 geoip-database
+geos
 ghostscript
 giblib
 giflib
@@ -127,6 +129,7 @@ guile
 gvfs
 harfbuzz
 harfbuzz-icu
+hdf5
 hicolor-icon-theme
 hidapi
 hspell
@@ -208,6 +211,7 @@ lib32-glibc
 libabw
 libaccounts-glib
 libaccounts-qt
+libaec
 libaio
 libappindicator-gtk3
 libarchive
@@ -263,7 +267,9 @@ libffi
 libfilezilla
 libfontenc
 libfreehand
+libfreexl
 libgcrypt
+libgeotiff
 libglvnd
 libgnome-keyring
 libgnomekbd
@@ -357,6 +363,7 @@ libsndfile
 libsodium
 libsoup
 libsoxr
+libspatialite
 libspectre
 libssh
 libssh2
@@ -449,6 +456,7 @@ luajit
 lv2
 lz4
 lzo
+mariadb-libs
 mathjax
 mbedtls
 media-player-info
@@ -464,6 +472,7 @@ ncurses
 ndctl
 neon
 net-tools
+netcdf
 netcf
 nettle
 nm-connection-editor
@@ -520,7 +529,9 @@ poppler
 poppler-qt5
 popt
 portsmf
+postgresql-libs
 powerline-common
+proj
 pulseaudio
 purpose
 pygobject-devel
@@ -803,6 +814,7 @@ xcb-util-renderutil
 xcb-util-wm
 xcb-util-xrm
 xdg-utils
+xerces-c
 xf86-input-libinput
 xkeyboard-config
 xmlsec

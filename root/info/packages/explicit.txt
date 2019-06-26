@@ -70,6 +70,7 @@ freerdp
 freetype2
 gawk
 gcc
+gdal
 gettext
 git
 gitkraken

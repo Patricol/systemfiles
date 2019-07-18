@@ -40,7 +40,7 @@ mount /dev/sdx1 /mnt/boot
 pacstrap /mnt base base-devel
 arch-chroot /mnt
 hwclock --systohc
-pacman -Syu intel-ucode amd-ucode git vim openssh refind-efi zsh
+pacman -Syu intel-ucode amd-ucode git vim openssh refind-efi zsh iwd
 # no reason not to install both intel and amd
 git clone -b archcrowdai --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'

@@ -525,6 +525,7 @@ poppler-qt5
 popt
 powerline-common
 ppp
+proj
 pulseaudio
 purpose
 pygobject-devel

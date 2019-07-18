@@ -192,6 +192,7 @@ pyenv
 python
 python-neovim
 python-pip
+python-pyproj
 python-pywal
 python-xdg
 python2-pip

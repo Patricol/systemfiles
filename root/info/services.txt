@@ -51,7 +51,7 @@ masked hibernate.target
 masked hybrid-sleep.target
 disabled ip6tables.service
 disabled iptables.service
-disabled iwd.service
+enabled iwd.service
 disabled kexec.target
 disabled krb5-kadmind.service
 disabled krb5-kdc.service

@@ -6,6 +6,7 @@ enable dnsmasq.service
 enable systemd-resolved.service
 enable systemd-networkd.service
 enable anbox-container-manager.service
+enable iwd.service
 enable lightdm.service
 enable gpm.service
 enable docker.service

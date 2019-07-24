@@ -236,6 +236,7 @@ libcmis
 libconfig
 libcroco
 libcups
+libcurl-compat
 libcurl-gnutls
 libdaemon
 libdatrie
@@ -309,18 +310,14 @@ libmpcdec
 libmpeg2
 libmspub
 libmwaw
-libndp
 libnet
 libnetfilter_conntrack
-libnewt
 libnfnetlink
 libnfs
 libnftnl
 libnghttp2
 libnl
 libnm
-libnm-glib
-libnma
 libnotify
 libnsl
 libnumbertext
@@ -370,7 +367,6 @@ libstemmer
 libsynctex
 libtar
 libtasn1
-libteam
 libtermkey
 libthai
 libtheora
@@ -459,7 +455,6 @@ media-player-info
 minizip
 mkinitcpio
 mkinitcpio-busybox
-mobile-broadband-provider-info
 modemmanager
 mpfr
 mpg123
@@ -470,7 +465,6 @@ ndctl
 neon
 netcf
 nettle
-nm-connection-editor
 node-gyp
 npm
 npth
@@ -718,7 +712,6 @@ signon-kwallet-extension
 signon-plugin-oauth2
 signon-ui
 signond
-slang
 smbclient
 snappy
 solid

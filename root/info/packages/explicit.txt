@@ -142,6 +142,7 @@ mdadm
 mediainfo
 meld
 mesa
+mesa-vdpau
 minikube
 mkinitcpio-colors-git
 mpv
@@ -260,6 +261,7 @@ x11vnc
 xclip
 xdelta3
 xdotool
+xf86-video-ati
 xf86-video-intel
 xf86-video-vesa
 xfsprogs

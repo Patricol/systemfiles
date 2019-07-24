@@ -5,6 +5,7 @@ enabled avahi-daemon.service
 enabled avahi-daemon.socket
 disabled avahi-dnsconfd.service
 disabled blk-availability.service
+disabled blueman-mechanism.service
 enabled bluetooth.service
 disabled btrfs-scrub@.timer
 disabled canberra-system-bootup.service
@@ -78,6 +79,7 @@ enabled NetworkManager.service
 enabled NetworkManager-wait-online.service
 disabled nscd.service
 enabled paccache.timer
+disabled pcscd.socket
 disabled pkgfile-update.timer
 disabled poweroff.target
 disabled ppp@.service

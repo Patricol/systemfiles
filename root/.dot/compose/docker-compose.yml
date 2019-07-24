@@ -3,11 +3,51 @@ version: "3.6"
 # maybe add: virt-manager, portainer, sshd
 
 services:
-    guacd:
-        container_name: fcdcbda-guacd
-        image: guacamole/guacd:${GUACAMOLE_VERSION}
+    # guacd:
+    #     container_name: fcdcbda-guacd
+    #     image: guacamole/guacd:${GUACAMOLE_VERSION}
+    #     ports:
+    #         - '4822:4822'
+    unifi:
+        environment:
+            PUID: 1000
+            PGID: 1000
         ports:
-            - '4822:4822'
+            - target: 3478
+              published: 3478
+              protocol: udp
+              mode: host
+            # - target: 10001
+            #   published: 10001
+            #   protocol: udp
+            #   mode: host
+            - target: 8080
+              published: 8080
+              protocol: tcp
+              mode: host
+            - target: 8081
+              published: 8081
+              protocol: tcp
+              mode: host
+            - target: 8443
+              published: 8443
+              protocol: tcp
+              mode: host
+            - target: 8843
+              published: 8843
+              protocol: tcp
+              mode: host
+            - target: 8880
+              published: 8880
+              protocol: tcp
+              mode: host
+            - target: 6789
+              published: 6789
+              protocol: tcp
+              mode: host
+        volumes:
+            - '/home/docker/unifi:/config'
+        image: 'linuxserver/unifi-controller:amd64-latest'
 
 networks:
     default:

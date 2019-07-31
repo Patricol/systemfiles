@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
-sudo efibootmgr --bootnext "$(efibootmgr | grep "Windows" | cut -f1 -d'*' | cut -f2 -d't')"
+/usr/local/sbin/reboot_into "Windows Boot Manager"
 
-sudo systemctl reboot

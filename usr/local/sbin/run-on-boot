@@ -2,3 +2,6 @@
 
 fix-permissions
 swarm-prep
+
+sed -i "s/^timeout\t[0-9]*\$/timeout\t5/g" /boot/loader/loader.conf
+

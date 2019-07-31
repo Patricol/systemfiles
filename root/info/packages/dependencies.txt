@@ -81,6 +81,7 @@ fontconfig
 frameworkintegration
 freeglut
 fribidi
+fstrm
 fuse-common
 fuse2
 fuse3
@@ -593,6 +594,7 @@ potrace
 powerline-common
 ppp
 prison
+protobuf-c
 pulseaudio
 purpose
 pyalpm
@@ -878,6 +880,7 @@ twolame
 tzdata
 uchardet
 udisks2
+unbound
 unibilium
 upower
 usbmuxd

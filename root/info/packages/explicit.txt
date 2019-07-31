@@ -176,6 +176,8 @@ nerd-fonts-complete
 netctl
 network-manager-applet
 networkmanager
+networkmanager-l2tp
+networkmanager-strongswan
 nitrogen
 nodejs
 noto-fonts
@@ -241,6 +243,7 @@ rxvt-unicode
 s-nail
 scrot
 sed
+sedutil
 shadow
 shantz-xwinwrap-bzr
 signal-desktop-bin
@@ -249,6 +252,7 @@ simplescreenrecorder
 sshfs
 standardnotes-desktop
 stress
+strongswan
 sudo
 sway
 sysfsutils
@@ -295,6 +299,7 @@ xdelta3
 xdotool
 xf86-video-nouveau
 xfsprogs
+xl2tpd
 xorg-fonts-alias
 xorg-server
 xorg-server-devel

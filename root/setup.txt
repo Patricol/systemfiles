@@ -149,3 +149,7 @@ poweroff
 #open atom gui
 #close atom gui
 #apm disable git-blame color-picker spell-check minimap tree-view
+
+rmdir /root/.aws /root/.vault-token
+ln -sf /home/patricol/.aws /root/.aws
+ln -f /home/patricol/.vault-token /root/.vault-token

@@ -11,6 +11,7 @@ archlinux-keyring
 argon2
 aribb24
 aspell
+assimp
 at-spi2-atk
 at-spi2-core
 atk
@@ -21,6 +22,7 @@ audit
 augeas
 avahi
 bc
+blas
 bluez
 bluez-libs
 boost-libs
@@ -34,9 +36,11 @@ ca-certificates-utils
 cairo
 cairomm
 cantarell-fonts
+cblas
 cdparanoia
 celt0.5.1
 ceph-libs
+cfitsio
 cinnamon-desktop
 clucene
 colord
@@ -80,10 +84,12 @@ gcab
 gconf
 gcr
 gd
+gdal
 gdbm
 gdk-pixbuf2
 geoclue
 geocode-glib
+geos
 ghostscript
 giblib
 giflib
@@ -109,6 +115,7 @@ graphicsmagick
 graphite
 gsettings-desktop-schemas
 gsfonts
+gsl
 gsm
 gst-plugins-base
 gst-plugins-base-libs
@@ -129,6 +136,7 @@ guile
 gvfs
 harfbuzz
 harfbuzz-icu
+hdf5
 hicolor-icon-theme
 hidapi
 hspell
@@ -202,6 +210,7 @@ kwindowsystem
 kxmlgui
 l-smash
 lame
+lapack
 lcms2
 ldb
 ldns
@@ -209,6 +218,7 @@ leveldb
 libabw
 libaccounts-glib
 libaccounts-qt
+libaec
 libaio
 libappindicator-gtk3
 libarchive
@@ -266,7 +276,9 @@ libffi
 libfilezilla
 libfontenc
 libfreehand
+libfreexl
 libgcrypt
+libgeotiff
 libglvnd
 libgnome-keyring
 libgnomekbd
@@ -307,6 +319,7 @@ libmodplug
 libmp4v2
 libmpc
 libmpcdec
+libmpdclient
 libmpeg2
 libmspub
 libmwaw
@@ -359,6 +372,7 @@ libsndfile
 libsodium
 libsoup
 libsoxr
+libspatialite
 libspectre
 libssh
 libssh2
@@ -436,6 +450,7 @@ libxxf86dga
 libxxf86vm
 libyaml
 libzen
+libzip
 libzmf
 lightdm-webkit2-greeter
 linux-api-headers
@@ -449,6 +464,7 @@ lua52
 luajit
 lz4
 lzo
+mariadb-libs
 mathjax
 mbedtls
 media-player-info
@@ -463,6 +479,7 @@ mtdev
 ncurses
 ndctl
 neon
+netcdf
 netcf
 nettle
 node-gyp
@@ -473,6 +490,7 @@ nss
 numactl
 numix-icon-theme-git
 oath-toolkit
+ocl-icd
 openal
 opencore-amr
 openjpeg2
@@ -517,12 +535,14 @@ polkit-qt5
 poppler
 poppler-qt5
 popt
+postgresql-libs
 powerline-common
 ppp
 proj
 pulseaudio
 purpose
 pygobject-devel
+pyqt5-common
 python-appdirs
 python-asn1crypto
 python-attrs
@@ -554,6 +574,8 @@ python-docker-pycreds
 python-dockerpty
 python-docopt
 python-entrypoints
+python-future
+python-gdal
 python-gobject
 python-greenlet
 python-html5lib
@@ -576,6 +598,8 @@ python-markupsafe
 python-mccabe
 python-mistune
 python-msgpack
+python-numpy
+python-owslib
 python-packaging
 python-pandocfilters
 python-paramiko
@@ -590,6 +614,7 @@ python-progress
 python-prometheus_client
 python-prompt_toolkit
 python-psutil
+python-psycopg2
 python-ptyprocess
 python-pyasn1
 python-pyasn1-modules
@@ -601,16 +626,22 @@ python-pyhamcrest
 python-pynacl
 python-pyopenssl
 python-pyparsing
+python-pyqt5
 python-pyrsistent
 python-pystache
 python-pyte
 python-pytoml
+python-pytz
 python-pyzmq
+python-qscintilla-qt5
+python-qscintilla-qt5-common
 python-requests
 python-retrying
 python-send2trash
 python-service-identity
 python-setuptools
+python-sip
+python-sip-pyqt5
 python-six
 python-termcolor
 python-terminado
@@ -652,6 +683,8 @@ python2-six
 python2-urllib3
 python2-webencodings
 qca
+qscintilla-qt5
+qt5-3d
 qt5-base
 qt5-declarative
 qt5-graphicaleffects
@@ -661,13 +694,18 @@ qt5-quickcontrols
 qt5-quickcontrols2
 qt5-script
 qt5-sensors
+qt5-serialport
 qt5-speech
 qt5-svg
 qt5-tools
 qt5-webchannel
 qt5-webkit
 qt5-x11extras
+qt5-xmlpatterns
 qtcurve-utils
+qtkeychain
+qwt
+qwtpolar
 raptor
 rasqal
 re2
@@ -712,11 +750,13 @@ signon-kwallet-extension
 signon-plugin-oauth2
 signon-ui
 signond
+sip
 smbclient
 snappy
 solid
 sonnet
 sound-theme-freedesktop
+spatialindex
 speex
 speexdsp
 spice
@@ -779,6 +819,7 @@ xcb-util-renderutil
 xcb-util-wm
 xcb-util-xrm
 xdg-utils
+xerces-c
 xf86-input-libinput
 xkeyboard-config
 xmlsec

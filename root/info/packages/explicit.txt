@@ -196,6 +196,8 @@ python-pywal
 python-xdg
 python2-pip
 qemu
+qgis
+qgis-git
 qpdfview
 qt5ct
 qtcurve-qt5

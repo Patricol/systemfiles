@@ -105,6 +105,7 @@ ipython
 iwd
 jetbrains-toolbox
 jfsutils
+jq
 jsoncpp
 jupyter
 keychain
@@ -197,7 +198,6 @@ python-xdg
 python2-pip
 qemu
 qgis
-qgis-git
 qpdfview
 qt5ct
 qtcurve-qt5
@@ -246,6 +246,7 @@ unrar
 unzip
 usbutils
 util-linux
+vault
 vi
 vimpager
 virt-manager

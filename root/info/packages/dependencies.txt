@@ -22,7 +22,6 @@ audit
 augeas
 avahi
 bc
-blas
 bluez
 bluez-libs
 boost-libs
@@ -36,7 +35,6 @@ ca-certificates-utils
 cairo
 cairomm
 cantarell-fonts
-cblas
 cdparanoia
 celt0.5.1
 ceph-libs
@@ -48,6 +46,7 @@ compiler-rt
 containerd
 cracklib
 curl
+dav1d
 db
 dbus
 dbus-glib
@@ -115,7 +114,6 @@ graphicsmagick
 graphite
 gsettings-desktop-schemas
 gsfonts
-gsl
 gsm
 gst-plugins-base
 gst-plugins-base-libs
@@ -210,7 +208,6 @@ kwindowsystem
 kxmlgui
 l-smash
 lame
-lapack
 lcms2
 ldb
 ldns
@@ -490,7 +487,7 @@ nss
 numactl
 numix-icon-theme-git
 oath-toolkit
-ocl-icd
+oniguruma
 openal
 opencore-amr
 openjpeg2
@@ -574,8 +571,6 @@ python-docker-pycreds
 python-dockerpty
 python-docopt
 python-entrypoints
-python-future
-python-gdal
 python-gobject
 python-greenlet
 python-html5lib
@@ -598,8 +593,6 @@ python-markupsafe
 python-mccabe
 python-mistune
 python-msgpack
-python-numpy
-python-owslib
 python-packaging
 python-pandocfilters
 python-paramiko
@@ -614,7 +607,6 @@ python-progress
 python-prometheus_client
 python-prompt_toolkit
 python-psutil
-python-psycopg2
 python-ptyprocess
 python-pyasn1
 python-pyasn1-modules
@@ -631,7 +623,6 @@ python-pyrsistent
 python-pystache
 python-pyte
 python-pytoml
-python-pytz
 python-pyzmq
 python-qscintilla-qt5
 python-qscintilla-qt5-common
@@ -697,11 +688,9 @@ qt5-sensors
 qt5-serialport
 qt5-speech
 qt5-svg
-qt5-tools
 qt5-webchannel
 qt5-webkit
 qt5-x11extras
-qt5-xmlpatterns
 qtcurve-utils
 qtkeychain
 qwt
@@ -750,7 +739,6 @@ signon-kwallet-extension
 signon-plugin-oauth2
 signon-ui
 signond
-sip
 smbclient
 snappy
 solid

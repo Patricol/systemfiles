@@ -119,6 +119,7 @@ disabled telnet.socket
 disabled udisks2.service
 disabled upower.service
 disabled uuidd.socket
+disabled vault.service
 disabled vboxweb.service
 disabled virtlockd-admin.socket
 enabled virtlockd.socket

@@ -10,6 +10,7 @@ atool
 audio-recorder
 autoconf
 automake
+aws-iam-authenticator-bin
 baobab
 bash
 bash-completion
@@ -229,6 +230,8 @@ systemd
 systemd-sysvcompat
 tar
 terminus-font
+terraform
+terragrunt-bin
 texinfo
 thefuck
 tigervnc

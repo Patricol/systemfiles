@@ -343,6 +343,7 @@ libpcap
 libpciaccess
 libpgm
 libpipeline
+libplacebo
 libplist
 libpng
 libproxy
@@ -651,6 +652,7 @@ python-yaml
 python-zope-interface
 python2
 python2-appdirs
+python2-attrs
 python2-cachecontrol
 python2-chardet
 python2-colorama

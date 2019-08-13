@@ -79,6 +79,7 @@ gnome-calculator
 gnome-disk-utility
 gnome-keyring
 gnome-system-monitor
+go
 google-cloud-sdk
 gpa
 gparted

@@ -42,6 +42,7 @@ diffutils
 dnsmasq
 docker
 docker-compose
+downgrade
 dpkg
 dunst
 e2fsprogs
@@ -168,6 +169,7 @@ openbsd-netcat
 openssh
 ovmf
 p7zip
+packer
 pacman
 pacman-contrib
 pacutils
@@ -232,6 +234,7 @@ systemd-sysvcompat
 tar
 terminus-font
 terraform
+terraform-docs-bin
 terragrunt-bin
 texinfo
 thefuck

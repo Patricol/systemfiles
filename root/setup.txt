@@ -153,3 +153,7 @@ poweroff
 rmdir /root/.aws /root/.vault-token
 ln -sf /home/patricol/.aws /root/.aws
 ln -f /home/patricol/.vault-token /root/.vault-token
+
+# to fix branches with changes but no upstream; and remote is changed so can't push:
+# dfg pull origin branch-name
+# dfg push -u origin branch-name

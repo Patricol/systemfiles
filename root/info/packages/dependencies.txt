@@ -21,13 +21,16 @@ attr
 audit
 augeas
 avahi
+babl
 bc
+blas
 bluez
 bluez-libs
 boost-libs
 bridge-utils
 brotli
 btrfs-progs
+bubblewrap
 c-ares
 ca-certificates
 ca-certificates-mozilla
@@ -80,12 +83,17 @@ fuse2
 fuse3
 gc
 gcab
+gcc-gcj-ecj
+gcc6
+gcc6-gcj
+gcc6-libs
 gconf
 gcr
 gd
 gdal
 gdbm
 gdk-pixbuf2
+gegl
 geoclue
 geocode-glib
 geos
@@ -145,8 +153,10 @@ hyphen
 iana-etc
 icu
 ijs
+ilmbase
 imagemagick
 imlib2
+intel-tbb
 iptables
 iso-codes
 jack
@@ -208,9 +218,11 @@ kwindowsystem
 kxmlgui
 l-smash
 lame
+lapack
 lcms2
 ldb
 ldns
+lensfun
 leveldb
 libabw
 libaccounts-glib
@@ -251,6 +263,7 @@ libdbusmenu-glib
 libdbusmenu-gtk3
 libdbusmenu-qt5
 libdca
+libde265
 libdmx
 libdrm
 libdv
@@ -275,7 +288,10 @@ libfontenc
 libfreehand
 libfreexl
 libgcrypt
+libgee
 libgeotiff
+libgexiv2
+libglade
 libglvnd
 libgnome-keyring
 libgnomekbd
@@ -284,6 +300,7 @@ libgssglue
 libgtop
 libgudev
 libgusb
+libheif
 libibus
 libical
 libice
@@ -303,6 +320,7 @@ libksba
 liblangtag
 libldap
 liblqr
+libluv
 liblxqt
 libmad
 libmatroska
@@ -311,6 +329,7 @@ libmediainfo
 libmicrohttpd
 libmm-glib
 libmms
+libmng
 libmnl
 libmodplug
 libmp4v2
@@ -320,6 +339,7 @@ libmpdclient
 libmpeg2
 libmspub
 libmwaw
+libmypaint
 libnet
 libnetfilter_conntrack
 libnfnetlink
@@ -354,6 +374,7 @@ libqmi
 libqtxdg
 libqxp
 libraqm
+libraw
 libraw1394
 librevenge
 librsvg
@@ -372,6 +393,7 @@ libsoup
 libsoxr
 libspatialite
 libspectre
+libspiro
 libssh
 libssh2
 libstaroffice
@@ -408,7 +430,9 @@ libvterm
 libwacom
 libwbclient
 libwebp
+libwmf
 libwpd
+libwpe
 libwpg
 libwps
 libx11
@@ -464,8 +488,10 @@ lz4
 lzo
 mariadb-libs
 mathjax
+mathjax2
 mbedtls
 media-player-info
+metis
 minizip
 mkinitcpio
 mkinitcpio-busybox
@@ -474,6 +500,7 @@ mpfr
 mpg123
 msgpack-c
 mtdev
+mypaint-brushes1
 ncurses
 ndctl
 neon
@@ -491,6 +518,7 @@ oath-toolkit
 oniguruma
 openal
 opencore-amr
+openexr
 openjpeg2
 openresolv
 openssl
@@ -531,6 +559,7 @@ pipewire
 pixman
 polkit-qt5
 poppler
+poppler-data
 poppler-qt5
 popt
 postgresql-libs
@@ -540,6 +569,8 @@ proj
 pulseaudio
 purpose
 pygobject-devel
+pygobject2-devel
+pygtk
 pyqt5-common
 python-appdirs
 python-asn1crypto
@@ -658,6 +689,7 @@ python2-appdirs
 python2-attrs
 python2-backports
 python2-cachecontrol
+python2-cairo
 python2-chardet
 python2-colorama
 python2-configparser
@@ -665,6 +697,7 @@ python2-contextlib2
 python2-distlib
 python2-distro
 python2-docopt
+python2-gobject2
 python2-html5lib
 python2-idna
 python2-importlib-metadata
@@ -754,6 +787,7 @@ signon-ui
 signond
 smbclient
 snappy
+socat
 solid
 sonnet
 sound-theme-freedesktop
@@ -765,6 +799,7 @@ spice-gtk
 spirv-tools
 sqlite
 startup-notification
+suitesparse
 swaybg
 systemd-libs
 taglib
@@ -774,6 +809,7 @@ tdb
 tevent
 thin-provisioning-tools
 threadweaver
+tpm2-tss
 tre
 tslib
 ttf-opensans
@@ -804,6 +840,7 @@ webkit2gtk
 webrtc-audio-processing
 wlroots
 woff2
+wpebackend-fdo
 wxgtk-common
 wxgtk3
 x264
@@ -819,6 +856,7 @@ xcb-util-keysyms
 xcb-util-renderutil
 xcb-util-wm
 xcb-util-xrm
+xdg-dbus-proxy
 xdg-utils
 xerces-c
 xf86-input-libinput

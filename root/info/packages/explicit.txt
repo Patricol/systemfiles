@@ -31,6 +31,7 @@ cifs-utils
 clang
 cmake
 compton
+consul-template
 coreutils
 cowsay
 cryptsetup
@@ -73,6 +74,7 @@ gawk
 gcc
 gcc-libs
 gettext
+gimp
 git
 gitkraken
 glibc
@@ -85,7 +87,7 @@ google-cloud-sdk
 gpa
 gparted
 gpick
-gpmdp-git
+gpmdp
 graphviz
 grc
 grep
@@ -114,6 +116,7 @@ jupyter
 keychain
 kitty
 kubectl
+kubernetes-helm
 less
 libmicrodns
 libreoffice-fresh
@@ -178,12 +181,13 @@ papirus-icon-theme
 patch
 pavucontrol
 pciutils
+pdftk
 perl
 pigz
 pkgconf
 pkgfile
 polkit
-polybar-git
+polybar
 postman-bin
 powerline
 powerline-console-fonts
@@ -194,8 +198,8 @@ psmisc
 pycharm-professional
 pyenv
 python
-python-neovim
 python-pip
+python-pynvim
 python-pyproj
 python-pywal
 python-xdg

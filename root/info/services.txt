@@ -39,6 +39,7 @@ disabled exit.target
 disabled fancontrol.service
 enabled fstrim.timer
 disabled ftpd.service
+disabled fwupd-refresh.timer
 enabled getty@.service
 disabled git-daemon.socket
 disabled glusterd.service
@@ -121,7 +122,9 @@ disabled systemd-journal-upload.service
 enabled systemd-networkd.service
 enabled systemd-networkd.socket
 enabled systemd-networkd-wait-online.service
+disabled systemd-network-generator.service
 disabled systemd-nspawn@.service
+disabled systemd-pstore.service
 enabled systemd-resolved.service
 enabled systemd-timesyncd.service
 disabled systemd-time-wait-sync.service

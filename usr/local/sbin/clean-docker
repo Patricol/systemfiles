@@ -6,13 +6,13 @@
 
 # Stop eclipse che
 #cli_current stop
-# Stop Duplicati
-#docker stop duplicati
+# clean stack and images etc.
+dcfrun clean
 # Remove general stuff
 docker system prune --force
 # Remove almost all images
 docker image prune -a --force
-# Reinstall duplicati
-#run-duplicati
+# Restart stack
+dcfrun
 # Reinstall eclipse che
 #cli_current start

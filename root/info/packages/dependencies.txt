@@ -32,6 +32,7 @@ boost-libs
 bridge-utils
 brotli
 btrfs-progs
+bubblewrap
 c-ares
 ca-certificates
 ca-certificates-mozilla
@@ -52,6 +53,7 @@ compiler-rt
 containerd
 convertlit
 cracklib
+dav1d
 db
 dbus
 dbus-glib
@@ -167,6 +169,8 @@ jasper
 java-runtime-common
 jbig2dec
 jemalloc
+jre11-openjdk
+jre11-openjdk-headless
 jre8-openjdk
 jre8-openjdk-headless
 js60
@@ -300,6 +304,7 @@ libfontenc
 libfprint
 libfreehand
 libgcrypt
+libgee
 libgexiv2
 libglade
 libglvnd
@@ -335,6 +340,7 @@ libkvkontakte
 liblangtag
 libldap
 liblqr
+libluv
 liblxqt
 libmad
 libmagick6
@@ -351,12 +357,14 @@ libmodplug
 libmp4v2
 libmpc
 libmpcdec
+libmpdclient
 libmpeg2
 libmspub
 libmtp
 libmwaw
 libmypaint
 libndp
+libnet
 libnetfilter_conntrack
 libnewt
 libnfnetlink
@@ -370,8 +378,6 @@ libnma
 libnotify
 libnsl
 libnumbertext
-libnvidia-container
-libnvidia-container-tools
 libodfgen
 libogg
 libomxil-bellagio
@@ -383,6 +389,7 @@ libpcap
 libpciaccess
 libpgm
 libpipeline
+libplacebo
 libplist
 libpng
 libproxy
@@ -454,6 +461,7 @@ libwbclient
 libwebp
 libwmf
 libwpd
+libwpe
 libwpg
 libwps
 libx11
@@ -511,6 +519,7 @@ lzo
 marble-common
 mariadb-libs
 mathjax
+mathjax2
 mbedtls
 media-player-info
 metis
@@ -524,6 +533,7 @@ mpg123
 msgpack-c
 mtdev
 mypaint-brushes
+mypaint-brushes1
 ncurses
 ndctl
 neon
@@ -538,8 +548,6 @@ nspr
 nss
 numactl
 numix-icon-theme-git
-nvidia-container-runtime
-nvidia-container-runtime-hook
 oath-toolkit
 openal
 opencore-amr
@@ -640,6 +648,7 @@ python-greenlet
 python-html5lib
 python-hyperlink
 python-idna
+python-importlib-metadata
 python-incremental
 python-ipykernel
 python-ipywidgets
@@ -655,6 +664,7 @@ python-markdown
 python-markupsafe
 python-mccabe
 python-mistune
+python-more-itertools
 python-msgpack
 python-packaging
 python-pandocfilters
@@ -710,6 +720,7 @@ python-webencodings
 python-websocket-client
 python-xcffib
 python-yaml
+python-zipp
 python-zope-interface
 python2
 python2-appdirs
@@ -726,7 +737,9 @@ python2-cffi
 python2-chardet
 python2-click
 python2-colorama
+python2-configparser
 python2-constantly
+python2-contextlib2
 python2-cryptography
 python2-css-parser
 python2-cssselect
@@ -745,15 +758,18 @@ python2-html5-parser
 python2-html5lib
 python2-hyperlink
 python2-idna
+python2-importlib-metadata
 python2-incremental
 python2-ipaddress
 python2-lockfile
 python2-lxml
 python2-markdown
 python2-mechanize
+python2-more-itertools
 python2-msgpack
 python2-netifaces
 python2-packaging
+python2-pathlib2
 python2-pep517
 python2-pillow
 python2-ply
@@ -769,6 +785,7 @@ python2-pytoml
 python2-regex
 python2-requests
 python2-retrying
+python2-scandir
 python2-setuptools
 python2-sip-pyqt5
 python2-six
@@ -778,6 +795,7 @@ python2-unrardll
 python2-urllib3
 python2-webencodings
 python2-xdg
+python2-zipp
 python2-zope-interface
 qca
 qrencode
@@ -872,6 +890,7 @@ tdb
 tevent
 thin-provisioning-tools
 threadweaver
+tpm2-tss
 tre
 tslib
 ttf-dejavu
@@ -906,6 +925,7 @@ wireshark-cli
 wlroots
 woff2
 wpa_supplicant
+wpebackend-fdo
 wxgtk-common
 wxgtk2
 wxgtk3
@@ -922,6 +942,7 @@ xcb-util-keysyms
 xcb-util-renderutil
 xcb-util-wm
 xcb-util-xrm
+xdg-dbus-proxy
 xdg-utils
 xf86-input-libinput
 xkeyboard-config

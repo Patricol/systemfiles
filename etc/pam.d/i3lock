@@ -1,0 +1,7 @@
+#
+# PAM configuration file for the i3lock screen locker. By default, it includes
+# the 'system-auth' configuration file (see /etc/pam.d/login)
+#
+
+auth include system-auth
+auth sufficient pam_pwdfile.so pwdfile=/home/secure/pam/i3lock-pin.passwd

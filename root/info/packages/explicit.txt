@@ -98,7 +98,7 @@ google-musicmanager
 gpa
 gparted
 gpick
-gpmdp-git
+gpmdp
 graphviz
 grc
 grep
@@ -127,6 +127,7 @@ jupyter
 keychain
 kitty
 kmscon-patched-git
+kompose-git
 kubectl
 lastpass
 less
@@ -186,7 +187,6 @@ nouveau-fw
 nss-mdns
 ntfs-3g
 numix-circle-icon-theme-git
-nvidia-docker
 okular
 oomox
 openbsd-netcat
@@ -219,8 +219,8 @@ psensor
 psmisc
 pycharm-community-edition
 python
-python-neovim
 python-pip
+python-pynvim
 python-pywal
 python-xdg
 python2-pip
@@ -260,6 +260,8 @@ systemd
 systemd-sysvcompat
 tar
 terminus-font
+terraform
+terragrunt-bin
 texinfo
 thefuck
 tigervnc
@@ -293,6 +295,7 @@ wireshark-qt
 woeusb
 wol
 wpgtk-git
+x11-ssh-askpass
 x11vnc
 xclip
 xdelta3

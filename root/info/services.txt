@@ -72,12 +72,15 @@ disabled netctl-ifplugd@.service
 disabled netctl.service
 disabled netctl-sleep.service
 disabled netctl-wait-online.service
+disabled ninfod.service
 disabled nscd.service
 enabled paccache.timer
 disabled pcscd.socket
 disabled pkgfile-update.timer
 disabled poweroff.target
 disabled ppp@.service
+disabled rarpd@.service
+disabled rdisc.service
 enabled reboot.target
 enabled remote-cryptsetup.target
 enabled remote-fs.target

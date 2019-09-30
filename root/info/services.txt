@@ -6,6 +6,7 @@ enabled avahi-daemon.socket
 disabled avahi-dnsconfd.service
 disabled blk-availability.service
 disabled blueman-mechanism.service
+disabled bluetooth-mesh.service
 enabled bluetooth.service
 disabled btrfs-scrub@.timer
 disabled canberra-system-bootup.service
@@ -72,6 +73,9 @@ disabled netctl-ifplugd@.service
 disabled netctl.service
 disabled netctl-sleep.service
 disabled netctl-wait-online.service
+disabled NetworkManager-dispatcher.service
+disabled NetworkManager.service
+disabled NetworkManager-wait-online.service
 disabled ninfod.service
 disabled nscd.service
 enabled paccache.timer
@@ -105,7 +109,6 @@ disabled sensord.service
 disabled serial-getty@.service
 masked sleep.target
 enabled sshd.service
-disabled sshd.socket
 masked suspend.target
 masked suspend-then-hibernate.target
 disabled systemd-boot-check-no-failures.service

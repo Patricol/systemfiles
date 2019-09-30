@@ -200,6 +200,7 @@ kiconthemes
 kio
 kirigami2
 kitemviews
+kitty-terminfo
 kjobwidgets
 kjs
 kmod
@@ -340,14 +341,17 @@ libmpeg2
 libmspub
 libmwaw
 libmypaint
+libndp
 libnet
 libnetfilter_conntrack
+libnewt
 libnfnetlink
 libnfs
 libnftnl
 libnghttp2
 libnl
 libnm
+libnma
 libnotify
 libnsl
 libnumbertext
@@ -401,6 +405,7 @@ libstemmer
 libsynctex
 libtar
 libtasn1
+libteam
 libtermkey
 libthai
 libtheora
@@ -495,6 +500,7 @@ metis
 minizip
 mkinitcpio
 mkinitcpio-busybox
+mobile-broadband-provider-info
 modemmanager
 mpfr
 mpg123
@@ -507,6 +513,7 @@ neon
 netcdf
 netcf
 nettle
+nm-connection-editor
 node-gyp
 npm
 npth
@@ -785,6 +792,7 @@ signon-kwallet-extension
 signon-plugin-oauth2
 signon-ui
 signond
+slang
 smbclient
 snappy
 socat

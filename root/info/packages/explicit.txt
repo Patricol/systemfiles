@@ -19,6 +19,8 @@ bat
 bdf-unifont
 binutils
 bison
+bitwarden-bin
+bitwarden-cli
 blueman
 breeze
 breeze-icons
@@ -26,7 +28,7 @@ bzip2
 catimg
 cdrtools
 chafa
-cheat-git
+chef-dk
 chromium
 cifs-utils
 clang
@@ -63,7 +65,6 @@ file
 file-roller
 filesystem
 filezilla
-findimagedupes
 findutils
 flake8
 flex
@@ -116,7 +117,7 @@ jsoncpp
 jupyter
 keychain
 kitty
-kubectl
+kubectl-bin
 kubernetes-helm
 less
 libmicrodns
@@ -260,7 +261,7 @@ unrar
 unzip
 usbutils
 util-linux
-vault
+vault-bin
 vi
 vimpager
 virt-manager

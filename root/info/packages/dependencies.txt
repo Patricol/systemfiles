@@ -5,6 +5,8 @@ accountsservice
 acl
 adwaita-icon-theme
 alsa-lib
+alsa-topology-conf
+alsa-ucm-conf
 aom
 apm
 apr
@@ -264,7 +266,6 @@ libdbusmenu-gtk3
 libdbusmenu-qt5
 libdca
 libde265
-libdmx
 libdrm
 libdv
 libdvbpsi
@@ -472,7 +473,6 @@ libxt
 libxtst
 libxv
 libxvmc
-libxxf86dga
 libxxf86vm
 libyaml
 libzen
@@ -493,6 +493,7 @@ lzo
 mariadb-libs
 mathjax2
 mbedtls
+md4c
 media-player-info
 metis
 minizip
@@ -511,6 +512,7 @@ ndctl
 neon
 netcdf
 netcf
+netpbm
 nettle
 nm-connection-editor
 node-gyp
@@ -568,9 +570,7 @@ proj
 pulseaudio
 purpose
 pygobject-devel
-pygobject2-devel
 pygtk
-pyqt5-common
 python-appdirs
 python-asn1crypto
 python-attrs
@@ -586,6 +586,7 @@ python-cairosvg
 python-cffi
 python-chardet
 python-colorama
+python-contextlib2
 python-cryptography
 python-cssselect2
 python-dateutil
@@ -620,6 +621,7 @@ python-mccabe
 python-mistune
 python-more-itertools
 python-msgpack
+python-ordered-set
 python-packaging
 python-pandocfilters
 python-paramiko
@@ -650,7 +652,6 @@ python-pytoml
 python-pytz
 python-pyzmq
 python-qscintilla-qt5
-python-qscintilla-qt5-common
 python-requests
 python-retrying
 python-send2trash
@@ -691,6 +692,7 @@ python2-ipaddress
 python2-lockfile
 python2-more-itertools
 python2-msgpack
+python2-ordered-set
 python2-packaging
 python2-pathlib2
 python2-pep517
@@ -736,6 +738,7 @@ redland
 rest
 resvg
 rhash
+ripgrep
 rpcbind
 rtkit
 rtmpdump
@@ -800,6 +803,7 @@ threadweaver
 tpm2-tss
 tre
 tslib
+ttf-liberation
 ttf-opensans
 twolame
 tzdata

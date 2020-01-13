@@ -33,7 +33,6 @@ chromium
 cifs-utils
 clang
 cmake
-compton
 consul-template
 coreutils
 cowsay
@@ -187,6 +186,7 @@ pavucontrol
 pciutils
 pdftk
 perl
+picom
 pigz
 pkgconf
 pkgfile

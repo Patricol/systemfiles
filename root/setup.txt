@@ -45,7 +45,7 @@ e2label /dev/sdx2 "ArchLinux"
 mount /dev/sdx2 /mnt
 mkdir /mnt/boot
 mount /dev/sdx1 /mnt/boot
-pacstrap /mnt base base-devel
+pacstrap /mnt base base-devel linux linux-firmware
 arch-chroot /mnt
 hwclock --systohc
 pacman -Syu intel-ucode amd-ucode git vim openssh refind-efi zsh

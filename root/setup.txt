@@ -69,18 +69,28 @@ poweroff
 #power on
 #login as root
 timedatectl set-ntp true
-systemctl --now enable dhcpcd sshd
+systemctl --now enable systemd-{network,resolve}d sshd
 groupadd patrick
 groupadd -r sudo
 groupadd -r ssh
 useradd -m -g patrick -G sudo,ssh -s /bin/zsh patricol
 useradd -m -g patrick -s /bin/zsh work
+useradd -m -g patrick -s /bin/zsh workmore
 passwd patricol
 passwd work
+passwd workmore
 exit
 #login as patricol
 sudo passwd -l root
-ip address
+ip address # find interface
+sudo vim /etc/systemd/network/20-wired.network
+# Example:
+#[Match]
+#Name=enp1s0
+#
+#[Network]
+#DHCP=ipv4
+sudo networkctl reload
 exit
 
 #login as patricol (can use ssh this time if desired.)

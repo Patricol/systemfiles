@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+/usr/local/sbin/reboot_into "MemTest86"
+

@@ -4,4 +4,3 @@
 #
 
 auth include system-auth
-auth sufficient pam_pwdfile.so pwdfile=/home/secure/pam/i3lock-pin.passwd

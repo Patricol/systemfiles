@@ -2,6 +2,7 @@
 
 fix-permissions
 swarm-prep
+dcfrun
 
 sed -i "s/^timeout\t[0-9]*\$/timeout\t5/g" /boot/loader/loader.conf
 

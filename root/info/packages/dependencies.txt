@@ -6,6 +6,8 @@ acl
 adwaita-icon-theme
 akonadi-contacts
 alsa-lib
+alsa-topology-conf
+alsa-ucm-conf
 aom
 apm
 archlinux-keyring
@@ -30,6 +32,7 @@ bluez
 bluez-libs
 boost-libs
 bridge-utils
+brltty
 brotli
 btrfs-progs
 bubblewrap
@@ -39,11 +42,13 @@ ca-certificates-mozilla
 ca-certificates-utils
 cairo
 cairomm
+calibre-common
 cantarell-fonts
 cblas
 cdparanoia
 celt0.5.1
 ceph-libs
+cfitsio
 chmlib
 cinnamon-desktop
 clucene
@@ -68,6 +73,8 @@ double-conversion
 ebook-tools
 efibootmgr
 efivar
+egl-wayland
+eglexternalplatform
 electron
 electron4
 enchant
@@ -113,6 +120,7 @@ gmp
 gnome-backgrounds
 gnome-themes-extra
 gnutls
+go
 gobject-introspection
 gobject-introspection-runtime
 gperftools
@@ -153,13 +161,16 @@ hspell
 http-parser
 hunspell
 hwids
+hwloc
 hyphen
 iana-etc
 icu
 ijs
-ilmbase
 imagemagick
 imlib2
+intel-gmmlib
+intel-media-driver
+intel-media-sdk
 intel-tbb
 iptables
 iso-codes
@@ -188,7 +199,7 @@ karchive
 kauth
 kbd
 kbookmarks
-kcalcore
+kcalendarcore
 kcmutils
 kcodecs
 kcompletion
@@ -211,6 +222,7 @@ kio
 kirigami2
 kitemmodels
 kitemviews
+kitty-terminfo
 kjobwidgets
 kjs
 kmime
@@ -278,7 +290,6 @@ libdc1394
 libdca
 libde265
 libdmtx
-libdmx
 libdrm
 libdv
 libdvbpsi
@@ -312,6 +323,7 @@ libgnome-keyring
 libgnomekbd
 libgpg-error
 libgphoto2
+libgsf
 libgssglue
 libgtop
 libgudev
@@ -339,6 +351,7 @@ libksba
 libkvkontakte
 liblangtag
 libldap
+liblouis
 liblqr
 libluv
 liblxqt
@@ -348,6 +361,7 @@ libmatroska
 libmaxminddb
 libmbim
 libmediainfo
+libmfx
 libmicrohttpd
 libmm-glib
 libmms
@@ -411,6 +425,7 @@ libseccomp
 libsecret
 libshout
 libsigc++
+libslirp
 libsm
 libsmbios
 libsndfile
@@ -447,6 +462,7 @@ libutil-linux
 libuv
 libva
 libvdpau
+libvips
 libvirt-glib
 libvirt-python
 libvisio
@@ -496,7 +512,6 @@ libxss
 libxt
 libxtst
 libxv
-libxxf86dga
 libxxf86vm
 libyaml
 libzen
@@ -521,6 +536,7 @@ mariadb-libs
 mathjax
 mathjax2
 mbedtls
+md4c
 media-player-info
 metis
 minizip
@@ -532,6 +548,7 @@ mpfr
 mpg123
 msgpack-c
 mtdev
+mujs
 mypaint-brushes
 mypaint-brushes1
 ncurses
@@ -539,6 +556,7 @@ ndctl
 neon
 net-snmp
 netcf
+netpbm
 nettle
 nm-connection-editor
 node-gyp
@@ -548,12 +566,14 @@ nspr
 nss
 numactl
 numix-icon-theme-git
+nvidia-utils
 oath-toolkit
 openal
 opencore-amr
 opencv
 openexr
 openjpeg2
+openmpi
 openresolv
 openssl
 optipng
@@ -607,9 +627,7 @@ pulseaudio
 purpose
 pyalpm
 pygobject-devel
-pygobject2-devel
 pygtk
-pyqt5-common
 python-appdirs
 python-asn1crypto
 python-attrs
@@ -627,6 +645,7 @@ python-chardet
 python-click
 python-colorama
 python-constantly
+python-contextlib2
 python-cryptography
 python-cssselect2
 python-dateutil
@@ -666,6 +685,7 @@ python-mccabe
 python-mistune
 python-more-itertools
 python-msgpack
+python-ordered-set
 python-packaging
 python-pandocfilters
 python-paramiko
@@ -768,6 +788,7 @@ python2-mechanize
 python2-more-itertools
 python2-msgpack
 python2-netifaces
+python2-ordered-set
 python2-packaging
 python2-pathlib2
 python2-pep517
@@ -775,12 +796,14 @@ python2-pillow
 python2-ply
 python2-progress
 python2-psutil
+python2-pychm
 python2-pycparser
 python2-pygments
 python2-pyhamcrest
 python2-pyopenssl
 python2-pyparsing
 python2-pyqt5
+python2-pyqtwebengine
 python2-pytoml
 python2-regex
 python2-requests
@@ -810,6 +833,7 @@ qt5-script
 qt5-sensors
 qt5-speech
 qt5-svg
+qt5-wayland
 qt5-webchannel
 qt5-webengine
 qt5-webkit
@@ -825,6 +849,7 @@ redland
 rest
 resvg
 rhash
+ripgrep
 rpcbind
 rtkit
 rtmpdump
@@ -894,6 +919,7 @@ tpm2-tss
 tre
 tslib
 ttf-dejavu
+ttf-liberation
 ttf-opensans
 twolame
 tzdata

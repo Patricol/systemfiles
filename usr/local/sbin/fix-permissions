@@ -68,10 +68,10 @@ main() {
 	chmod -cR 744 /usr/local/sbin
 	chmod -c 755 /usr/local/sbin
 
-	mkdir -p /media/{nas,gdrive,work,gaming}
-	chown -c patricol:patrick /media/{nas,gdrive,gaming}
+	mkdir -p /media/{nas,gdrive,work,gaming{,_2}}
+	chown -c patricol:patrick /media/{nas,gdrive,gaming{,_2}}
 	chown -c work:patrick /media/work
-	chmod -c 770 /media/{nas,gdrive,work,gaming}
+	chmod -c 770 /media/{nas,gdrive,work,gaming{,_2}}
 
 	#standardnotes-desktop being installed with wrong permissions repeatedly.
 	#google earth one too.

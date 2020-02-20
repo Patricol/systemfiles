@@ -31,36 +31,34 @@ timedatectl set-ntp true
 #Check what disk to use:
 fdisk -l
 parted
-select /dev/sdx
+select /dev/vdx
 #CHECK THE LIST ABOVE (DO BEFORE STARTING) BEFORE FORMATTING
 mklabel gpt
 mkpart ESP fat32 1MiB 1025MiB
 set 1 esp on
 mkpart primary ext4 1025MiB 100%
 quit
-mkfs.fat -F32 /dev/sdx1
-mkfs.ext4 /dev/sdx2
-fatlabel /dev/sdx1 "EFI"
-e2label /dev/sdx2 "ArchLinux"
-mount /dev/sdx2 /mnt
+mkfs.fat -F32 /dev/vdx1
+mkfs.ext4 /dev/vdx2
+fatlabel /dev/vdx1 "EFI"
+e2label /dev/vdx2 "ArchLinux"
+mount /dev/vdx2 /mnt
 mkdir /mnt/boot
-mount /dev/sdx1 /mnt/boot
+mount /dev/vdx1 /mnt/boot
 pacstrap /mnt base base-devel linux linux-firmware
 arch-chroot /mnt
 hwclock --systohc
-pacman -Syu intel-ucode amd-ucode git vim openssh refind-efi zsh
-# no reason not to install both intel and amd
-git clone -b arch --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
+pacman -Syu git vim openssh zsh
+git clone -b vm --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
-alias gsfch='gsf checkout -f arch --'
+alias gsfch='gsf checkout -f vm --'
 gsfch /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
 locale-gen
 mkinitcpio -P
 passwd
-refind-install
 bootctl install
 gsfch /boot
-#edit the files in /boot/loader/entries if needed. also /boot/EFI/refind/entries.conf
+#edit the files in /boot/loader/entries if needed.
 exit
 umount -R /mnt
 poweroff
@@ -131,8 +129,6 @@ Setup dotfiles if needed: https://github.com/Patricol/dotfiles
 
 #exec startx for gui (assuming exec i3 is in ~/.xinitrc)
 
-sudo nvidia-xconfig
-
 sudo groupadd -r bluetooth && sudo usermod -aG bluetooth patricol
 sudo usermod -aG libvirt patricol
 sudo usermod -aG libvirt work
@@ -140,6 +136,7 @@ sudo usermod -aG libvirt work
 #sets default terminal for nemo to use from right click menu etc.
 gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
 sudo -u work -i dbus-launch --exit-with-session gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
+sudo -u workmore -i dbus-launch --exit-with-session gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
 
 
 sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.target suspend.target sleep.target ctrl-alt-del.target
@@ -162,15 +159,11 @@ gcloud init
 #run Xvnc to set the password; otherwise config files etc. won't be created; and Xvnc services won't work.
 # That can also cause lightdm to fail.
 
-#block access to che except from localhost.
-sudo iptables -A INPUT -p tcp -s localhost --dport 8080 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
-
 sudo vncpasswd /etc/vncpasswd
 
 ln -sf /home/patricol/.gitconfig /root/.gitconfig
 
-gsfp --set-upstream origin arch
+gsfp --set-upstream origin vm
 
 
 poweroff

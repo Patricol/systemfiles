@@ -15,7 +15,7 @@ disabled canberra-system-shutdown-reboot.service
 disabled canberra-system-shutdown.service
 disabled console-getty.service
 disabled containerd.service
-masked ctrl-alt-del.target
+enabled ctrl-alt-del.target
 enabled dbus-org.bluez.service
 enabled dbus-org.freedesktop.Avahi.service
 enabled dbus-org.freedesktop.network1.service
@@ -63,9 +63,9 @@ disabled krb5-kdc.service
 disabled krb5-kpropd.service
 disabled krb5-kpropd.socket
 disabled libvirtd-admin.socket
-disabled libvirtd-ro.socket
+enabled libvirtd-ro.socket
 enabled libvirtd.service
-disabled libvirtd.socket
+enabled libvirtd.socket
 disabled libvirtd-tcp.socket
 disabled libvirtd-tls.socket
 disabled libvirt-guests.service
@@ -74,7 +74,6 @@ disabled lm_sensors.service
 disabled logrotate.timer
 enabled machines.target
 disabled man-db.timer
-disabled ModemManager.service
 disabled ndctl-monitor.service
 disabled netcf-transaction.service
 disabled netctl-auto@.service
@@ -88,7 +87,7 @@ enabled NetworkManager-wait-online.service
 disabled ninfod.service
 disabled nscd.service
 disabled nvidia-hibernate.service
-enabled nvidia-persistenced.service
+disabled nvidia-persistenced.service
 disabled nvidia-resume.service
 disabled nvidia-suspend.service
 enabled paccache.timer
@@ -99,7 +98,7 @@ disabled ppp@.service
 disabled proc-sys-fs-binfmt_misc.mount
 disabled rarpd@.service
 disabled rdisc.service
-disabled reboot.target
+enabled reboot.target
 enabled remote-cryptsetup.target
 enabled remote-fs.target
 disabled rfkill-block@.service
@@ -112,7 +111,7 @@ disabled rsyncd.service
 disabled rsyncd.socket
 disabled rtkit-daemon.service
 disabled runlevel0.target
-disabled runlevel6.target
+enabled runlevel6.target
 enabled run-on-boot.service
 disabled run-regularly.service
 enabled run-regularly.timer
@@ -145,7 +144,6 @@ disabled systemd-time-wait-sync.service
 disabled talk.socket
 disabled telnet.socket
 disabled udisks2.service
-disabled unbound.service
 disabled upower.service
 disabled uuidd.socket
 disabled vboxweb.service

@@ -16,7 +16,3 @@ user@nas.p47.co:/data	/media/nas	fuse.sshfs	exec,noauto,_netdev,users,idmap=user
 
 # user@nas.p47.co:/data	/media/work	fuse.sshfs	exec,noauto,_netdev,users,idmap=user,allow_other,identityfile=/home/work/.ssh/nas_work_share,port=51727	0 0
 
-# FCDCBDA Gaming (Windows Partition)
-/dev/disk/by-uuid/01D5AD5DDF9315E0	/media/gaming	auto	nosuid,nodev,nofail,x-gvfs-show,noauto	0 0
-/dev/disk/by-uuid/01D5AD1F6816E520	/media/gaming_2	auto	nosuid,nodev,nofail,x-gvfs-show,noauto	0 0
-

@@ -22,7 +22,6 @@ binutils
 bison
 bitwarden-bin
 bitwarden-cli
-blueman
 breeze
 breeze-icons
 calibre
@@ -112,17 +111,14 @@ jupyter
 k2tf-bin
 keychain
 kitty
-kmscon-patched-git
 kompose-git
 kubectl
 lastpass-cli
 libmicrodns
 libreoffice-fresh
 libtool
-libtsm-patched-git
 libu2f-host
 libva-utils
-libvirt
 lightdm
 lightdm-slick-greeter
 lightdm-webkit-theme-aether
@@ -160,10 +156,6 @@ neofetch
 neovim
 nerd-fonts-complete
 netctl
-network-manager-applet
-networkmanager
-networkmanager-l2tp
-networkmanager-strongswan
 nitrogen
 nodejs
 noto-fonts
@@ -256,8 +248,6 @@ vdpauinfo
 veracrypt
 vi
 vimpager
-virt-manager
-virtualbox
 vlc
 vulkan-headers
 vulkan-intel

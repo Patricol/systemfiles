@@ -21,7 +21,6 @@ atkmm
 attica
 attr
 audit
-augeas
 avahi
 avidemux-cli
 babl
@@ -29,7 +28,6 @@ bash
 bc
 bcg729
 blas
-bluez
 bluez-libs
 boost-libs
 bridge-utils
@@ -49,7 +47,6 @@ cantarell-fonts
 cblas
 cdparanoia
 celt0.5.1
-ceph-libs
 cfitsio
 chmlib
 cinnamon-desktop
@@ -73,7 +70,6 @@ device-mapper
 diffutils
 discount
 djvulibre
-dkms
 dmraid
 dnssec-anchors
 dosfstools
@@ -82,8 +78,6 @@ e2fsprogs
 ebook-tools
 efibootmgr
 efivar
-egl-wayland
-eglexternalplatform
 electron
 electron4
 enchant
@@ -125,13 +119,11 @@ glibc
 glibmm
 glslang
 glu
-glusterfs
 gmp
 gnome-backgrounds
 gnome-themes-extra
 gnupg
 gnutls
-go
 gobject-introspection
 gobject-introspection-runtime
 gpgme
@@ -152,7 +144,6 @@ gstreamer
 gtk-engine-murrine
 gtk-engines
 gtk-update-icon-cache
-gtk-vnc
 gtk2
 gtk3
 gtkmm
@@ -346,7 +337,6 @@ libimagequant
 libimobiledevice
 libindicator-gtk3
 libinput
-libiscsi
 libixion
 libjpeg-turbo
 libkexiv2
@@ -378,17 +368,14 @@ libmspub
 libmtp
 libmwaw
 libmypaint
-libndp
 libnet
 libnetfilter_conntrack
-libnewt
 libnfnetlink
 libnfs
 libnftnl
 libnghttp2
 libnl
 libnm
-libnma
 libnotify
 libnsl
 libnumbertext
@@ -396,7 +383,6 @@ libodfgen
 libogg
 libomxil-bellagio
 liborcus
-libosinfo
 libpagemaker
 libpaper
 libpcap
@@ -440,7 +426,6 @@ libstemmer
 libsynctex
 libtar
 libtasn1
-libteam
 libtermkey
 libthai
 libtheora
@@ -452,7 +437,6 @@ libunistring
 libunrar
 libunwind
 libupnp
-liburcu
 libusb
 libusbmuxd
 libutempter
@@ -461,8 +445,6 @@ libuv
 libva
 libvdpau
 libvips
-libvirt-glib
-libvirt-python
 libvisio
 libvisual
 libvncserver
@@ -538,7 +520,6 @@ metis
 minizip
 mkinitcpio
 mkinitcpio-busybox
-mobile-broadband-provider-info
 mpfr
 mpg123
 msgpack-c
@@ -549,10 +530,8 @@ ncurses
 ndctl
 neon
 net-snmp
-netcf
 netpbm
 nettle
-nm-connection-editor
 node-gyp
 npm
 npth
@@ -560,8 +539,6 @@ nspr
 nss
 numactl
 numix-icon-theme-git
-nvidia-utils
-oath-toolkit
 openal
 opencore-amr
 opencv
@@ -572,7 +549,6 @@ openssl
 optipng
 opus
 orc
-osinfo-db
 p11-kit
 pacman-mirrorlist
 pam
@@ -824,7 +800,6 @@ rest
 resvg
 rhash
 ripgrep
-rpcbind
 rtkit
 rubberband
 ruby
@@ -861,7 +836,6 @@ signon-kwallet-extension
 signon-plugin-oauth2
 signon-ui
 signond
-slang
 smbclient
 snappy
 solid
@@ -914,8 +888,6 @@ vde2
 vid.stab
 vim-runtime
 virglrenderer
-virt-install
-virtualbox-host-dkms
 volume_key
 vte-common
 vte3

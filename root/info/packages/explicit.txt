@@ -35,10 +35,7 @@ clang
 cmake
 cowsay
 deluge
-dhclient
-dhcpcd
 digikam
-dnsmasq
 docker
 docker-compose
 dpkg
@@ -167,7 +164,6 @@ okular
 oomox
 openbsd-netcat
 openssh
-ovmf
 p7zip
 pacman
 pacman-contrib
@@ -195,8 +191,6 @@ python-pip
 python-pynvim
 python-pywal
 python-xdg
-python2-pip
-qemu
 qpdfview
 qt5ct
 qtcurve-qt5
@@ -244,13 +238,10 @@ udiskie
 unrar
 unzip
 usbutils
-vdpauinfo
 veracrypt
 vi
 vimpager
 vlc
-vulkan-headers
-vulkan-intel
 w3m
 wget
 which

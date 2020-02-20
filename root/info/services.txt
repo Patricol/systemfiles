@@ -5,7 +5,6 @@ enabled avahi-daemon.service
 enabled avahi-daemon.socket
 disabled avahi-dnsconfd.service
 disabled blk-availability.service
-disabled brltty.service
 disabled btrfs-scrub@.timer
 disabled canberra-system-bootup.service
 disabled canberra-system-shutdown-reboot.service
@@ -20,12 +19,8 @@ enabled dbus-org.freedesktop.timesync1.service
 disabled debug-shell.service
 disabled deluged.service
 disabled deluge-web.service
-disabled dhclient@.service
-disabled dhcpcd.service
-disabled dhcpcd@.service
 enabled display-manager.service
 disabled dmraid.service
-disabled dnsmasq.service
 enabled docker.service
 disabled docker.socket
 disabled e2scrub_all.timer

@@ -143,19 +143,24 @@ sudo -u work -i dbus-launch --exit-with-session gsettings set org.cinnamon.deskt
 
 
 sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.target suspend.target sleep.target ctrl-alt-del.target
+sudo rm /etc/systemd/system/ctrl-alt-del.target
 #disable hibernation and suspend. Sleep seems to be the same thing. DPMS and "screen blanking" are distinct from all of these. Also disable rebooting with ctrl alt del.
 #this also means there's no reason for me to use caffeine; I was using it to keep the computer from suspending when programs were running.
 sudo systemctl preset-all
 sudo journalctl --vacuum-size=100M && sudo systemctl restart systemd-journald.service
 
-sudo modprobe ashmem_linux
-sudo modprobe binder_linux
+# If using anbox:
+#sudo modprobe ashmem_linux
+#sudo modprobe binder_linux
 
 sudo mkinitcpio -P
 reboot
 
 gcloud init
 
+
+#run Xvnc to set the password; otherwise config files etc. won't be created; and Xvnc services won't work.
+# That can also cause lightdm to fail.
 
 #block access to che except from localhost.
 sudo iptables -A INPUT -p tcp -s localhost --dport 8080 -j ACCEPT

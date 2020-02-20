@@ -120,6 +120,7 @@ sudo sort-mirrors
 yay --needed -Syu $(sudo cat /root/info/packages/explicit.txt)
 
 
+# NOTE: before running the next line; check that any changes you made and want to keep have been preserved in some way.
 gsf checkout -f
 (checkout -f to force, but first check in what they modify, for posterity and to make it easier to reapply changes on top of newer base configs. when done, remove this notice.)
 

@@ -6,6 +6,7 @@ acl
 adwaita-icon-theme
 akonadi-contacts
 alsa-lib
+alsa-plugins
 alsa-topology-conf
 alsa-ucm-conf
 aom
@@ -21,6 +22,7 @@ atkmm
 attica
 attr
 audit
+augeas
 avahi
 avidemux-cli
 babl
@@ -44,6 +46,8 @@ calibre-common
 cantarell-fonts
 cblas
 cdparanoia
+celt0.5.1
+ceph-libs
 cfitsio
 chmlib
 cinnamon-desktop
@@ -116,6 +120,7 @@ glibc
 glibmm
 glslang
 glu
+glusterfs
 gmp
 gnome-backgrounds
 gnome-themes-extra
@@ -141,6 +146,7 @@ gstreamer
 gtk-engine-murrine
 gtk-engines
 gtk-update-icon-cache
+gtk-vnc
 gtk2
 gtk3
 gtkmm
@@ -312,6 +318,7 @@ libglade
 libglvnd
 libgnome-keyring
 libgnomekbd
+libgovirt
 libgpg-error
 libgphoto2
 libgsf
@@ -333,6 +340,7 @@ libimagequant
 libimobiledevice
 libindicator-gtk3
 libinput
+libiscsi
 libixion
 libjpeg-turbo
 libkexiv2
@@ -431,6 +439,7 @@ libunistring
 libunrar
 libunwind
 libupnp
+liburcu
 libusb
 libusbmuxd
 libutempter
@@ -439,6 +448,8 @@ libuv
 libva
 libvdpau
 libvips
+libvirt
+libvirt-glib
 libvisio
 libvisual
 libvncserver
@@ -524,6 +535,7 @@ ncurses
 ndctl
 neon
 net-snmp
+netcf
 netpbm
 nettle
 node-gyp
@@ -533,6 +545,7 @@ nspr
 nss
 numactl
 numix-icon-theme-git
+oath-toolkit
 openal
 opencore-amr
 opencv
@@ -589,7 +602,6 @@ ppp
 prison
 procps-ng
 psmisc
-pulseaudio
 purpose
 pyalpm
 pygobject-devel
@@ -778,6 +790,7 @@ rest
 resvg
 rhash
 ripgrep
+rpcbind
 rtkit
 rubberband
 ruby
@@ -823,6 +836,7 @@ soundtouch
 spandsp
 speex
 speexdsp
+spice
 spice-gtk
 spirv-tools
 sqlite
@@ -912,7 +926,6 @@ xorg-xmodmap
 xorg-xrdb
 xorg-xset
 xorg-xsetroot
-xorgproto
 xvidcore
 xz
 yajl

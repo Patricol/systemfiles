@@ -2,6 +2,7 @@ adapta-gtk-theme
 adobe-source-code-pro-fonts
 adobe-source-sans-pro-fonts
 alacritty
+alsa-utils
 android-studio
 arc-gtk-theme
 arch-install-scripts
@@ -35,9 +36,11 @@ clang
 cmake
 cowsay
 deluge
+dex
 digikam
 docker
 docker-compose
+downgrade
 dpkg
 dunst
 ebtables
@@ -97,7 +100,6 @@ highlight
 htop
 i3-gaps
 i3lock-color-git
-indicator-sound-switcher
 inetutils
 inkscape
 ipython
@@ -111,6 +113,7 @@ kitty
 kompose-git
 kubectl
 lastpass-cli
+libkeybinder3
 libmicrodns
 libreoffice-fresh
 libtool
@@ -185,6 +188,7 @@ powerline
 powerline-console-fonts
 protobuf
 psensor
+pulseaudio
 pycharm-professional
 python
 python-pip
@@ -212,6 +216,7 @@ shantz-xwinwrap-bzr
 signal-desktop
 simple-scan
 simplescreenrecorder
+spice-vdagent
 sshfs
 standardnotes-desktop
 stress
@@ -241,6 +246,7 @@ usbutils
 veracrypt
 vi
 vimpager
+virt-viewer
 vlc
 w3m
 wget
@@ -254,6 +260,7 @@ x11vnc
 xclip
 xdelta3
 xdotool
+xf86-video-qxl-git
 xfsprogs
 xl2tpd
 xorg-fonts-alias
@@ -269,6 +276,7 @@ xorg-xinput
 xorg-xkill
 xorg-xprop
 xorg-xrandr
+xorgproto-git
 xrdp
 xterm
 yay

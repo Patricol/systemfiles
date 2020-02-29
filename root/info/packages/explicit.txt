@@ -100,6 +100,7 @@ highlight
 htop
 i3-gaps
 i3lock-color-git
+indicator-sound-switcher
 inetutils
 inkscape
 ipython

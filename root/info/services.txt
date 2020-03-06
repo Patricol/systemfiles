@@ -8,6 +8,7 @@ disabled blk-availability.service
 disabled blueman-mechanism.service
 disabled bluetooth-mesh.service
 enabled bluetooth.service
+disabled brltty.service
 disabled btrfs-scrub@.timer
 disabled canberra-system-bootup.service
 disabled canberra-system-shutdown-reboot.service

@@ -33,6 +33,7 @@ bluez
 bluez-libs
 boost-libs
 bridge-utils
+brltty
 brotli
 btrfs-progs
 bubblewrap
@@ -71,7 +72,6 @@ efibootmgr
 efivar
 electron
 electron4
-ell
 enchant
 exempi
 exiv2
@@ -89,7 +89,6 @@ fuse2
 fuse3
 gc
 gcab
-gconf
 gcr
 gd
 gdal
@@ -149,12 +148,16 @@ hspell
 http-parser
 hunspell
 hwids
+hwloc
 hyphen
 iana-etc
 icu
 ijs
 imagemagick
 imlib2
+intel-gmmlib
+intel-media-driver
+intel-media-sdk
 intel-tbb
 iptables
 iso-codes
@@ -257,8 +260,6 @@ libcmis
 libconfig
 libcroco
 libcups
-libcurl-compat
-libcurl-gnutls
 libdaemon
 libdatrie
 libdbusmenu-glib
@@ -320,6 +321,7 @@ libkexiv2
 libksba
 liblangtag
 libldap
+liblouis
 liblqr
 libluv
 liblxqt
@@ -327,13 +329,13 @@ libmad
 libmatroska
 libmbim
 libmediainfo
+libmfx
 libmicrohttpd
 libmm-glib
 libmms
 libmng
 libmnl
 libmodplug
-libmp4v2
 libmpc
 libmpcdec
 libmpdclient
@@ -388,6 +390,7 @@ libseccomp
 libsecret
 libshout
 libsigc++
+libslirp
 libsm
 libsmbios
 libsndfile
@@ -416,6 +419,7 @@ libunwind
 libupnp
 liburcu
 libusb
+libusb-compat
 libusbmuxd
 libutempter
 libutf8proc
@@ -528,6 +532,7 @@ openal
 opencore-amr
 openexr
 openjpeg2
+openmpi
 openresolv
 openssl
 optipng
@@ -561,6 +566,7 @@ pixman
 polkit-qt5
 poppler
 poppler-data
+poppler-glib
 poppler-qt5
 popt
 postgresql-libs
@@ -575,6 +581,7 @@ python-appdirs
 python-asn1crypto
 python-attrs
 python-babel
+python-backcall
 python-bcrypt
 python-beaker
 python-bleach
@@ -619,7 +626,6 @@ python-markdown
 python-markupsafe
 python-mccabe
 python-mistune
-python-more-itertools
 python-msgpack
 python-ordered-set
 python-packaging
@@ -637,7 +643,6 @@ python-prometheus_client
 python-prompt_toolkit
 python-psutil
 python-ptyprocess
-python-pyasn1
 python-pycodestyle
 python-pycparser
 python-pyflakes
@@ -645,6 +650,7 @@ python-pygments
 python-pynacl
 python-pyparsing
 python-pyqt5
+python-pyqt5-sip
 python-pyrsistent
 python-pystache
 python-pyte
@@ -657,13 +663,13 @@ python-retrying
 python-send2trash
 python-setuptools
 python-sip
-python-sip-pyqt5
 python-six
 python-termcolor
 python-terminado
 python-testpath
 python-texttable
 python-tinycss2
+python-toml
 python-tornado
 python-traitlets
 python-urllib3
@@ -690,7 +696,6 @@ python2-idna
 python2-importlib-metadata
 python2-ipaddress
 python2-lockfile
-python2-more-itertools
 python2-msgpack
 python2-ordered-set
 python2-packaging
@@ -704,6 +709,7 @@ python2-retrying
 python2-scandir
 python2-setuptools
 python2-six
+python2-toml
 python2-urllib3
 python2-webencodings
 python2-zipp
@@ -722,7 +728,9 @@ qt5-serialport
 qt5-speech
 qt5-svg
 qt5-tools
+qt5-wayland
 qt5-webchannel
+qt5-webengine
 qt5-webkit
 qt5-x11extras
 qtcurve-utils

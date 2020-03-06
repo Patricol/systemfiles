@@ -29,7 +29,7 @@ main() {
     logging="--quiet"
     nologging="--no-terminal"
     basic="--no-config --no-border --x11-name=mpvbackground --loop"
-    only_in_xwinwrap="--wid WID"
+    only_in_xwinwrap="-wid WID"
     rendering="--x11-bypass-compositor=no --hwdec=auto --framedrop=vo --hwdec-codecs=all"
     audio="--gapless-audio=yes --mute=yes"
     misc="--speed=1 --no-stop-screensaver"

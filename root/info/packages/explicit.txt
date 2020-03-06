@@ -114,6 +114,7 @@ jfsutils
 jq
 jsoncpp
 jupyter
+k2tf-bin
 keychain
 kitty
 kubectl-bin
@@ -228,7 +229,6 @@ s-nail
 scrot
 sed
 shadow
-shantz-xwinwrap-bzr
 simplescreenrecorder
 slack-desktop
 sshfs
@@ -298,6 +298,7 @@ xorg-xprop
 xorg-xrandr
 xrdp
 xterm
+xwinwrap-git
 yay
 youtube-dl
 yubico-pam

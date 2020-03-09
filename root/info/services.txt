@@ -147,6 +147,7 @@ disabled telnet.socket
 disabled udisks2.service
 disabled upower.service
 disabled uuidd.socket
+disabled vault.service
 disabled vboxweb.service
 disabled virtinterfaced-admin.socket
 disabled virtinterfaced-ro.socket

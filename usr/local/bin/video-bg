@@ -29,7 +29,7 @@ main() {
     logging="--quiet"
     nologging="--no-terminal"
     basic="--no-config --no-border --x11-name=mpvbackground --loop"
-    only_in_xwinwrap="--wid WID"
+    only_in_xwinwrap="-wid WID"
     rendering="--x11-bypass-compositor=no --hwdec=auto --framedrop=vo --hwdec-codecs=all"
     audio="--gapless-audio=yes --mute=yes"
     misc="--speed=1 --no-stop-screensaver"
@@ -58,6 +58,7 @@ main() {
 
     local xwwargs
     xwwargs="-ni -fs -b -nf -ov"
+    xwwargstest="-fs -b -nf -ov"
 
     make_static_frame() {
         declare video="$1"
@@ -76,7 +77,8 @@ main() {
         local defdir defvid
         defdir="${HOME}/.dot/l/wallpapers/animated"
         defvid="${defdir}/river.gif"
-        mpv ${mpvargs_testing} ${vo} ${scaling} ${defdir}/*.gif &
+        # mpv ${mpvargs_testing} ${vo} ${scaling} ${defdir}/*.gif &
+        xwinwrap ${xwwargstest} -- mpv ${mpvargs} ${defdir}/*.gif
         # local method extended_args
         # for method in $(mpv --sws-scaler=help | tail -n +2 | sed -E 's/\s//g' | tr '\n' ' '); do
         #     extended_args="${defvid} --sws-scaler=${method} --vo=x11 ${mpvargs_testing}"

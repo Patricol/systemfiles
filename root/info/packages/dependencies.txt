@@ -119,6 +119,7 @@ gmp
 gnome-backgrounds
 gnome-themes-extra
 gnutls
+go
 gobject-introspection
 gobject-introspection-runtime
 gpgme
@@ -560,6 +561,7 @@ numactl
 numix-icon-theme-git
 nvidia-utils
 oath-toolkit
+oniguruma
 openal
 opencore-amr
 opencv

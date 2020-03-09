@@ -4,6 +4,7 @@ adobe-source-sans-pro-fonts
 alacritty
 amd-ucode
 android-studio
+arandr
 arc-gtk-theme
 arch-install-scripts
 atom
@@ -14,6 +15,7 @@ aurman
 autoconf
 automake
 avidemux-qt
+aws-iam-authenticator-bin
 baobab
 base
 bash
@@ -124,6 +126,7 @@ iputils
 ipython
 jetbrains-toolbox
 jfsutils
+jq
 jsoncpp
 jupyter
 k2tf-bin
@@ -209,6 +212,7 @@ papirus-icon-theme
 patch
 pavucontrol
 pciutils
+pdftk
 pepper-flash
 perl
 picom
@@ -226,6 +230,7 @@ protobuf
 psensor
 psmisc
 pycharm-professional
+pyenv
 python
 python-pip
 python-pynvim
@@ -253,7 +258,6 @@ scrot
 sed
 sedutil
 shadow
-shantz-xwinwrap-bzr
 signal-desktop
 simple-scan
 simplescreenrecorder
@@ -287,6 +291,7 @@ unrar
 unzip
 usbutils
 util-linux
+vault-bin
 vdpauinfo
 veracrypt
 vi
@@ -326,6 +331,7 @@ xorg-xprop
 xorg-xrandr
 xrdp
 xterm
+xwinwrap-git
 yay
 youtube-dl
 yubico-pam

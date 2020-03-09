@@ -15,6 +15,7 @@ autoconf
 automake
 avidemux-qt
 baobab
+base
 bash
 bash-completion
 bat
@@ -40,8 +41,9 @@ coreutils
 cowsay
 cryptsetup
 curl
-deluge
+deluge-gtk
 device-mapper
+dex
 dhclient
 dhcpcd
 diffutils
@@ -130,6 +132,7 @@ kitty
 kmscon-patched-git
 kompose-git
 kubectl
+kubernetes-helm
 lastpass-cli
 less
 libmicrodns
@@ -289,6 +292,7 @@ veracrypt
 vi
 vimpager
 virt-manager
+virt-viewer
 virtualbox
 vlc
 vulkan-headers

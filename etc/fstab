@@ -11,6 +11,7 @@ LABEL=EFI		/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,
 /swapfile		none		swap		defaults	0 0
 
 user@nas.p47.co:/data	/media/nas	fuse.sshfs	exec,noauto,_netdev,users,idmap=user,allow_other,identityfile=/home/patricol/.ssh/allshares,port=51723	0 0
+user@arcade.p47.co:/data	/media/arcade	fuse.sshfs	exec,noauto,_netdev,users,idmap=user,allow_other,identityfile=/home/patricol/.ssh/allshares,port=51723	0 0
 
 # user@nas.p47.co:/data	/media/gdrive	fuse.sshfs	exec,noauto,_netdev,users,idmap=user,allow_other,identityfile=/home/patricol/.ssh/gdrive,port=51724	0 0
 

@@ -145,7 +145,6 @@ disabled systemd-time-wait-sync.service
 disabled talk.socket
 disabled telnet.socket
 disabled udisks2.service
-disabled unbound.service
 disabled upower.service
 disabled uuidd.socket
 disabled vboxweb.service

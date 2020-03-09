@@ -63,6 +63,7 @@ db
 dbus
 dbus-glib
 dconf
+deluge
 desktop-file-utils
 discount
 djvulibre
@@ -90,13 +91,11 @@ fontconfig
 frameworkintegration
 freeglut
 fribidi
-fstrm
 fuse-common
 fuse2
 fuse3
 gc
 gcab
-gconf
 gcr
 gd
 gdbm
@@ -120,10 +119,8 @@ gmp
 gnome-backgrounds
 gnome-themes-extra
 gnutls
-go
 gobject-introspection
 gobject-introspection-runtime
-gperftools
 gpgme
 gpm
 gptfdisk
@@ -248,7 +245,6 @@ lcms2
 ldb
 ldns
 lensfun
-leveldb
 libabw
 libaccounts-glib
 libaccounts-qt
@@ -280,7 +276,6 @@ libcmis
 libconfig
 libcroco
 libcups
-libcurl-gnutls
 libdaemon
 libdatrie
 libdbusmenu-glib
@@ -321,6 +316,7 @@ libglade
 libglvnd
 libgnome-keyring
 libgnomekbd
+libgovirt
 libgpg-error
 libgphoto2
 libgsf
@@ -346,6 +342,7 @@ libiscsi
 libixion
 libjpeg-turbo
 libkexiv2
+libkeybinder3
 libksane
 libksba
 libkvkontakte
@@ -368,7 +365,6 @@ libmms
 libmng
 libmnl
 libmodplug
-libmp4v2
 libmpc
 libmpcdec
 libmpdclient
@@ -387,7 +383,6 @@ libnftnl
 libnghttp2
 libnl
 libnm
-libnm-glib
 libnma
 libnotify
 libnsl
@@ -528,12 +523,10 @@ lua
 lua51
 lua52
 luajit
-lv2
 lz4
 lzo
 marble-common
 mariadb-libs
-mathjax
 mathjax2
 mbedtls
 md4c
@@ -549,7 +542,6 @@ mpg123
 msgpack-c
 mtdev
 mujs
-mypaint-brushes
 mypaint-brushes1
 ncurses
 ndctl
@@ -622,7 +614,6 @@ potrace
 powerline-common
 ppp
 prison
-protobuf-c
 pulseaudio
 purpose
 pyalpm
@@ -632,6 +623,7 @@ python-appdirs
 python-asn1crypto
 python-attrs
 python-automat
+python-backcall
 python-bcrypt
 python-beaker
 python-bleach
@@ -683,7 +675,6 @@ python-markdown
 python-markupsafe
 python-mccabe
 python-mistune
-python-more-itertools
 python-msgpack
 python-ordered-set
 python-packaging
@@ -731,6 +722,7 @@ python-terminado
 python-testpath
 python-texttable
 python-tinycss2
+python-toml
 python-tornado
 python-traitlets
 python-twisted
@@ -768,8 +760,6 @@ python2-dbus
 python2-distlib
 python2-distro
 python2-dnspython
-python2-docopt
-python2-dukpy
 python2-enum34
 python2-feedparser
 python2-gobject2
@@ -785,7 +775,6 @@ python2-lockfile
 python2-lxml
 python2-markdown
 python2-mechanize
-python2-more-itertools
 python2-msgpack
 python2-netifaces
 python2-ordered-set
@@ -813,11 +802,11 @@ python2-setuptools
 python2-sip-pyqt5
 python2-six
 python2-soupsieve
+python2-toml
 python2-twisted
 python2-unrardll
 python2-urllib3
 python2-webencodings
-python2-xdg
 python2-zipp
 python2-zope-interface
 qca
@@ -829,7 +818,6 @@ qt5-location
 qt5-multimedia
 qt5-quickcontrols
 qt5-quickcontrols2
-qt5-script
 qt5-sensors
 qt5-speech
 qt5-svg
@@ -890,6 +878,7 @@ signond
 slang
 smbclient
 snappy
+socat
 solid
 sonnet
 sord
@@ -925,7 +914,6 @@ twolame
 tzdata
 uchardet
 udisks2
-unbound
 unibilium
 upower
 usbmuxd

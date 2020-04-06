@@ -208,7 +208,7 @@ python-pip
 python-pynvim
 python-pyproj
 python-pywal
-python-xdg
+python-pyxdg
 python2-pip
 qemu
 qgis

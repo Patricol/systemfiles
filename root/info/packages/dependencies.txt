@@ -72,6 +72,7 @@ efibootmgr
 efivar
 electron
 electron4
+elfutils
 enchant
 exempi
 exiv2
@@ -302,6 +303,7 @@ libgssglue
 libgtop
 libgudev
 libgusb
+libhandy
 libheif
 libibus
 libical
@@ -362,6 +364,7 @@ libomxil-bellagio
 liborcus
 libosinfo
 libp11
+libp11-kit
 libpagemaker
 libpaper
 libpcap
@@ -749,15 +752,18 @@ rhash
 ripgrep
 rpcbind
 rtkit
+rtl-sdr
 rtmpdump
 rubberband
 ruby
 ruby-diff-lcs
+ruby-irb
 ruby-manpages
 ruby-optimist
 ruby-paint
 ruby-rainbow
 ruby-rdoc
+ruby-reline
 ruby-rspec
 ruby-rspec-core
 ruby-rspec-expectations

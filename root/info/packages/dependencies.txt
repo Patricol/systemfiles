@@ -65,6 +65,7 @@ dbus-glib
 dconf
 deluge
 desktop-file-utils
+ding-libs
 discount
 djvulibre
 dmraid
@@ -78,6 +79,7 @@ egl-wayland
 eglexternalplatform
 electron
 electron4
+elfutils
 enchant
 exempi
 exiv2
@@ -105,6 +107,7 @@ geoclue
 geocode-glib
 geoip
 geoip-database
+geos
 ghostscript
 giblib
 giflib
@@ -119,7 +122,6 @@ gmp
 gnome-backgrounds
 gnome-themes-extra
 gnutls
-go
 gobject-introspection
 gobject-introspection-runtime
 gpgme
@@ -133,6 +135,7 @@ gsettings-desktop-schemas
 gsfonts
 gsl
 gsm
+gssproxy
 gst-plugins-base
 gst-plugins-base-libs
 gst-plugins-good
@@ -153,6 +156,7 @@ guile
 gvfs
 harfbuzz
 harfbuzz-icu
+hdf5
 hicolor-icon-theme
 hidapi
 hspell
@@ -249,6 +253,7 @@ lensfun
 libabw
 libaccounts-glib
 libaccounts-qt
+libaec
 libaio
 libakonadi
 libappindicator-gtk3
@@ -310,8 +315,10 @@ libfilezilla
 libfontenc
 libfprint
 libfreehand
+libfreexl
 libgcrypt
 libgee
+libgeotiff
 libgexiv2
 libglade
 libglvnd
@@ -325,6 +332,7 @@ libgssglue
 libgtop
 libgudev
 libgusb
+libhandy
 libheif
 libibus
 libical
@@ -393,6 +401,7 @@ libogg
 libomxil-bellagio
 liborcus
 libosinfo
+libp11-kit
 libpagemaker
 libpaper
 libpcap
@@ -428,6 +437,7 @@ libsndfile
 libsodium
 libsoup
 libsoxr
+libspatialite
 libspectre
 libspiro
 libssh
@@ -548,9 +558,11 @@ ncurses
 ndctl
 neon
 net-snmp
+netcdf
 netcf
 netpbm
 nettle
+nfsidmap
 nm-connection-editor
 node-gyp
 npm
@@ -612,16 +624,19 @@ poppler-glib
 poppler-qt5
 popt
 portsmf
+postgresql-libs
 potrace
 powerline-common
 ppp
 prison
+proj
 pulseaudio
 purpose
 pyalpm
 pygobject-devel
 pygtk
 python-appdirs
+python-asgiref
 python-asn1crypto
 python-attrs
 python-automat
@@ -629,6 +644,7 @@ python-backcall
 python-bcrypt
 python-beaker
 python-bleach
+python-botocore
 python-cachecontrol
 python-cached-property
 python-cairo
@@ -653,6 +669,7 @@ python-docker
 python-docker-pycreds
 python-dockerpty
 python-docopt
+python-docutils
 python-entrypoints
 python-feedparser
 python-geoip
@@ -667,6 +684,7 @@ python-ipykernel
 python-ipywidgets
 python-jedi
 python-jinja
+python-jmespath
 python-jsonschema
 python-jupyter_client
 python-jupyter_core
@@ -708,17 +726,21 @@ python-pyrsistent
 python-pystache
 python-pyte
 python-pytoml
+python-pytz
 python-pyzmq
 python-regex
 python-rencode
 python-requests
 python-retrying
+python-rsa
+python-s3transfer
 python-send2trash
 python-service-identity
 python-setproctitle
 python-setuptools
 python-sgmllib
 python-six
+python-sqlparse
 python-termcolor
 python-terminado
 python-testpath
@@ -846,11 +868,13 @@ rtmpdump
 rubberband
 ruby
 ruby-diff-lcs
+ruby-irb
 ruby-manpages
 ruby-optimist
 ruby-paint
 ruby-rainbow
 ruby-rdoc
+ruby-reline
 ruby-rspec
 ruby-rspec-core
 ruby-rspec-expectations
@@ -880,6 +904,7 @@ signond
 slang
 smbclient
 snappy
+sndio
 socat
 solid
 sonnet
@@ -960,6 +985,7 @@ xcb-util-wm
 xcb-util-xrm
 xdg-dbus-proxy
 xdg-utils
+xerces-c
 xf86-input-libinput
 xkeyboard-config
 xmlsec

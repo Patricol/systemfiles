@@ -15,6 +15,7 @@ aurman
 autoconf
 automake
 avidemux-qt
+aws-cli
 aws-iam-authenticator-bin
 baobab
 base
@@ -39,6 +40,7 @@ chromium
 cifs-utils
 clang
 cmake
+consul-template
 coreutils
 cowsay
 cryptsetup
@@ -255,6 +257,7 @@ rsync
 rxvt-unicode
 s-nail
 scrot
+seahorse
 sed
 sedutil
 shadow

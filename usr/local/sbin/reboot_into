@@ -2,7 +2,7 @@
 
 main() {
 	declare efistring="$@"
-	efibootmgr --bootnext "$(efibootmgr | grep "${efistring}" | cut -f1 -d'*' | cut -f2 -d't' | tail -n 1)"
+	efibootmgr --bootnext "$(efibootmgr | grep "${efistring}" | cut -f1 -d'*' | cut -f2 -d't' | head -n 1)"
 	systemctl reboot
 }
 

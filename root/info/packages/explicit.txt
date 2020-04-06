@@ -13,6 +13,7 @@ autoconf
 automake
 aws-iam-authenticator-bin
 baobab
+base
 bash
 bash-completion
 bat
@@ -227,6 +228,7 @@ rsync
 rxvt-unicode
 s-nail
 scrot
+seahorse
 sed
 shadow
 simplescreenrecorder

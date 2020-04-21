@@ -52,6 +52,7 @@ cinnamon-desktop
 clucene
 colord
 compiler-rt
+confuse
 containerd
 cracklib
 curl
@@ -81,6 +82,7 @@ faac
 faad2
 fftw
 flac
+flashrom
 fltk
 fontconfig
 frameworkintegration
@@ -290,6 +292,7 @@ libfilezilla
 libfontenc
 libfreehand
 libfreexl
+libftdi
 libgcrypt
 libgee
 libgeotiff
@@ -318,6 +321,7 @@ libindicator-gtk3
 libinput
 libiscsi
 libixion
+libjcat
 libjpeg-turbo
 libkexiv2
 libksba

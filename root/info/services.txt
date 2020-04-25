@@ -23,7 +23,6 @@ static container-getty@.service
 static cryptsetup-pre.target
 static cryptsetup.target
 enabled ctrl-alt-del.target
-bad dbus-org.bluez.service
 enabled dbus-org.freedesktop.Avahi.service
 enabled dbus-org.freedesktop.home1.service
 static dbus-org.freedesktop.hostname1.service

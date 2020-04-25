@@ -30,6 +30,7 @@ static cryptsetup.target
 enabled ctrl-alt-del.target
 enabled dbus-org.bluez.service
 enabled dbus-org.freedesktop.Avahi.service
+enabled dbus-org.freedesktop.home1.service
 static dbus-org.freedesktop.hostname1.service
 static dbus-org.freedesktop.import1.service
 static dbus-org.freedesktop.locale1.service
@@ -144,7 +145,6 @@ generated media-gdrive.mount
 generated media-nas.mount
 generated media-work.mount
 static mkinitcpio-generate-shutdown-ramfs.service
-disabled ModemManager.service
 static modprobe@.service
 generated -.mount
 static multi-user.target
@@ -175,10 +175,10 @@ static pkgfile-update.service
 disabled pkgfile-update.timer
 static polkit.service
 disabled poweroff.target
-disabled ppp@.service
 static printer.target
 static proc-sys-fs-binfmt_misc.automount
 disabled proc-sys-fs-binfmt_misc.mount
+enabled qemu-ga.service
 static quotaon.service
 disabled rarpd@.service
 disabled rdisc.service
@@ -215,10 +215,10 @@ enabled run-regularly.timer
 disabled run-weekly.service
 enabled run-weekly.timer
 disabled sensord.service
-disabled serial-getty@.service
+indirect serial-getty@.service
 transient session-3.scope
-transient session-4.scope
-transient session-c1.scope
+transient session-5.scope
+transient session-7.scope
 static shadow.service
 static shadow.timer
 static shutdown.target
@@ -233,7 +233,6 @@ static sshdgenkeys.service
 enabled sshd.service
 masked suspend.target
 masked suspend-then-hibernate.target
-disabled svnserve.service
 generated swapfile.swap
 static swap.target
 static sys-fs-fuse-connections.mount
@@ -260,7 +259,7 @@ static systemd-fsck@.service
 static systemd-halt.service
 static systemd-hibernate-resume@.service
 static systemd-hibernate.service
-disabled systemd-homed.service
+enabled systemd-homed.service
 static systemd-hostnamed.service
 static systemd-hwdb-update.service
 static systemd-hybrid-sleep.service
@@ -294,12 +293,12 @@ disabled systemd-network-generator.service
 disabled systemd-nspawn@.service
 static systemd-portabled.service
 static systemd-poweroff.service
-disabled systemd-pstore.service
+enabled systemd-pstore.service
 static systemd-quotacheck.service
 static systemd-random-seed.service
 static systemd-reboot.service
 enabled-runtime systemd-remount-fs.service
-disabled systemd-repart.service
+enabled systemd-repart.service
 enabled systemd-resolved.service
 static systemd-rfkill.service
 static systemd-rfkill.socket
@@ -322,7 +321,7 @@ static systemd-udev-trigger.service
 static systemd-update-done.service
 static systemd-update-utmp.service
 indirect systemd-userdbd.service
-disabled systemd-userdbd.socket
+enabled systemd-userdbd.socket
 static systemd-user-sessions.service
 static systemd-vconsole-setup.service
 static systemd-volatile-root.service

@@ -5,17 +5,6 @@
 
 # <file system> <dir> <type> <options> <dump> <pass>
 LABEL=ArchLinux		/         	ext4      	rw,relatime	0 1
-
 LABEL=EFI		/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
-
 /swapfile		none		swap		defaults	0 0
-
-user@192.168.1.17:/data /media/nas	fuse.sshfs	exec,noauto,_netdev,users,idmap=user,allow_other,identityfile=/home/patricol/.ssh/allshares,port=51723	0 0
-
-user@192.168.1.17:/data /media/gdrive	fuse.sshfs	exec,noauto,_netdev,users,idmap=user,allow_other,identityfile=/home/patricol/.ssh/gdrive,port=51724	0 0
-
-user@192.168.1.17:/data	/media/work	fuse.sshfs	exec,noauto,_netdev,users,idmap=user,allow_other,identityfile=/home/work/.ssh/nas_work_share,port=51727	0 0
-
-# FCDCBDA Gaming (Windows Partition)
-/dev/disk/by-uuid/16DC89BBDC8995A1	/media/gaming	auto	nosuid,nodev,nofail,x-gvfs-show,noauto	0 0
 

@@ -14,6 +14,7 @@ alias l='ls -CF'
 alias l1='ls -1'
 alias lsgd='ls --group-directories-first'
 
+alias rgrep='grep -R'
 
 alias ..='cd ..'
 alias ..2='cd ../..'
@@ -36,6 +37,8 @@ alias cdshared='cd /home/shared'
 alias cds='cdshared'
 alias cdnas='cd /media/nas'
 alias cdn='cdnas'
+alias cdcompose='cd /home/docker/compose'
+alias cdc='cdcompose'
 
 alias d='dirs -v'
 #for index ({1..9}) alias "$index"="cd +${index}"; unset index

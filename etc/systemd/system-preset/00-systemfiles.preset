@@ -23,5 +23,5 @@ enable virtlogd.socket
 enable avahi-daemon.socket
 disable xvnc.socket
 enable vncserver@:5.service
-enable serial-getty@ttyS0.service
+enable serial-getty@ttyS0.service # NOTE: doesn't seem to work.
 enable qemu-ga.service

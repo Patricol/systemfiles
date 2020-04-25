@@ -29,7 +29,6 @@ clang
 cmake
 cowsay
 dhclient
-dnsmasq
 docker
 docker-compose
 dpkg

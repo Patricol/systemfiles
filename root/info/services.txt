@@ -47,7 +47,6 @@ enabled display-manager.service
 static dm-event.service
 static dm-event.socket
 disabled dmraid.service
-disabled dnsmasq.service
 enabled docker.service
 disabled docker.socket
 static e2scrub_all.service

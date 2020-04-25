@@ -9,138 +9,16 @@
     * move the backup onto the nas etc.
   * CHECK THAT THE SYSTEMFILES REPO IS UP TO DATE AND PUSHED ETC.
     * re-run save-system-info and push the updated package lists
-  * CHECK THAT DUPLICATI HAS A RECENT BACKUP
-    * http://localhost:8200
+  * CHECK THAT DUPLICACY HAS A RECENT BACKUP
+    * http://localhost:3875
   * RUN WITH ONLY ONE SSD/HDD CONNECTED
     * AND ONLY IF THE ENTIRE SSD/HDD CAN BE USED
 
-#boot into archiso (UEFI).
-#Check that you booted in UEFI mode:
-efivar --list
-#Check you're connected to the internet:
-ping -c 1 1.1.1.1
-timedatectl set-ntp true
-#Check what disk to use:
-fdisk -l
-parted
-select /dev/sdx
-#CHECK THE LIST ABOVE (DO BEFORE STARTING) BEFORE FORMATTING
-mklabel gpt
-mkpart ESP fat32 1MiB 1025MiB
-set 1 esp on
-mkpart primary ext4 1025MiB 100%
-quit
-mkfs.fat -F32 /dev/sdx1
-mkfs.ext4 /dev/sdx2
-fatlabel /dev/sdx1 "EFI"
-e2label /dev/sdx2 "ArchLinux"
-mount /dev/sdx2 /mnt
-mkdir /mnt/boot
-mount /dev/sdx1 /mnt/boot
-pacstrap /mnt base base-devel
-arch-chroot /mnt
-hwclock --systohc
-pacman -Syu intel-ucode amd-ucode git vim openssh refind-efi zsh
-# no reason not to install both intel and amd
-git clone -b archcrowdai --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
-alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
-alias gsfch='gsf checkout -f archcrowdai --'
-gsfch /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
-locale-gen
-mkinitcpio -P
-passwd
-refind-install
-bootctl install
-gsfch /boot
-#edit the files in /boot/loader/entries if needed. also /boot/EFI/refind/entries.conf
-exit
-umount -R /mnt
-poweroff
-#remove install media
-
-#power on
-#login as root
-timedatectl set-ntp true
-systemctl --now enable dhcpcd sshd
-groupadd patrick
-groupadd -r sudo
-groupadd -r sudonopass
-groupadd -r ssh
-useradd -m -g patrick -G sudo,sudonopass,ssh -s /bin/zsh patricol
-passwd patricol
-exit
-#login as patricol
-sudo passwd -l root
-ip address
-exit
-
-#login as patricol (can use ssh this time if desired.)
-sudo pacman -Syu pigz pacman-contrib
-sudo sh -c 'fallocate -l 16G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile' #match to RAM installed.
-sudo mkinitcpio -P
-#handle any warnings thrown by that last command. can safely ignore missing aic94xx, wd719x, and smsmdtv
-
-git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -sci && cd .. && rm -rf ./yay/
-
-
-#copy over the old home directory now. (use nas filezilla to upload it to arch etc.)
-#don't copy to tmp, though; size limit cuts off the file after the transfer completes.
-#e.g from the nas:
-# scp /mnt/user/files/incoming/from_device/fcdcbda_arch/arch-homes.tar patricol@fcdcbda:/home/patricol/
-sudo mv /home/patricol/arch-homes.tar /
-#check what's currently in /home before overwriting etc.
-sudo rm -rf /home/*
-cd / && sudo tar --same-owner -xvpf /arch-homes.tar
-
-alias gsf='sudo git --git-dir=/root/systemfiles-repo/ --work-tree=/'
-gsf config --local status.showUntrackedFiles no
-
-
-sudo sort-mirrors
-#ensure /etc/makepkg.conf is checked out before installing the AUR packages, or they'll take an eternity to compress.
-yay --needed -Syu $(sudo cat /root/info/packages/explicit.txt)
-
-
-gsf checkout -f
-(checkout -f to force, but first check in what they modify, for posterity and to make it easier to reapply changes on top of newer base configs. when done, remove this notice.)
-
-sudo fix-permissions
-
-
-Setup dotfiles if needed: https://github.com/Patricol/dotfiles
-
-#exec startx for gui (assuming exec i3 is in ~/.xinitrc)
-
-#sudo nvidia-xconfig
-
-sudo groupadd -r bluetooth && sudo usermod -aG bluetooth patricol
-sudo usermod -aG libvirt patricol
-sudo usermod -aG docker patricol
-
-#sets default terminal for nemo to use from right click menu etc.
-gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
-
-
-sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.target suspend.target sleep.target ctrl-alt-del.target
-#disable hibernation and suspend. Sleep seems to be the same thing. DPMS and "screen blanking" are distinct from all of these. Also disable rebooting with ctrl alt del.
-#this also means there's no reason for me to use caffeine; I was using it to keep the computer from suspending when programs were running.
-sudo systemctl preset-all
-sudo journalctl --vacuum-size=100M && sudo systemctl restart systemd-journald.service
-
-sudo mkinitcpio -P
-reboot
-
-#block access to che except from localhost.
-sudo iptables -A INPUT -p tcp -s localhost --dport 8080 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
+# Use the proxmox VM stuff.
 
 sudo vncpasswd /etc/vncpasswd
-
 ln -sf /home/patricol/.gitconfig /root/.gitconfig
-
 gsfp --set-upstream origin archcrowdai
-
-poweroff
 
 #setup chrome, duplicati, nemo, filezilla, gitkraken, atom, gpmdp, pycharm, remmina, standard notes, VMs, i3, che.
 
@@ -149,10 +27,6 @@ poweroff
 #open atom gui
 #close atom gui
 #apm disable git-blame color-picker spell-check minimap tree-view
-
-rmdir /root/.aws /root/.vault-token
-ln -sf /home/patricol/.aws /root/.aws
-ln -f /home/patricol/.vault-token /root/.vault-token
 
 # to fix branches with changes but no upstream; and remote is changed so can't push:
 # dfg pull origin branch-name

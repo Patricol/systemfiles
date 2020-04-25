@@ -219,8 +219,6 @@ vault-bin
 vi
 vimpager
 vlc
-vulkan-headers
-vulkan-intel
 w3m
 wget
 which

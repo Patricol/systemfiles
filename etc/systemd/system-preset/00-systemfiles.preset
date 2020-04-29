@@ -22,7 +22,7 @@ enable run-weekly.timer
 enable virtlogd.socket
 enable avahi-daemon.socket
 disable xvnc.socket
-enable vncserver@:5.service
+disable vncserver@:5.service
 # NOTE: doesn't seem to work.
 enable serial-getty@ttyS0.service
 enable qemu-ga.service

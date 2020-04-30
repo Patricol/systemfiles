@@ -33,7 +33,7 @@ main() {
 	# efivar -n 4a67b082-0a4c-41cf-b6c7-440b29bb8c4f-LoaderConfigTimeout -w -f "/root/efivars/LoaderConfigTimeout-${time}" # Not working.
 
 	sed -i "s/^timeout\t[0-9]*\$/timeout\t${time}/g" /boot/loader/loader.conf
-	bootctl set-oneshot "${target}"
+	bootctl set-oneshot "${target}.conf"
 
 	if [[ -z "${skip_reboot}" ]]; then
 		/usr/local/sbin/reboot_into "Linux Boot Manager"

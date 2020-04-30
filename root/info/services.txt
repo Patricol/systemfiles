@@ -57,7 +57,7 @@ enabled display-manager.service
 static dm-event.service
 static dm-event.socket
 disabled dmraid.service
-enabled dnsmasq.service
+disabled dnsmasq.service
 enabled docker.service
 disabled docker.socket
 static e2scrub_all.service
@@ -148,6 +148,7 @@ generated media-arcade.mount
 generated media-gaming_2.mount
 generated media-gaming.mount
 generated media-nas.mount
+generated media-work.mount
 static mkinitcpio-generate-shutdown-ramfs.service
 disabled ModemManager.service
 static modprobe@.service
@@ -226,6 +227,7 @@ static saned@.service
 disabled saned.socket
 disabled sensord.service
 disabled serial-getty@.service
+transient session-2.scope
 static shadow.service
 static shadow.timer
 static shutdown.target

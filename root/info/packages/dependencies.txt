@@ -55,6 +55,7 @@ clucene
 colord
 colord-sane
 compiler-rt
+confuse
 containerd
 convertlit
 cracklib
@@ -88,6 +89,7 @@ faac
 faad2
 fftw
 flac
+flashrom
 fltk
 fontconfig
 frameworkintegration
@@ -316,6 +318,7 @@ libfontenc
 libfprint
 libfreehand
 libfreexl
+libftdi
 libgcrypt
 libgee
 libgeotiff
@@ -349,6 +352,7 @@ libindicator-gtk3
 libinput
 libiscsi
 libixion
+libjcat
 libjpeg-turbo
 libkexiv2
 libkeybinder3
@@ -462,6 +466,7 @@ libunwind
 libupnp
 liburcu
 libusb
+libusb-compat
 libusbmuxd
 libutempter
 libutil-linux
@@ -919,6 +924,7 @@ spice-gtk
 spirv-tools
 sqlite
 sratom
+srt
 startup-notification
 suil
 suitesparse

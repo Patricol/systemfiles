@@ -237,7 +237,7 @@ python
 python-pip
 python-pynvim
 python-pywal
-python-xdg
+python-pyxdg
 python2-pip
 qemu
 qpdfview
@@ -248,7 +248,7 @@ ranger
 rclone
 readline
 redshift
-refind-efi
+refind
 reiserfsprogs
 remmina
 rofi

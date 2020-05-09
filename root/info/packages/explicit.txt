@@ -120,6 +120,7 @@ libmicrodns
 libreoffice-fresh
 libtool
 libu2f-host
+libva-mesa-driver
 libva-utils
 lightdm
 lightdm-slick-greeter
@@ -147,6 +148,7 @@ mediainfo
 meld
 mesa
 mesa-demos
+mesa-vdpau
 minikube
 mkinitcpio-colors-git
 mprime
@@ -164,13 +166,9 @@ noto-fonts-emoji
 nss-mdns
 ntfs-3g
 numix-circle-icon-theme-git
-nvidia
-nvidia-lts
-nvidia-settings
 okular
 oomox
 openbsd-netcat
-opencl-nvidia
 openssh
 p7zip
 pacman
@@ -256,6 +254,7 @@ vimpager
 vlc
 vulkan-headers
 vulkan-intel
+vulkan-radeon
 w3m
 wget
 which
@@ -267,6 +266,7 @@ x11vnc
 xclip
 xdelta3
 xdotool
+xf86-video-amdgpu
 xfsprogs
 xorg-fonts-alias
 xorg-server

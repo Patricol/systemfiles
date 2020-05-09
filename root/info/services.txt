@@ -141,10 +141,6 @@ disabled ninfod.service
 disabled nscd.service
 static nss-lookup.target
 static nss-user-lookup.target
-disabled nvidia-hibernate.service
-enabled nvidia-persistenced.service
-disabled nvidia-resume.service
-disabled nvidia-suspend.service
 static paccache.service
 enabled paccache.timer
 static paths.target
@@ -196,6 +192,7 @@ disabled sensord.service
 indirect serial-getty@.service
 transient session-2.scope
 transient session-4.scope
+transient session-c1.scope
 static shadow.service
 static shadow.timer
 static shutdown.target
@@ -211,6 +208,7 @@ static sshdgenkeys.service
 enabled sshd.service
 masked suspend.target
 masked suspend-then-hibernate.target
+generated swapfile.swap
 static swap.target
 static sys-fs-fuse-connections.mount
 static sysinit.target

@@ -71,15 +71,11 @@ discount
 djvulibre
 dmraid
 dnssec-anchors
-docbook-xml
-docbook-xsl
 dosfstools
 double-conversion
 e2fsprogs
 ebook-tools
 efivar
-egl-wayland
-eglexternalplatform
 electron
 electron4
 elfutils
@@ -87,7 +83,6 @@ enchant
 exempi
 exiv2
 expat
-extra-cmake-modules
 faad2
 fftw
 filesystem
@@ -110,7 +105,6 @@ gdbm
 gdk-pixbuf2
 gdl
 gegl
-gendesk
 geoclue
 geocode-glib
 geoip
@@ -121,7 +115,6 @@ giflib
 glew
 glib-networking
 glib2
-glib2-docs
 glibc
 glibmm
 glslang
@@ -131,7 +124,6 @@ gnome-backgrounds
 gnome-themes-extra
 gnupg
 gnutls
-go
 gobject-introspection
 gobject-introspection-runtime
 gpgme
@@ -149,7 +141,6 @@ gst-plugins-base
 gst-plugins-base-libs
 gst-plugins-good
 gstreamer
-gtk-doc
 gtk-engine-murrine
 gtk-engines
 gtk-update-icon-cache
@@ -179,7 +170,6 @@ ijs
 imagemagick
 imlib2
 intel-tbb
-intltool
 iproute2
 iptables
 iputils
@@ -519,10 +509,8 @@ lz4
 lzo
 marble-common
 mathjax2
-mbedtls
 md4c
 media-player-info
-meson
 metis
 minizip
 mkinitcpio
@@ -533,14 +521,12 @@ msgpack-c
 mtdev
 mujs
 mypaint-brushes1
-nasm
 ncurses
 ndctl
 neon
 net-snmp
 netpbm
 nettle
-ninja
 node-gyp
 npm
 npth
@@ -548,8 +534,6 @@ nspr
 nss
 numactl
 numix-icon-theme-git
-nvidia-utils
-nvm
 oniguruma
 openal
 opencore-amr
@@ -603,7 +587,6 @@ perl-timedate
 perl-try-tiny
 perl-uri
 perl-www-robotrules
-perl-xml-parser
 perl-yaml-libyaml
 phonon-qt5
 phonon-qt5-gstreamer
@@ -626,7 +609,6 @@ psmisc
 pulseaudio
 purpose
 pygobject-devel
-python-anytree
 python-appdirs
 python-asn1crypto
 python-attrs
@@ -669,7 +651,6 @@ python-greenlet
 python-html5lib
 python-hyperlink
 python-idna
-python-imagesize
 python-importlib-metadata
 python-incremental
 python-ipykernel
@@ -730,15 +711,6 @@ python-service-identity
 python-setproctitle
 python-setuptools
 python-six
-python-snowballstemmer
-python-sphinx
-python-sphinx-alabaster-theme
-python-sphinxcontrib-applehelp
-python-sphinxcontrib-devhelp
-python-sphinxcontrib-htmlhelp
-python-sphinxcontrib-jsmath
-python-sphinxcontrib-qthelp
-python-sphinxcontrib-serializinghtml
 python-termcolor
 python-terminado
 python-testpath
@@ -847,7 +819,6 @@ ruby-tins
 rubygems
 run-parts
 runc
-rust
 rxvt-unicode-terminfo
 sane
 sassc
@@ -907,7 +878,6 @@ upower
 usbmuxd
 util-linux
 v4l-utils
-vala
 vamp-plugin-sdk
 vid.stab
 vim-runtime

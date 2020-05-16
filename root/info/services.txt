@@ -183,11 +183,10 @@ disabled run-weekly.service
 enabled run-weekly.timer
 disabled sensord.service
 indirect serial-getty@.service
-transient session-3.scope
-transient session-5.scope
-transient session-7.scope
-transient session-8.scope
-transient session-9.scope
+transient session-2.scope
+transient session-4.scope
+transient session-6.scope
+transient session-c1.scope
 static shadow.service
 static shadow.timer
 static shutdown.target
@@ -197,7 +196,6 @@ static slices.target
 static smartcard.target
 static sockets.target
 static sound.target
-static spice-webdavd.service
 static sshdgenkeys.service
 enabled sshd.service
 masked suspend.target
@@ -317,7 +315,7 @@ indirect uuidd.service
 disabled uuidd.socket
 static var-lib-machines.mount
 disabled vault.service
-enabled vncserver@:5.service
+disabled vncserver@:5.service
 disabled vncserver.service
 static x11vnc.service
 static xfs_scrub_all.service

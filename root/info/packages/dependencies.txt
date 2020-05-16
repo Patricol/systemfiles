@@ -63,6 +63,8 @@ discount
 djvulibre
 dmraid
 dnssec-anchors
+docbook-xml
+docbook-xsl
 dosfstools
 double-conversion
 e2fsprogs
@@ -74,6 +76,7 @@ enchant
 exempi
 exiv2
 expat
+extra-cmake-modules
 faad2
 fftw
 filesystem
@@ -103,6 +106,7 @@ giblib
 giflib
 glib-networking
 glib2
+glib2-docs
 glibc
 glibmm
 glslang
@@ -112,6 +116,7 @@ gnome-backgrounds
 gnome-themes-extra
 gnupg
 gnutls
+go
 gobject-introspection
 gobject-introspection-runtime
 gpgme
@@ -126,6 +131,7 @@ gst-plugins-base
 gst-plugins-base-libs
 gst-plugins-good
 gstreamer
+gtk-doc
 gtk-engine-murrine
 gtk-engines
 gtk-update-icon-cache
@@ -155,6 +161,7 @@ ijs
 imagemagick
 imlib2
 intel-tbb
+intltool
 iproute2
 iptables
 iputils
@@ -241,7 +248,6 @@ libbluray
 libbsd
 libbytesize
 libcaca
-libcacard
 libcanberra
 libcanberra-pulse
 libcap
@@ -339,7 +345,6 @@ libmypaint
 libnet
 libnetfilter_conntrack
 libnfnetlink
-libnfs
 libnftnl
 libnghttp2
 libnl
@@ -481,6 +486,7 @@ mathjax2
 mbedtls
 md4c
 media-player-info
+meson
 metis
 minizip
 mkinitcpio
@@ -497,6 +503,7 @@ neon
 netcdf
 netpbm
 nettle
+ninja
 node-gyp
 npm
 npth
@@ -546,7 +553,7 @@ perl-timedate
 perl-try-tiny
 perl-uri
 perl-www-robotrules
-phodav
+perl-xml-parser
 phonon-qt5
 phonon-qt5-gstreamer
 pinentry
@@ -565,6 +572,7 @@ psmisc
 pulseaudio
 purpose
 pygobject-devel
+python-anytree
 python-appdirs
 python-asn1crypto
 python-attrs
@@ -593,11 +601,13 @@ python-docker
 python-docker-pycreds
 python-dockerpty
 python-docopt
+python-docutils
 python-entrypoints
 python-gobject
 python-greenlet
 python-html5lib
 python-idna
+python-imagesize
 python-importlib-metadata
 python-ipykernel
 python-ipywidgets
@@ -651,6 +661,15 @@ python-send2trash
 python-setuptools
 python-sip
 python-six
+python-snowballstemmer
+python-sphinx
+python-sphinx-alabaster-theme
+python-sphinxcontrib-applehelp
+python-sphinxcontrib-devhelp
+python-sphinxcontrib-htmlhelp
+python-sphinxcontrib-jsmath
+python-sphinxcontrib-qthelp
+python-sphinxcontrib-serializinghtml
 python-termcolor
 python-terminado
 python-testpath
@@ -666,13 +685,6 @@ python-websocket-client
 python-xcffib
 python-yaml
 python-zipp
-python2
-python2-appdirs
-python2-ordered-set
-python2-packaging
-python2-pyparsing
-python2-setuptools
-python2-six
 qca
 qscintilla-qt5
 qt5-3d
@@ -728,9 +740,9 @@ ruby-tins
 rubygems
 run-parts
 runc
+rust
 rxvt-unicode-terminfo
 sassc
-sdl
 sdl2
 semver
 setcolors-git
@@ -749,7 +761,6 @@ sound-theme-freedesktop
 spatialindex
 speex
 speexdsp
-spice-gtk
 spirv-tools
 sqlite
 srt
@@ -779,9 +790,9 @@ udisks2
 unibilium
 upower
 usbmuxd
-usbredir
 util-linux
 v4l-utils
+vala
 vamp-plugin-sdk
 vid.stab
 vim-runtime

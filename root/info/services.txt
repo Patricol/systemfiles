@@ -100,6 +100,7 @@ static krb5-kpropd@.service
 disabled krb5-kpropd.socket
 static ldconfig.service
 enabled lightdm.service
+enabled linux-modules-cleanup.service
 disabled lm_sensors.service
 static local-fs-pre.target
 static local-fs.target
@@ -192,7 +193,6 @@ disabled sensord.service
 indirect serial-getty@.service
 transient session-2.scope
 transient session-4.scope
-transient session-c1.scope
 static shadow.service
 static shadow.timer
 static shutdown.target

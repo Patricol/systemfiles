@@ -11,6 +11,7 @@ enable gpm.service
 enable docker.service
 enable libvirtd.service
 enable avahi-daemon.service
+enable linux-modules-cleanup.service
 disable NetworkManager.service
 disable bluetooth.service
 disable nvidia-persistenced.service

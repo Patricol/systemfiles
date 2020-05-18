@@ -112,6 +112,7 @@ jq
 jsoncpp
 jupyter
 k2tf-bin
+kernel-modules-hook
 keychain
 kitty
 kompose-git

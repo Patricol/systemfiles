@@ -42,6 +42,7 @@ dhclient
 digikam
 docker
 docker-compose
+docker-credential-secretservice
 dpkg
 dunst
 ebtables

@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+# xrandr commands saved from arandr
+
+case "$(cat /etc/hostname)" in
+	fcdcbda)
+		# xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output USB-C-0 --off
+		# xrandr --output DisplayPort-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal --output DVI-D-0 --off
+		xrandr --output DisplayPort-0 --mode 1920x1080 --pos 2560x360 --rotate normal --output HDMI-A-0 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DVI-D-0 --off
+		;;
+	mojave-express)
+		xrandr --output DisplayPort-0 --mode 2560x1080 --pos 2560x0 --rotate normal --output HDMI-0 --primary --mode 2560x1080 --pos 0x0 --rotate normal --output DVI-0 --off --output DVI-1 --off
+		;;
+	*)
+		echo "setup-xrandr didn't recognize the hostname."
+		;;
+esac

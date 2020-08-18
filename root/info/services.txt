@@ -15,7 +15,6 @@ disabled btrfs-scrub@.timer
 disabled canberra-system-bootup.service
 disabled canberra-system-shutdown-reboot.service
 disabled canberra-system-shutdown.service
-static clean-mount-point@.service
 static colord.service
 disabled console-getty.service
 disabled containerd.service
@@ -151,6 +150,7 @@ static pkgfile-update.service
 disabled pkgfile-update.timer
 static polkit.service
 disabled poweroff.target
+disabled ppp@.service
 static printer.target
 static proc-sys-fs-binfmt_misc.automount
 disabled proc-sys-fs-binfmt_misc.mount
@@ -191,8 +191,6 @@ static saned@.service
 disabled saned.socket
 disabled sensord.service
 indirect serial-getty@.service
-transient session-2.scope
-transient session-4.scope
 static shadow.service
 static shadow.timer
 static shutdown.target
@@ -206,6 +204,7 @@ static sockets.target
 static sound.target
 static sshdgenkeys.service
 enabled sshd.service
+disabled sudo_logsrvd.service
 masked suspend.target
 masked suspend-then-hibernate.target
 generated swapfile.swap

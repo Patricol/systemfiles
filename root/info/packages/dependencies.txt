@@ -71,21 +71,18 @@ discount
 djvulibre
 dmraid
 dnssec-anchors
-docbook-xml
-docbook-xsl
 dosfstools
 double-conversion
 e2fsprogs
 ebook-tools
 efivar
 electron
-electron4
+electron5
 elfutils
 enchant
 exempi
 exiv2
 expat
-extra-cmake-modules
 faad2
 fftw
 filesystem
@@ -108,7 +105,6 @@ gdbm
 gdk-pixbuf2
 gdl
 gegl
-gendesk
 geoclue
 geocode-glib
 geoip
@@ -119,7 +115,6 @@ giflib
 glew
 glib-networking
 glib2
-glib2-docs
 glibc
 glibmm
 glslang
@@ -129,7 +124,6 @@ gnome-backgrounds
 gnome-themes-extra
 gnupg
 gnutls
-go
 gobject-introspection
 gobject-introspection-runtime
 gpgme
@@ -147,7 +141,6 @@ gst-plugins-base
 gst-plugins-base-libs
 gst-plugins-good
 gstreamer
-gtk-doc
 gtk-engine-murrine
 gtk-engines
 gtk-update-icon-cache
@@ -177,7 +170,6 @@ ijs
 imagemagick
 imlib2
 intel-tbb
-intltool
 iproute2
 iptables
 iputils
@@ -520,7 +512,6 @@ marble-common
 mathjax2
 md4c
 media-player-info
-meson
 metis
 minizip
 mkinitcpio
@@ -531,14 +522,12 @@ msgpack-c
 mtdev
 mujs
 mypaint-brushes1
-nasm
 ncurses
 ndctl
 neon
 net-snmp
 netpbm
 nettle
-ninja
 node-gyp
 npm
 npth
@@ -546,7 +535,6 @@ nspr
 nss
 numactl
 numix-icon-theme-git
-nvm
 oniguruma
 openal
 opencore-amr
@@ -601,7 +589,6 @@ perl-timedate
 perl-try-tiny
 perl-uri
 perl-www-robotrules
-perl-xml-parser
 perl-yaml-libyaml
 phonon-qt5
 phonon-qt5-gstreamer
@@ -617,6 +604,7 @@ popt
 portsmf
 potrace
 powerline-common
+ppp
 prison
 procps-ng
 progsreiserfs
@@ -624,7 +612,6 @@ psmisc
 pulseaudio
 purpose
 pygobject-devel
-python-anytree
 python-appdirs
 python-asn1crypto
 python-attrs
@@ -655,11 +642,13 @@ python-decorator
 python-defusedxml
 python-distlib
 python-distro
+python-dnspython
 python-docker
 python-docker-pycreds
 python-dockerpty
 python-docopt
 python-docutils
+python-dotenv
 python-entrypoints
 python-geoip
 python-gobject
@@ -667,7 +656,6 @@ python-greenlet
 python-html5lib
 python-hyperlink
 python-idna
-python-imagesize
 python-importlib-metadata
 python-incremental
 python-ipykernel
@@ -720,6 +708,7 @@ python-pytz
 python-pyzmq
 python-rencode
 python-requests
+python-resolvelib
 python-retrying
 python-rsa
 python-s3transfer
@@ -728,15 +717,6 @@ python-service-identity
 python-setproctitle
 python-setuptools
 python-six
-python-snowballstemmer
-python-sphinx
-python-sphinx-alabaster-theme
-python-sphinxcontrib-applehelp
-python-sphinxcontrib-devhelp
-python-sphinxcontrib-htmlhelp
-python-sphinxcontrib-jsmath
-python-sphinxcontrib-qthelp
-python-sphinxcontrib-serializinghtml
 python-termcolor
 python-terminado
 python-testpath
@@ -802,6 +782,7 @@ qt5-location
 qt5-multimedia
 qt5-quickcontrols
 qt5-quickcontrols2
+qt5-script
 qt5-sensors
 qt5-speech
 qt5-svg
@@ -845,7 +826,6 @@ ruby-tins
 rubygems
 run-parts
 runc
-rust
 rxvt-unicode-terminfo
 sane
 sassc
@@ -873,6 +853,7 @@ speex
 speexdsp
 spirv-tools
 sqlite
+sqlite2
 sratom
 srt
 startup-notification
@@ -887,6 +868,7 @@ talloc
 tar
 tcl
 tdb
+termcap
 tevent
 thin-provisioning-tools
 threadweaver
@@ -905,7 +887,6 @@ upower
 usbmuxd
 util-linux
 v4l-utils
-vala
 vamp-plugin-sdk
 vid.stab
 vim-runtime
@@ -961,6 +942,7 @@ xorg-xset
 xorg-xsetroot
 xorgproto
 xvidcore
+xxhash
 xz
 yajl
 yubico-c
@@ -971,4 +953,3 @@ zip
 zita-alsa-pcmi
 zita-resampler
 zlib
-zstd

@@ -40,6 +40,7 @@ deluge-gtk
 dex
 dhclient
 digikam
+dive
 docker
 docker-compose
 docker-credential-secretservice
@@ -106,6 +107,7 @@ i3lock-color-git
 indicator-sound-switcher
 inetutils
 inkscape
+intellij-idea-ultimate-edition
 ipython
 jetbrains-toolbox
 jfsutils
@@ -118,6 +120,7 @@ keychain
 kitty
 kompose-git
 kubectl
+lbzip2
 libmicrodns
 libreoffice-fresh
 libtool
@@ -153,6 +156,7 @@ mesa-demos
 mesa-vdpau
 minikube
 mkinitcpio-colors-git
+mongodb-tools-bin
 mprime
 mpv
 nano
@@ -222,6 +226,7 @@ sedutil
 signal-desktop
 simple-scan
 simplescreenrecorder
+sqlitestudio
 sshfs
 standardnotes-desktop
 stress
@@ -261,6 +266,7 @@ w3m
 wget
 which
 wireshark-qt
+wmctrl
 woeusb
 wpgtk-git
 x11-ssh-askpass
@@ -291,3 +297,4 @@ youtube-dl
 yubico-pam
 yubikey-personalization-gui
 zsh
+zstd

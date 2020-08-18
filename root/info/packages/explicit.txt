@@ -44,6 +44,7 @@ dive
 docker
 docker-compose
 docker-credential-secretservice
+downgrade
 dpkg
 dunst
 ebtables
@@ -165,6 +166,7 @@ neofetch
 neovim
 nerd-fonts-complete
 netctl
+nfs-utils
 nitrogen
 nodejs
 noto-fonts
@@ -231,7 +233,7 @@ sshfs
 standardnotes-desktop
 stress
 sudo
-sway
+sway-git
 sysfsutils
 terminus-font
 terraform
@@ -263,6 +265,7 @@ vulkan-headers
 vulkan-intel
 vulkan-radeon
 w3m
+waybar-git
 wget
 which
 wireshark-qt

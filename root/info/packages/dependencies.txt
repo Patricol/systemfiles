@@ -46,6 +46,7 @@ cblas
 cdparanoia
 cfitsio
 chmlib
+chrono-date
 cinnamon-desktop
 clucene
 colord
@@ -67,10 +68,13 @@ deluge
 desktop-file-utils
 device-mapper
 diffutils
+ding-libs
 discount
 djvulibre
 dmraid
 dnssec-anchors
+docbook-xml
+docbook-xsl
 dosfstools
 double-conversion
 e2fsprogs
@@ -89,6 +93,7 @@ filesystem
 flac
 flashrom
 fltk
+fmt
 fontconfig
 frameworkintegration
 freeglut
@@ -115,6 +120,7 @@ giflib
 glew
 glib-networking
 glib2
+glib2-docs
 glibc
 glibmm
 glslang
@@ -124,6 +130,7 @@ gnome-backgrounds
 gnome-themes-extra
 gnupg
 gnutls
+go
 gobject-introspection
 gobject-introspection-runtime
 gpgme
@@ -137,12 +144,15 @@ gsettings-desktop-schemas
 gsfonts
 gsl
 gsm
+gssproxy
 gst-plugins-base
 gst-plugins-base-libs
 gst-plugins-good
 gstreamer
+gtk-doc
 gtk-engine-murrine
 gtk-engines
+gtk-layer-shell
 gtk-update-icon-cache
 gtk2
 gtk3
@@ -169,7 +179,7 @@ icu
 ijs
 imagemagick
 imlib2
-intel-tbb
+intltool
 iproute2
 iptables
 iputils
@@ -182,6 +192,7 @@ jbig2dec
 jre-openjdk
 jre-openjdk-headless
 js60
+js68
 json-c
 json-glib
 jupyter-nbconvert
@@ -509,9 +520,11 @@ luajit
 lz4
 lzo
 marble-common
+mathjax
 mathjax2
 md4c
 media-player-info
+meson
 metis
 minizip
 mkinitcpio
@@ -522,12 +535,15 @@ msgpack-c
 mtdev
 mujs
 mypaint-brushes1
+nasm
 ncurses
 ndctl
 neon
 net-snmp
 netpbm
 nettle
+nfsidmap
+ninja
 node-gyp
 npm
 npth
@@ -589,6 +605,7 @@ perl-timedate
 perl-try-tiny
 perl-uri
 perl-www-robotrules
+perl-xml-parser
 perl-yaml-libyaml
 phonon-qt5
 phonon-qt5-gstreamer
@@ -612,6 +629,7 @@ psmisc
 pulseaudio
 purpose
 pygobject-devel
+python-anytree
 python-appdirs
 python-asn1crypto
 python-attrs
@@ -656,6 +674,7 @@ python-greenlet
 python-html5lib
 python-hyperlink
 python-idna
+python-imagesize
 python-importlib-metadata
 python-incremental
 python-ipykernel
@@ -703,7 +722,6 @@ python-pyparsing
 python-pyrsistent
 python-pystache
 python-pyte
-python-pytoml
 python-pytz
 python-pyzmq
 python-rencode
@@ -717,6 +735,15 @@ python-service-identity
 python-setproctitle
 python-setuptools
 python-six
+python-snowballstemmer
+python-sphinx
+python-sphinx-alabaster-theme
+python-sphinxcontrib-applehelp
+python-sphinxcontrib-devhelp
+python-sphinxcontrib-htmlhelp
+python-sphinxcontrib-jsmath
+python-sphinxcontrib-qthelp
+python-sphinxcontrib-serializinghtml
 python-termcolor
 python-terminado
 python-testpath
@@ -797,6 +824,7 @@ qtav
 qtcurve-utils
 raptor
 rasqal
+rav1e
 re2
 readline
 recode
@@ -805,6 +833,7 @@ rest
 resvg
 rhash
 ripgrep
+rpcbind
 rtkit
 rubberband
 ruby
@@ -830,6 +859,7 @@ rxvt-unicode-terminfo
 sane
 sassc
 sbc
+scdoc
 sdl2
 semver
 serd
@@ -849,6 +879,7 @@ sord
 sound-theme-freedesktop
 soundtouch
 spandsp
+spdlog
 speex
 speexdsp
 spirv-tools
@@ -859,13 +890,14 @@ srt
 startup-notification
 suil
 suitesparse
-swaybg
+swaybg-git
 systemd
 systemd-libs
 systemd-sysvcompat
 taglib
 talloc
 tar
+tbb
 tcl
 tdb
 termcap
@@ -887,6 +919,7 @@ upower
 usbmuxd
 util-linux
 v4l-utils
+vala
 vamp-plugin-sdk
 vid.stab
 vim-runtime
@@ -901,7 +934,8 @@ wayland-protocols
 webkit2gtk
 webrtc-audio-processing
 wireshark-cli
-wlroots
+wlroots-git
+wlroots-git-debug
 woff2
 wpebackend-fdo
 wxgtk-common

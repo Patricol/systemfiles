@@ -55,7 +55,6 @@ disabled netctl-wait-online.service
 disabled nfs-blkmap.service
 enabled nfs-client.target
 disabled nfs-server.service
-disabled ninfod.service
 disabled nscd.service
 enabled paccache.timer
 indirect pcscd.service
@@ -65,8 +64,6 @@ disabled poweroff.target
 disabled ppp@.service
 disabled proc-sys-fs-binfmt_misc.mount
 enabled qemu-ga.service
-disabled rarpd@.service
-disabled rdisc.service
 enabled reboot.target
 enabled remote-cryptsetup.target
 enabled remote-fs.target

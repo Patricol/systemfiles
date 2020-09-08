@@ -33,6 +33,7 @@ bridge-utils
 brotli
 btrfs-progs
 bubblewrap
+bullet
 bzip2
 c-ares
 ca-certificates
@@ -47,6 +48,7 @@ cdparanoia
 cfitsio
 chmlib
 chrono-date
+chrpath
 cinnamon-desktop
 clucene
 colord
@@ -80,6 +82,7 @@ double-conversion
 e2fsprogs
 ebook-tools
 efivar
+efl
 electron
 electron5
 elfutils
@@ -87,6 +90,7 @@ enchant
 exempi
 exiv2
 expat
+extra-cmake-modules
 faad2
 fftw
 filesystem
@@ -110,6 +114,7 @@ gdbm
 gdk-pixbuf2
 gdl
 gegl
+gendesk
 geoclue
 geocode-glib
 geoip
@@ -139,6 +144,7 @@ gptfdisk
 graphene
 graphicsmagick
 graphite
+grim
 grub
 gsettings-desktop-schemas
 gsfonts
@@ -168,7 +174,6 @@ harfbuzz
 harfbuzz-icu
 hicolor-icon-theme
 hidapi
-hspell
 http-parser
 hunspell
 hwids
@@ -191,7 +196,6 @@ java-runtime-common
 jbig2dec
 jre-openjdk
 jre-openjdk-headless
-js60
 js68
 json-c
 json-glib
@@ -322,7 +326,6 @@ libgcrypt
 libgee
 libgexiv2
 libglvnd
-libgnome-keyring
 libgnomekbd
 libgpg-error
 libgphoto2
@@ -350,7 +353,6 @@ libixion
 libjcat
 libjpeg-turbo
 libkexiv2
-libkeybinder3
 libksane
 libksba
 liblangtag
@@ -457,7 +459,6 @@ libvips
 libvisio
 libvisual
 libvncserver
-libvoikko
 libvorbis
 libvpx
 libvterm
@@ -473,6 +474,7 @@ libxau
 libxaw
 libxcb
 libxcomposite
+libxcrypt
 libxcursor
 libxdamage
 libxdg-basedir
@@ -491,6 +493,7 @@ libxml2
 libxmlb
 libxmu
 libxnvctrl
+libxp
 libxpm
 libxrandr
 libxrender
@@ -519,6 +522,7 @@ lua52
 luajit
 lz4
 lzo
+mailcap
 marble-common
 mathjax
 mathjax2
@@ -551,6 +555,7 @@ nspr
 nss
 numactl
 numix-icon-theme-git
+nvm
 oniguruma
 openal
 opencore-amr
@@ -621,7 +626,6 @@ popt
 portsmf
 potrace
 powerline-common
-ppp
 prison
 procps-ng
 progsreiserfs
@@ -660,7 +664,6 @@ python-decorator
 python-defusedxml
 python-distlib
 python-distro
-python-dnspython
 python-docker
 python-docker-pycreds
 python-dockerpty
@@ -855,11 +858,13 @@ ruby-tins
 rubygems
 run-parts
 runc
+rust
 rxvt-unicode-terminfo
 sane
 sassc
 sbc
 scdoc
+scim
 sdl2
 semver
 serd
@@ -871,6 +876,7 @@ signon-kwallet-extension
 signon-plugin-oauth2
 signon-ui
 signond
+slurp
 smbclient
 snappy
 solid
@@ -907,7 +913,6 @@ threadweaver
 tpm2-tss
 tre
 tslib
-ttf-dejavu
 ttf-liberation
 ttf-opensans
 twolame
@@ -943,7 +948,7 @@ wxgtk2
 wxgtk3
 x264
 x265
-xapps
+xapp
 xbitmaps
 xcb-proto
 xcb-util
@@ -955,13 +960,13 @@ xcb-util-renderutil
 xcb-util-wm
 xcb-util-xrm
 xdg-dbus-proxy
+xdg-user-dirs
 xdg-utils
 xf86-input-libinput
 xkeyboard-config
 xmlsec
 xorg-bdftopcf
 xorg-font-util
-xorg-font-utils
 xorg-fonts-encodings
 xorg-luit
 xorg-mkfontscale

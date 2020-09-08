@@ -53,7 +53,7 @@ disabled netctl.service
 disabled netctl-sleep.service
 disabled netctl-wait-online.service
 disabled nfs-blkmap.service
-enabled nfs-client.target
+disabled nfs-client.target
 disabled nfs-server.service
 disabled nscd.service
 enabled paccache.timer
@@ -61,7 +61,6 @@ indirect pcscd.service
 disabled pcscd.socket
 disabled pkgfile-update.timer
 disabled poweroff.target
-disabled ppp@.service
 disabled proc-sys-fs-binfmt_misc.mount
 enabled qemu-ga.service
 enabled reboot.target
@@ -84,6 +83,7 @@ enabled run-weekly.timer
 disabled saned.socket
 disabled sensord.service
 indirect serial-getty@.service
+disabled setcolors.service
 masked sleep.target
 disabled snmpd.service
 disabled snmptrapd.service
@@ -106,7 +106,6 @@ disabled systemd-network-generator.service
 disabled systemd-nspawn@.service
 enabled systemd-pstore.service
 enabled-runtime systemd-remount-fs.service
-enabled systemd-repart.service
 enabled systemd-resolved.service
 enabled systemd-timesyncd.service
 disabled systemd-time-wait-sync.service

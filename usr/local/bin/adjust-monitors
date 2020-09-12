@@ -4,7 +4,7 @@
 
 case "$(cat /etc/hostname)" in
 	fcdcbda)
-		xrandr --output DVI-I-0 --off --output DVI-I-1 --off --output HDMI-0 --mode 2560x1440 --pos 1920x660 --rotate normal --output DP-0 --mode 1920x1080 --pos 0x1020 --rotate normal --output DP-1 --off --output DP-2 --mode 1920x1080 --pos 5560x0 --rotate right --output DP-3 --off --output DP-4 --mode 1920x1080 --pos 4480x0 --rotate left --output DP-5 --off
+		xrandr --output DVI-I-0 --off --output DVI-I-1 --off --output HDMI-0 --primary --mode 2560x1440 --pos 1920x660 --rotate normal --output DP-0 --mode 1920x1080 --pos 0x1020 --rotate normal --output DP-1 --off --output DP-2 --mode 1920x1080 --pos 5560x0 --rotate right --output DP-3 --off --output DP-4 --mode 1920x1080 --pos 4480x0 --rotate left --output DP-5 --off
 		;;
 	mojave-express)
 		xrandr --output DisplayPort-0 --mode 2560x1080 --pos 2560x0 --rotate normal --output HDMI-0 --primary --mode 2560x1080 --pos 0x0 --rotate normal --output DVI-0 --off --output DVI-1 --off

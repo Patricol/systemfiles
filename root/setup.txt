@@ -170,7 +170,7 @@ sudo vncpasswd /etc/vncpasswd
 
 ln -sf /home/patricol/.gitconfig /root/.gitconfig
 
-gsfp --set-upstream origin arch
+gsfauthed push --set-upstream origin arch
 
 
 poweroff

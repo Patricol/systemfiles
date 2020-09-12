@@ -100,7 +100,6 @@ gnome-keyring
 gnome-system-monitor
 gnupg
 google-cloud-sdk
-google-musicmanager
 gpa
 gparted
 gpick
@@ -123,8 +122,8 @@ i3-gaps
 i3lock-color-git
 inetutils
 inkscape
-intellij-idea-ultimate-edition
 intel-ucode
+intellij-idea-ultimate-edition
 ipython
 jetbrains-toolbox
 jfsutils
@@ -135,11 +134,11 @@ k2tf-bin
 kernel-modules-hook
 keychain
 kitty
-kompose-git
+kompose-bin
 kubectl
 lastpass-cli
-less
 lbzip2
+less
 libmicrodns
 libreoffice-fresh
 libtool

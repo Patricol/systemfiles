@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+main() {
+	local dcfrun
+	dcfrun="/home/docker/compose/run"
+	if [[ -f "${dcfrun}" ]]; then
+		"${dcfrun}" $@
+	else
+		echo "${dcfrun} missing"
+	fi
+}
+
+main $@

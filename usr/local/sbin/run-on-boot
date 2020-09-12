@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
 fix-permissions
-# swarm-prep

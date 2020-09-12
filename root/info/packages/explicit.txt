@@ -17,6 +17,7 @@ aws-cli
 aws-iam-authenticator-bin
 baobab
 base
+bash
 bash-completion
 bat
 bdf-unifont
@@ -26,6 +27,7 @@ bitwarden-bin
 bitwarden-cli
 breeze
 breeze-icons
+bzip2
 calibre
 caprine
 catimg
@@ -36,12 +38,17 @@ cifs-utils
 clang
 cmake
 cowsay
+cryptsetup
+curl
 deluge-gtk
 dex
 dhclient
 digikam
+dive
 docker
 docker-compose
+docker-credential-secretservice
+downgrade
 dpkg
 dunst
 ebtables
@@ -81,6 +88,7 @@ gnome-calculator
 gnome-disk-utility
 gnome-keyring
 gnome-system-monitor
+gnupg
 google-cloud-sdk
 google-musicmanager
 gpa
@@ -90,6 +98,7 @@ gpmdp
 graphviz
 grc
 grep
+grimshot-git
 groff
 gst-libav
 gucharmap
@@ -102,9 +111,9 @@ highlight
 htop
 i3-gaps
 i3lock-color-git
-indicator-sound-switcher
 inetutils
 inkscape
+intellij-idea-ultimate-edition
 ipython
 jetbrains-toolbox
 jfsutils
@@ -112,10 +121,13 @@ jq
 jsoncpp
 jupyter
 k2tf-bin
+kernel-modules-hook
 keychain
 kitty
 kompose-git
 kubectl
+less
+lbzip2
 libmicrodns
 libreoffice-fresh
 libtool
@@ -139,6 +151,7 @@ lxqt-openssh-askpass
 lynx
 m4
 make
+mako
 man-db
 man-pages
 mcomix
@@ -149,6 +162,7 @@ mesa
 mesa-demos
 minikube
 mkinitcpio-colors-git
+mongodb-tools-bin
 mprime
 mpv
 nano
@@ -157,6 +171,7 @@ neofetch
 neovim
 nerd-fonts-complete
 netctl
+nfs-utils
 nitrogen
 nodejs
 noto-fonts
@@ -167,6 +182,7 @@ numix-circle-icon-theme-git
 nvidia
 nvidia-lts
 nvidia-settings
+oguri-git
 okular
 oomox
 openbsd-netcat
@@ -176,6 +192,7 @@ p7zip
 pacman
 pacman-contrib
 pacutils
+pam
 paper-icon-theme-git
 papirus-icon-theme
 patch
@@ -222,12 +239,17 @@ sedutil
 signal-desktop
 simple-scan
 simplescreenrecorder
+sqlitestudio
 sshfs
 standardnotes-desktop
 stress
 sudo
 sway
 sysfsutils
+systemd
+systemd-sysvcompat
+tar
+terminology
 terminus-font
 terraform
 terragrunt-bin
@@ -257,9 +279,12 @@ vlc
 vulkan-headers
 vulkan-intel
 w3m
+waybar-git
+wdisplays
 wget
 which
 wireshark-qt
+wl-clipboard
 woeusb
 wpgtk-git
 x11-ssh-askpass
@@ -268,7 +293,6 @@ xclip
 xdelta3
 xdotool
 xfsprogs
-xorg-fonts-alias
 xorg-server
 xorg-server-devel
 xorg-server-xephyr

@@ -18,7 +18,7 @@
 
 sudo vncpasswd /etc/vncpasswd
 ln -sf /home/patricol/.gitconfig /root/.gitconfig
-gsfp --set-upstream origin archcrowdai
+gsfp --set-upstream origin archvm
 
 #setup chrome, duplicati, nemo, filezilla, gitkraken, atom, gpmdp, pycharm, remmina, standard notes, VMs, i3, che.
 

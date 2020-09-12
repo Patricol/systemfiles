@@ -17,6 +17,7 @@ aws-cli
 aws-iam-authenticator-bin
 baobab
 base
+bash
 bash-completion
 bat
 bdf-unifont
@@ -26,6 +27,7 @@ bitwarden-bin
 bitwarden-cli
 breeze
 breeze-icons
+bzip2
 calibre
 caprine
 catimg
@@ -36,6 +38,7 @@ cifs-utils
 clang
 cmake
 cowsay
+curl
 deluge-gtk
 dex
 dhclient
@@ -84,6 +87,7 @@ gnome-calculator
 gnome-disk-utility
 gnome-keyring
 gnome-system-monitor
+gnupg
 google-cloud-sdk
 google-musicmanager
 gpa
@@ -119,7 +123,10 @@ k2tf-bin
 kernel-modules-hook
 keychain
 kitty
+kompose-git
 kubectl
+lastpass-cli
+less
 lbzip2
 libmicrodns
 libreoffice-fresh
@@ -189,6 +196,7 @@ patch
 pavucontrol
 pdftk
 pepper-flash
+perl
 picom
 pigz
 pkgconf

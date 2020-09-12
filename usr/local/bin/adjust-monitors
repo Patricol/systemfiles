@@ -13,3 +13,5 @@ case "$(cat /etc/hostname)" in
 		echo "setup-xrandr didn't recognize the hostname."
 		;;
 esac
+
+true # NOTE: if script fails; lightdm will fail to start.

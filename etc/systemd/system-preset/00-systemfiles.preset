@@ -2,16 +2,17 @@ disable dhcpcd.service
 disable ctrl-alt-del.target
 enable sshd.service
 enable ebtables.service
-enable dnsmasq.service
+disable dnsmasq.service
 enable systemd-resolved.service
 enable systemd-networkd.service
-enable anbox-container-manager.service
+disable anbox-container-manager.service
 enable lightdm.service
 enable gpm.service
 enable docker.service
 enable libvirtd.service
 enable avahi-daemon.service
-enable NetworkManager.service
+enable linux-modules-cleanup.service
+disable NetworkManager.service
 enable bluetooth.service
 disable nvidia-persistenced.service
 enable run-on-boot.service
@@ -22,4 +23,4 @@ enable run-weekly.timer
 enable virtlogd.socket
 enable avahi-daemon.socket
 disable xvnc.socket
-enable vncserver@:5.service
+disable vncserver@:5.service

@@ -9,8 +9,8 @@
     * move the backup onto the nas etc.
   * CHECK THAT THE SYSTEMFILES REPO IS UP TO DATE AND PUSHED ETC.
     * re-run save-system-info and push the updated package lists
-  * CHECK THAT DUPLICATI HAS A RECENT BACKUP
-    * http://localhost:8200
+  * CHECK THAT DUPLICACY HAS A RECENT BACKUP
+    * http://localhost:3875
   * RUN WITH ONLY ONE SSD/HDD CONNECTED
     * AND ONLY IF THE ENTIRE SSD/HDD CAN BE USED
 
@@ -197,16 +197,14 @@ poweroff
 
 
 #verify vdpau hardware acceleration is working by running vdpauinfo
-
-xdpyinfo | grep -B2 resolution
-#compare to https://www.sven.de/dpi/
-#http://screen-size.info/
-#https://wiki.archlinux.org/index.php/Xorg#Display_size_and_DPI
+#xdpyinfo | grep -B2 resolution
+  #compare to https://www.sven.de/dpi/
+  #http://screen-size.info/
+  #https://wiki.archlinux.org/index.php/Xorg#Display_size_and_DPI
 
 #can delete /arch-homes.tar if you haven't already.
 
-#check that duplicati is working again http://localhost:8200
-
+# check that duplicacy works.
 #MORE HARDWARE STUFF:
 #Keep checking for when this supports AX860i: https://github.com/audiohacked/OpenCorsairLink
 #https://wiki.archlinux.org/index.php/NVIDIA

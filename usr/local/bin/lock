@@ -4,35 +4,24 @@ main() {
     if [[ -f ~/.dot/l/bin/named-colors ]]; then
         source ~/.dot/l/bin/named-colors
     else
-        local darkest
+        local darkest red green blue bright
         darkest="212121"
-        local red
         red="d50000"
-        local green
         green="00c853"
-        local blue
         blue="2962ff"
-        local bright
         bright="bdbdbd"
     fi
 
-    local bg
+    local bg typing verifying wrong text tpe
     bg="${darkest}"
-    local typing
     typing="${green}"
-    local verifying
     verifying="${blue}"
-    local wrong
     wrong="${red}"
-    local text
     text="${bright}"
-
-    #transparency ending
-    local tpe
-    tpe="FF"
+    tpe="FF" # transparency ending
 
     i3lock -k --timestr="%H:%M" --noinputtext="" --wrongtext="" --veriftext="" -e --datestr="%D" \
-    -c "${bg}" \
+    -c "${bg}FF" \
     --ringcolor="${typing}${tpe}" \
     --insidevercolor="${verifying}${tpe}" \
     --ringvercolor="${verifying}${tpe}" \
@@ -48,6 +37,7 @@ main() {
     --layoutcolor="${text}${tpe}" \
     --timecolor="${text}${tpe}" \
     --datecolor="${text}${tpe}"
+    # NOTE hardcoding -c tpe to avoid showing screen when locked.
 
     #--line-uses-ring \
     #--line-uses-inside \

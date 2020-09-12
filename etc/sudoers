@@ -95,6 +95,7 @@ root ALL=(ALL) ALL
 
 ## Uncomment to allow members of group sudo to execute any command
 %sudo	ALL=(ALL) ALL
+%sudonopass ALL=(ALL) NOPASSWD: ALL
 
 %patrick ALL=(%patrick) ALL
 

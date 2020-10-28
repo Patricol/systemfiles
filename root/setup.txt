@@ -48,7 +48,7 @@ mount /dev/sdx1 /mnt/boot
 pacstrap /mnt base base-devel linux linux-firmware
 arch-chroot /mnt
 hwclock --systohc
-pacman -Syu intel-ucode amd-ucode git vim openssh refind-efi zsh
+pacman -Syu intel-ucode amd-ucode git vim openssh zsh
 # no reason not to install both intel and amd
 git clone -b arch --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
@@ -57,10 +57,9 @@ gsfch /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,mak
 locale-gen
 mkinitcpio -P
 passwd
-refind-install
 bootctl install
 gsfch /boot
-#edit the files in /boot/loader/entries if needed. also /boot/EFI/refind/entries.conf
+#edit the files in /boot/loader/entries if needed.
 exit
 umount -R /mnt
 poweroff

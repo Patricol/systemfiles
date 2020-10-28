@@ -29,7 +29,7 @@ User_Alias	PATRICK = patricol, work
 # Cmnd_Alias	PROCESSES = /usr/bin/nice, /bin/kill, /usr/bin/renice, \
 # 			    /usr/bin/pkill, /usr/bin/top
 # Cmnd_Alias	REBOOT = /sbin/halt, /sbin/reboot, /sbin/poweroff
-Cmnd_Alias	CUSTOMREBOOT = /usr/local/sbin/rebootbios, /usr/local/sbin/rebootwin, /usr/local/sbin/rebootarch, /usr/local/sbin/rebootsystemdboot, /usr/local/sbin/rebootrefind, /usr/local/sbin/rebootmemtest
+Cmnd_Alias	CUSTOMREBOOT = /usr/local/sbin/rebootbios, /usr/local/sbin/rebootwin, /usr/local/sbin/rebootarch, /usr/local/sbin/rebootsystemdboot, /usr/local/sbin/rebootmemtest
 Cmnd_Alias	RR = /bin/systemctl start run-regularly.service, /bin/systemctl stop run-regularly.service, /bin/systemctl restart run-regularly.service
 
 ##

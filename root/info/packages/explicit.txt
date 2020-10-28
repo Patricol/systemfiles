@@ -243,7 +243,6 @@ ranger
 rclone
 readline
 redshift-wayland-git
-refind
 reiserfsprogs
 remmina
 rofi

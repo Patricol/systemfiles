@@ -52,7 +52,6 @@ digikam
 dive
 docker
 docker-compose
-docker-credential-secretservice
 downgrade
 dpkg
 dunst
@@ -208,6 +207,7 @@ pacutils
 pam
 paper-icon-theme-git
 papirus-icon-theme
+pasystray
 patch
 pavucontrol
 pciutils
@@ -227,6 +227,7 @@ procps-ng
 protobuf
 psensor
 psmisc
+ptouch-print-git
 pycharm-professional
 pyenv
 python
@@ -241,7 +242,7 @@ quassel-client
 ranger
 rclone
 readline
-redshift
+redshift-wayland-git
 refind
 reiserfsprogs
 remmina
@@ -258,6 +259,7 @@ shadow
 signal-desktop
 simple-scan
 simplescreenrecorder
+spotify
 sqlitestudio
 sshfs
 standardnotes-desktop
@@ -330,6 +332,7 @@ xrdp
 xterm
 xwinwrap-git
 yay
+ydotool-git
 youtube-dl
 yubico-pam
 yubikey-personalization-gui

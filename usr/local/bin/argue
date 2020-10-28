@@ -38,13 +38,16 @@ __argue_basic_setup() {
         fi
     }
     
-    local option
+    local option current_shell
+    current_shell="$(ps --no-headers -o command -p $$)" # NOTE: running once, so it doesn't slow things down as much.
+    # echo "${current_shell}"
     for option in "${argue_options[@]}"; do
         if ! check_valid_option ${option}; then
             return $?
         fi
         local option_parts option_colons longopt shortopt type > /dev/null # avoid zsh printing
-        if [[ "${SHELL}" == *"/zsh" ]]; then
+        # if [[ "${SHELL}" == *"/zsh" ]]; then # Issues if running in a non-default shell.
+        if [[ "${current_shell}" == *"zsh" ]]; then
             IFS=',' read -r -A option_parts <<< "${option}"
             shortopt="${option_parts[1]}"
             longopt="${option_parts[2]}"

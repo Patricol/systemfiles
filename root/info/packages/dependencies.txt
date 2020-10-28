@@ -5,6 +5,7 @@ accountsservice
 acl
 adwaita-icon-theme
 akonadi-contacts
+alsa-card-profiles
 alsa-lib
 alsa-topology-conf
 alsa-ucm-conf
@@ -41,7 +42,6 @@ ca-certificates-mozilla
 ca-certificates-utils
 cairo
 cairomm
-calibre-common
 cantarell-fonts
 cblas
 cdparanoia
@@ -79,6 +79,7 @@ egl-wayland
 eglexternalplatform
 electron
 electron5
+electron6
 elfutils
 enchant
 exempi
@@ -181,6 +182,7 @@ jbig2dec
 jre-openjdk
 jre-openjdk-headless
 js68
+js78
 json-c
 json-glib
 jupyter-nbconvert
@@ -270,10 +272,12 @@ libcddb
 libcdio
 libcdio-paranoia
 libcdr
+libcloudproviders
 libcmis
 libconfig
 libcroco
 libcups
+libcurl-gnutls
 libdaemon
 libdatrie
 libdbusmenu-glib
@@ -297,6 +301,7 @@ libepubgen
 libetonyek
 libev
 libevdev
+libevdevplus
 libevent
 libexif
 libexttextcat
@@ -320,6 +325,7 @@ libgtop
 libgudev
 libgusb
 libhandy
+libhandy0
 libheif
 libibus
 libical
@@ -428,6 +434,7 @@ libtiff
 libtirpc
 libtommath
 libtorrent-rasterbar
+libuinputplus
 libunistring
 libunrar
 libunwind
@@ -503,6 +510,7 @@ lua
 lua51
 lua52
 luajit
+luit
 lz4
 lzo
 mailcap
@@ -588,14 +596,16 @@ powerline-common
 prison
 pulseaudio
 purpose
-pygobject-devel
 python-appdirs
+python-apsw
+python-argon2_cffi
 python-asn1crypto
 python-attrs
 python-automat
 python-backcall
 python-bcrypt
 python-beaker
+python-beautifulsoup4
 python-bleach
 python-botocore
 python-cachecontrol
@@ -610,6 +620,8 @@ python-colorama
 python-constantly
 python-contextlib2
 python-cryptography
+python-css-parser
+python-cssselect
 python-cssselect2
 python-dateutil
 python-dbus
@@ -618,6 +630,7 @@ python-decorator
 python-defusedxml
 python-distlib
 python-distro
+python-dnspython
 python-docker
 python-docker-pycreds
 python-dockerpty
@@ -625,12 +638,16 @@ python-docopt
 python-docutils
 python-dotenv
 python-entrypoints
+python-feedparser
 python-geoip
 python-gobject
 python-greenlet
+python-html2text
+python-html5-parser
 python-html5lib
 python-hyperlink
 python-idna
+python-ifaddr
 python-importlib-metadata
 python-incremental
 python-ipykernel
@@ -642,12 +659,15 @@ python-jsonschema
 python-jupyter_client
 python-jupyter_core
 python-keyutils
+python-lxml
 python-mako
 python-markdown
 python-markupsafe
 python-mccabe
+python-mechanize
 python-mistune
 python-msgpack
+python-netifaces
 python-ordered-set
 python-packaging
 python-pandocfilters
@@ -666,6 +686,7 @@ python-psutil
 python-ptyprocess
 python-pyasn1
 python-pyasn1-modules
+python-pychm
 python-pycodestyle
 python-pycparser
 python-pyflakes
@@ -674,10 +695,14 @@ python-pyhamcrest
 python-pynacl
 python-pyopenssl
 python-pyparsing
+python-pyqt5
+python-pyqt5-sip
+python-pyqtwebengine
 python-pyrsistent
 python-pystache
 python-pyte
 python-pyzmq
+python-regex
 python-rencode
 python-requests
 python-resolvelib
@@ -688,7 +713,9 @@ python-send2trash
 python-service-identity
 python-setproctitle
 python-setuptools
+python-sgmllib
 python-six
+python-soupsieve
 python-termcolor
 python-terminado
 python-testpath
@@ -698,12 +725,14 @@ python-toml
 python-tornado
 python-traitlets
 python-twisted
+python-unrardll
 python-urllib3
 python-wcwidth
 python-webencodings
 python-websocket-client
 python-xcffib
 python-yaml
+python-zeroconf
 python-zipp
 python-zope-interface
 python2
@@ -831,6 +860,7 @@ srt
 startup-notification
 suil
 suitesparse
+sway-git-debug
 swaybg-git
 systemd-libs
 systemd-resolvconf
@@ -844,6 +874,7 @@ tevent
 thin-provisioning-tools
 threadweaver
 tpm2-tss
+tracker3
 tre
 tslib
 ttf-liberation
@@ -872,6 +903,7 @@ webkit2gtk
 webrtc-audio-processing
 wireshark-cli
 wlroots-git
+wlroots-git-debug
 woff2
 wpebackend-fdo
 wxgtk-common
@@ -897,7 +929,6 @@ xf86-input-libinput
 xkeyboard-config
 xmlsec
 xorg-fonts-encodings
-xorg-luit
 xorg-server-common
 xorg-setxkbmap
 xorg-util-macros

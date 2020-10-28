@@ -9,4 +9,5 @@ Target=nvidia-lts
 Description=Updating nvidia (lts) module in initcpio...
 Depends=mkinitcpio
 When=PostTransaction
-Exec=/usr/bin/mkinitcpio -p linux-lts
+# Exec=/usr/bin/mkinitcpio -p linux-lts
+Exec=/bin/sh -c 'echo "#blacklist nouveau" | tee /usr/lib/modprobe.d/nvidia-lts.conf; mkinitcpio -p linux-lts'

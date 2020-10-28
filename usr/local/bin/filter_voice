@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+# https://github.com/werman/noise-suppression-for-voice
+
+# Fast loopback device (very cpu hungry)
+# pacat -r --latency-msec=1 -d alsa_input.usb-0d8c_C-Media_USB_Audio_Device-00.mono-fallback | pacat -p --latency-msec=1 -d alsa_output.usb-0d8c_C-Media_USB_Audio_Device-00.analog-stereo
+
+bins_path="/usr/local/big-bins/filter_voice"
+ladspa_file="${bins_path}/bin/ladspa/librnnoise_ladspa.so"
+
+download_bins() {
+    mkdir -p "${bins_path}"
+    sudo wget https://github.com/werman/noise-suppression-for-voice/releases/download/v0.9/linux_rnnoise_bin_x64.tar.gz -P "${bins_path}"
+    sudo tar xf "${bins_path}/linux_rnnoise_bin_x64.tar.gz" -C "${bins_path}"
+    sudo rm "${bins_path}/linux_rnnoise_bin_x64.tar.gz"
+    if ! [[ -f "${ladspa_file}" ]]; then
+	echo "Failed to get file."
+	exit 1
+    fi
+}
+
+download_bins_if_needed() {
+    if ! [[ -f "${ladspa_file}" ]]; then
+	echo "${ladspa_file} is missing. Downloading now."
+	download_bins || exit 1
+    fi
+}
+
+disable_effects() {
+    pactl unload-module module-loopback
+    pactl unload-module module-null-sink
+    pactl unload-module module-ladspa-sink
+    pactl unload-module module-remap-source
+}
+
+main() {
+    argue_options=("d,disable,noarg" "m,hear_yourself,noarg" "c,control,optarg")
+    source "$(which argue)"
+    download_bins_if_needed || exit 1
+    if [[ -z "${control}" ]]; then
+	control=80
+    fi
+    if [[ -z "${disable}" ]]; then
+	input_sink="$(pacmd stat | grep -o -P "(?<=Default source name: ).*")"
+	output_sink="$(pacmd stat | grep -o -P "(?<=Default sink name: ).*")"
+	echo "Input: ${input_sink}"
+	echo "Output: ${output_sink}"
+	echo "If those arent the sinks you want to use, change the default input/output in pavucontrol or similiar and restart this script."
+	echo "Control is set to ${control}."
+	pacmd load-module module-null-sink sink_name=mic_denoised_out
+	pacmd load-module module-ladspa-sink sink_name=mic_raw_in sink_master=mic_denoised_out label=noise_suppressor_stereo plugin=${ladspa_file} control=${control} channels=2
+	pacmd load-module module-loopback latency_msec=1 source=${input_sink} sink=mic_raw_in channels=2
+	pacmd set-default-source mic_denoised_out.monitor
+	pacmd load-module module-remap-source source_name=denoised master=mic_denoised_out.monitor channels=2
+    else
+	exit
+    fi
+    if [[ -n "${hear_yourself}" ]]; then
+	pacmd load-module module-loopback latency_msec=1 source=mic_denoised_out.monitor sink=${output_sink}
+    fi
+} 
+
+disable_effects
+main $@
+

@@ -312,6 +312,7 @@ x11vnc
 xclip
 xdelta3
 xdotool
+xf86-video-nouveau
 xfsprogs
 xorg-server
 xorg-server-devel

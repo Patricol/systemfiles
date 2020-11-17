@@ -272,7 +272,7 @@ tar
 terminology
 terminus-font
 terraform
-terragrunt-bin
+terragrunt
 texinfo
 thefuck
 tigervnc

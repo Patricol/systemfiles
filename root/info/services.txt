@@ -102,6 +102,7 @@ masked suspend.target
 masked suspend-then-hibernate.target
 disabled systemd-boot-check-no-failures.service
 enabled-runtime systemd-fsck-root.service
+disabled systemd-homed-activate.service
 enabled systemd-homed.service
 indirect systemd-journal-gatewayd.service
 disabled systemd-journal-gatewayd.socket

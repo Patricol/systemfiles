@@ -136,6 +136,7 @@ sudo groupadd -r bluetooth && sudo usermod -aG bluetooth patricol
 sudo usermod -aG libvirt patricol
 sudo usermod -aG libvirt work
 sudo usermod -aG docker patricol
+sudo usermod -aG plugdev patricol
 
 #sets default terminal for nemo to use from right click menu etc.
 gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt

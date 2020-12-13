@@ -3,6 +3,7 @@ adobe-source-code-pro-fonts
 adobe-source-sans-pro-fonts
 alacritty
 amd-ucode
+android-file-transfer
 android-studio
 arandr
 arc-gtk-theme
@@ -62,6 +63,7 @@ etcher-bin
 exfat-utils
 expac
 expect
+f3
 fakeroot
 fdupes
 feh
@@ -225,6 +227,7 @@ powerline
 powerline-console-fonts
 procps-ng
 protobuf
+prusa-slicer
 psensor
 psmisc
 ptouch-print-git
@@ -264,7 +267,7 @@ sshfs
 standardnotes-desktop
 stress
 sudo
-sway-git
+sway
 sysfsutils
 systemd
 systemd-sysvcompat
@@ -335,5 +338,6 @@ ydotool-git
 youtube-dl
 yubico-pam
 yubikey-personalization-gui
+zsa-wally
 zsh
 zstd

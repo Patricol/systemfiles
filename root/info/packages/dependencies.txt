@@ -28,6 +28,7 @@ babl
 bc
 bcg729
 blas
+blosc
 bluez
 bluez-libs
 boost-libs
@@ -46,6 +47,7 @@ cantarell-fonts
 cblas
 cdparanoia
 cfitsio
+cgal
 chmlib
 chrono-date
 cinnamon-desktop
@@ -178,6 +180,7 @@ jansson
 jasper
 java-runtime-common
 jbig2dec
+jemalloc
 jre-openjdk
 jre-openjdk-headless
 js78
@@ -502,6 +505,7 @@ linux-api-headers
 llvm-libs
 lm_sensors
 lmdb
+log4cplus
 lpsolve
 lua
 lua51
@@ -533,6 +537,7 @@ net-snmp
 netpbm
 nettle
 nfsidmap
+nlopt
 node-gyp
 npm
 npth
@@ -549,6 +554,7 @@ openexr
 openjpeg2
 openmpi
 openssl
+openvdb
 optipng
 opus
 orc
@@ -751,6 +757,7 @@ python2-six
 python2-soupsieve
 python2-webencodings
 qca
+qhull
 qrencode
 qt5-base
 qt5-declarative
@@ -836,6 +843,7 @@ srt
 startup-notification
 suil
 suitesparse
+sway-git-debug
 swaybg-git
 systemd-libs
 systemd-resolvconf
@@ -878,6 +886,7 @@ webkit2gtk
 webrtc-audio-processing
 wireshark-cli
 wlroots-git
+wlroots-git-debug
 woff2
 wpebackend-fdo
 wxgtk-common

@@ -129,6 +129,8 @@ gobject-introspection-runtime
 gpgme
 gpm
 gptfdisk
+grantlee
+grantleetheme
 graphene
 graphicsmagick
 graphite
@@ -231,6 +233,7 @@ knotifications
 knotifyconfig
 kpackage
 kparts
+kpimtextedit
 kpty
 krb5
 kservice
@@ -343,6 +346,7 @@ libixion
 libjcat
 libjpeg-turbo
 libkexiv2
+libkleo
 libksane
 libksba
 liblangtag
@@ -757,6 +761,7 @@ python2-six
 python2-soupsieve
 python2-webencodings
 qca
+qgpgme
 qhull
 qrencode
 qt5-base
@@ -843,8 +848,8 @@ srt
 startup-notification
 suil
 suitesparse
-sway-git-debug
 swaybg-git
+syntax-highlighting
 systemd-libs
 systemd-resolvconf
 taglib
@@ -885,8 +890,6 @@ wayland-protocols
 webkit2gtk
 webrtc-audio-processing
 wireshark-cli
-wlroots-git
-wlroots-git-debug
 woff2
 wpebackend-fdo
 wxgtk-common

@@ -125,6 +125,7 @@ inetutils
 inkscape
 intel-ucode
 intellij-idea-ultimate-edition
+intellij-idea-ultimate-edition-jre
 ipython
 jetbrains-toolbox
 jfsutils
@@ -302,12 +303,13 @@ vlc
 vulkan-headers
 vulkan-intel
 w3m
-waybar-git
+waybar
 wdisplays
 wget
 which
 wireshark-qt
 wl-clipboard
+wlroots
 woeusb
 wol
 wpgtk-git
@@ -321,7 +323,6 @@ xfsprogs
 xorg-server
 xorg-server-devel
 xorg-server-xephyr
-xorg-server-xwayland
 xorg-xdpyinfo
 xorg-xev
 xorg-xhost
@@ -330,6 +331,7 @@ xorg-xinput
 xorg-xkill
 xorg-xprop
 xorg-xrandr
+xorg-xwayland
 xrdp
 xterm
 xwinwrap-git

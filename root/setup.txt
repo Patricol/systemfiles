@@ -139,8 +139,8 @@ sudo usermod -aG docker patricol
 sudo usermod -aG plugdev patricol
 
 #sets default terminal for nemo to use from right click menu etc.
-gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
-sudo -u work -i dbus-launch --exit-with-session gsettings set org.cinnamon.desktop.default-applications.terminal exec urxvt
+gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
+sudo -u work -i dbus-launch --exit-with-session gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
 
 
 sudo systemctl mask hibernate.target suspend-then-hibernate.target hybrid-sleep.target suspend.target sleep.target ctrl-alt-del.target

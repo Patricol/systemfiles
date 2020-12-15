@@ -278,7 +278,6 @@ libcdio-paranoia
 libcdr
 libcloudproviders
 libcmis
-libconfig
 libcroco
 libcups
 libcurl-gnutls

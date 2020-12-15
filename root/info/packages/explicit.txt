@@ -217,7 +217,6 @@ pciutils
 pdftk
 pepper-flash
 perl
-picom
 pigz
 pkgconf
 pkgfile

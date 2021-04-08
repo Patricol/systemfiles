@@ -1,0 +1,3 @@
+exec "wlgreet --command sway-run; swaymsg exit"
+
+include /etc/greetd/sway-config/shared

@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+main() {
+    if [[ -f ~/.dot/l/bin/named-colors ]]; then
+        source ~/.dot/l/bin/named-colors
+    else
+        local darkest red green blue bright
+        darkest="212121"
+        red="d50000"
+        green="00c853"
+        blue="2962ff"
+        bright="bdbdbd"
+    fi
+
+    local bg typing verifying wrong text tpe
+    bg="${darkest}"
+    typing="${green}"
+    verifying="${blue}"
+    wrong="${red}"
+    text="${bright}"
+    tpe="FF" # transparency ending
+
+    swaylock \
+    -e \
+    -f \
+    --clock \
+    --timestr="%H:%M" \
+    --datestr="%D" \
+    -c "${bg}FF" \
+    --bs-hl-color="${wrong}${tpe}" \
+    --inside-color="${bg}${tpe}" \
+    --inside-ver-color="${verifying}${tpe}" \
+    --inside-wrong-color="${wrong}${tpe}" \
+    --key-hl-color="${typing}${tpe}" \
+    --ring-color="${typing}${tpe}" \
+    --ring-ver-color="${verifying}${tpe}" \
+    --ring-wrong-color="${wrong}${tpe}" \
+    --separator-color="${bg}${tpe}" \
+    --line-color="${bg}${tpe}" \
+    # --noinputtext="" --wrongtext="" --veriftext=""
+    # --verifcolor="${text}${tpe}" \
+    # --wrongcolor="${text}${tpe}" \
+    # --layoutcolor="${text}${tpe}" \
+    # --timecolor="${text}${tpe}" \
+    # --datecolor="${text}${tpe}"
+    # NOTE hardcoding -c tpe to avoid showing screen when locked.
+    # -k --timestr="%H:%M" --noinputtext="" --wrongtext="" --veriftext="" -e --datestr="%D" \
+
+    #--line-uses-ring \
+    #--line-uses-inside \
+}
+
+main

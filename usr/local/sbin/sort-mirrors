@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
+# MIRROR_URL="https://archlinux.org/mirrorlist/?country=CA&country=DK&country=FI&country=DE&country=JP&country=NL&country=NZ&country=NO&country=KR&country=SE&country=CH&country=US&protocol=https&use_mirror_status=on"
+MIRROR_URL="https://archlinux.org/mirrorlist/?country=US&country=CA&protocol=https&use_mirror_status=on"
+
 #first check we're connected to the internet
 if ping 1.1.1.1 -c 1; then
-	curl -Ls "https://archlinux.org/mirrorlist/?country=US&country=CA&protocol=https&use_mirror_status=on" | sed -e "s/^#Server/Server/" -e "/^#/d" | rankmirrors -n 50 - | tee /etc/pacman.d/mirrorlist
+	curl -Ls "${MIRROR_URL}" | sed -e "s/^#Server/Server/" -e "/^#/d" | rankmirrors -n 50 - | tee /etc/pacman.d/mirrorlist
 fi

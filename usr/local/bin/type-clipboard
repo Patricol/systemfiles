@@ -6,8 +6,7 @@ for_x() {
 
 for_wayland() {
 	sudo echo "Authenticating now so there can be a sleep between the password prompt and action"
-	sleep 2s
-	sudo ydotool type "$(wl-paste)"
+	sudo ydotool type --next-delay 2000 --key-delay 100 "$(wl-paste)"
 }
 
 main() {

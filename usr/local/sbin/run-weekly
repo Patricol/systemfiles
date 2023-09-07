@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
 # clean-docker
+pacman-key --refresh-keys

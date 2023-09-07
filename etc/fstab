@@ -6,15 +6,16 @@
 # <file system> <dir> <type> <options> <dump> <pass>
 LABEL=ArchLinux		/         	ext4      	rw,relatime	0 1
 
-LABEL=EFI		/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
+LABEL=EFI		/boot     	vfat      	noauto,rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
 
 /swapfile		none		swap		defaults	0 0
 
-nas-sshd-allshares:/data	/media/nas	fuse.sshfs	noauto,x-systemd.automount,_netdev,users,idmap=user,allow_other,reconnect,max_conns=4 0 0
-arcade-sshd-allshares:/data	/media/arcade	fuse.sshfs	noauto,x-systemd.automount,_netdev,users,idmap=user,allow_other,reconnect,max_conns=4 0 0
-arcade-sshd-work:/data	/media/work	fuse.sshfs	noauto,x-systemd.automount,_netdev,users,idmap=user,allow_other,reconnect,max_conns=4 0 0
+nas-sshd-allshares:/data	/media/nas	fuse.sshfs	noauto,_netdev,users,idmap=user,allow_other,reconnect,max_conns=4 0 0
+arcade-sshd-allshares:/data	/media/arcade	fuse.sshfs	noauto,_netdev,users,idmap=user,allow_other,reconnect,max_conns=4 0 0
+vsn:/mnt/allshares/files/h/incoming/s/	/media/frigate	fuse.sshfs	noauto,_netdev,users,idmap=user,allow_other,reconnect,max_conns=4 0 0
+arcade-sshd-work:/data	/media/work	fuse.sshfs	noauto,_netdev,users,idmap=user,allow_other,reconnect,max_conns=4 0 0
 
-# FCDCBDA Gaming (Windows Partition)
-/dev/disk/by-uuid/01D5AD5DDF9315E0	/media/gaming	auto	nosuid,nodev,nofail,x-gvfs-show,noauto	0 0
-/dev/disk/by-uuid/01D5AD1F6816E520	/media/gaming_2	auto	nosuid,nodev,nofail,x-gvfs-show,noauto	0 0
+# # FCDCBDA Gaming (Windows Partition)
+# /dev/disk/by-uuid/01D5AD5DDF9315E0	/media/gaming	auto	nosuid,nodev,nofail,x-gvfs-show,noauto	0 0
+# /dev/disk/by-uuid/01D5AD1F6816E520	/media/gaming_2	auto	nosuid,nodev,nofail,x-gvfs-show,noauto	0 0
 

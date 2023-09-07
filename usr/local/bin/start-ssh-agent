@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# https://wiki.archlinux.org/index.php/GNOME/Keyring#xinitrc_method
+
+# if [[ -n "${DESKTOP_SESSION}" ]]; then
+if [[ -z "${SSH_AUTH_SOCK}" ]]; then
+    eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+    export SSH_AUTH_SOCK
+    # NOTE: starting to use the gnome ssh-agent instead, so keyring can unlock everything.
+    # eval "$(keychain --eval --quiet)"
+    # if [[ -d "${HOME}/.ssh/auto" ]] && ! ssh-add -L > /dev/null; then
+	# echo "adding keys from ~/.ssh/auto"
+	# eval "$(keychain --eval --quiet "$(add_ssh_keys $(find "${HOME}/.ssh/auto" ! -type d))")"
+    # fi
+fi

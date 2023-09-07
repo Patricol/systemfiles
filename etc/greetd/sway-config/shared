@@ -13,9 +13,4 @@ bindsym $ctrl+$alt+Delete $power_menu
 bindsym $win+$shift+e $power_menu
 bindsym $alt+$shift+e $power_menu
 
-output HDMI-A-4 dpms on pos 0 600 transform 270
-output HDMI-A-2 dpms on pos 1720 0 transform 180
-output DP-3 dpms on pos 1080 1080 mode 5120x1440@59.977Hz
-output DP-1 dpms on pos 3640 0 transform 180
-
 include /etc/sway/config.d/*

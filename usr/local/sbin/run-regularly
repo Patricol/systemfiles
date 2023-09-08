@@ -5,7 +5,5 @@ fix-permissions
 sort-mirrors
 pkgfile --update
 prep-updates
-update-atom-packages
 update-vim-plugins
 update-zsh-plugins
-dcfrun update

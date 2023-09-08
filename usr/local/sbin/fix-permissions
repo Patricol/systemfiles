@@ -58,7 +58,6 @@ main() {
 	homedir_perms root:root /root
 
 	shared_folder_perms /home/shared
-	shared_folder_perms /usr/local/android
 
 	restrict_to_user root:root /home/secure
 
@@ -68,10 +67,7 @@ main() {
 	chmod -cR 744 /usr/local/sbin
 	chmod -c 755 /usr/local/sbin
 
-	mkdir -p /media/{arcade,nas,gdrive,work,gaming{,_2}}
-	chown -c patricol:patrick /media/{arcade,nas,gdrive,gaming{,_2}}
 	chown -c work:patrick /media/work
-	chmod -c 770 /media/{arcade,nas,gdrive,work,gaming{,_2}}
 
 	#standardnotes-desktop being installed with wrong permissions repeatedly.
 	#google earth one too.

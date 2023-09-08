@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
-# clean stack and images etc.
-dcfrun clean
 # Remove general stuff
 docker system prune --force
 # Remove almost all images
 docker image prune -a --force
-# Restart stack
-dcfrun

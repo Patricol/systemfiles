@@ -146,8 +146,6 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-source /usr/share/doc/pkgfile/command-not-found.bash
-
 # Alias definitions.
 if [[ -d ~/.dot/l/aliases/ ]]; then
 	for alias_file in ~/.dot/l/aliases/*; do

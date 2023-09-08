@@ -5,7 +5,6 @@
 
 alias ll='ls -AlhF'
 alias llr='ls -AlhFR'
-alias lrl='llr'
 alias la='ls -A'
 alias lar='ls -AR'
 alias lra='lar'
@@ -28,6 +27,11 @@ alias ..9='cd ../../../../../../../../..'
 alias ...='..2'
 alias ....='..3'
 alias .....='..4'
+alias ......='..5'
+alias .......='..6'
+alias ........='..7'
+alias .........='..8'
+alias ..........='..9'
 
 alias cdback='cd -'
 alias cdb='cdback'
@@ -35,14 +39,9 @@ alias cdhome='cd ~'
 alias cdh='cdhome'
 alias cdshared='cd /home/shared'
 alias cds='cdshared'
-alias cdnas='cd /media/nas'
-alias cdn='cdnas'
-alias cdcompose='cd /home/docker/compose'
-alias cdc='cdcompose'
 
 alias d='dirs -v'
 #for index ({1..9}) alias "$index"="cd +${index}"; unset index
-
 
 # these belong here because they're used in interactive sessions.
 alias c='clear'

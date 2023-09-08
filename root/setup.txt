@@ -50,9 +50,9 @@ arch-chroot /mnt
 hwclock --systohc
 pacman -Syu intel-ucode amd-ucode git vim openssh zsh
 # no reason not to install both intel and amd
-git clone -b arch --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
+git clone -b gbl --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
-alias gsfch='gsf checkout -f arch --'
+alias gsfch='gsf checkout -f gbl --'
 gsfch /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
 locale-gen
 mkinitcpio -P
@@ -74,10 +74,8 @@ groupadd -r sudo
 groupadd -r ssh
 useradd -m -g patrick -G sudo,ssh -s /bin/zsh patricol
 useradd -m -g patrick -s /bin/zsh work
-useradd -m -g patrick -s /bin/zsh workmore
 passwd patricol
 passwd work
-passwd workmore
 exit
 #login as patricol
 sudo passwd -l root
@@ -171,7 +169,7 @@ sudo vncpasswd /etc/vncpasswd
 
 ln -sf /home/patricol/.gitconfig /root/.gitconfig
 
-gsfauthed push --set-upstream origin arch
+gsfauthed push --set-upstream origin gbl
 
 
 poweroff

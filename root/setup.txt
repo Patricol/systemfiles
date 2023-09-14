@@ -33,9 +33,10 @@ station wlan0 connect deputy_weld
 
 # Probably use temp.li on another computer to shorten the link below.
 # download this file
-curl -o s https://raw.githubusercontent.com/Patricol/systemfiles/gbl/root/setup.txt
+curl -Lo s https://raw.githubusercontent.com/Patricol/systemfiles/gbl/root/setup.txt
 # add this file to shell history for command completion
-fc -R s
+tac s > h
+fc -R h
 
 #Check that you booted in UEFI mode:
 efivar --list
@@ -58,13 +59,14 @@ e2label ${DISK}2 "ArchLinux"
 mount ${DISK}2 /mnt
 mkdir /mnt/boot
 mount ${DISK}1 /mnt/boot
-pacstrap /mnt base base-devel linux linux-firmware
-cp s /mnt/s
-arch-chroot /mnt
-history -r /s
+pacstrap /mnt base base-devel linux linux-firmware zsh
+# Installing/using zsh for better history autocomplete
+cp h /mnt/h
+arch-chroot /mnt /bin/zsh
+fc -R h
 hwclock --systohc # May cause an issue for Windows on the same device; which generally does not expect UTC.
 # no reason not to install both intel and amd
-pacman -Syu intel-ucode amd-ucode git vim openssh zsh
+pacman -Syu intel-ucode amd-ucode git vim openssh
 git clone -b gbl --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
 alias gsfch='gsf checkout -f gbl --'
@@ -82,7 +84,8 @@ poweroff
 
 #power on
 #login as root
-history -r /s
+zsh
+fc -R /h
 timedatectl set-ntp true
 systemctl --now enable systemd-{network,resolve}d sshd
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
@@ -108,7 +111,7 @@ sudo networkctl reload
 exit
 
 #login as patricol (can use ssh this time if desired.)
-history -r /s
+fc -R /h
 sudo pacman -Syu pigz pacman-contrib
 sudo sh -c 'fallocate -l 16G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile' #match to RAM installed.
 sudo mkinitcpio -P

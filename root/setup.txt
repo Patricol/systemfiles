@@ -69,6 +69,7 @@ poweroff
 #login as root
 timedatectl set-ntp true
 systemctl --now enable systemd-{network,resolve}d sshd
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 groupadd patrick
 groupadd -r sudo
 groupadd -r ssh

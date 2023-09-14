@@ -76,7 +76,7 @@ Defaults env_editor
 
 Defaults:PATRICK	!lecture
 
-Defaults timestamp_timeout=5
+Defaults timestamp_timeout=120
 
 ##
 ## Runas alias specification

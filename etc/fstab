@@ -4,9 +4,8 @@
 # for disk info: 'lsblk -o type,size,name,fstype,mountpoint,label,uuid,model'
 
 # <file system> <dir> <type> <options> <dump> <pass>
-LABEL=ArchLinux		/         	ext4      	rw,relatime	0 1
 
 LABEL=EFI		/boot     	vfat      	noauto,rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
-
+LABEL=ArchLinux		/         	ext4      	rw,relatime	0 1
 /swapfile		none		swap		defaults	0 0
 

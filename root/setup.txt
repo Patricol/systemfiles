@@ -16,13 +16,18 @@
 
 #for all the stuff that needs to be done before ssh is possible; need to make it available as a script to curl and run. manually typing takes way too long and is way too error prone.
 
-Even though using an installer for Arch is tempting as a way to abstract away the hardware and any partitioning etc, I should stick with manual installs so that I can be certain of exactly what has or has not been done to the system. That makes troubleshooting issues much easier, etc.
+#Even though using an installer for Arch is tempting as a way to abstract away the hardware and any partitioning etc, I should stick with manual installs so that I can be certain of exactly what has or has not been done to the system. That makes troubleshooting issues much easier, etc.
 
-Note that the earliest committed version of the script has a lot more explanation about why certain things are done; or why certain packages are installed, etc.
+#Note that the earliest committed version of the script has a lot more explanation about why certain things are done; or why certain packages are installed, etc.
 
 #time how long this takes, to aid future decisions about when it's faster to nuke from orbit.
 
 #boot into archiso (UEFI).
+# download this file
+wget https://github.com/Patricol/systemfiles/blob/gbl/root/setup.txt
+# add this file to shell history for command completion
+history -r setup.txt
+
 #Check that you booted in UEFI mode:
 efivar --list
 #Check you're connected to the internet:
@@ -30,14 +35,14 @@ ping -c 1 1.1.1.1
 timedatectl set-ntp true
 #Check what disk to use:
 fdisk -l
-parted
-select /dev/sdx
+parted select /dev/sdx
 #CHECK THE LIST ABOVE (DO BEFORE STARTING) BEFORE FORMATTING
-mklabel gpt
-mkpart ESP fat32 1MiB 1025MiB
-set 1 esp on
-mkpart primary ext4 1025MiB 100%
-quit
+parted mklabel gpt
+#parted mkpart ESP fat32 1MiB 1025MiB
+parted mkpart ESP fat32 65535s 2097119s
+parted set 1 esp on
+#parted mkpart primary ext4 1025MiB 100%
+parted mkpart primary ext4 2097120s 100%
 mkfs.fat -F32 /dev/sdx1
 mkfs.ext4 /dev/sdx2
 fatlabel /dev/sdx1 "EFI"
@@ -46,10 +51,12 @@ mount /dev/sdx2 /mnt
 mkdir /mnt/boot
 mount /dev/sdx1 /mnt/boot
 pacstrap /mnt base base-devel linux linux-firmware
+cp setup.txt /mnt/setup.txt
 arch-chroot /mnt
-hwclock --systohc
-pacman -Syu intel-ucode amd-ucode git vim openssh zsh
+history -r /setup.txt
+hwclock --systohc # May cause an issue for Windows on the same device; which generally does not expect UTC.
 # no reason not to install both intel and amd
+pacman -Syu intel-ucode amd-ucode git vim openssh zsh
 git clone -b gbl --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
 alias gsfch='gsf checkout -f gbl --'
@@ -67,6 +74,7 @@ poweroff
 
 #power on
 #login as root
+history -r /setup.txt
 timedatectl set-ntp true
 systemctl --now enable systemd-{network,resolve}d sshd
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
@@ -92,6 +100,7 @@ sudo networkctl reload
 exit
 
 #login as patricol (can use ssh this time if desired.)
+history -r /setup.txt
 sudo pacman -Syu pigz pacman-contrib
 sudo sh -c 'fallocate -l 16G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile' #match to RAM installed.
 sudo mkinitcpio -P

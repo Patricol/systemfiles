@@ -16,11 +16,11 @@ code
 dive
 docker
 docker-compose
-dunst
 feh
 file-roller
 fwupd
 git
+gnome-keyring
 greetd
 greetd-gtkgreet
 greetd-wlgreet
@@ -56,7 +56,6 @@ mako
 man-db
 man-pages
 meld
-mesa-demos
 mesa-vdpau
 mpv
 nemo
@@ -84,7 +83,6 @@ polkit
 powerline
 powerline-console-fonts
 powerline-fonts
-psensor
 pv
 rclone
 rofi

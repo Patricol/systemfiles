@@ -77,7 +77,6 @@ flashrom
 flex
 fmt
 fontconfig
-freeglut
 freetype2
 fribidi
 fuse-common
@@ -90,6 +89,7 @@ gcab
 gcc
 gcc-libs
 gcr
+gcr-4
 gdbm
 gdk-pixbuf2
 geoclue
@@ -102,7 +102,6 @@ glib2
 glibc
 glibmm
 glslang
-glu
 gmp
 gnupg
 gnutls
@@ -285,7 +284,6 @@ libdatrie
 libdbusmenu-glib
 libdbusmenu-gtk3
 libdbusmenu-qt5
-libdecor
 libdeflate
 libdrm
 libdvdnav
@@ -312,7 +310,6 @@ libgirepository
 libglvnd
 libgnomekbd
 libgpg-error
-libgtop
 libgudev
 libgusb
 libhandy
@@ -341,7 +338,6 @@ liblxqt
 libmbim
 libmd
 libmfx
-libmicrohttpd
 libmm-glib
 libmnl
 libmodplug
@@ -454,7 +450,6 @@ libxklavier
 libxml2
 libxmlb
 libxmu
-libxnvctrl
 libxpresent
 libxrandr
 libxrender

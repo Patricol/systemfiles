@@ -17,6 +17,7 @@ enabled docker.service
 disabled docker.socket
 disabled e2scrub_all.timer
 disabled e2scrub_reap.service
+disabled ead.service
 disabled exit.target
 disabled fancontrol.service
 enabled fstrim.timer
@@ -31,6 +32,7 @@ masked hibernate.target
 masked hybrid-sleep.target
 disabled ip6tables.service
 disabled iptables.service
+enabled iwd.service
 disabled kexec.target
 disabled krb5-kadmind.service
 disabled krb5-kdc.service
@@ -52,11 +54,10 @@ disabled netctl-wait-online.service
 disabled nscd.service
 enabled paccache.timer
 disabled pacman-filesdb-refresh.timer
-disabled pcscd.socket
 disabled pkgfile-update.timer
 disabled poweroff.target
 disabled proc-sys-fs-binfmt_misc.mount
-enabled reboot.target
+disabled reboot.target
 enabled remote-cryptsetup.target
 enabled remote-fs.target
 disabled remote-veritysetup.target
@@ -108,7 +109,4 @@ disabled udisks2.service
 disabled upower.service
 disabled uuidd.socket
 disabled vncserver@:5.service
-disabled wpa_supplicant-nl80211@.service
-disabled wpa_supplicant.service
-disabled wpa_supplicant-wired@.service
 disabled xvnc.socket

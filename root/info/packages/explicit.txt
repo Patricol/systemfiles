@@ -30,6 +30,7 @@ htop
 intel-ucode
 intellij-idea-ultimate-edition
 intellij-idea-ultimate-edition-jre
+iwd
 jetbrains-toolbox
 jq
 jwt-cli
@@ -79,7 +80,6 @@ pipewire-docs
 pipewire-jack
 pipewire-pulse
 pkgfile
-polkit
 powerline
 powerline-console-fonts
 powerline-fonts
@@ -91,6 +91,7 @@ shellcheck
 spotify
 sway
 swaylock-effects
+teams
 terminus-font
 terraform
 terragrunt
@@ -111,8 +112,6 @@ wdisplays
 wget
 wireplumber
 wl-clipboard
-wpa_supplicant
-wpa_supplicant_gui
 xdg-desktop-portal
 xorg-server
 xorg-xprop

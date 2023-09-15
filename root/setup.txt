@@ -64,7 +64,7 @@ arch-chroot /mnt
 history -r /h
 hwclock --systohc # May cause an issue for Windows on the same device; which generally does not expect UTC.
 # no reason not to install both intel and amd
-pacman -Syu intel-ucode amd-ucode git vim openssh zsh wpa_supplicant iwd
+pacman -Syu intel-ucode amd-ucode git vim openssh zsh iwd
 git clone -b gbl --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
 alias gsfch='gsf checkout -f gbl --'
@@ -86,7 +86,7 @@ history -r /h
 timedatectl set-ntp true
 systemctl --now enable systemd-{network,resolve}d sshd
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-groupadd patrick && groupadd -r sudo && groupadd -r ssh
+groupadd patrick && groupadd -r sudo && groupadd -r ssh && groupadd -r netdev
 useradd -m -g patrick -G sudo,ssh -s /bin/zsh patricol
 useradd -m -g patrick -s /bin/zsh work
 passwd patricol
@@ -105,10 +105,6 @@ sudo vim /etc/systemd/network/20-wired.network
 #DHCP=ipv4
 
 #if wireless:
-sudo touch /etc/wpa_supplicant/wpa_supplicant-${WIF}.conf
-sudo systemctl enable --now wpa_supplicant@$WIF
-sudo wpa_cli
-# or
 sudo systemctl enable --now iwd
 sudo iwctl
 
@@ -150,6 +146,7 @@ yay --needed -Syu $(sudo cat /root/info/packages/explicit.txt)
 
 
 # NOTE: before running the next line; check that any changes you made and want to keep have been preserved in some way.
+# Also check this won't break/change the /etc/systemd/network files (interface name)
 gsf checkout -f
 (checkout -f to force, but first check in what they modify, for posterity and to make it easier to reapply changes on top of newer base configs. when done, remove this notice.)
 
@@ -163,6 +160,7 @@ Setup dotfiles if needed: https://github.com/Patricol/dotfiles
 
 sudo groupadd -r bluetooth && sudo usermod -aG bluetooth patricol
 sudo usermod -aG docker patricol
+sudo usermod -aG netdev patricol
 sudo usermod -aG plugdev patricol
 
 #sets default terminal for nemo to use from right click menu etc.

@@ -30,6 +30,7 @@ iwctl
 station list
 station wlan0 scan # needed?
 station wlan0 connect deputy_weld
+quit
 
 # Probably use temp.li on another computer to shorten the link below.
 # download this file
@@ -56,21 +57,18 @@ mkfs.fat -F32 ${DISK}1
 mkfs.ext4 ${DISK}2
 fatlabel ${DISK}1 "EFI"
 e2label ${DISK}2 "ArchLinux"
-mount ${DISK}2 /mnt
-mkdir /mnt/boot
-mount ${DISK}1 /mnt/boot
-pacstrap /mnt base base-devel linux linux-firmware zsh
-# Installing/using zsh for better history autocomplete
+mount ${DISK}2 /mnt && mkdir /mnt/boot && mount ${DISK}1 /mnt/boot
+pacstrap /mnt base base-devel linux linux-firmware
 cp h /mnt/h
-arch-chroot /mnt /bin/zsh
-fc -R h
+arch-chroot /mnt
+history -r /h
 hwclock --systohc # May cause an issue for Windows on the same device; which generally does not expect UTC.
 # no reason not to install both intel and amd
-pacman -Syu intel-ucode amd-ucode git vim openssh
+pacman -Syu intel-ucode amd-ucode git vim openssh zsh wpa_supplicant iwd
 git clone -b gbl --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
 alias gsfch='gsf checkout -f gbl --'
-gsfch /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
+gsfch /root /usr /etc/{local*,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
 locale-gen
 mkinitcpio -P
 passwd
@@ -84,14 +82,11 @@ poweroff
 
 #power on
 #login as root
-zsh
-fc -R /h
+history -r /h
 timedatectl set-ntp true
 systemctl --now enable systemd-{network,resolve}d sshd
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-groupadd patrick
-groupadd -r sudo
-groupadd -r ssh
+groupadd patrick && groupadd -r sudo && groupadd -r ssh
 useradd -m -g patrick -G sudo,ssh -s /bin/zsh patricol
 useradd -m -g patrick -s /bin/zsh work
 passwd patricol
@@ -99,7 +94,8 @@ passwd work
 exit
 #login as patricol
 sudo passwd -l root
-ip address # find interface
+ip a # find interface
+# if wired:
 sudo vim /etc/systemd/network/20-wired.network
 # Example:
 #[Match]
@@ -107,13 +103,28 @@ sudo vim /etc/systemd/network/20-wired.network
 #
 #[Network]
 #DHCP=ipv4
+
+#if wireless:
+sudo touch /etc/wpa_supplicant/wpa_supplicant-${WIF}.conf
+sudo systemctl enable --now wpa_supplicant@$WIF
+sudo wpa_cli
+# or
+sudo systemctl enable --now iwd
+sudo iwctl
+
+#then:
 sudo networkctl reload
+ip a
+# may need to setup ssh authorized_keys etc.
+
+
 exit
 
 #login as patricol (can use ssh this time if desired.)
-fc -R /h
+sudo rm /h
 sudo pacman -Syu pigz pacman-contrib
 sudo sh -c 'fallocate -l 16G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile' #match to RAM installed.
+sudo mount /boot
 sudo mkinitcpio -P
 #handle any warnings thrown by that last command. can safely ignore missing aic94xx, wd719x, and smsmdtv
 
@@ -147,13 +158,10 @@ sudo fix-permissions
 
 Setup dotfiles if needed: https://github.com/Patricol/dotfiles
 
-#exec startx for gui (assuming exec i3 is in ~/.xinitrc)
 
-sudo nvidia-xconfig
+# sudo nvidia-xconfig
 
 sudo groupadd -r bluetooth && sudo usermod -aG bluetooth patricol
-sudo usermod -aG libvirt patricol
-sudo usermod -aG libvirt work
 sudo usermod -aG docker patricol
 sudo usermod -aG plugdev patricol
 
@@ -169,24 +177,8 @@ sudo rm /etc/systemd/system/ctrl-alt-del.target
 sudo systemctl preset-all
 sudo journalctl --vacuum-size=100M && sudo systemctl restart systemd-journald.service
 
-# If using anbox:
-#sudo modprobe ashmem_linux
-#sudo modprobe binder_linux
-
 sudo mkinitcpio -P
 reboot
-
-gcloud init
-
-
-#run Xvnc to set the password; otherwise config files etc. won't be created; and Xvnc services won't work.
-# That can also cause lightdm to fail.
-
-#block access to che except from localhost.
-sudo iptables -A INPUT -p tcp -s localhost --dport 8080 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
-
-sudo vncpasswd /etc/vncpasswd
 
 ln -sf /home/patricol/.gitconfig /root/.gitconfig
 
@@ -197,24 +189,13 @@ poweroff
 
 #reconnect any other ssds that were disconnected
 
-#add and trust private keys (including journal key) (use gpa)
-
 #check pci devices/drivers with "lspci -k"
 #test audio/headphones, microphone, and webcam
 #setup vpn and wifi connections etc. test bluetooth. speakers and file transfer.
 #check that hw acceleration works by using an avd. look at nvidia-settings gpu usage to be sure.
 #setup vpn and wifi connections etc. test bluetooth. speakers and file transfer.
 
-#setup chrome, deluge, duplicati, nemo, filezilla, gitkraken, atom, gpmdp, pycharm, android studio, quassel, remmina, signal, standard notes, vlc, VMs, i3, che.
-
-#If you didn't copy over files for atom:
-#apm install atom-material-ui atom-material-syntax-dark atom-beautify file-icons language-docker angularjs react language-markdown linter linter-pylama linter-clang linter-gcc linter-cpplint advanced-open-file code-peek emmet fonts git-time-machine jumpy minimap sort-lines script todo-show pigments highlight-selected language-smali git-blame color-picker language-autohotkey2 dark-flat-ui
-#open atom gui
-#close atom gui
-#apm disable git-blame color-picker spell-check minimap tree-view
-
-#setup apm list saving what's installed so it can be backed up like the main packages.
-
+#setup brave, nemo, vscode, intellij, standard notes.
 
 #verify vdpau hardware acceleration is working by running vdpauinfo
 #xdpyinfo | grep -B2 resolution

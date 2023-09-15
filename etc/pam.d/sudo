@@ -1,5 +1,5 @@
 #%PAM-1.0
-auth            sufficient	pam_u2f.so	authfile=/home/secure/yubico/u2f_keys cue [cue_prompt=Please touch the plugged-in U2F key.]
+auth            sufficient	pam_u2f.so	authfile=/home/patricol/.secure/yubico/u2f_keys cue [cue_prompt=Please touch the plugged-in U2F key.]
 auth		include		system-auth
 account		include		system-auth
 session		include		system-auth

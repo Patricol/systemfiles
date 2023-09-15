@@ -62,6 +62,7 @@ double-conversion
 duktape
 e2fsprogs
 efivar
+electron24
 electron25
 ell
 exempi
@@ -261,6 +262,7 @@ libatomic_ops
 libavc1394
 libayatana-appindicator
 libayatana-indicator
+libb2
 libblockdev
 libbluray
 libbpf
@@ -355,6 +357,7 @@ libnl
 libnm
 libnotify
 libnsl
+libnss_nis
 libnumbertext
 libodfgen
 libogg
@@ -589,6 +592,10 @@ qt5-wayland
 qt5-webchannel
 qt5-webengine
 qt5-x11extras
+qt6-base
+qt6-declarative
+qt6-svg
+qt6-translations
 raptor
 rasqal
 rav1e
@@ -654,6 +661,7 @@ vid.stab
 vim-runtime
 vmaf
 volume_key
+vulkan-headers
 vulkan-icd-loader
 wayland
 wayland-protocols

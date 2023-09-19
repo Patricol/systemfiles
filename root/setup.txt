@@ -182,6 +182,7 @@ ln -sf /home/patricol/.gitconfig /root/.gitconfig
 
 gsfauthed push --set-upstream origin gbl
 
+# setup default sink/source: https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Migrate-PulseAudio#default-sinksource
 
 poweroff
 

@@ -1,24 +1,26 @@
 # vim:filetype=conf
-set $output-g9 DP-3
-set $output-v244h-left HDMI-A-2
+set $output-g9 DP-9
+set $output-g9-alt DP-10
+set $output-v244h-left DP-8
 set $output-v244h-right DP-1
 set $output-vs229 HDMI-A-4
 set $output-26wq500-b HDMI-A-4
+set $output-laptop eDP-1
 
-# workspace 1 output $output-vs229
-workspace 1 output $output-26wq500-b
-workspace 2 output $output-v244h-left
-workspace 3 output $output-g9
-workspace 4 output $output-v244h-right
+workspace 1 output $output-laptop
+workspace 2 output $output-g9
+workspace 3 output $output-v244h-left
 
-# output $output-vs229 dpms on pos 0 600 transform 270
-output $output-26wq500-b dpms on pos 0 0 transform 270
-output $output-v244h-left dpms on pos 1720 40 transform 180
-output $output-g9 dpms on pos 1080 1120 mode 5120x1440@59.977Hz
-output $output-v244h-right dpms on pos 3640 40 transform 180
+# output $output-vs229 power on pos 0 600 transform 270
+output $output-26wq500-b power on pos 0 0 transform 270
+output $output-v244h-left power on pos 1920 40 transform 180
+output $output-g9 power on pos 1920 1120 mode 5120x1440@59.977Hz
+output $output-g9-alt power on pos 1920 1120 mode 5120x1440@59.977Hz
+output $output-v244h-right power on pos 3640 40 transform 180
+output $output-laptop power on pos 0 1360
 
 # swaymsg output $output-g9 toggle
 # swaymsg output $output-g9 toggle
 
-# output * dpms off
-# output * dpms on
+# output * power off
+# output * power on

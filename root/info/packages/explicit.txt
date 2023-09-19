@@ -42,6 +42,7 @@ keychain
 kompose
 kubectl
 kubectx
+kustomize
 lbzip2
 less
 libreoffice-fresh

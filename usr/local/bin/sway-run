@@ -1,10 +1,19 @@
 #!/usr/bin/env sh
 
+# https://man.sr.ht/~kennylevinsen/greetd/#how-to-set-xdg_session_typewayland
+
+# NOTE: if having hanging/black screen issues on start, check wayland config and the programs it starts?
+
 # Session
 export XDG_SESSION_TYPE=wayland
 export XDG_SESSION_DESKTOP=sway
 export XDG_CURRENT_DESKTOP=sway
 
-source /usr/local/bin/wayland_enablement
+# Wayland stuff
+export MOZ_ENABLE_WAYLAND=1
+export QT_QPA_PLATFORM=wayland
+export SDL_VIDEODRIVER=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
 
-systemd-cat --identifier=sway sway $@
+# get logs with: journalctl -t sway
+exec systemd-cat --identifier=sway sway $@

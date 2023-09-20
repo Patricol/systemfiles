@@ -156,6 +156,7 @@ haskell-distributive
 haskell-dlist
 haskell-erf
 haskell-fgl
+haskell-foldable1-classes-compat
 haskell-generically
 haskell-ghc-bignum-orphans
 haskell-hashable
@@ -288,6 +289,7 @@ libdbusmenu-glib
 libdbusmenu-gtk3
 libdbusmenu-qt5
 libdeflate
+libdovi
 libdrm
 libdvdnav
 libdvdread
@@ -339,7 +341,6 @@ libluv
 liblxqt
 libmbim
 libmd
-libmfx
 libmm-glib
 libmnl
 libmodplug
@@ -419,6 +420,7 @@ libusbmuxd
 libutempter
 libuv
 libva
+libvarlink
 libvdpau
 libverto
 libvisio
@@ -502,6 +504,7 @@ nspr
 nss
 numactl
 ocl-icd
+onevpl
 oniguruma
 openal
 opencore-amr
@@ -559,24 +562,29 @@ python-cffi
 python-colorama
 python-cryptography
 python-dateutil
+python-dbus-next
 python-distro
 python-docutils
 python-gobject
+python-i3ipc
 python-jmespath
 python-ply
 python-powerline
 python-prompt_toolkit
+python-psutil
 python-pycparser
 python-pygments
 python-ruamel-yaml
 python-ruamel.yaml.clib
 python-shtab
 python-six
+python-tenacity
 python-termcolor
 python-tqdm
 python-typing_extensions
 python-urllib3
 python-wcwidth
+python-xlib
 qca-qt5
 qt5-base
 qt5-declarative
@@ -665,7 +673,6 @@ vulkan-headers
 vulkan-icd-loader
 wayland
 wayland-protocols
-webrtc-audio-processing
 webrtc-audio-processing-1
 which
 wlroots

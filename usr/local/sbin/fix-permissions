@@ -54,7 +54,6 @@ main() {
 
 	homedir_perms patricol:patrick /home/patricol allow_group_x
 	homedir_perms work:patrick /home/work allow_group
-	homedir_perms workmore:workmore /home/workmore
 	homedir_perms root:root /root
 
 	shared_folder_perms /home/shared
@@ -66,8 +65,6 @@ main() {
 	chown -cR root:root /usr/local/sbin
 	chmod -cR 744 /usr/local/sbin
 	chmod -c 755 /usr/local/sbin
-
-	chown -c work:patrick /media/work
 
 	#standardnotes-desktop being installed with wrong permissions repeatedly.
 	#google earth one too.

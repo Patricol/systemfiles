@@ -95,7 +95,7 @@ disabled systemd-networkd-wait-online@.service
 enabled systemd-networkd-wait-online.service
 enabled systemd-network-generator.service
 disabled systemd-nspawn@.service
-disabled systemd-oomd.service
+enabled systemd-oomd.service
 disabled systemd-oomd.socket
 enabled systemd-pstore.service
 enabled systemd-resolved.service

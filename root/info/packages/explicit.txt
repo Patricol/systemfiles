@@ -37,6 +37,7 @@ jetbrains-toolbox
 jq
 jwt-cli
 k2tf-bin
+kanshi
 kernel-modules-hook
 keychain
 kompose
@@ -95,6 +96,8 @@ rsync
 shellcheck
 spotify
 sway
+sway-systemd
+swaybg
 swaylock-effects
 teams
 terminus-font
@@ -119,6 +122,7 @@ wireplumber
 wl-clipboard
 xdg-desktop-portal
 xorg-server
+xorg-xhost
 xorg-xprop
 xorg-xrandr
 xorg-xwayland

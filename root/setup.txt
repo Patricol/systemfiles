@@ -50,9 +50,9 @@ arch-chroot /mnt
 hwclock --systohc
 pacman -Syu intel-ucode amd-ucode git vim openssh zsh
 # no reason not to install both intel and amd
-git clone -b arch --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
+git clone -b arch_nouveau --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
-alias gsfch='gsf checkout -f arch --'
+alias gsfch='gsf checkout -f arch_nouveau --'
 gsfch /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
 locale-gen
 mkinitcpio -P
@@ -92,11 +92,11 @@ sudo vim /etc/systemd/network/20-wired.network
 sudo networkctl reload
 exit
 
-#login as patricol (can use ssh this time if desired.)
+#login as patricol (can use ssh this time if desired. may want to edit /etc/ssh/sshd_config to allow password login to scp copy the authorized_keys file.)
 sudo pacman -Syu pigz pacman-contrib
 sudo sh -c 'fallocate -l 16G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile' #match to RAM installed.
 sudo mkinitcpio -P
-#handle any warnings thrown by that last command. can safely ignore missing aic94xx, wd719x, and smsmdtv
+#handle any warnings thrown by that last command. can safely ignore things missing in the fallback createion. https://wiki.archlinux.org/title/Mkinitcpio#Possibly_missing_firmware_for_module_XXXX
 
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -sci && cd .. && rm -rf ./yay/
 
@@ -186,16 +186,7 @@ poweroff
 #check that hw acceleration works by using an avd. look at nvidia-settings gpu usage to be sure.
 #setup vpn and wifi connections etc. test bluetooth. speakers and file transfer.
 
-#setup chrome, deluge, duplicati, nemo, filezilla, gitkraken, atom, gpmdp, pycharm, android studio, quassel, remmina, signal, standard notes, vlc, VMs, i3, che.
-
-#If you didn't copy over files for atom:
-#apm install atom-material-ui atom-material-syntax-dark atom-beautify file-icons language-docker angularjs react language-markdown linter linter-pylama linter-clang linter-gcc linter-cpplint advanced-open-file code-peek emmet fonts git-time-machine jumpy minimap sort-lines script todo-show pigments highlight-selected language-smali git-blame color-picker language-autohotkey2 dark-flat-ui
-#open atom gui
-#close atom gui
-#apm disable git-blame color-picker spell-check minimap tree-view
-
-#setup apm list saving what's installed so it can be backed up like the main packages.
-
+#setup chrome, vscode, deluge, duplicati, nemo, filezilla, gitkraken, gpmdp, pycharm, android studio, quassel, remmina, signal, standard notes, vlc, VMs, i3, che.
 
 #verify vdpau hardware acceleration is working by running vdpauinfo
 #xdpyinfo | grep -B2 resolution

@@ -1,12 +1,25 @@
 #!/usr/bin/env bash
 
+ydotooldc () {
+	if [[ "${XDG_CURRENT_DESKTOP}" == "sway" ]]
+	then
+		xhost +SI:localuser:root
+	fi
+	sudo ydotoold --socket-path="${HOME}/.ydotool_socket" --socket-own="$(id -u):$(id -g)"
+	if [[ "${XDG_CURRENT_DESKTOP}" == "sway" ]]
+	then
+		xhost -SI:localuser:root
+	fi
+}
+
 for_x() {
 	xdotool type "$(xclip -o -selection clipboard)"
 }
 
 for_wayland() {
-	sudo echo "Authenticating now so there can be a sleep between the password prompt and action"
-	sudo ydotool type --next-delay 2000 --key-delay 100 "$(wl-paste)"
+	export YDOTOOL_SOCKET="${HOME}/.ydotool_socket"
+	echo "Authenticating now so there can be a sleep between the password prompt and action"
+	ydotool type --next-delay 2000 --key-delay 100 "$(wl-paste)"
 }
 
 main() {

@@ -4,6 +4,6 @@
 MIRROR_URL="https://archlinux.org/mirrorlist/?country=US&country=CA&protocol=https&use_mirror_status=on"
 
 #first check we're connected to the internet
-if ping 1.1.1.1 -c 1; then
+if ping 1.0.0.1 -c 1; then
 	curl -Ls "${MIRROR_URL}" | sed -e "s/^#Server/Server/" -e "/^#/d" | rankmirrors -n 50 - | tee /etc/pacman.d/mirrorlist
 fi

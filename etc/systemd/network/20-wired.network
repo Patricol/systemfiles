@@ -1,5 +1,7 @@
+#After editing: networkctl reload
 [Match]
-Name=enp4s0
+Name=eno2
+#Name=enp4s0
 
 [Network]
 DHCP=ipv4

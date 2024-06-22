@@ -50,9 +50,9 @@ arch-chroot /mnt
 hwclock --systohc
 pacman -Syu intel-ucode amd-ucode git vim openssh zsh
 # no reason not to install both intel and amd
-git clone -b arch_nouveau --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
+git clone -b arch --bare https://github.com/Patricol/systemfiles.git /root/systemfiles-repo
 alias gsf='git --git-dir=/root/systemfiles-repo --work-tree=/'
-alias gsfch='gsf checkout -f arch_nouveau --'
+alias gsfch='gsf checkout -f arch --'
 gsfch /root /usr/local /etc/{local*,locale.conf,hosts,hostname,fstab,sudoers,makepkg.conf,pacman*,ssh}
 locale-gen
 mkinitcpio -P

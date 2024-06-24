@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-
+# TODO move this to user service
 main() {
 	for user in patricol work; do
-		sudo --user="${user}" -- zsh -c 'source ~/.zshrc ; zplug update ; zcc'
+		sudo --user="${user}" -- zsh -c 'source ~/.zshrc ; zinit self-update; zinit update --all --parallel'
 	done
-	#maybe also zplug clean? that uninstalls some things that are being used, though.
 }
 
 main

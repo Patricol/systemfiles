@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-save-system-info
 fix-permissions
-sort-mirrors
-pkgfile --update
-prep-updates
 update-vim-plugins
 update-zsh-plugins
-dcfrun update

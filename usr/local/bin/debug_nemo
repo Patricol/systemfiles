@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-nemo --quit
-NEMO_ACTION_VERBOSE=1 nemo

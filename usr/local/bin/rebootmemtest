@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# systemctl reboot --boot-loader-entry=help # lists them.
-systemctl reboot --boot-loader-menu=1 --boot-loader-entry=memtest86.conf

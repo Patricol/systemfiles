@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-fix-permissions
-update-vim-plugins
-update-zsh-plugins

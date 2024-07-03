@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# TODO alias to rebootuefi?
-systemctl reboot --firmware-setup
